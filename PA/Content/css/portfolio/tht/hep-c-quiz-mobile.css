@@ -1,0 +1,452 @@
+﻿p abbr[title],
+li abbr[title],
+dd abbr[title],
+p dfn[title],
+li dfn[title] {
+    border-bottom: none;
+    cursor: default;
+}
+
+.page {
+	width: 100%;
+}
+
+.header > h1 {
+	position: absolute;
+	left: 140px;
+}
+
+.header .logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 0;
+}
+
+main {
+	padding: 20px 10px 70px 10px;
+}
+
+.footer {
+	position: static;
+	width: auto;
+	margin: 0;
+	padding: 12px 10px;
+	padding-bottom: 100px;
+}
+
+.pageFooter {
+    position: static;
+    width: auto;
+    margin-left: 0;
+    padding: 0;
+    clear: right;
+    margin-top: 70px;
+}
+
+.pager {
+    /*white-space: nowrap;*/
+    overflow: hidden;
+    /*text-overflow: ellipsis;
+    display: block;
+    text-align: center;*/
+}
+
+/*.pager > li {
+    display: inline-block;
+}*/
+
+.radio .content {
+	width: 100%;
+	height: 100px;
+	padding: 12px 0;
+}
+
+	.radio .content::before,
+	.radio label::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 30px;
+		height: 26px;
+		margin-top: -13px;
+		pointer-events: none;
+	}
+
+.radio label::before {
+	background: url(/images/portfolio/tht/checkbox.png) no-repeat 0 -38px;
+}
+
+.radio input[type="radio"]:checked + label::before {
+	background: url(/images/portfolio/tht/checkbox.png) no-repeat 0 0;
+}
+
+.radio .correct .content::before {
+	background: url(/images/portfolio/tht/checkbox.png) no-repeat 0 -75px;
+}
+
+.radio .incorrect .content::before {
+	background: url(/images/portfolio/tht/checkbox.png) no-repeat 0 -114px;
+}
+
+
+.radio.twoCol {
+	display: block;
+	padding-top: 270px;
+	margin-bottom: 0;
+}
+
+	.radio.twoCol > li {
+		display: block;
+		width: auto;
+		padding: 0 !important;
+		margin: 0;
+		margin-bottom: 0px;
+		height: auto;
+		text-align: left;
+		position: relative;
+	}
+
+    .radio.twoCol .content {
+        vertical-align: top;
+    }
+
+	.radio.twoCol .content::before,
+	.radio.twoCol label::before,
+	.radio.twoCol input[type="radio"]:checked + label::before {
+		top: 12px;
+		margin-top: 0;
+	}
+
+	.radio.twoCol .right label,
+	.radio.twoCol .right h2 {
+		background: url(/images/portfolio/tht/checkbox.png) no-repeat 0 -38px;
+		padding-left: 30px;
+		padding-left: 1.875rem;
+		padding-right: 0;
+	}
+
+	.radio.twoCol li p {
+		padding-left: 30px;
+		padding-left: 1.875rem;
+		padding-right: 0;
+		width: auto;
+		margin-top: 10px;
+	}
+
+.radio li.right input[type="radio"]:checked + label {
+	background-position: 0 0;
+}
+
+.radio li.incorrect.right h2 {
+	background-position: 0px -114px;
+}
+
+.radio.twoCol br {
+	display: none;
+}
+
+.radio.threeCol,
+.radio.fourCol {
+	display: block;
+	margin-bottom: 10px;
+    margin-top: 0;
+}
+
+	.radio.threeCol > li,
+	.radio.fourCol > li {
+		width: auto;
+		padding: 0 !important;
+		margin: 0;
+		text-align: left;
+		position: relative;
+		background: none;
+		float: none;
+		height: auto;
+        display: -webkit-box;
+		-webkit-box-align: center;
+		display: -moz-box;
+		-moz-box-align: center;
+        display: -webkit-flex;
+        -webkit-align-items: center;
+        display: flex;
+        align-items: center;
+        min-height: 100px;
+	}
+
+.radio.threeCol .content,
+.radio.fourCol .content {
+    height: auto;
+}
+
+.radio p, .radio label {
+	background: none !important;
+}
+
+.radio.threeCol > li::before,
+.radio.fourCol > li::before {
+	content: "";
+	position: absolute;
+	width: 50px;
+	height: 100%;
+	top: 0;
+	left: 20%;
+    display: block;
+}
+
+.radio.threeCol > li label,
+.radio.threeCol > li p,
+.radio.fourCol > li label,
+.radio.fourCol > li p {
+	padding-left: 50%;
+	display: block;
+	height: auto;
+	margin: 0;
+}
+
+.quiz {
+    padding-bottom: 0;
+}
+
+.quiz p {
+    margin-bottom: 15px;
+}
+
+.quiz .next {
+    margin: 10px 0;
+    margin: 0.625rem 0;
+}
+
+
+/* /know-hep-c/index **************************************************************************************************/
+.intro {
+    width: auto;
+}
+
+    .intro .radio label:before {
+        top: 13px;
+    }
+
+    .intro .next {
+        bottom: 4px;
+    }
+
+    .intro .radio {
+        margin: 0;
+    }
+
+    .intro legend {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .intro .pageFooter {
+        margin-top: 30px;
+    }
+
+/* /know-hep-c/hep-c-quiz-2 **************************************************************************************************/
+.q2 .radio li::before {
+	background: url(/images/portfolio/tht/hep-c-icons-2.png) no-repeat -111px 50%;
+	background-size: auto 100px;
+}
+
+.q2 .radio li:first-child::before {
+	background-position: 0 0;
+}
+
+.q2 .radio li:last-child::before {
+	background-position: -221px 0;
+}
+
+
+/* /know-hep-c/hep-c-quiz-3 **************************************************************************************************/
+
+.q3 .radio li::before {
+	background: url(/images/portfolio/tht/hep-c-icons-3.png) no-repeat -147px 90%;
+	background-size: auto 70px;
+	width: 95px;
+	left: 13%;
+}
+
+.q3 .radio li:first-child::before {
+	background-position: 0 90%;
+}
+
+.q3 .radio li:last-child::before {
+	background-position: -268px 90%;
+}
+
+
+/* /know-hep-c/hep-c-quiz-4 **************************************************************************************************/
+.q4 .radio li {
+	height: 130px;
+}
+
+.q4 .radio li::before {
+	background: url(/images/portfolio/tht/hep-c-icons-4.png) no-repeat -113px 50%;
+	background-size: auto 100px;
+	width: 63px;
+}
+
+.q4 .radio li:first-child::before {
+	background-position: 0 50%;
+}
+
+.q4 .radio li.third::before {
+	background-position: -227px 50%;
+}
+
+.q4 .radio li.last::before {
+	background-position: -340px 0;
+}
+
+
+
+/* /know-hep-c/hep-c-quiz-5 **************************************************************************************************/
+.q5 .radio li::before {
+	background: url(/images/portfolio/tht/hep-c-icons-5.png) no-repeat -87px 50%;
+	background-size: auto 65px;
+	width: 95px;
+	left: 13%;
+}
+
+.q5 .radio li:first-child::before {
+	background-position: 0 50%;
+	width: 80px;
+}
+
+.q5 .radio li:last-child::before {
+	background-position: -192px 50%;
+}
+
+
+/* /know-hep-c/hep-c-quiz-6 **************************************************************************************************/
+.q6 .radio li::before {
+	background: url(/images/portfolio/tht/hep-c-icons-6.png) no-repeat -87px 50%;
+	background-size: auto 65px;
+	width: 95px;
+	left: 13%;
+}
+
+.q6 .radio li:first-child::before {
+	background-position: 17px 50%;
+	width: 80px;
+}
+
+.q6 .radio li:last-child::before {
+	background-position: -208px 50%;
+}
+
+
+
+
+/* /know-hep-c/hep-c-quiz-7 **************************************************************************************************/
+
+.q7 .radio li::before {
+	background: url(/images/portfolio/tht/hep-c-icons-7.png) no-repeat 50% 50%;
+	background-size: auto 100px;
+	width: 60px;
+}
+
+.q7 .radio li:first-child::before {
+	background-position: 0 50%;
+}
+
+.q7 .radio li.last::before {
+	background-position: -190px 50%;
+}
+
+
+
+/* /know-hep-c/hep-c-quiz-8 **************************************************************************************************/
+.q8 .radio li {
+	height: 150px;
+}
+
+	.q8 .radio li::before {
+		background: url(/images/portfolio/tht/hep-c-icons-8.png) no-repeat -64px 50%;
+		background-size: auto 60px;
+		width: 95px;
+		left: 13%;
+	}
+
+	.q8 .radio li:first-child::before {
+		background-position: 28px 50%;
+		width: 80px;
+	}
+
+	.q8 .radio li:last-child::before {
+		background-position: -176px 50%;
+	}
+
+
+
+/* /know-hep-c/hep-c-quiz-9 **************************************************************************************************/
+.q9 .radio li {
+	height: 120px;
+}
+
+	.q9 .radio li::before {
+		background: url(/images/portfolio/tht/hep-c-icons-9.png) no-repeat -153px 50%;
+		background-size: auto 100px;
+		width: 100px;
+		left: 12%;
+	}
+
+	.q9 .radio li:first-child::before {
+		background-position: 0 50%;
+		background-size: auto 90px;
+	}
+
+	.q9 .radio li.last::before {
+		background-position: -287px 50%;
+	}
+
+
+/* /know-hep-c/hep-c-quiz-10 **************************************************************************************************/
+
+.q10 .radio {
+	padding-top: 50%;
+}
+
+.q10 li .content {
+	display: block;
+	vertical-align: top;
+}
+
+.q10 label::before {
+	top: 17px;
+	margin-top: 0px;
+}
+
+
+/* /know-hep-c/score **************************************************************************************************/
+
+.score .radio {
+	display: block;
+    padding: 15px 0;
+}
+
+	.score .radio > li {
+		display: block;
+		position: relative;
+        height: auto;
+        margin-top: 1rem;
+	}
+
+    .score .radio > li:first-child {
+        margin-top: 0;
+    }
+
+    .score .radio label {
+        line-height: 1.3rem;
+        display: block;
+        height: auto;
+        padding-top: 0.15rem;
+    }
+
+.score label::before {
+	top: 0;
+	margin-top: 0px;
+}

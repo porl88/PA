@@ -1,0 +1,863 @@
+/* MASTER STYLE SHEET
+
+SUPPORTS: Internet Explorer 5*, Internet Explorer 6, Firefox 1, Netscape 6, Netscape 7, Netscape 8, Opera 6*, Opera 7, Opera 8
+* will work but may not display 100% as intended
+
+CONTENTS		========================================================================================================================
+SELECTORS (Default Values)
+	Body
+	Text
+	Headings
+	Links
+	Images
+	Forms
+	Tables
+	Div tables
+	Lists
+	Cursors
+	Miscellaneous
+CLASSES
+	Text
+IDs
+	Template
+
+SITE COLOURS	========================================================================================================================
+#D64A31 - Medium Red (Left Column)		#D5E03E - Green         
+#C0311A - Dark Red (Right Column) 		#5A91C4 - Light Blue    
+#C6B500 - Light Green (Menus)	  		#455DB3 - Dark Blue     
+#F79239 - Orange				        #5A91C4 - Dark Blue                       
+#F7EFDE - Cream (Ad Banner)		  		#E9F4FF - V. Light Blue 
+								  		#AEB820 - Dark Green    
+
+*/
+
+
+
+
+
+/*
+=========================================================================================================================================
+SELECTORS (Default Values)
+=========================================================================================================================================
+*/
+
+
+
+/* TEXT			========================================================================================================================*/
+body, p, td, input, textarea, select {
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.4em;
+}
+
+/*Text Size*/
+body{
+	font-size: 0.705em;
+}
+
+input, textarea, select {
+	font-size: 1em;
+}
+
+
+
+/* HEADINGS		========================================================================================================================*/
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 1.6em;
+	margin-bottom: 0.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 1.6em;
+	margin-bottom: 0.5em;
+}
+
+h1 {
+	color: #BF990D;
+	font-size: 1.3em;
+	margin-top: 0;
+}
+
+h1:first-child, noscript + h1 {
+	margin-top: 0;
+}
+
+h1 + p {
+	font-weight: bold;
+	font-size: 1.05em;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+h3 {
+	font-size: 1.1em;
+}
+
+h4 {
+	font-size: 1em;
+}
+
+
+
+/* LINKS		========================================================================================================================*/
+a {
+	color: #BF990D;
+	text-decoration: underline;
+}
+
+a:focus, a:hover {
+	text-decoration: none;
+}
+
+
+
+/* IMAGES		========================================================================================================================*/
+img {
+	border: 0;
+}
+
+
+
+/* FORMS		========================================================================================================================*/
+form * {
+	vertical-align: middle;
+}
+
+input[type="text"] {
+
+}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+	background-color: #CC0000;
+	color: #5A91C4;
+	cursor: pointer;
+	font-weight: bold;
+	text-align: center;
+}
+
+input[type="button"]:focus, input[type="submit"]:focus, input[type="reset"]:focus {
+	background-color: #FFFFFF;
+	color: #5A91C4 !important;
+}
+
+input.button  {
+	background-color: #5A91C4;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-weight: bold;
+	text-align: center;
+}
+
+textarea {
+	height: 5.5em;
+	width: 99%;
+}
+
+
+
+
+/* TABLES		========================================================================================================================*/
+table {
+	border-collapse: collapse;
+	empty-cells: show;
+	table-layout: auto;
+}
+
+td, th {
+	border: none;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	vertical-align: top;
+}
+
+th {
+	vertical-align: middle;
+}
+
+
+
+/* LISTS		========================================================================================================================*/
+
+/* CURSORS		========================================================================================================================*/
+a[href~="help/"] {
+	cursor: help;
+}
+
+/* MISC		========================================================================================================================*/
+address {
+	font-style: normal;
+}
+
+kbd {
+	font-weight: bold;
+}
+
+
+
+
+
+/*
+=========================================================================================================================================
+CLASSES
+=========================================================================================================================================
+*/
+
+/* TEXT			========================================================================================================================*/
+.smallprint {
+	font-size: 0.9em;	
+}
+
+
+
+/* BOXES			========================================================================================================================*/
+div.report {
+	margin: 20% 0;
+	text-align: center;
+}
+
+div.error {
+	border: 1px solid #333333;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 1.5em;
+	padding: 1em;
+	text-align: center;
+}
+
+div.error h4 {
+	background-color: #CC0000;
+	color: #FFFFFF;
+	padding: 0.3em;
+	font-size: 1.3em;
+	position: relative;
+}
+
+div.error h4:first-child {
+	margin: 0.5em 0;
+}
+
+div.error span {
+	position: absolute;
+	right: 0.5em;
+	text-transform: uppercase;
+}
+
+div.error span a {
+	color: #FFFFFF;
+}
+
+div.error p {
+	font-size: 1.1em;
+}
+
+
+/* LINKS		========================================================================================================================*/
+a.blockLink {
+	display: block;
+	height: 100%;
+	overflow: hidden;
+	text-decoration: none;
+	text-indent: -9999px;
+	width: 100%;
+}
+
+
+
+/* FORMS		========================================================================================================================*/
+
+/* TABLE-FORMATTED FORM - creates a table-formatted form without the use of HTML <table> elements */
+/* fix for IE5 and IE6 */
+.frmStandard div {
+	clear: both;
+	width: 100%;
+}
+
+.frmStandard div.left, .frmStandard div.right {
+	padding: 0.3em 0px;
+}
+
+.frmStandard div.left {
+	padding-top: 0.5em;
+	display: block;
+	float: left;
+}
+
+.frmStandard div.right {
+	float: right;
+	width: 68%;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+.frmStandard div.checkbox, .frmStandard div.radio {
+	padding-top: 0.2em;
+}
+/* /fix for IE5 and IE6 */
+
+/* all supported browsers */
+.frmStandard {
+	border-collapse: collapse;
+	display: table;
+	empty-cells: show;
+	margin: auto;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.frmStandard div {
+	display: table-row;
+}
+
+.frmStandard div.left, .frmStandard div.right {
+	display: table-cell;
+}
+
+html>body .frmStandard div.left, html>body .frmStandard div.right{ /* for all browsers apart from IE5 & IE6 */
+	border: 1px solid red;
+	float: none;
+	padding: 0.3em;
+	vertical-align: top;
+}
+
+.frmStandard div.left {
+	text-align: right;
+	width: 30%;
+}
+
+html>body .frmStandard div.checkbox, html>body .frmStandard div.radio { /* for all browsers apart from IE5 & IE6 */
+	padding-top: 0.4em;
+}
+
+.frmStandard div.right {
+	text-align: left;
+}
+
+html>body .frmStandard div.right { /* for all browsers apart from IE5 & IE6 */
+	width: 70%;
+}
+
+.frmStandard textarea { /* for all browsers apart from IE5 & IE6 */
+	width: 99%
+}
+
+.frmStandard div.submit {
+	text-align: right;
+}
+
+.frmStandard input.button {
+	margin-left: 10px;
+}
+/* /all supported browsers*/
+
+
+/* LINKS		========================================================================================================================*/
+/* MENU - creates a simple navigation menu with no rollover backgrounds */
+.menu {
+	font-weight: bold;
+	text-align: left;
+	width: 100%;
+}
+
+.menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.menu ul li {
+	margin: 0;
+	padding: 0.3em 1em;
+}
+
+
+
+/* CSS TABLES	========================================================================================================================*/
+div.row {
+	display: table-row;
+}
+
+
+
+/* MISC.		========================================================================================================================*/
+.hidden {
+	display: none;
+}
+
+dl.faq dt {
+	margin-top: 1.5em;
+	font-weight: bold;
+	position: relative;
+}
+
+dl.faq span {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+
+
+
+
+
+/*
+=========================================================================================================================================
+IDs
+=========================================================================================================================================
+*/
+
+
+
+/* TEMPLATE: LAYOUT		========================================================================================================================*/
+
+/* fix for IE5 and IE6 - fixed width only */
+
+body {
+	text-align: center; /* fix for IE5 */
+}
+
+#container {
+	width: 777px; /* width of the site for IE5 & IE6 */
+}
+
+#body {
+	border-left: 140px solid #D5E03E;
+	border-right: 160px solid #5A91C4;
+	width: 477px;
+}
+
+#lBody, #cBody, #rBody {
+	position: relative;
+}
+
+#lBody {
+	float: left;
+	margin-left: -140px;
+	width: 140px;
+	z-index: 2;
+}
+
+#cBody {
+	float: left;
+	width: 477px;
+	z-index: 1;
+}
+
+#rBody {
+	float: right;
+	margin-right: -160px;
+	width: 160px;
+	z-index: 3;
+}
+
+html>body #container, html>body #body, html>body #lBody, html>body #cBody, html>body #rBody   { /* resets values for all supported browsers apart from IE5 & IE6 */
+	border: none;
+	float: none;
+}
+/* /fix for IE5 and IE6 */
+
+body {
+	background-color: #FFFFFF;
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+	margin: 0 auto;
+	max-width: 1024px;
+	min-width: 70em; /* should be set in ems to allow site to resize when the text size is changed in the browser */
+	text-align: left;
+}
+
+html>body #container {
+	width: 100%; /* width of the site for all supported browsers apart from IE5 & IE6 - use either % or px */
+}
+
+#header {
+	height: 6em;
+	position: relative;
+}
+
+#body {
+	border-collapse: collapse;
+	display: table;
+}
+
+html>body #body {
+	width: 100%;
+}
+
+#lBody, #cBody, #rBody {
+	display: table-cell;
+	height: 450px; /* used to set the min height - cannot use min-height with table-formatted cells */
+	vertical-align: top;
+}
+
+#header *, #lBody *, #rBody *, #footer * {
+	margin: 0;
+}
+
+#cBody #mainContent { /* used for padding */
+	padding: 10px;
+}
+
+#lBody { /* for all supported browsers apart from IE5 & IE6 */
+	background-color: #D5E03E;
+	width: 140px;
+}
+
+html>body #cBody { /* for all supported browsers apart from IE5 & IE6 */
+	width: auto; /* always keep this as auto so it automatically adjusts for padding */
+}
+
+#rBody { /* for all supported browsers apart from IE5 & IE6 */
+	background-color: #5A91C4;
+	width: 160px;
+}
+
+#footer {
+	position: relative;
+}
+
+
+
+
+/* TEMPLATE: CONTENT		========================================================================================================================*/
+
+#header {
+	background-image: url(/images/portfolio/fs/alternate/rHeader.gif);
+	background-position: right top;
+	background-repeat: no-repeat;
+	height: 167px;
+	min-height: 10em;
+}
+
+#header #leftImage {
+	background-image: url(/images/portfolio/fs/alternate/lHeader.gif);
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0;
+	top: 61px;
+	width: 140px;
+	height: 106px;
+}
+
+#header #siteLogo {
+	background-color: #5A91C4;
+	background-image: url(/images/portfolio/fs/alternate/tHeader.gif);
+	background-repeat: no-repeat;
+	margin-right: 160px;
+	height: 60px;
+	width: 617px; /*fix for IE5 and IE6 */
+}
+
+html>body #header #siteLogo {
+	width: auto;
+}
+
+#header #siteLogo h1, #header #siteLogo p {
+	display: none;
+}
+
+#header #adBanner, #header #menuTop {
+	margin: 2px 162px 0 142px;
+	height: 51px;
+}
+
+#header #adBanner {
+	background-color: #E9F4FF;
+}
+
+#header #menuTop {
+	background-color: #455DB3;
+	height: 52px;
+	min-height: 4.5em;
+	position: relative;
+	overflow: hidden;
+}
+
+#header #menuTop * {
+	color: #FFFFFF;
+	margin: 0;
+}
+
+#header #menuTop h2 {
+	font-style: normal;
+	font-size: 1.5em;
+	position: absolute;
+	top: 35%;
+	left: 0;
+	text-align: center;
+	width: 25%;
+}
+
+#header #menuTop ul {
+	padding: 0;
+	margin-left: 25%;
+	width: 75%;
+}
+
+#header #menuTop ul li {
+	border-style: solid;
+	border-width: 0 0 1px 1px;
+	border-color: #FFFFFF;
+	display: block;
+	float: left;
+	font-size: 1.1em;
+	font-weight: bold;
+	line-height: 25px;
+	height: 25px;
+	min-height: 2em;
+	text-align: center;
+	width: 33.04%;
+	vertical-align: middle;
+}
+
+#header #menuTop ul .bottomRow {
+	border-bottom-width: 0;
+	height: 26px;
+	line-height: 26px;
+}
+
+#header #menuTop ul li a {
+	display: block;
+	height: 100%;
+	text-decoration: none;
+}
+
+#header #menuTop ul li a:focus, #header #menuTop ul li a:hover {
+	background-color: #5A91C4;
+}
+
+
+#body #lBody *, #body #rBody * {
+	color: #FFFFFF;
+}
+
+#body #lBody h2, #body #rBody h2 {
+	font-size: 1.4em;
+	font-style: normal;
+	margin-bottom: 0.5em;
+}
+
+#body #rBody input.text, #body #rBody select, #body #rBody option {
+	color: #5A91C4;
+	width: 132px;
+	min-width: 8em;
+	margin-right: 0.4em;
+}
+
+#body #rBody input[type="checkbox"] {
+	background-color: #FFFFFF;
+}
+
+#body #mainContent {
+	padding: 1.5em;
+}
+
+#footer #lFooter {
+	background-color: #D5E03E;
+	background-image: url(/images/portfolio/fs/alternate/lFooter.gif);
+	background-repeat: no-repeat;
+	float: left;
+	height: 47px;
+	width: 140px;
+	min-width: 7.74em;
+}
+
+#footer #abc, #footer #edirectory {
+	float: left;
+	margin-left: 10px;
+}
+
+#footer #abc {
+	background-image: url(/FurnitureShow/images/logoABC.gif);
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 32px;
+}
+
+#footer #edirectory {
+	background-image: url(/FurnitureShow/images/logoEdirectory.gif);
+	background-repeat: no-repeat;
+	height: 13px;
+	width: 83px;
+}
+
+#footer #cFooter #footerLinks {
+	float: right;
+	margin-right: 10px;
+}
+
+#footer #rFooter {
+	background-color: #5A91C4;
+	background-image: url(/images/portfolio/fs/alternate/bgBRight.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	float: right;
+	text-align: center; /* fix for IE5 */
+	width: 160px;
+	height: 47px;
+	min-width: 9.1em;
+	position: relative;
+}
+
+
+#footer #rFooter a {
+	background-image: url(/images/portfolio/fs/alternate/logoCMP.gif);
+	background-repeat: no-repeat;
+	display: block;
+	float: none;
+	height: 47px;
+	margin: -20px auto 20px auto;
+	position: relative;
+	width: 55px;
+	z-index: 4;
+}
+
+#menuLeftTop {
+	background-color: #455DB3;
+	border-style: solid;
+	border-color: #FFFFFF;
+	border-width: 0px 0px 1px 0px;
+	font-size: 1.1em;
+	font-weight: bold;
+	padding-bottom: 12px;
+	padding-top: 12px;
+	text-align: right;
+}
+
+#menuLeftTop h2 {
+	display: none;
+}
+
+#menuLeftTop a {
+	text-decoration: none;
+}
+
+#menuLeftTop a:focus, #menuLeftTop a:hover {
+	text-decoration: underline;
+}
+
+#venue {
+	padding: 10px;
+}
+
+#venue dt {
+	font-weight: bold;
+	margin-top: 2px;
+}
+
+#venue h1 {
+	margin: 4px 0px 7px 0px;
+}
+
+#venue h3 {
+	margin: 3px 0px;
+}
+
+#menuLeftBottom {
+	margin-bottom: 30px;
+}
+
+#menuLeftBottom h2 {
+	display: none;
+}
+
+#menuLeftBottom ul li {
+	background-color: #AEB820;
+	background-position: 10% 50%;
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #D5E03E;
+	padding-left: 25px; /* fix for IE5 */
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	padding-left: 35px;
+}
+
+#menuLeftBottom ul li a {
+	text-decoration: underline;
+}
+
+#menuLeftBottom ul li a:focus, #menuLeftBottom ul li a:hover {
+	text-decoration: none;
+}
+
+#menuLeftBottom .row1{
+	background-image: url(/images/portfolio/fs/alternate/iconDiary.gif);
+}
+
+#menuLeftBottom .row2 {
+	background-image: url(/images/portfolio/fs/alternate/iconTravel.gif);
+}
+
+#menuLeftBottom .row3 {
+	background-image: url(/images/portfolio/fs/alternate/iconAccommodation.gif);
+}
+
+#contactUs {
+	border-bottom: 1px solid #FFFFFF;
+	margin: 15px 0px 10px 10px;
+	padding-bottom: 10px;
+	width: auto;
+}
+
+#contactUs ul li {
+	padding: 0.1em 2px;
+}
+
+#contactUs ul li a {
+	font-weight: normal;
+}
+
+#emailSubscribe {
+	border-bottom: 1px solid #FFFFFF;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	padding-bottom: 10px;
+}
+
+#emailSubscribe h1 {
+	margin: 0px;
+	margin-bottom: 5px;
+}
+
+#emailSubscribe input.checkbox {
+	background-color: transparent;
+}
+
+#emailSubscribe p {
+	background-color: transparent;
+	color: white;
+	margin: 5px 0px;
+	padding-right: 10px;
+}
+
+#emailSubscribe a {
+	color: #FFFFFF;
+}
+
+#otherShows {
+	margin-left: 10px;
+}
+
+#otherShows h2 {
+	font-size: 1.15em !important;
+}
+
+#header #menuTop ul {
+	float: right; /* fix for IE5 */
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	float: none;	
+}
+
+
+
+
+

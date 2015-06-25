@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Arrays | ASPX | Reference";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>ASPX</li>
+		<li>Arrays</li>
+	</ol>
+}
+
+<article>
+	<h1>Arrays, Lists &amp; Dictionaries</h1>
+	
+<table id="arrays">
+	<thead>
+		<tr>
+			<th>Type</th><th>Non-Generic</th><th>Generic</th><th>Specialised</th><th>Notes</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Array</td><td>Array</td><td></td><td>BitArray (Boolean)</td><td>Fixed size.</td>
+		</tr>
+		<tr>
+			<td>List</td><td>ArrayList</td><td>List&lt;T&gt;</td><td>StringCollection (String)</td><td>Resizable array.</td>
+		</tr>
+		<tr>
+			<td>List</td><td></td><td>LinkedList&lt;T&gt;</td><td></td><td>References node before and after. Efficient insertions.</td>
+		</tr>
+		<tr>
+			<td>List</td><td>Queue</td><td>Queue&lt;T&gt;</td><td></td><td>First in, first out.</td>
+		</tr>
+		<tr>
+			<td>List</td><td>Stack</td><td>Stack&lt;T&gt;</td><td></td><td>First in, last out.</td>
+		</tr>
+		<tr>
+			<td>List</td><td>CollectionBase</td><td>Collection&lt;T&gt;</td><td></td><td>Customisable wrapper for List&gt;T&lt;. Allows you to change a list's normal behaviour.</td>
+		</tr>
+		<tr>
+			<td>List</td><td></td><td>HashSet&lt;T&gt;</td><td></td><td>Implemented by using a HashTable that stores only keys, no values. Contains method executes quickly using a hash-based lookup. Does not store duplicate items and silently ignores requests to add duplicates. Cannot access an element by position.</td>
+		</tr>
+		<tr>
+			<td>Dictionary</td><td>HashTable</td><td>Dictionary&lt;TKey,TValue&gt;</td><td>StringDictionary (String)</td><td>Uses keys. Not stored in order.</td>
+		</tr>
+		<tr>
+			<td>Dictionary</td><td>ListDictionary</td><td></td><td></td><td>Fast HashTable for 10 items or less.</td>
+		</tr>
+		<tr>
+			<td>Dictionary</td><td>HybridDictionary</td><td></td><td></td><td>Uses a ListDictionary for up to 10 items, then switches to a HashTable after 10.</td>
+		</tr>
+		<tr>
+			<td>Dictionary</td><td>OrderedDictionary</td><td></td><td></td><td>Combination of a HashTable and an ArrayList. Can access elements both by index and by key.</td>
+		</tr>
+		<tr>
+			<td>Dictionary</td><td>SortedList</td><td>SortedList&lt;TKey,TValue&gt;</td><td>NameValueCollection (String)</td><td>Uses keys. Stored in order. Fast lookup, slow insertion. Can access items by index as well as by key.</td>
+		</tr>
+		<tr>
+			<td>Dictionary</td><td></td><td>SortedDictionary&lt;TKey,TValue&gt;</td><td></td><td>List SortedList, but faster at inserting. Cannot acccess items by index.</td>
+		</tr>
+		<tr>
+			<td>Dictionary</td><td></td><td>KeyedCollection&lt;TKey,TValue&gt;</td><td></td><td>Like Collection&lt;T&gt;, but adds HashTable support for keys.</td>
+		</tr>
+	</tbody>
+</table>
+
+</article>

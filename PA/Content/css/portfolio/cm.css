@@ -1,0 +1,1049 @@
+/* CABINET MAKER MAIN STYLE SHEET
+
+SUPPORTS: Internet Explorer 5*, Internet Explorer 6, Firefox 1, Netscape 6, Netscape 7, Netscape 8, Opera 6*, Opera 7, Opera 8
+* will work but may not display 100% as intended
+
+CONTENTS		========================================================================================================================
+SELECTORS (Default Values)
+	Body
+	Text
+	Headings
+	Links
+	Images
+	Forms
+	Tables
+	Div tables
+	Lists
+	Cursors
+	Miscellaneous
+CLASSES
+	Text
+IDs
+	Template
+
+SITE COLOURS	========================================================================================================================
+
+#F7B531 - Yellow (Left Column & Header)
+#5294AD - Blue
+#E3EFEF - Light Grey (Box Headers)
+#F79239 - Orange
+
+
+
+
+
+
+/*
+=========================================================================================================================================
+SELECTORS (Default Values)
+=========================================================================================================================================
+*/
+
+/* TEXT			========================================================================================================================*/
+body, p, td, input, textarea, select {
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+	line-height: normal;
+	word-spacing: normal;
+}
+
+/*Text Size*/
+body{
+	font-size: 0.707em;
+}
+
+input, textarea, select {
+	font-size: 1em;
+}
+
+.smallprint
+{
+	font-size: 1em;
+}
+
+
+/* HEADINGS		========================================================================================================================*/
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 1.6em;
+	margin-bottom: 0.5em;
+}
+
+h1 {
+	color: #177192;
+	margin-top: 0.8em;
+	font-size: 1.3em;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+h3 {
+	font-size: 1.1em;
+}
+
+h4, h5 {
+	font-size: 1em;
+}
+
+
+
+
+/* LINKS		========================================================================================================================*/
+a {
+	color: #000000;
+	text-decoration: underline;
+}
+
+a:focus, a:hover {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+
+
+
+/* IMAGES		========================================================================================================================*/
+img {
+	border: 0;
+}
+
+
+
+/* FORMS		========================================================================================================================*/
+
+form, input, textarea {
+	margin: 0;
+	padding: 0;
+}
+
+input.text {
+	border: 1px solid #7F9DB9;
+	padding: 0 0.3em;
+	height: 1.5em;
+	line-height: 1.5em;
+}
+
+input[type="text"], input[type="password"] { /* not IE5, IE6 */
+	height: auto;
+	padding: 0.2em;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"]  { 
+	background-color: #5A5959;
+	border: none;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-variant: small-caps;
+	font-weight: bold;
+	text-align: center;
+	text-transform: capitalize;
+	width: auto;
+}
+
+input.button  { /* fix for IE5, IE6 - must be done separately */
+	background-color: #5A5959;
+	border: none;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-variant: small-caps;
+	font-weight: bold;
+	text-align: center;
+	text-transform: capitalize;
+	width: auto;
+}
+
+textarea {
+	height: 5.5em;
+	width: 207px;
+}
+
+select {
+	height: auto;
+}
+
+fieldset {
+	border: none;
+	border: 1px solid #999999;
+	padding-bottom: 5px;
+	margin-bottom: 8px;
+	font-weight: bold;
+	color: #F7B531;
+	background-color: #FFFFFF;
+	padding: 0 2px;
+}
+
+label {
+	color: #5294AD;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+/*
+=========================================================================================================================================
+CLASSES
+=========================================================================================================================================
+*/
+
+
+
+
+/* LINKS		========================================================================================================================*/
+a.blockLink {
+	display: block;
+	height: 100%;
+	overflow: hidden;
+	text-decoration: none;
+	text-indent: -9999px;
+	width: 100%;
+}
+
+/* MENU: creates a rollover-style menu ========================================================== */
+.menu {
+	border-left: 2px dotted #FFFFFF;
+	border-top: 2px dotted #FFFFFF;
+	font-size: 1.1em;
+	margin-left: 7px !important;
+	margin-right: 10px !important;
+	padding-left: 5px !important;
+	margin-bottom: 0.135em !important;
+}
+
+.menu * {
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+.menu p {
+	display: none;
+}
+
+.menu ul {
+	list-style: none;
+	display: block;
+	width: auto;
+}
+
+.menu ul a {
+	background-color: Transparent;
+	border-bottom: none;
+	float: none;
+	display: inline;
+	width: auto;
+	padding: 0 !important;
+}
+
+.menu ul li {
+	border-top: 1px solid #FFCE7B;
+	padding: 0.3em 0;
+	display: block;
+	float: none;
+}
+
+.menu ul li:first-child, .menu li.first {
+	border: none;
+}
+
+.menu ul li a {
+	text-decoration: none;
+}
+
+.menu ul li a:focus, .menu ul li a:hover {
+	text-decoration: underline;
+	background-color: transparent;
+}
+
+
+div.box {
+	width: 470px;
+	margin-top: 5.5em;
+	margin-bottom: 1.5em;
+	padding: 3px;
+	position: relative;
+	border: 1px solid #999999;
+}
+
+html>body div.box {
+	width: auto;
+}
+
+div.first {
+	margin-top: 4em;
+}
+
+div.box * {
+	margin: 0;
+}
+
+div.box a {
+	text-decoration: none;
+}
+
+div.box a:focus, div.box a:hover {
+	text-decoration: underline;
+}
+
+div.box h1 {
+	position: absolute;
+	top: -3em;
+	left: -1px;
+	font-size: 1.3em;
+	float: left;
+	border-top: 2px dotted #774F46;
+	border-left: 2px dotted #774F46;
+	height: 2em;
+	padding: 0.2em;
+	color: #177192;
+	text-transform: uppercase;
+	line-height: normal;
+	background-color: Transparent;
+	margin-bottom: 0;
+	overflow: visible;
+}
+
+.box h1 span {
+	background-color: #FFFFFF;
+	display: inline;
+	position: static;
+	color: inherit;
+	padding: 0;
+	text-transform: inherit;
+}
+
+div.box h2 {
+	color: #FFA70D;
+}
+
+div.box h4 {
+	font-size: 1.1em;
+	border-left: 140px solid #5294AD;
+	background-color: #DEDEDE;
+	color: #FFA70D;
+	padding: 0.3em 0.6em;
+	clear: both;
+	float: none;
+	width: auto;
+}
+
+.box h4 span {
+	font-weight: bold;
+	color: inherit;
+	white-space: nowrap;
+}
+
+div.box h4 a {
+	color: #177192;
+}
+
+div.box p {
+	width: auto;
+	margin-left: 140px;
+	padding: 0.3em 0.5em;
+	text-align: justify;
+}
+
+div.box img {
+	border: none;
+	float: left;
+	width: 140px;
+	clear: left;
+}
+
+div.box hr {
+	display: none;
+	visibility: hidden;
+	height: 1px;
+	border: none;
+	width: 100%;
+	clear: both;
+	font-size: 1px;
+}
+
+html>body div.box hr {
+	display: block;
+}
+
+#box2 h1, #box3 h1 {
+	background-color: Transparent;
+}
+
+.frmSearch {
+	padding: 4px;
+	border: 1px solid #999999;
+	width: 469px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.frmSearch * {
+	margin: 0;
+}
+
+.frmSearch h1, .frmSearch h2 {
+	background-color: #DEDEDE;
+	font-size: 1.2em;
+}
+
+.frmSearch h1 span, .frmSearch h2 span {
+	background-color: #007BA5;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	padding: 0 0.4em;
+}
+
+.frmSearch h1 {
+	float: left;
+}
+
+.frmSearch h2 span {
+	background-color: #FFA70E;
+}
+
+.frmSearch div {
+	float: left;
+	padding: 0.3em 0;
+	font-weight: bold;
+	width: 33.333%
+}
+
+.frmSearch div.right {
+	float: none;
+	width: auto;
+}
+
+.frmSearch div input, .frmSearch div select {
+	font-weight: normal;
+}
+
+.frmSearch div.submit {
+	float: none;
+	width: 100%;
+	clear: both;
+	text-align: center;
+}
+
+.pageLinks {
+	margin: 1em 0;
+	width: 100%;
+}
+
+.pageLinks div.left {
+	float: left;
+	width: 15%;
+}
+
+.pageLinks div.centre {
+	text-align: center;
+	margin: 0 15%;
+}
+
+.pageLinks div.right {
+	text-align: right;
+	float: right;
+	width: 15%;
+}
+
+.errorMessage {
+	background-color: #DEDEDE;
+	padding: 0.5em;
+	border: 1px solid #999999;
+	text-align: center;
+	position: relative; /*fix for IE5 & IE6 */
+}
+
+.warning {
+	color: #CC0000;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+/* TABLE-FORMATTED FORM: form put in table format =============================================== */
+/* fix for IE5 and IE6 */
+.frmStandard div {
+	clear: both;
+	width: 100%;
+}
+
+.frmStandard div.left, .frmStandard div.right {
+	padding: 0.3em 0px;
+}
+
+.frmStandard div.left {
+	padding-top: 0.5em;
+	display: block;
+	float: left;
+}
+
+.frmStandard div.right {
+	float: right;
+	width: 68%;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+.frmStandard div.checkbox, .frmStandard div.radio {
+	padding-top: 0.2em;
+}
+/* /fix for IE5 and IE6 */
+
+/* all supported browsers apart from IE5 and IE6 */
+.frmStandard {
+	border-collapse: collapse;
+	display: table;
+	empty-cells: show;
+	margin: auto;
+	table-layout: fixed;
+	width: 400px;
+}
+
+.frmStandard div {
+	display: table-row;
+}
+
+.frmStandard div.left, .frmStandard div.right {
+	display: table-cell;
+}
+
+html>body .frmStandard div.left, html>body .frmStandard div.right{ /* fix for IE5, IE6 */
+	border: none;
+	float: none;
+	padding: 0.3em;
+	vertical-align: top;
+}
+
+.frmStandard div.left {
+	text-align: right;
+	width: 30%;
+}
+
+html>body .frmStandard div.checkbox, html>body .frmStandard div.radio {
+	padding-top: 0.4em;
+}
+
+.frmStandard div.right {
+	text-align: left;
+}
+
+html>body .frmStandard div.right { /* fix for IE5, IE6 */
+	width: 70%;
+}
+
+.frmStandard textarea { /* fix for IE5, IE6 */
+	width: 99%;
+}
+
+.frmStandard div.submit {
+	text-align: right;
+}
+
+.frmStandard input.button {
+	margin-left: 10px;
+}
+/* /all supported browsers apart from IE5 and IE6 */
+/* /TABLE-FORMATTED FORM ========================================================================= */
+
+
+/*
+=========================================================================================================================================
+IDs
+=========================================================================================================================================
+*/
+
+
+
+/* TEMPLATE		========================================================================================================================*/
+
+/* fix for IE5 and IE6 */
+/* FIXED WIDTH ONLY */
+
+.leftColumn {
+	float: left;
+}
+
+.rightColumn {
+	float: right;
+}
+
+.centreColumn {
+	float: left;
+}
+
+#info {
+	display: none;
+}
+
+#body {
+	background-image: url(/images/portfolio/cm/bgBody.gif);
+}
+
+html>body #body, html>body .leftColumn, html>body .centreColumn, html>body .rightColumn  { /* resets values for all supported browsers apart from IE5 & IE6 */
+	border: none;
+	background-image: none;
+	float: none;
+}
+/* /fix for IE5 and IE6 */
+
+html, body {
+	background-color: #FFFFFF;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center; /* fix for IE5 */
+}
+
+#info {
+	display: none;
+}
+
+#container {
+	background-color: #F7B531;
+	margin: 0 auto;
+	width: 790px;
+}
+
+#header, #body, #footer {
+	position: relative;
+	width: 790px;
+	min-width: 68.5em;
+}
+
+#header {
+	background-color: #F7B531;
+	height: 150px;
+	border-bottom: none;
+}
+
+#header * {
+	color: #FFFFFF;
+	margin: 0;
+}
+
+#header #siteLogo {
+	background-image:  url(/images/portfolio/cm/header_logo.gif);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-color: inherit;
+	border-top: 2px dotted #FFFFFF;
+	border-left: 2px dotted #FFFFFF;
+	height: 136px;
+	position: absolute;
+	left: 7px;
+	top: auto;
+	bottom: 0;
+	width: 263px;
+	padding: 0;
+}
+
+#header #home {
+	display: none;
+}
+
+#header #cmpLogo {
+	background-image: url(/images/portfolio/cm/logoCMP.gif);
+	background-repeat: no-repeat;
+	position: absolute;
+	top: auto;
+	left: auto;
+	bottom: 1.5em;
+	right: 15px;
+	height: 39px;
+	width: 46px;
+}
+
+#header #strapline 
+{
+	background-image: url(/images/portfolio/cm/header_tagline.gif);
+	position: absolute;
+	top: 1.3em;
+	right: 12px;
+	height: 19px;
+	width: 234px;
+	font-weight: bold;
+	font-size: 1.15em;
+	letter-spacing: 0.01em;
+}
+
+#header #issue {
+	font-weight: bold;
+	position: absolute;
+	top: auto;
+	bottom: 2px;
+	right: 15px;
+}
+
+#headerMenuBar {
+	background-color: #F7B531;
+	border-top: 2px dotted #FFFFFF;
+	border-left: 2px dotted #FFFFFF;
+	border-bottom: none;
+	line-height: 2.5em;
+	height: 2.5em;
+	margin-left: 7px;
+	width: auto;
+	min-width: 67.9em;
+}
+
+#headerMenuBar a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#headerMenuBar a:focus, #headerMenuBar a:hover {
+	text-decoration: underline;
+}
+
+#headerMenuBar #frmQuickSearch {
+	float: left;
+	padding: 0 0 0 0.3em;
+	width: 11.7em;
+	margin-top: 0.3em;
+	line-height: normal;
+}
+
+#headerMenuBar #frmQuickSearch input.text {
+	width: 8.2em;
+	margin-left: 0;
+	font-weight: normal;
+	line-height: normal;
+	padding-left: auto;
+	height: auto;
+	float: none;
+	line-height: normal;
+}
+
+#headerMenuBar #frmQuickSearch .button {
+	width: auto;
+	height: auto;
+	float:none;
+	margin-top: 0;
+}
+
+#headerMenuBar #leftText {
+	float: left;
+	font-weight: bold;
+	margin-left: 15px;
+}
+
+#headerMenuBar #rightText {
+	float: right;
+	font-weight: bold;
+	margin-right: 15px;
+}
+
+#content {
+	background-color: #FFFFFF;
+	padding: 8px 10px 10px 10px;
+}
+
+#body {
+	background-color: #FFFFFF;
+	border-collapse: collapse;
+	clear: both;
+	display: table;
+}
+
+#body > div.row {
+	display: table-row;
+}
+
+#body .leftColumn, #body .centreColumn, #body .rightColumn {
+	height: 500px; /* used to set the min height - cannot use min-height with table-formatted cells */
+}
+
+.leftColumn, .centreColumn, .rightColumn {
+	display: table-cell;
+	position: relative;
+	text-align: left;
+	vertical-align: top;
+}
+
+#body .leftColumn *, .rightColumn * {
+	margin: 0;
+}
+
+#body .leftColumn {
+	background-color: #F7B531;
+	width: 145px;
+	z-index: 2;
+}
+
+#body .leftColumn * {
+	color: #383534;
+}
+
+#body #fseAward {
+	display: none;
+}
+
+#body #fseAward p {
+	display: none;
+}
+
+#body .centreColumn {
+	width: 500px;
+	z-index: 1;
+}
+
+#body .rightColumn {
+	background-color: #6B6B6B;
+	width: 145px;
+	z-index: 3;
+}
+
+#body .rightColumn * {
+	color: #FFFFFF;
+}
+
+#body .rightColumn #latestIssue {
+	background-color: #AD2942;
+	border-bottom: 1px solid #F7B531;
+	text-align: right;
+}
+
+#body .rightColumn #latestIssue h3 {
+	border-bottom: 1px solid #F7B531;
+	text-align: right;
+	padding: 5px 10px;
+}
+
+#body .rightColumn #subscribe {
+	background-image: url(/images/portfolio/cm/subscribe.gif);
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #F7B531;
+	display: block;
+	height: 39px;
+	width: 145px;
+	margin-left: auto;
+}
+
+#body .rightColumn #subscribe p {
+	display: none;
+}
+
+#footer {
+	background-color: #F7B531;
+	color: #FFFFFF;
+	text-align: center;
+	border-top: 1px solid #FFFFFF;
+	padding: 0.9em 0;
+}
+
+#footer a {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 1em;
+}
+
+#footer a:focus, #footer a:hover {
+	text-decoration: underline;
+}
+
+
+/* articles.asp		========================================================================================================================*/
+
+#article {
+	width: auto;
+}
+
+#article a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+#article a:focus, #article a:hover {
+	text-decoration: none;
+}
+
+#article h2 {
+	font-size: 1.1em;
+	border-left: 140px solid #5294AD;
+	background-color: #DEDEDE;
+	color: #5294AD;
+	padding: 0.3em 0.6em;
+}
+
+#article h2 a {
+	color: #177192;
+}
+
+#article h2 span {
+	color: #FFA70D;
+}
+
+#article h3 {
+	background-color: #DEDEDE;
+	color: #F7B531;
+	margin: 10px 0;
+	padding: 0.3em;
+	font-size: 1.1em;
+}
+
+#article p {
+	float: none;
+	width: auto;
+	margin: 0;
+}
+
+#article img {
+	margin-right: 0.6em;
+}
+
+#article #print {
+	padding: 0.4em;
+	font-size: 1.1em;
+	float: left;
+}
+
+#article #print a {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+#article #print a:focus, #article #print a:hover {
+	text-decoration: none;
+}
+
+#article .links {
+	text-align: right;
+}
+
+#article .links * {
+	color: #DD2211;
+}
+
+/* search.asp		========================================================================================================================*/
+#frmAdvSearchEditorial {
+	clear: both;
+}
+
+#frmAdvSearchEditorial h4, #frmAdvSearchEditorial input, #frmAdvSearchEditorial select {
+	margin: 0.3em;
+}
+
+#frmAdvSearchEditorial h4 {
+	border: none;
+}
+
+#frmAdvSearchEditorial input.text, #frmAdvSearchEditorial select {
+	margin-left: 0.4em;
+}
+
+#frmAdvSearchEditorial div.button {
+	text-align: center;
+}
+
+#frmAdvSearchEditorial input.button {
+	border: none;
+}
+
+#boxSearchResults {
+	border: 1px solid #999999;
+	padding: 0.4em;
+	margin-top: 0;
+	width: 469px;
+}
+
+#boxSearchResults * {
+	margin: 0;
+}
+
+#boxSearchResults h2, #boxSearchResults h3 {
+	background-color: #DEDEDE;
+	font-size: 1.2em;
+}
+
+#boxSearchResults h2 span, #boxSearchResults h3 span {
+	background-color: #007BA5;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	padding: 0 0.4em;
+}
+
+#boxSearchResults h2 {
+	float: left;
+}
+
+#boxSearchResults h3 span {
+	background-color: #FFA70E;
+}
+
+#boxSearchResults h4 {
+	background-color: #DEDEDE;
+	color: #FFA70E;
+	margin: 0.4em 0;
+	padding: 0.1em 0.3em;
+}
+
+#boxSearchResults h5 a {
+	color: #007BA5;
+}
+
+#boxSearchResults h5 span {
+	color: #FFA70E;
+	white-space: nowrap;
+}
+
+#boxSearchResults p {
+	border-bottom: 2px solid #DEDEDE;
+	padding: 0.3em 0;
+	margin-bottom: 1em;
+}
+
+
+/* fsemail.asp		========================================================================================================================*/
+.boxForm {
+	border: 1px solid #999999;
+	padding: 0.4em;
+	width: 470px; /* fix for IE5 & IE6 */
+}
+
+html>body .boxForm {
+	width: auto;
+}
+
+.boxForm * {
+	margin: 0;
+}
+
+.boxForm h4, .boxForm p, .boxForm div {
+	margin: 0.5em 0;
+}
+
+.boxForm h4 {
+	background-color: #DEDEDE;
+	padding: 0.3em;
+	font-size: 1.1em;
+}
+
+.boxForm h4 label {
+	color: #F7B531;
+}
+
+.boxForm div.button {
+	text-align: center;
+}
+
+.boxForm textarea {
+	width: 98%;
+}
+
+/* /subs/subscriptions.asp =============================================================================== */
+
+#subsImages {
+	margin-bottom: 10px;
+}
+
+#subsImages img {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+

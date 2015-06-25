@@ -1,0 +1,92 @@
+﻿@model PA.Models.RegExModel
+@using System.Text.RegularExpressions;
+@{
+	ViewBag.Title = "Regular Expressions | Utilities";
+}
+
+@section Head {
+	<style>
+		.regExFields label[for="Input"] {
+			display: none;
+		}
+
+		.regExFields input[type="text"] {
+			width: 70%;
+		}
+
+		.regExFields > li {
+			margin-bottom: 0.8em;
+		}
+
+		.regExOutput {
+			margin: 1.5em 0;
+		}
+
+		.regExOptions {
+			-moz-column-count: 3;
+			-webkit-column-count: 3;
+			column-count: 3;
+			list-style: none;
+			padding: 0;
+			margin: 1em 0;
+		}
+	</style>
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home")</li>
+		<li>@Html.ActionLink("Utilities", "index", "utilities")</li>
+		<li>Strip Out <abbr title="Hypertext Markup Language">HTML</abbr></li>
+	</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-utilities.cshtml")
+}
+
+<article>
+	<h1>Regular Expresssions</h1>
+
+	@using (Html.BeginForm("regular-expressions", "utilities"))
+	{
+     	@Html.AntiForgeryToken()
+		@Html.ValidationSummary();
+
+		<ul class="regExFields">
+			<li>@Html.LabelFor(x => x.Input) @Html.TextAreaFor(x => x.Input, new { required = "required", autofocus = "autofocus", placeholder = "Enter original text here..." })</li>
+			<li>@Html.TextBoxFor(x => x.Pattern, new { required = "required" }) @Html.LabelFor(x => x.Pattern)</li>
+			<li>@Html.TextBoxFor(x => x.Replacement) @Html.LabelFor(x => x.Replacement)</li>
+		</ul>
+		<div class="buttonBar">
+			<button name="type" value="matches">Matches</button>
+			<button name="type" value="replace">Replace</button>
+		</div>
+
+		if (ViewBag.Replace != null)
+		{
+			<pre>@ViewBag.Replace</pre>
+		}
+
+		if (ViewBag.Matches != null)
+		{
+			<pre><output>@ViewBag.Matches</output></pre>
+		}
+
+		<fieldset>
+			<legend>Options</legend>
+			<ul class="regExOptions">
+                <li>@Html.CheckBoxFor(m => m.IgnoreCase) @Html.LabelFor(m => m.IgnoreCase, new { title = "Specifies case-insensitive matching" })</li>
+                <li>@Html.CheckBoxFor(m => m.IgnorePatternWhitespace) @Html.LabelFor(m => m.IgnorePatternWhitespace, new { title = "Eliminates unescaped white space from the pattern and enables comments marked with #. However, the System.Text.RegularExpressions.RegexOptions.IgnorePatternWhitespace value does not affect or eliminate white space in character classes." })</li>
+                <li>@Html.CheckBoxFor(m => m.ExplicitCapture) @Html.LabelFor(m => m.ExplicitCapture, new { title = "Specifies that the only valid captures are explicitly named or numbered groups of the form (?<name>…). This allows unnamed parentheses to act as noncapturing groups without the syntactic clumsiness of the expression (?:…)." })</li>
+                <li>@Html.CheckBoxFor(m => m.Singleline) @Html.LabelFor(m => m.Singleline, new { title = @"Specifies single-line mode. Changes the meaning of the dot (.) so it matches every character (instead of every character except \n)." })</li>
+                <li>@Html.CheckBoxFor(m => m.Multiline) @Html.LabelFor(m => m.Multiline, new { title = "Multiline mode. Changes the meaning of ^ and $ so they match at the beginning and end, respectively, of any line, and not just the beginning and end of the entire string." })</li>
+                <li>@Html.CheckBoxFor(m => m.CultureInvariant ) @Html.LabelFor(m => m.CultureInvariant, new { title = "Specifies that cultural differences in language is ignored. See Performing Culture-Insensitive Operations in the RegularExpressions Namespace for more information." })</li>
+                <li>@Html.CheckBoxFor(m => m.RightToLeft) @Html.LabelFor(m => m.RightToLeft, new { title = "Specifies that the search will be from right to left instead of from left to right." })</li>
+                <li>@Html.CheckBoxFor(m => m.ECMAScript) @Html.LabelFor(m => m.ECMAScript, new { title = "Enables ECMAScript-compliant behavior for the expression. This value can be used only in conjunction with the System.Text.RegularExpressions.RegexOptions.IgnoreCase, System.Text.RegularExpressions.RegexOptions.Multiline, and System.Text.RegularExpressions.RegexOptions.Compiled values. The use of this value with any other values results in an exception." })</li>
+			</ul>
+		</fieldset>
+	}
+
+</article>
+

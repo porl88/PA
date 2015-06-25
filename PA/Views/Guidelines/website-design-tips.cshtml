@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Website Design Tips | Guidelines";
+}
+
+@section Head {
+	<style>
+
+	 	#selected1::-moz-selection {
+			background-color: red;
+			color: yellow;
+		}
+
+		#selected1::selection {
+			background-color: red;
+			color: yellow;
+		}
+
+		#selected2::-moz-selection {
+			background-color: lime;
+			color: hotpink;
+		}
+
+		#selected2::selection {
+			background-color: lime;
+			color: hotpink;
+		}
+
+	</style>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-guidelines.cshtml")
+}
+
+<article>
+	<h1>Website Design Tips</h1>
+	<p>Please note: not all browsers support the features below. Browser support is indicated at the top of each section. Older browsers will simply ignore anything they don't support.</p>
+	<h2>Fonts</h2>
+	<p>Small caps.</p>
+	<h2>Selected Text</h2>
+	<p>Support: Chrome 1+, Firefox 1+, Internet Explorer 9+, Safari 1+</p>
+	<p>When you use your cursor to select text on a web page, the default styling is usually white text on a blue background. You have the option to change the styling for text colour, background colour and even add text shadow:</p>
+	<ul>
+		<li>Example 1: <span id="selected1">When selected, this should be yellow text on a red background.</span></li>
+		<li>Example 2: <span id="selected2">When selected, this should be pink text on a lime background.</span></li>
+	</ul>
+	<h2>Lists</h2>
+	<p>Images for bullet points.</p>
+	<h2>Cursors</h2>
+	<p>Custom images for pointers.</p>
+	<h2>HyperLinks</h2>
+	<p>Styling for hover, focus, active, visited.</p>
+	<h2>Forms</h2>
+	<h2>Other</h2>
+	<p>Rounded corners, text-shadow, drop-shadow, tansparency, first-letter, first-line, border images, animation with multiple background images, small caps, letter spacing, word spacing, text shadow, text-decoration-style, transforms (rotate, skew, etc.), columns, 3D transforms.</p>
+
+@*			<dt>Hyperlinks</dt>
+		<dd>
+			<ul>
+				<li>Unvisited Style (the default colour)</li>
+				<li>Visited Style</li>
+				<li>Hover/Focus Style (hover is diplayed when the mouse is moved over, focus is displayed when you use the tab button to select the link)</li>
+				<li>Active Style (displayed after the link has been clicked)</li>
+			</ul>
+		</dd>
+		<dt>Selected Text Colour</dt>
+		<dd>
+			<p>Need a colour that is displayed when text is selected e.g. use your mouse to select the following examples:</p>
+			<ul>
+				<li><span class="selection1">Example 1</span></li>
+				<li><span class="selection2">Example 2</span></li>
+			</ul>
+			<p>Can change the background colour and/or font colour.</p>
+			<p>Does not work in Internet Explorer or older browsers.</p>
+		</dd>
+
+
+					<li>Unordered Lists
+					<ul>
+						<li>can use images for bullet points</li>
+						<li>or you can use a style - <a href="/Reference/XHTML/ListsUnordered.aspx">click here for more information on ordered lists</a></li>
+						<li>can be nested, with different images/styles for each level of nesting</li>
+					</ul>
+				</li>
+				<li>Ordered Lists
+					<ul>
+						<li><a href="/Reference/XHTML/ListsOrdered.aspx">click here for more information on ordered lists</a></li>
+					</ul>
+				</li>*@
+</article>

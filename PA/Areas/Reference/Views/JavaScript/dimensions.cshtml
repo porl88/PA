@@ -1,0 +1,435 @@
+﻿@{
+	ViewBag.Title = "Dimensions | JavaScript | Reference";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>JavaScript</li>
+		<li>Dimensions</li>
+	</ol>
+}
+
+@section Head {
+	<style>
+		.container {
+			height: 120px;
+			display: flex;
+		}
+
+		.container > div {
+			flex: 0 0 200px;
+		}
+
+		.box {
+			width: 50px;
+			height: 50px;
+			background: red;
+			padding: 5px;
+			border: 2px dotted gray;
+			background-clip: content-box;
+			margin: 20px;
+			overflow: auto;
+		}
+
+			.box > div {
+				height: 173px; /* overflow height */
+				width: 157px; /* overflow width */
+			}
+
+		td:nth-child(2) ~ td::before {
+			content: "No";
+			color: red;
+		}
+
+		tr.content > td:nth-child(3)::before {
+			content: "Yes";
+			color: green;
+		}
+
+		tr.padding > td:nth-child(4)::before {
+			content: "Yes";
+			color: green;
+		}
+
+		tr.border > td:nth-child(5)::before {
+			content: "Yes";
+			color: green;
+		}
+
+		tr.margin > td:nth-child(6)::before {
+			content: "Yes";
+			color: green;
+		}
+
+		.footnotes > dt, .footnotes > dd {
+			padding: 0;
+			margin: 0;
+			display: block;
+		}
+
+		.footnotes > dt {
+			float: left;
+			width: 1rem;
+		}
+
+		.footnotes > dd {
+			margin-left: 1rem;
+			margin-bottom: 0.6rem;
+		}
+	</style>
+}
+
+<article>
+	<h1>JavaScript Dimensions</h1>
+
+	<div class="container">
+		<div>
+			<h2>Box without overflow</h2>
+			<div id="box" class="box">
+			</div>
+		</div>
+		<div>
+			<h2>Box with overflow</h2>
+			<div id="boxOverflow" class="box">
+				<div></div>
+			</div>
+		</div>
+	</div>
+
+	<h2>Box Model</h2>
+
+	<dl>
+		<dt>Content Height</dt>
+		<dd>50px</dd>
+		<dt>Content Height + Padding</dt>
+		<dd>60px</dd>
+		<dt>Content Height + Padding + Border</dt>
+		<dd>64px</dd>
+		<dt>Content Height + Padding + Border + Margin</dt>
+		<dd>104px</dd>
+		<dt>Overflow Height</dt>
+		<dd>173px</dd>
+	</dl>
+
+	<div id="boxModel">
+		<button type="button" name="content">Content</button>
+		<button type="button" name="padding">Padding</button>
+		<button type="button" name="border">Border</button>
+	</div>
+
+	<table>
+		<caption>Box with no overflow</caption>
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Value</th>
+				<th>Content</th>
+				<th>Padding</th>
+				<th>Border</th>
+				<th>Margin</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th colspan="6">
+					JavaScript
+				</th>
+			</tr>
+			<tr>
+				<td><code>getBoundingClientRect().height</code></td>
+				<td id="bcHeight"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>offsetHeight</code></td>
+				<td id="offsetHeight"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>clientHeight</code></td>
+				<td id="clientHeight"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>scrollHeight*</code></td>
+				<td id="scrollHeight"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>getComputedStyle().height</code></td>
+				<td id="computedHeight"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th colspan="6">
+					jQuery
+				</th>
+			</tr>
+			<tr>
+				<td><code>height()</code></td>
+				<td id="jqHeight"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>innerHeight()</code></td>
+				<td id="jqInnerHeight"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>outerHeight()</code></td>
+				<td id="jqOuterHeight"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>outerHeight(true)</code></td>
+				<td id="jqOuterHeightY"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<caption>Box with overflow</caption>
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Value</th>
+				<th>Content</th>
+				<th>Padding</th>
+				<th>Border</th>
+				<th>Margin</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th colspan="6">
+					JavaScript
+				</th>
+			</tr>
+			<tr>
+				<td><code>getBoundingClientRect().height</code></td>
+				<td id="bcHeightX"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>offsetHeight</code></td>
+				<td id="offsetHeightX"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>clientHeight&dagger;</code></td>
+				<td id="clientHeightX"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>scrollHeight*</code></td>
+				<td id="scrollHeightX"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>getComputedStyle().height</code></td>
+				<td id="computedHeightX"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th colspan="6">
+					jQuery
+				</th>
+			</tr>
+			<tr>
+				<td><code>height()</code></td>
+				<td id="jqHeightX"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>innerHeight()</code></td>
+				<td id="jqInnerHeightX"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>outerHeight()</code></td>
+				<td id="jqOuterHeightX"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><code>outerHeight(true)</code></td>
+				<td id="jqOuterHeightYX"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<dl class="footnotes">
+		<dt>*</dt>
+		<dd>These are the values if the content does not overflow. If the content does overflow, then the value returned is the height of the overflow content plus the padding-top value (but not the padding-bottom value).</dd>
+		<dt>&dagger;</dt>
+		<dd>If scrollbars are present, then the value is the content height and padding height minus the height of the horizontal scrollbar.</dd>
+	</dl>
+
+	@*<template id="heightValues">
+		<tr>
+			<td><code></code></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</template>*@
+
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			getDimensions();
+			changeBoxModel();
+		});
+
+		function getDimensions() {
+			var doc = document;
+
+			// BOX WITH NO OVERFLOW
+			var box = doc.getElementById('box');
+
+			getContentModel('bcHeight', box.getBoundingClientRect().height);
+			getContentModel('offsetHeight', box.offsetHeight);
+			getContentModel('clientHeight', box.clientHeight);
+			getContentModel('scrollHeight', box.scrollHeight);
+			getContentModel('computedHeight', getComputedStyle(box, null).height);
+			getContentModel('jqHeight', $(box).height());
+			getContentModel('jqInnerHeight', $(box).innerHeight());
+			getContentModel('jqOuterHeight', $(box).outerHeight());
+			getContentModel('jqOuterHeightY', $(box).outerHeight(true));
+
+			// BOX WITH OVERFLOW
+			var boxOverflow = doc.getElementById('boxOverflow');
+
+			getContentModel('bcHeightX', boxOverflow.getBoundingClientRect().height);
+			getContentModel('offsetHeightX', boxOverflow.offsetHeight);
+			getContentModel('clientHeightX', boxOverflow.clientHeight);
+			getContentModel('scrollHeightX', boxOverflow.scrollHeight);
+			getContentModel('computedHeightX', getComputedStyle(box, null).height);
+			getContentModel('jqHeightX', $(boxOverflow).height());
+			getContentModel('jqInnerHeightX', $(boxOverflow).innerHeight());
+			getContentModel('jqOuterHeightX', $(boxOverflow).outerHeight());
+			getContentModel('jqOuterHeightYX', $(boxOverflow).outerHeight(true));
+		}
+
+		function changeBoxModel() {
+			var doc = document;
+			var modelContainer = doc.getElementById('boxModel');
+			modelContainer.addEventListener('click', function (e) {
+				var doc = document;
+				var el = e.target;
+				if (el.nodeName !== 'BUTTON') return;
+
+				var name = el.getAttribute('name');
+
+				if (name) {
+					var k = doc.querySelectorAll('#box, #boxOverflow');
+					for (var i = 0, len = k.length; i < len; i++) {
+						k[i].setAttribute('style', 'box-sizing: ' + name + '-box;');
+					}
+					getDimensions();
+				}
+			});
+		}
+
+		function getContentModel(elementId, height) {
+			var doc = document;
+			var content = 50;
+			var padding = 10;
+			var border = 4;
+			var margin = 40;
+
+			var el = doc.getElementById(elementId);
+			var container = el.parentElement;
+
+			el.textContent = height;
+
+			height = parseInt(height); // removes 'px' from getComputedStyle value
+
+			if (height === content) {
+				container.className = 'content';
+			}
+			else if (height === (content + padding)) {
+				container.className = 'content padding';
+			}
+			else if (height === (content + padding + border)) {
+				container.className = 'content padding border';
+			}
+			else if (height === (content + border)) {
+				container.className = 'content border';
+			}
+			else if (height === (content + padding + border + margin)) {
+				container.className = 'content padding border margin';
+			}
+			else if (height === (content + margin)) {
+				container.className = 'content margin';
+			}
+			else if (height === (content + border + margin)) {
+				container.className = 'content border margin';
+			}
+			else {
+				container.className = '';
+			}
+		}
+
+	</script>
+
+</article>

@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Website Design | Guidelines";
+}
+
+@section Breadcrumb {
+<ol class="breadcrumb">
+	<li>@Html.ActionLink("Home", "index", "home")</li>
+	<li>@Html.ActionLink("Guidelines", "index", "guidelines")</li>
+	<li>Website Design</li>
+</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-guidelines.cshtml")
+}
+
+
+<article>
+
+	<h1>Website Design: designing for desktop, tablets and mobile phones</h1>
+	
+	<h2>Layout</h2>
+	<p>Design to width: use a responsive design</p>
+	<p>A <dfn>responsive design</dfn> adapts to the size of the screen.</p>
+	<p>Design multiple layouts at different widths. The browser automatically selects the layout that best fits the size of the screen.</p>
+	<p>So, for example, a multi-column layout switches to a single-column layout when the screen becomes less than 500px wide.</p>
+	<ul>
+		<li>Design multiple fixed-width layouts for large and medium sized screens - e.g. desktops and tablets, widescreen displays.</li>
+		<li>Use a fluid-width/stretch-to-fit layout for small, single-column screens - e.g. phones.</li>
+	</ul>
+
+	<h3>Recommended widths</h3>
+	<ul>
+		<li>Desktop/tablet: 1000px wide (1024px - c.20px to adjust for the scrollbar)</li>
+		<li>Phone: c.400px wide (for a fluid-width layout designed to stretch from 300px to 500px)</li>
+	</ul>
+	<p>Examples of responsive sites can be found at <a href="http://www.netmagazine.com/features/top-25-responsive-sites-2012" target="_blank">netmagazine.com</a> and <a href="http://www.awwwards.com/don-t-delay-responsive-web-design-now-10-great-examples-of-adaptive-websites.html" target="_blank">awwwards.com</a>.</p>
+
+	<h3>Use PhotoShop (.psd) Images</h3>
+	<p>Create a high quality PhotoShop (.psd) image of your design, with layers for the different elements. In this way, images for icons, etc. can be cropped directly from the design and used in the website. Exact font details can also be lifted from the layers.</p>
+	<p>Create a separate .psd file for each of the most important pages, such as the home page, product details page, etc.</p>
+	<p><a href="">Click here for an example .psd file</a></p>
+
+	<h3>Designs to Avoid</h3>
+	<ul>
+		<li><strong>Anything that adds too much overhead</strong>. Animation and images/video add the most overhead. Be wary of adding too many images, too large images, or adding too much animation. This will make the pages longer to download and slower to use. Many devices have a limited memory (especially tablets). Adding too many images and animation, causes memory usage to build up, which causes the browser to crash.</li>
+		<li><strong>Fixed height designs</strong>. The height varies considerably for different types of tablet/phone. Even with the iPad the height is not fixed, as the menu bar can be toggled.</li>
+		<li><strong>Fluid/stretch-to-fit designs for all but single-column designs</strong>. Fluid designs make it too difficult to control layout and makes design options too limited. Stretching images to fit the screen is also problematic. In order to preserve aspect ratio, it is usually impossible to avoid either having to crop the image or having to leave margins.</li>
+	</ul>
+
+	<h2>Images</h2>
+	<p>As a general rule, use <abbr title="Joint Photographic Networks Group">JPEG</abbr> (.jpg) for photographic images and <abbr title="Portable Network Graphice">PNG</abbr> (.png) for all other images, such as logos, designs, etc.</p>
+	
+	<h4>Maximum Page Sizes</h4>
+	<p>Be careful not to add too many images to your page. Too many images will mean that that page will take too long to download for many users. Remember: the user may be using a low-powered device over a 3G connection.</p>
+	<p>As a general rule, you should try to ensure that your web pages do not exceed the following limits:</p>
+	<ul>
+		<li>Home: 500 Kb</li>
+		<li>Landing: 750 Kb</li>
+		<li>Content: 1 Mb</li>
+	</ul>
+
+
+	<h3>Icons</h3>
+	<p>A <dfn>favicon</dfn> is the small image used in the browser tab. In order to create a favicon, you need to:</p>
+	<ol>
+		<li>create a 16 x 16 pixel bitmap image (.bmp)</li>
+		<li>change the extension from .bmp to .ico</li>
+	</ol>
+
+	<h3>App Icons</h3>
+	<p>An <dfn>app icon</dfn>, is the image users can add to the home screens of mobile devices, such as iPhones, iPads, etc. When tapped, they start an app. In order to create app icons you need to create:</p>
+	<h4>iPhone / iPod Touch</h4>
+	<ol>
+		<li>57 x 57 pixel PNG (.png) image</li>
+		<li>114 x 114 pixel PNG (.png) image (for high resolution screens)</li>
+	</ol>
+	<h4>iPad</h4>
+	<ol>
+		<li>72 x 72 pixel PNG (.png) image</li>
+		<li>144 x 144 pixel PNG (.png) image (for high resolution screens)</li>
+	</ol>
+	<p>There is no need to add rounded corners, drop shadows, etc. as these are automatically added.</p>
+	<p><a href="http://developer.apple.com/library/ios/#documentation/userexperience/conceptual/mobilehig/IconsImages/IconsImages.html" target="_blank">More information on Apple App Icons can be found here</a>.</p>
+
+	<h2>Fonts</h2>
+	<p>When choosing fonts, you need to check that:</p>
+	<ul>
+		<li>You are using fonts that can be used on a website. There are some restrictions on what fonts you can use.</li>
+		<li>The fonts display properly on a web page. Many fonts that work on a printed page do not look good on a screen. You will need to test fonts at different sizes on a web page.</li>
+	</ul>
+	<p>@Html.ActionLink("Click here to go to the Fonts page for more information about fonts", "fonts").</p>
+
+	<h2>Accessibility</h2>
+	<p>Accessibility is about making sure all users on all devices can use your website. Here are some guidelines:</p>
+	<ul>
+		<li>use high contrast with text/background colours - e.g. black text on a white background or white text on a black background - avoid adding text over background images</li>
+		<li>for touch devices, make sure all clickable links/buttons are thumbnail sized</li>
+	</ul>
+
+
+@*	
+	Landscape / Portrait
+	20px for scrollbars
+	touch-friendly - thumb-sized
+
+*@
+</article>

@@ -1,0 +1,202 @@
+﻿/***********************************************************************************************************************************************/
+/* SETS/RESETS ALL THE DEFAULT STYLING FOR THE SITE */
+/***********************************************************************************************************************************************/
+
+/* BLOCK-LEVEL TAGS */
+html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, table, th, td, form, fieldset, blockquote, iframe, pre, object, embed, figure {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 1em;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* INLINE TAGS*/
+address {
+    font: inherit;
+    font-size: 1em;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    color: #000;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    /*word-break: break-all;
+    overflow-wrap: break-word;*/
+    font-size-adjust: 0.545;
+}
+
+p {
+    hyphens: auto;
+}
+
+img {
+    border: 0;
+    text-align: center;
+}
+
+
+/* LINKS		========================================================================================================================*/
+/*
+ORDER:
+1. a:link - link must have an href for this to work
+2. a:visited
+3. a:focus
+4. a:hover
+5. a:active
+*/
+
+a, input[type="image"] {
+    text-decoration: underline;
+}
+
+    a:focus, a:hover, a:active, input[type="image"]:focus, input[type="image"]:hover {
+        text-decoration: none;
+    }
+
+    a:active {
+        cursor: wait;
+    }
+
+
+/* LISTS		========================================================================================================================*/
+ul, ol {
+    list-style: none;
+}
+
+
+/* FORMS		========================================================================================================================*/
+label[for] {
+    cursor: pointer;
+}
+
+input, textarea, select {
+    font: inherit;
+    font-size: inherit;
+    box-sizing: border-box;
+    border: 1px solid #808080;
+}
+
+button {
+    font: inherit;
+    font-size: inherit;
+}
+
+input[type="submit"], input[type="reset"], button {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* removes the extra padding and border on buttons and input tags for Firefox browsers - http://css-tricks.com/forums/topic/button-padding-issue/ */
+button::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="reset"]::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+/* TABLES		========================================================================================================================*/
+table {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    table-layout: auto;
+}
+
+td, th {
+    border: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    vertical-align: top;
+}
+
+caption {
+    caption-side: top;
+}
+
+/* sup & sub - stops them affecting the line-height */
+sup {
+    position: relative;
+    bottom: 0.5em;
+    vertical-align: baseline;
+}
+
+sub {
+    position: relative;
+    top: 0.5em;
+    vertical-align: baseline;
+}
+
+abbr {
+    border: none;
+    speak: spell-out;
+}
+
+p > abbr[title], li > abbr[title] {
+    border-bottom: 1px dotted #333;
+}
+
+
+
+/* definition - marks the first occurrence of a term */
+dfn::before {
+    content: open-quote;
+}
+
+dfn::after {
+    content: close-quote;
+}
+
+/* pre-formatted text */
+pre {
+    background-color: #FFFFEE;
+    border: 1px dotted #CCCC99;
+    color: #000;
+    font-size: 1em;
+    overflow: auto;
+    margin: 1em 0;
+    padding: 0.5em;
+    word-wrap: normal;
+    resize: horizontal;
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+    pre > code {
+        font-weight: normal;
+    }
+
+/* sample text */
+samp {
+    font-size: 1.3em;
+}
+
+/* programming code - inline */
+code {
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/* used to signify that the indicated text is to be typed by the user on the keyboard */
+kbd {
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+
+    kbd:before, kbd:after {
+        content: "'";
+    }

@@ -1,0 +1,498 @@
+﻿@{
+	ViewBag.Title = "Formatting | ASPX | Reference";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>ASPX</li>
+		<li>Formatting</li>
+	</ol>
+}
+
+<article>
+	<h1>Date/Time Formatting with the DateTimeFormatInfo Class</h1>
+
+	<table>
+		<caption>Standard Patterns</caption>
+		<thead>
+			<tr>
+				<th>Format Character
+				</th>
+				<th>Description
+				</th>
+				<th>Example
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>d
+				</td>
+				<td>ShortDatePattern
+				</td>
+				<td>
+					@DateTime.Now.ToString("d")
+				</td>
+			</tr>
+			<tr>
+				<td>D
+				</td>
+				<td>LongDatePattern
+				</td>
+				<td>
+					@DateTime.Now.ToString("D")
+				</td>
+			</tr>
+			<tr>
+				<td>f
+				</td>
+				<td>Full date and time (long date and short time)
+				</td>
+				<td>
+					@DateTime.Now.ToString("f")
+				</td>
+			</tr>
+			<tr>
+				<td>F
+				</td>
+				<td>FullDateTimePattern (long date and long time)
+				</td>
+				<td>
+					@DateTime.Now.ToString("F")
+				</td>
+			</tr>
+			<tr>
+				<td>g
+				</td>
+				<td>General (short date and short time)
+				</td>
+				<td>
+					@DateTime.Now.ToString("g")
+				</td>
+			</tr>
+			<tr>
+				<td>G
+				</td>
+				<td>General (short date and long time)
+				</td>
+				<td>
+					@DateTime.Now.ToString("G")
+				</td>
+			</tr>
+			<tr>
+				<td>m, M
+				</td>
+				<td>MonthDayPattern
+				</td>
+				<td>
+					@DateTime.Now.ToString("M")
+				</td>
+			</tr>
+			<tr>
+				<td>r, R
+				</td>
+				<td>RFC 822 / RFC 1123 Pattern
+				</td>
+				<td>
+					@DateTime.Now.ToString("R")
+				</td>
+			</tr>
+			<tr>
+				<td>s
+				</td>
+				<td>SortableDateTimePattern (based on ISO 8601) using local time
+				</td>
+				<td>
+					@DateTime.Now.ToString("s")
+				</td>
+			</tr>
+			<tr>
+				<td>t
+				</td>
+				<td>ShortTimePattern
+				</td>
+				<td>
+					@DateTime.Now.ToString("t")
+				</td>
+			</tr>
+			<tr>
+				<td>T
+				</td>
+				<td>LongTimePattern
+				</td>
+				<td>
+					@DateTime.Now.ToString("T")
+				</td>
+			</tr>
+			<tr>
+				<td>u
+				</td>
+				<td>UniversalSortableDateTimePattern using the format for universal time display
+				</td>
+				<td>
+					@DateTime.Now.ToString("u")
+				</td>
+			</tr>
+			<tr>
+				<td>U
+				</td>
+				<td>Full date and time (long date and long time) using universal time
+				</td>
+				<td>
+					@DateTime.Now.ToString("U")
+				</td>
+			</tr>
+			<tr>
+				<td>y, Y
+				</td>
+				<td>YearMonthPattern
+				</td>
+				<td>
+					@DateTime.Now.ToString("Y")
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<caption>Customised Patterns</caption>
+		<thead>
+			<tr>
+				<th>Format Pattern
+				</th>
+				<th>Description
+				</th>
+				<th>Example
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>d
+				</td>
+				<td>The day of the month. Single-digit days will not have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("d ")
+				</td>
+			</tr>
+			<tr>
+				<td>dd
+				</td>
+				<td>The day of the month. Single-digit days will have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("dd ")
+				</td>
+			</tr>
+			<tr>
+				<td>ddd
+				</td>
+				<td>The abbreviated name of the day of the week.
+				</td>
+				<td>
+					@DateTime.Now.ToString("ddd ")
+				</td>
+			</tr>
+			<tr>
+				<td>dddd
+				</td>
+				<td>The full name of the day of the week.
+				</td>
+				<td>
+					@DateTime.Now.ToString("dddd ")
+				</td>
+			</tr>
+			<tr>
+				<td>M
+				</td>
+				<td>The numeric month. Single-digit months will not have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("M ")
+				</td>
+			</tr>
+			<tr>
+				<td>MM
+				</td>
+				<td>The numeric month. Single-digit months will have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("MM ")
+				</td>
+			</tr>
+			<tr>
+				<td>MMM
+				</td>
+				<td>The abbreviated name of the month.
+				</td>
+				<td>
+					@DateTime.Now.ToString("MMM ")
+				</td>
+			</tr>
+			<tr>
+				<td>MMMM
+				</td>
+				<td>The full name of the month.
+				</td>
+				<td>
+					@DateTime.Now.ToString("MMMM ")
+				</td>
+			</tr>
+			<tr>
+				<td>y
+				</td>
+				<td>The year without the century. If the year without the century is less than 10, the year is displayed with no leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("y ")
+				</td>
+			</tr>
+			<tr>
+				<td>yy
+				</td>
+				<td>The year without the century. If the year without the century is less than 10, the year is displayed with a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("yy ")
+				</td>
+			</tr>
+			<tr>
+				<td>yyyy
+				</td>
+				<td>The year in four digits, including the century.
+				</td>
+				<td>
+					@DateTime.Now.ToString("yyyy ")
+				</td>
+			</tr>
+			<tr>
+				<td>gg
+				</td>
+				<td>The period or era. This pattern is ignored if the date to be formatted does not have an associated period or era string.
+				</td>
+				<td>
+					@DateTime.Now.ToString("gg ")
+				</td>
+			</tr>
+			<tr>
+				<td>h
+				</td>
+				<td>The hour in a 12-hour clock. Single-digit hours will not have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("h ")
+				</td>
+			</tr>
+			<tr>
+				<td>hh
+				</td>
+				<td>The hour in a 12-hour clock. Single-digit hours will have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("hh ")
+				</td>
+			</tr>
+			<tr>
+				<td>H
+				</td>
+				<td>The hour in a 24-hour clock. Single-digit hours will not have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("H ")
+				</td>
+			</tr>
+			<tr>
+				<td>HH
+				</td>
+				<td>The hour in a 24-hour clock. Single-digit hours will have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("HH ")
+				</td>
+			</tr>
+			<tr>
+				<td>m
+				</td>
+				<td>The minute. Single-digit minutes will not have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("m ")
+				</td>
+			</tr>
+			<tr>
+				<td>mm
+				</td>
+				<td>The minute. Single-digit minutes will have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("mm ")
+				</td>
+			</tr>
+			<tr>
+				<td>s
+				</td>
+				<td>The second. Single-digit seconds will not have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("s ")
+				</td>
+			</tr>
+			<tr>
+				<td>ss
+				</td>
+				<td>The second. Single-digit seconds will have a leading zero.
+				</td>
+				<td>
+					@DateTime.Now.ToString("ss ")
+				</td>
+			</tr>
+			<tr>
+				<td>f
+				</td>
+				<td>The fraction of a second in single-digit precision. The remaining digits are truncated.
+				</td>
+				<td>
+					@DateTime.Now.ToString("f ")
+				</td>
+			</tr>
+			<tr>
+				<td>ff
+				</td>
+				<td>The fraction of a second in double-digit precision. The remaining digits are truncated.
+				</td>
+				<td>
+					@DateTime.Now.ToString("ff ")
+				</td>
+			</tr>
+			<tr>
+				<td>fff
+				</td>
+				<td>The fraction of a second in three-digit precision. The remaining digits are truncated.
+				</td>
+				<td>
+					@DateTime.Now.ToString("fff ")
+				</td>
+			</tr>
+			<tr>
+				<td>ffff
+				</td>
+				<td>The fraction of a second in four-digit precision. The remaining digits are truncated.
+				</td>
+				<td>
+					@DateTime.Now.ToString("ffff ")
+				</td>
+			</tr>
+			<tr>
+				<td>fffff
+				</td>
+				<td>The fraction of a second in five-digit precision. The remaining digits are truncated.
+				</td>
+				<td>
+					@DateTime.Now.ToString("fffff ")
+				</td>
+			</tr>
+			<tr>
+				<td>ffffff
+				</td>
+				<td>The fraction of a second in six-digit precision. The remaining digits are truncated.
+				</td>
+				<td>
+					@DateTime.Now.ToString("ffffff ")
+				</td>
+			</tr>
+			<tr>
+				<td>fffffff
+				</td>
+				<td>The fraction of a second in seven-digit precision. The remaining digits are truncated.
+				</td>
+				<td>
+					@DateTime.Now.ToString("fffffff ")
+				</td>
+			</tr>
+			<tr>
+				<td>t
+				</td>
+				<td>The first character in the AM/PM designator, if any.
+				</td>
+				<td>
+					@DateTime.Now.ToString("t ")
+				</td>
+			</tr>
+			<tr>
+				<td>tt
+				</td>
+				<td>The AM/PM designator, if any.
+				</td>
+				<td>
+					@DateTime.Now.ToString("tt ")
+				</td>
+			</tr>
+			<tr>
+				<td>z
+				</td>
+				<td>The time zone offset ("+" or "-" followed by the hour only). Single-digit hours will not have a leading zero. For example, Pacific Standard Time is "-8".
+				</td>
+				<td>
+					@DateTime.Now.ToString("z ")
+				</td>
+			</tr>
+			<tr>
+				<td>zz
+				</td>
+				<td>The time zone offset ("+" or "-" followed by the hour only). Single-digit hours will have a leading zero. For example, Pacific Standard Time is "-08".
+				</td>
+				<td>
+					@DateTime.Now.ToString("zz ")
+				</td>
+			</tr>
+			<tr>
+				<td>zzz
+				</td>
+				<td>The full time zone offset ("+" or "-" followed by the hour and minutes). Single-digit hours and minutes will have leading zeros. For example, Pacific Standard Time is "-08:00".
+				</td>
+				<td>
+					@DateTime.Now.ToString("zzz ")
+				</td>
+			</tr>
+			<tr>
+				<td>:
+				</td>
+				<td>The default time separator.
+				</td>
+				<td>
+					@DateTime.Now.ToString(": ")
+				</td>
+			</tr>
+			<tr>
+				<td>/
+				</td>
+				<td>The default date separator.
+				</td>
+				<td>
+					@DateTime.Now.ToString("/ ")
+				</td>
+			</tr>
+			<tr>
+				<td>% <em>c</em>
+				</td>
+				<td>Where <em>c</em> is a format pattern if used alone. The "%" character can be omitted if the format pattern is combined with literal characters or other format patterns.
+				</td>
+				<td>
+					@DateTime.Now.ToString("% ")
+				</td>
+			</tr>
+			<tr>
+				<td>\ <em>c</em>
+				</td>
+				<td>Where <em>c</em> is any character. Displays the character literally. To display the backslash character, use "\\".
+				</td>
+				<td>
+					@DateTime.Now.ToString(@"\c")
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</article>

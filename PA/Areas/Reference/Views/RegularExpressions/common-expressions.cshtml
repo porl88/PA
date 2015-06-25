@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "Common Expressions | Regular Expressions | Reference";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>Regular Expressions</li>
+		<li>Common Expressions</li>
+	</ol>
+}
+
+
+<article>
+	
+<h1>Common Regular Expressions</h1>
+					
+<h2>Domain Name</h2>
+<p><code>^[a-zA-Z\d]+([\.\-][a-zA-Z\d]+)*(\.[a-zA-Z]{2,3})$</code></p>
+
+<h2>Emails</h2>
+<h3>Full Email Address</h3>
+<p><code>^(?!.{256})[a-zA-Z\d!#\$%&amp;'\*\+\-/=\?\^_`\{\|}~]+(\.[a-zA-Z\d!#\$%&amp;'\*\+\-/=\?\^_`\{\|}~]+)*@@[a-zA-Z\d]+([\.\-][a-zA-Z\d]+)*(\.[a-zA-Z]{2,})$</code></p>
+<ul>
+	<li>the total length cannot exceed 256 characters</li>
+	<li>the local part allows letters, digits and the following special characters: ! # $ % &amp; ' * + - / = ? ^ _ ` { | } ~</li>
+	<li>the domain part allows only letters, digits, full stops (.) and hyphens (-)</li>
+</ul>
+
+<h3>Simplified Email Address</h3>
+<p><code>^[\w'\-]+(\.[\w'\-]+)*@@[a-zA-Z\d]+([\.\-][a-zA-Z\d]+)*(\.[a-zA-Z]{2,3})$</code></p>
+<ul>
+	<li>does not check maximum length</li>
+	<li>the local part allows letters, digits and the following special characters: '-_</li>
+	<li>the domain part allows only letters, digits, full stops (.) and hyphens (-)</li>
+</ul>
+
+
+<h2>URLs</h2>
+<h3>Domain Name Only</h3>
+<p>e.g. http://www.domainname.com/</p>
+<p><code>^(https?://|www\.)[a-zA-Z\d]+([\.\-][a-zA-Z\d]+)*(\.[a-zA-Z]{2,})/?$</code></p>
+<h3>Full Path and Query String</h3>
+<p>e.g. http://www.domainname.com/directoryname/filename.aspx?a=333</p>
+<p><code>^(https?://|www\.)[a-zA-Z\d]+([\.\-][a-zA-Z\d]+)*(\.[a-zA-Z]{2,})(/[^&lt;>:"/\\|\?\*]+)*/?(\?.+)?$</code></p>
+<ul>
+	<li>allows any character to be added to the query string - this part needs to be UrlEncoded</li>
+</ul>
+
+<h2>UK Post Codes</h2>
+<p><code>^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$</code></p>
+<ul>
+	<li>allows for 1 or no spaces between the two parts</li>
+	<li>case sensitive - should be in upper case</li>
+</ul>
+
+<h2>Phone Numbers</h2>
+<p><code>^\+?[\d \-\(\)]{7,20}$</code></p>
+<ul>
+	<li>allows for phone numbers with spaces the following special characters: +-() - e.g. +44 20 8888 8888, (020) 8888 8888, 02088888888, 020 8888-8888</li>
+</ul>
+
+<h2>ISBN</h2>
+<h3>ISBN-10</h3>
+<p><code>^(?=.{13})(?!.{14})\d{1,5}-\d{1,8}-\d{1,8}-[\dxX]$</code></p>
+<h3>ISBN-13</h3>
+<p><code>^(?=.{17})(?!.{18})\d{3}-\d{1,5}-\d{1,8}-\d{1,8}-\d$</code></p>
+
+<h2>Names</h2>
+<p><code>^[A-Z][a-zA-Z \-\']*[a-z]$</code></p>
+<ul>
+	<li>allows for names with the following special characters: '-</li>
+	<li>must be at least 2 letters long, and begin and end with a letter</li>
+	<li>case sensitive</li>
+</ul>
+
+<h2>XML</h2>
+<p><code>(&lt;(?'el'[a-z]{1,10})( (xml:)?[a-zA-Z]{2,15}=&quot;[^&lt;&gt;&quot;]*&quot;)*&gt;[^&lt;]*&lt;/\k'el'&gt;)|(&lt;[a-zA-Z]{1,10}( (xml:)?[a-zA-Z]{2,15}=&quot;[^&lt;&gt;&quot;]*&quot;)* ?/&gt;)</code></p>
+
+<h2>XHTML</h2>
+<p><code>(&lt;(?'el'[a-z]{1,10})( (xml:)?[a-z]{2,15}=&quot;[^&lt;&gt;&quot;]*&quot;)*&gt;[^&lt;]*&lt;/\k'el'&gt;)|(&lt;[a-z]{1,10}( (xml:)?[a-z]{2,15}=&quot;[^&lt;&gt;&quot;]*&quot;)* ?/&gt;)</code></p>
+@*<p><code>(&lt;(?'el'a|abbr|acronmym|address|b|bdo|big|blockquote|body|br|button|caption|cite|code|col|colgroup|dd|del|div|dfn|dl|dt|em|fieldset|form|frameset|h1|h2|h3|h4|h5|h6|head|html|i|iframe|ins|kbd|label|legend|li|map|noframes|noscript|object|ol|optgroup|option|p|pre|q|samp|script|select|small|span|strong|style|sub|sup|table|tbody|td|textarea|tfoot|th|thead|title|tr|tt|ul|var)( (class|id|style|title|dir|lang|xml:lang|accesskey|tabindex|onload|onunload|onblur|onchange|onfocus|onreset|onselect|onsubmit|onabort|onkeydown|onkeypress|onkeyup|onclick|ondblclick|onmousedown|onmousemove|onmouseout|onmouseover|onmouseup|abbr|action|accept|accept-charset|align|alt|archive|axis|border|cellpadding|cellspacing|char|charoff|charset|checked|cite|classid|codebase|codetype|cols|colspan|content|coords|data|datetime|declare|defer|disabled|enctype|for|frame|headers|height|href|hreflang|http-equiv|label|longdesc|maxlength|media|multiple|name|nohref|profile|readonly|rel|rev|rows|rowspan|rules|scope|selected|scheme|shape|size|span|src|summary|target|type|usemap|valign|value|valuetype|width|xmlns|)=&quot;[^&lt;&gt;&quot;]*&quot;)*&gt;[^&lt;]*&lt;/\k'el'&gt;)|(&lt;(area|base|br|col|frame|hr|img|input|link|meta|param)( (class|id|style|title|dir|lang|xml:lang|accesskey|tabindex|onload|onunload|onblur|onchange|onfocus|onreset|onselect|onsubmit|onabort|onkeydown|onkeypress|onkeyup|onclick|ondblclick|onmousedown|onmousemove|onmouseout|onmouseover|onmouseup|abbr|action|accept|accept-charset|align|alt|archive|axis|border|cellpadding|cellspacing|char|charoff|charset|checked|cite|classid|codebase|codetype|cols|colspan|content|coords|data|datetime|declare|defer|disabled|enctype|for|frame|headers|height|href|hreflang|http-equiv|label|longdesc|maxlength|media|multiple|name|nohref|profile|readonly|rel|rev|rows|rowspan|rules|scope|selected|scheme|shape|size|span|src|summary|target|type|usemap|valign|value|valuetype|width|xmlns|)=&quot;[^&lt;&gt;&quot;]*&quot;)* ?/&gt;)</code></p>*@
+@*<ul>
+	<li>must be valid XHTML – i.e. lower case, closed tags</li>
+	<li>does not allow for extraneous extra spaces</li>
+	<li>attributes must use double quotes</li>
+	<li>allows for any text within double quotes – does not allow new line characters</li>
+	<li>does not allow empty double quotes</li>
+	<li>searches for self-closing and tags separate closing tags</li>
+	<li>the element in the opening and closing tags must be the same (uses \1 backreference to the first section enclosed in brackets)</li>
+</ul>*@
+<h2>Passwords</h2>
+<h3>'Medium' Strength Password</h3>
+<p><code>^(?=(.*[a-z]){2})(?=(.*[A-Z\d\W_]){2})\S{8,30}$</code></p>
+<ul>
+	<li>enforces a 'medium' strength password</li>
+	<li>must be at least 8 characters long</li>
+	<li>must contain at least 2 lower case letters</li>
+	<li>must also contain at least 2 of ANY combination of the following: uppercase characters OR digits OR special characters (e.g. ~$%#)</li>
+	<li>cannot contain spaces</li>
+</ul>
+<h3>'Strong' Strength Password</h3>
+<p><code>^(?=.*[a-z])(?=.*[A-Z])(?=(.*\d))\S{8,30}$</code></p>
+<ul>
+	<li>enforces a 'strong' strength password</li>
+	<li>must be at least 8 characters long</li>
+	<li>must contain at least 1 of EACH the following characters: lowercase characters AND uppercase characters AND digits</li>
+	<li>cannot contain spaces</li>
+</ul>
+<h3>'Best' Strength Password</h3>
+<p><code>^(?=.*[a-z])(?=.*[A-Z])(?=(.*\d))(?=.*[\W_])\S{14,30}$</code></p>
+<ul>
+	<li>enforces a 'best' strength password</li>
+	<li>must be at least 14 characters long</li>
+	<li>must contain at least 1 of EACH the following characters: lowercase characters AND uppercase characters AND digits AND special characters (e.g. ~$%#)</li>
+	<li>cannot contain spaces</li>
+</ul>
+</article>

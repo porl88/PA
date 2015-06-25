@@ -1,0 +1,329 @@
+﻿/* alert messages *********************************************************************************************/
+.alert {
+    background-color: #FFFACD;
+    border: 2px solid #CC0000;
+    border-width: 0.125rem;
+    color: #000;
+    padding: 1em;
+    padding: 1rem;
+    margin: 1em 0;
+    margin: 1rem 0;
+}
+
+    .alert > h4 {
+        margin-bottom: 0.8em;
+        margin-bottom: 0.8rem;
+        font-weight: bold;
+    }
+
+    .alert > p {
+        margin-top: 0.8em;
+        margin-top: 0.8rem;
+        margin-bottom: 0 !important;
+    }
+
+        .alert > p:first-child {
+            margin-top: 0;
+        }
+
+
+    /* error alerts - shown when something has failed - e.g. form validation, 404 error, etc. */
+    .alert.error {
+        background-color: #FFEEEE;
+        border: 2px solid #CC0000;
+        border-width: 0.125rem;
+    }
+
+
+/* Pager ********************************************************************************************************/
+
+.pageFooter {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-left: -320px;
+    margin-left: -20rem;
+    width: 640px;
+    width: 40rem;
+    padding: 20px 0;
+    padding: 1.25rem 0;
+    background-color: #FFF;
+}
+
+    .pageFooter > div {
+        border-top: 1px solid #CCC;
+        border-top-width: 0.063rem;
+    }
+
+.pager {
+    font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    color: #878787;
+    display: table;
+    table-layout: fixed;
+    margin: 0 auto;
+}
+
+    .pager > li {
+        display: table-cell;
+        text-decoration: none;
+        padding: 5px 10px;
+        padding: 0.313rem 0.625rem;
+    }
+
+        .pager > li.selected {
+            background-color: #000;
+            color: #FFF;
+        }
+
+
+/* Yes/No Options ********************************************************************************************************/
+
+.radio {
+    width: 100%;
+    margin: 40px 0;
+    margin: 2.5rem 0;
+}
+
+    .radio.twoCol {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        margin: 40px 0;
+        margin: 2.5rem 0;
+    }
+
+        .radio.twoCol > li {
+            width: 50%;
+            display: table-cell;
+            vertical-align: top;
+        }
+
+    .radio.threeCol {
+        display: block;
+        overflow: hidden;
+    }
+
+        .radio.threeCol li {
+            background: url(/images/portfolio/tht/hep-c-icons-2.png) no-repeat 50% 0;
+            float: left;
+            padding-top: 270px;
+            padding-top: 16.875rem;
+            width: 28%;
+            margin-left: 8%;
+        }
+
+            .radio.threeCol li:first-child {
+                margin-left: 0;
+            }
+
+    .radio.fourCol {
+        display: block;
+        overflow: hidden;
+    }
+
+        .radio.fourCol li {
+            float: left;
+            padding-top: 270px;
+            padding-top: 16.875rem;
+            width: 20%;
+            margin-left: 6.667%;
+        }
+
+            .radio.fourCol li:first-child {
+                margin-left: 0;
+            }
+
+    .radio input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+    }
+
+.ie8 .radio input[type="radio"] {
+    left: -9999px; /* fix for IE 8 */
+}
+
+.ie8 .radio label {
+    padding-top: 4px;
+    padding-top: 0.25rem;
+}
+
+.radio label,
+.radio h2,
+.radio > li p:first-child {
+    line-height: 1.563rem;
+    display: inline-block;
+    height: 25px;
+    height: 1.563rem;
+    background: url(/images/portfolio/tht/checkbox.png) no-repeat 0 -38px;
+    padding-left: 30px;
+    padding-left: 1.875rem;
+    margin-top: 0;
+}
+
+    .radio label.large,
+    .radio h2 {
+        font: 30px/25px "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+        font-size: 1.875rem;
+    }
+
+.ie8 label.large {
+    padding-top: 0;
+}
+
+.radio input[type="radio"]:checked + label {
+    background-position: 0 0;
+}
+
+.ie8 .radio .checked label {
+    background-position: 0 0;
+}
+
+.radio .correct :first-child {
+    background-position: 0 -75px;
+}
+
+.radio .incorrect :first-child {
+    background-position: 0 -114px;
+}
+
+.radio .incorrect p {
+    text-decoration: line-through;
+}
+
+.radio p {
+    padding-left: 30px;
+    padding-left: 1.875rem;
+    margin-top: 20px;
+    margin-top: 1.25rem;
+}
+
+.radio li.right {
+    text-align: right;
+}
+
+    .radio li.right label,
+    .radio li.right h2 {
+        background-position: 107% -38px;
+        background-position: -webkit-calc(100% + 4px) -38px;
+        background-position: -moz-calc(100% + 4px) -38px;
+        background-position: calc(100% + 4px) -38px;
+        padding-left: 0;
+        padding-right: 30px;
+        padding-right: 1.875rem;
+    }
+
+.radio li.incorrect.right h2 {
+    background-position: 107% -115px;
+    background-position: -webkit-calc(100% + 4px) -115px;
+    background-position: -moz-calc(100% + 4px) -115px;
+    background-position: calc(100% + 4px) -115px;
+}
+
+.radio li.right input[type="radio"]:checked + label {
+    background-position: -webkit-calc(100% + 4px) 0;
+    background-position: -moz-calc(100% + 4px) 0;
+    background-position: calc(100% + 4px) 0;
+}
+
+.ie8 .radio li.right.checked label {
+    background-position: 107% 0;
+}
+
+.radio li.right p {
+    padding-left: 0;
+    padding-right: 35px;
+    padding-right: 2.188rem;
+}
+
+
+/* Next Link ********************************************************************************************************/
+.next {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    font: 18px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.125rem;
+    color: #000;
+    text-decoration: none;
+    background: url(/images/portfolio/tht/checkbox.png) no-repeat -webkit-calc(100% + 18px) -147px;
+    background: url(/images/portfolio/tht/checkbox.png) no-repeat -moz-calc(100% + 18px) -147px;
+    background: url(/images/portfolio/tht/checkbox.png) no-repeat calc(100% + 18px) -147px;
+    padding-right: 18px;
+    outline: none;
+}
+
+.ie8 .next {
+    background: url(/images/portfolio/tht/checkbox.png) no-repeat 160% -147px;
+}
+
+.next:focus,
+.next:hover {
+    text-decoration: underline;
+}
+
+
+/* main quiz item *********************************************************************************************/
+.quiz {
+    position: relative;
+    padding-bottom: 50px;
+    padding-bottom: 3.125rem;
+}
+
+.title {
+    font: 45px/50px "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    font-size: 2.813rem;
+    line-height: 3.125rem;
+    letter-spacing: -0.01em;
+    color: #2c2c2b;
+    margin-bottom: 16px;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0;
+}
+
+    .title > span {
+        display: inline;
+        border-bottom: 1px solid #CCC;
+        border-bottom-width: 0.063rem;
+    }
+
+.quiz p {
+    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
+}
+
+.quiz .next {
+    float: right;
+    margin: 30px 0;
+    margin: 1.875rem 0;
+    margin-right: 15%;
+}
+
+    .quiz .next + ul {
+        clear: right;
+    }
+
+.quiz .alert.error {
+    display: none;
+    margin-top: 30px;
+    margin-top: 1.875rem;
+}
+
+/* standard article *********************************************************************************************/
+
+.article p {
+    margin-bottom: 16px;
+    margin-bottom: 1rem;
+}
+
+.article ul {
+    margin: 16px 0;
+    margin: 1rem 0;
+}
+
+.article li {
+    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
+}

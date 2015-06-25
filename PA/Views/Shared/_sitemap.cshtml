@@ -1,0 +1,53 @@
+﻿<ul>
+	<li>@Html.ActionLink("Reference", "index", "reference")
+		<ul>
+			<li>Miscellaneous
+				<ul>
+					<li>@Html.ActionLink("Request Information", "request-information", "reference")</li>
+					<li>@Html.ActionLink("Character Sets", "character-sets", "reference")</li>
+					<li>@Html.ActionLink("Performance", "performance", "reference")</li>
+				</ul>
+			</li>
+			<li>ASPX
+				<ul>
+					<li>@Html.ActionLink("Formatting", "formatting", "aspx", new { area = "reference" }, null)</li>
+					<li>@Html.ActionLink("Arrays", "arrays", "aspx", new { area = "reference" }, null)</li>
+					<li>@Html.ActionLink("Security", "security", "aspx", new { area = "reference" }, null)</li>
+				</ul>
+			</li>
+			<li>CSS
+				<ul>
+					<li>@Html.ActionLink("Layout Engines", "layout-engines", "css", new { area = "reference" }, null)</li>
+					<li>@Html.ActionLink("Browser Support", "browser-support", "css", new { area = "reference" }, null)</li>
+					<li>@Html.ActionLink("Selectors", "selectors", "css", new { area = "reference" }, null)</li>
+				</ul>
+			</li>
+			<li>Regular Expressions
+				<ul>
+					<li>@Html.ActionLink("Regular Expressions", "index", "regularexpressions", new { area = "reference" }, null)</li>
+					<li>@Html.ActionLink("Common Expressions", "common-expressions", "regularexpressions", new { area = "reference" }, null)</li>
+				</ul>
+			</li>
+			<li>SQL
+				<ul>
+					<li>@Html.ActionLink("Data Types", "data-types", "sql", new { area = "reference" }, null)</li>
+					<li>@Html.ActionLink("Performance", "performance", "sql", new { area = "reference" }, null)</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>Guidelines
+		<ul>
+			<li>@Html.ActionLink("Website Design", "website-design", "guidelines")</li>
+			<li>@Html.ActionLink("Fonts", "fonts", "guidelines")</li>
+			<li>@Html.ActionLink("Website Design Tips", "website-design-tips", "guidelines")</li>
+			<li>@Html.ActionLink("Website Checklist", "website-checklist", "guidelines")</li>
+		</ul>
+	</li>
+	<li>Help
+		<ul>
+			<li>@Html.ActionLink("Cookies", "cookies", "help")</li>
+			<li>@Html.ActionLink("JavaScript", "javascript", "help")</li>
+		</ul>
+	</li>
+</ul>

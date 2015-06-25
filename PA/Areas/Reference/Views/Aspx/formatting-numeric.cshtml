@@ -1,0 +1,156 @@
+﻿@{
+	ViewBag.Title = "Formatting | ASPX | Reference";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>ASPX</li>
+		<li>Formatting</li>
+	</ol>
+}
+
+<article>
+	<h1>Numeric Format Strings</h1>
+
+	<table>
+		<caption>Standard Numeric Format Patterns</caption>
+		<thead>
+			<tr>
+				<th>Format Character
+				</th>
+				<th>Description
+				</th>
+				<th>Example
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>G or g</td>
+				<td>General. Switches to exponential notation for small or large numbers. G3 limits precision to 3 digits in <em>total</em> (before + after point).</td>
+				<td>1.2345, "G" = 1.2345<br />
+					0.00001, "G" = 1E-05<br />
+					0.00001, "g" = 1e-05<br />
+					1.2345, "G3" = 1.23<br />
+					12345, "G3" = 1.23E04</td>
+			</tr>
+			<tr>
+				<td>F</td>
+				<td>Fixed point. F2 rounds to 2 decimal places.</td>
+				<td>2345.678, "F2" = 2345.68<br />
+					2345.6, "F2" = 2345.60</td>
+			</tr>
+			<tr>
+				<td>N</td>
+				<td>Fixed point with <em>group separator</em> ("Numeric"). As above, with groupo (1000s) separator (details from format provider).</td>
+				<td>2345.678, "F2" = 2345.68<br />
+					2,345.6, "F2" = 2,345.60</td>
+			</tr>
+			<tr>
+				<td>D</td>
+				<td>Pad with leading zeros. For integral types only. D5 pads left to five digits; does not truncate.</td>
+				<td>123, "D5" = 00123<br />
+					123, "D1" = 123</td>
+			</tr>
+			<tr>
+				<td>E or e</td>
+				<td>Force exponential notation. Six-digit default precision.</td>
+				<td>56789, "E" = 5.678900E+004<br />
+					57689, "e" = 5.678900e+004<br />
+					56789, "E2" = 5.68E+004</td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td>Currency. C with no digit uses default number of D.P. from format provider.</td>
+				<td>1.2, "C" = £1.20<br />
+					1.2, "C4" = £1.2000</td>
+			</tr>
+			<tr>
+				<td>P</td>
+				<td>Percent. Uses symbol and layout from format provider. Decimal places can optionally be overridden.</td>
+				<td>.503, "P" = 50.30%<br />
+					.503, "P0" = 50%</td>
+			</tr>
+			<tr>
+				<td>X or x</td>
+				<td>Hexadecimal. X for uppercase hex digits; x for lowercase hed digits.</td>
+				<td>47, "X" = 2F<br />
+					47, "x" = 2f<br />
+					47, "X4" = 002F</td>
+			</tr>
+			<tr>
+				<td>R</td>
+				<td>Round-trip. For the <code>float</code> and <code>double</code> types, R squeezes out all digits to ensure exact round-tripping.</td>
+				<td>1f / 3f, "R" = 0.333333343</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<caption>Custom Numeric Format Patterns</caption>
+		<thead>
+			<tr>
+				<th>Format Character
+				</th>
+				<th>Description
+				</th>
+				<th>Example
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>#</td>
+				<td>Digit placeholder. Limits digits after D.P.</td>
+				<td>12.345, ".##" = 12.35<br />12.345, ".####" = 12.345</td>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>Zero placeholder. As above, but also pads with zeroos before and after D.P.</td>
+				<td>12.345, ".00" = 12.35<br />12.345, ".0000" = 12.3450<br />99, "000.00" = 099.00</td>
+			</tr>
+			<tr>
+				<td>,</td>
+				<td>Group separator. Symbol comes from <code>NumberFormatInfo</code>.</td>
+				<td>1234, "#,###,###" = 1,234<br />1234, "0,000,000" = 0,001,234</td>
+			</tr>
+			<tr>
+				<td>,</td>
+				<td>Multiplier. If comma is at end or before D.P., it acts as a multiplier - dividing result by 1,000, 1,000,000, etc.</td>
+				<td>1000000, "#," = 1000<br />1000000, "#,," = 1</td>
+			</tr>
+			<tr>
+				<td>%</td>
+				<td>Percent notation. First multiplies by 100 and then substitues percent symbol obtained from <code>NumberFormatInfo</code>.</td>
+				<td>0.6, "00%" = 60%</td>
+			</tr>
+			<tr>
+				<td>E0, e0, E+0, e+0, E-0, e-0</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>\</td>
+				<td>Literal character quote. Use in conjunction wiht an @@ prefix on the string - or use\\</td>
+				<td>50, @@"\#0" = #50</td>
+			</tr>
+			<tr>
+				<td>'xx''xx'</td>
+				<td>Literal string quote.</td>
+				<td>50, "0 '...'" = 50 ...</td>
+			</tr>
+			<tr>
+				<td>;</td>
+				<td>Section separator.</td>
+				<td>15, "#;(#);zero" = 15 (if positive)<br />-5, "#;(#);zero = (5) (if negative)<br />0, "#;(#);zero = zero (if zero)</td>
+			</tr>
+			<tr>
+				<td>Any other char</td>
+				<td>Literal.</td>
+				<td>35.2, "£0 . 00p" = £35 . 20p</td>
+			</tr>
+		</tbody>
+	</table>
+</article>

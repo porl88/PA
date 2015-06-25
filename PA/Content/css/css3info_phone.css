@@ -1,0 +1,150 @@
+﻿/***************************************************************************************************************************************/
+/* /shared/master.cshtml */
+body {
+	font-family: "Lucida Grande", "Trebuchet MS", Arial, sans-serif;
+	font-size: 17px;
+	line-height: 22px;
+}
+
+#page {
+	width: auto;
+}
+
+#header {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 50px;
+	background: #7CC0CF;
+}
+
+#header > .logo {
+	top : 5px;
+	left: 60px;
+	width: 200px;
+	height: 40px;
+	overflow: hidden;
+}
+
+	#header > nav {
+		background: url(/images/css3info/index.png);
+		background-size: cover;
+		width: 40px;
+		height: 40px;
+		left: 5px;
+		bottom: 5px;
+		cursor: pointer;
+	}
+
+	#header > nav > ul {
+		position: fixed;
+		width: 100%;
+		top: 50px;
+		bottom: 0;
+		left: -100%;
+		background-color: #8BC8D4;
+		-webkit-transition: -webkit-transform 0.7s ease-in-out;
+		transition: transform 0.7s ease-in-out;
+		cursor: default;
+	}
+
+#header > nav.open > ul {
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+#header > nav > ul > li {
+	width: auto;
+	float: none;
+	margin-right: 0;
+}
+
+	#header > nav > ul > li > a {
+		border-radius: 0px;
+		height: 90px !important;
+		line-height: 90px;
+	}
+
+		#header > nav > ul > li:last-child {
+			display: none;
+		}
+
+main {
+	padding-top: 58px;
+	padding-bottom: 58px;
+}
+
+#mainContent {
+	display: block;
+}
+
+	#mainContent > div {
+		display: block;
+		width: auto !important;
+		padding: 0 !important;
+		/*overflow: hidden;*/
+		overflow-x: auto;
+	}
+
+		#mainContent > div:last-child {
+			display: none;
+		}
+
+#footer {
+	/*display: none;*/
+	display: block;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 50px;
+	background-color: #8BC8D4;
+}
+
+	#footer > ul > li {
+		line-height: 50px;
+	}
+
+
+/***************************************************************************************************************************************/
+/* /home/index */
+
+#homeContents {
+	-moz-column-count: 1;
+	-webkit-column-count: 1;
+	column-count: 1;
+}
+
+	#homeContents section {
+		margin-bottom: 1.9em;
+	}
+
+
+/***************************************************************************************************************************************/
+/* fixes for Safari: start */
+main {
+	display: block; /* Safari does not recognise main as a block-level element */
+}
+
+#header > nav > ul > li > a {
+	background-image: -webkit-linear-gradient(bottom, #E7FBF8, #7BBFCE);
+}
+
+	#header > nav > ul > li > a:focus, #header > nav > ul > li > a:hover,
+	#header ul.home > li:nth-child(1) > a,
+	#header ul.reference > li:nth-child(2) > a,
+	#header ul.guidelines > li:nth-child(3) > a {
+		background-image: -webkit-linear-gradient(bottom, #D9F3F7, #FFF);
+	}
+
+/* fixes for Safari: end */
+/***************************************************************************************************************************************/
+
+/*table {
+	min-width: 150px;
+}
+
+#mainContent > div {
+	overflow-x: auto;
+}*/

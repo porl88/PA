@@ -1,0 +1,357 @@
+﻿@{
+	ViewBag.Title = "Selectors | CSS | Reference";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>CSS</li>
+		<li>Selectors</li>
+	</ol>
+}
+
+
+<article>
+
+	<h1>CSS Selectors</h1>
+
+	<table>
+		<caption>CSS Selectors</caption>
+		<thead>
+			<tr>
+				<th>Pattern
+				</th>
+				<th>Meaning
+				</th>
+				<th>First defined in CSS level
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>*
+				</td>
+				<td>any element
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E
+				</td>
+				<td>an element of type E
+				</td>
+				<td>1
+				</td>
+			</tr>
+			<tr>
+				<td>E[foo]
+				</td>
+				<td>an E element with a &quot;foo&quot; attribute
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E[foo=&quot;bar&quot;]
+				</td>
+				<td>an E element whose &quot;foo&quot; attribute value is exactly equal to &quot;bar&quot;
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E[foo~=&quot;bar&quot;]
+				</td>
+				<td>an E element whose &quot;foo&quot; attribute value is a list of space-separated
+					values, one of which is exactly equal to &quot;bar&quot;
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E[foo^=&quot;bar&quot;]
+				</td>
+				<td>an E element whose &quot;foo&quot; attribute value begins exactly with the string
+					&quot;bar&quot;
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E[foo$=&quot;bar&quot;]
+				</td>
+				<td>an E element whose &quot;foo&quot; attribute value ends exactly with the string
+					&quot;bar&quot;
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E[foo*=&quot;bar&quot;]
+				</td>
+				<td>an E element whose &quot;foo&quot; attribute value contains the substring &quot;bar&quot;
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E[hreflang|=&quot;en&quot;]
+				</td>
+				<td>an E element whose &quot;hreflang&quot; attribute has a hyphen-separated list of
+					values beginning (from the left) with &quot;en&quot;
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E:root
+				</td>
+				<td>an E element, root of the document
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:nth-child(n)
+				</td>
+				<td>an E element, the n-th child of its parent
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:nth-last-child(n)
+				</td>
+				<td>an E element, the n-th child of its parent, counting from the last one
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:nth-of-type(n)
+				</td>
+				<td>an E element, the n-th sibling of its type
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:nth-last-of-type(n)
+				</td>
+				<td>an E element, the n-th sibling of its type, counting from the last one
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:first-child
+				</td>
+				<td>an E element, first child of its parent
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E:last-child
+				</td>
+				<td>an E element, last child of its parent
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:first-of-type
+				</td>
+				<td>an E element, first sibling of its type
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:last-of-type
+				</td>
+				<td>an E element, last sibling of its type
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:only-child
+				</td>
+				<td>an E element, only child of its parent
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:only-of-type
+				</td>
+				<td>an E element, only sibling of its type
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:empty
+				</td>
+				<td>an E element that has no children (including text nodes)
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:link<br />
+					E:visited
+				</td>
+				<td>an E element being the source anchor of a hyperlink of which the target is not yet
+					visited (:link) or already visited (:visited)
+				</td>
+				<td>1
+				</td>
+			</tr>
+			<tr>
+				<td>E:active<br />
+					E:hover<br />
+					E:focus
+				</td>
+				<td>an E element during certain user actions
+				</td>
+				<td>1 and 2
+				</td>
+			</tr>
+			<tr>
+				<td>E:target
+				</td>
+				<td>an E element being the target of the referring URI
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:lang(fr)
+				</td>
+				<td>an element of type E in language &quot;fr&quot; (the document language specifies
+					how language is determined)
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E:enabled<br />
+					E:disabled
+				</td>
+				<td>a user interface element E which is enabled or disabled
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E:checked
+				</td>
+				<td>a user interface element E which is checked (for instance a radio-button or checkbox)
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E::first-line
+				</td>
+				<td>the first formatted line of an E element
+				</td>
+				<td>1
+				</td>
+			</tr>
+			<tr>
+				<td>E::first-letter
+				</td>
+				<td>the first formatted letter of an E element
+				</td>
+				<td>1
+				</td>
+			</tr>
+			<tr>
+				<td>E::selection
+				</td>
+				<td>the portion of an E element that is currently selected/highlighted by the user
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E::before
+				</td>
+				<td>generated content before an E element
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E::after
+				</td>
+				<td>generated content after an E element
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E.warning
+				</td>
+				<td>an E element whose class is &quot;warning&quot; (the document language specifies
+					how class is determined).
+				</td>
+				<td>1
+				</td>
+			</tr>
+			<tr>
+				<td>E#myid
+				</td>
+				<td>an E element with ID equal to &quot;myid&quot;.
+				</td>
+				<td>1
+				</td>
+			</tr>
+			<tr>
+				<td>E:not(s)
+				</td>
+				<td>an E element that does not match simple selector s
+				</td>
+				<td>3
+				</td>
+			</tr>
+			<tr>
+				<td>E F
+				</td>
+				<td>an F element descendant of an E element
+				</td>
+				<td>1
+				</td>
+			</tr>
+			<tr>
+				<td>E &gt; F
+				</td>
+				<td>an F element child of an E element
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E + F
+				</td>
+				<td>an F element immediately preceded by an E element
+				</td>
+				<td>2
+				</td>
+			</tr>
+			<tr>
+				<td>E ~ F
+				</td>
+				<td>an F element preceded by an E element
+				</td>
+				<td>3
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</article>

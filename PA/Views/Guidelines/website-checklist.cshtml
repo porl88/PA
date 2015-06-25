@@ -1,0 +1,302 @@
+﻿@{
+	ViewBag.Title = "Website Checklist | Guidelines";
+}
+
+@section Head {
+	<style>
+		#checkList input[type="text"] {
+			font-family: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+			padding: 0;
+			margin: 0;
+			border: none;
+			outline: none;
+		}
+	</style>
+}
+
+@section Breadcrumb {
+<ol class="breadcrumb">
+	<li>@Html.ActionLink("Home", "index", "home")</li>
+	<li>@Html.ActionLink("Guidelines", "index", "guidelines")</li>
+	<li>Website Checklist</li>
+</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-guidelines.cshtml")
+}
+
+
+<article id="checkList">
+	<h1>Website Checklist</h1>
+	<h2><input type="text" id="checkListTitle" name="checkListTitle" placeholder="Title" /></h2>
+	<h3>Site</h3>
+	<ul>
+		<li>Error pages
+			<ul>
+				<li><input type="checkbox" id="errorPage" name="errorPage" /><label for="errorPage">Default Error Page</label></li>
+				<li><input type="checkbox" id="error404" name="error404" /><label for="error404">404 Error Page</label></li>
+				<li><input type="checkbox" id="errorLog" name="errorLog" /><label for="errorLog">Error Logging</label></li>
+			</ul>
+		</li>
+		<li>Backwards Compatibility
+			<ul>
+				<li><input type="checkbox" id="browser-unsupported" name="browser-unsupported" /><label for="browser-unsupported">Unsupported Browser Page</label></li>
+				<li><input type="checkbox" id="browserSupport" name="browserSupport" /><label for="browserSupport">Test in Supported Browsers</label></li>
+			</ul>
+		</li>
+		<li>
+			<abbr title="Search Engine Optimisation">SEO</abbr>
+			<ul>
+				<li><input type="checkbox" id="redirects" name="redirects" /><label for="redirects">Redirects - domain (with or without www.), lower case, no trailing slash, unique URLs, ignore static files (images, css, js, etc.), GET requests only, no file extensions</label></li>
+				<li>RouteConfig - use <code>RouteCollection LowerCaseUrls</code> to force all ActionLinks to lower case</li>
+				<li>RouteConfig - ensure unique URLs by using <code>IgnoreRoute</code> to remove multiple URLs pointing to the same page - e.g. /, /home, /home/index</li>
+				<li><input type="checkbox" id="robots" name="robots" /><label for="robots">Robots</label></li>
+				<li><input type="checkbox" id="webmaster" name="webmaster" /><label for="webmaster">Google Webmaster</label></li>
+				<li><input type="checkbox" id="googleSitemap" name="googleSitemap" /><label for="googleSitemap">Google Sitemap</label></li>
+			</ul>
+		</li>
+		<li>JavaScript
+			<ul>
+				<li><input type="checkbox" id="noScript" name="noScript" /><label for="noScript">No Script Message</label></li>
+				<li><input type="checkbox" id="javascriptErrors" name="javascriptErrors" /><label for="javascriptErrors">Check for JavaScript Errors</label></li>
+				<li><input type="checkbox" id="javascriptEnabled" name="javascriptEnabled" /><label for="javascriptEnabled">Test Pages with JavaScript Disabled</label></li>
+			</ul>
+		</li>
+		<li>Cookies
+			<ul>
+				<li><input type="checkbox" id="cookies" name="cookies" /><label for="cookies">Check Cookies are Enabled: Login Page</label></li>
+			</ul>
+		</li>
+		<li>Validation
+			<ul>
+				<li><input type="checkbox" id="validateHtml" name="validateHtml" /><label for="validateHtml">Validate HTML</label></li>
+				<li><input type="checkbox" id="titleTags" name="titleTags" /><label for="titleTags">Check Title Tags</label></li>
+			</ul>
+		</li>
+		<li>Performance
+			<ul>
+				<li><input type="checkbox" id="compress" name="compress" /><label for="compress">Compress JavaScript and CSS files</label></li>
+				<li>web.config settings
+					<ul>
+						<li>compilation/@@debug = false</li>
+						<li>trace/@@enabled = false</li>
+						<li>customErrors/@@mode = RemoteOnly</li>
+						<li>anonymousIdentification/@@enabled = false (enabled for use with Shopping Basket)</li>
+						<li>pages/@@enableSessionState = false</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			Security
+			<ul>
+				<li><input type="checkbox" id="anti-xss" name="anti-xss" /><label for="anti-xss">Use an AntiXSS library</label></li>
+				<li>machine.config settings
+					<ul>
+						<li>system.web/deployment@@retail = true - sets <code>customErrors</code> to on, trace output is disabled, debug is disabled</li>
+					</ul>
+				</li>
+				<li>
+					web.config settings - set to <em>most</em> secure settings by default and override in debug mode
+					<ul>
+						<li><input type="checkbox" id="credentials" name="credentials" /><label for="credentials">encrypt credentials</label></li>
+						<li><input type="checkbox" id="connection-string" name="connection-string" /><label for="connection-string">encrypt connectionStrings</label></li>
+						<li><input type="checkbox" id="membership-password" name="membership-password" /><label for="membership-password">use membership/providers settings to force users to use strong passwords</label></li>
+						<li><input type="checkbox" id="debug" name="debug" /><label for="debug">compilation/@@debug = false</label></li>
+						<li><input type="checkbox" id="custom-errors" name="custom-errors" /><label for="custom-errors">customErrors/@@mode = on</label></li>
+						<li><input type="checkbox" id="forms-cookieless" name="forms-cookieless" /><label for="forms-cookieless">forms/@@cookieless = UseCookies</label></li>
+						<li><input type="checkbox" id="forms-name" name="forms-name" /><label for="forms-name">forms/@@name - use a GUID to create a unique name</label></li>
+						<li><input type="checkbox" id="forms-protection" name="forms-protection" /><label for="forms-protection">forms/@@protection = All</label></li>
+						<li><input type="checkbox" id="forms-ssl" name="forms-ssl" /><label for="forms-ssl">forms/@@requireSSL = true</label></li>
+						<li><input type="checkbox" id="forms-expiration" name="forms-expiration" /><label for="forms-expiration">forms/@@slidingExpiration = false</label></li>
+						<li><input type="checkbox" id="http-cookies" name="http-cookies" /><label for="http-cookies">httpCookies/@@httpOnlyCookies = true</label></li>
+						<li><input type="checkbox" id="membership-retrieval" name="membership-retrieval" /><label for="membership-retrieval">membership/@@enablePasswordRetrieval = false</label></li>
+						<li><input type="checkbox" id="pages-validate" name="pages-validate" /><label for="pages-validate">pages/@@validateRequest = true</label></li>
+						<li><input type="checkbox" id="session-cookies" name="session-cookies" /><label for="session-cookies">sessionState/@@cookieless = UseCookies</label></li>
+						<li><input type="checkbox" id="trace-enabled" name="trace-enabled" /><label for="trace-enabled">trace/@@enabled = false</label></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Accessibility
+			<ul>
+				<li><input type="checkbox" id="sitemap" name="sitemap" /><label for="sitemap">Sitemap</label></li>
+			</ul>
+		</li>
+		<li>Analytics
+			<ul>
+				<li><input type="checkbox" id="googleAnalytics" name="googleAnalytics" /><label for="googleAnalytics">Google Analytics</label></li>
+			</ul>
+		</li>
+		<li>Meta tags
+			<ul>
+				<li>charset</li>
+				<li>keywords</li>
+				<li>description</li>
+				<li>X-UA-Compatible tag for IE</li>
+				<li>viewport for mobile devices</li>
+			</ul>
+		</li>
+		<li>Favicons
+			<ul>
+				<li><input type="checkbox" id="favicon" name="favicon" /><label for="favicon">Favicon</label></li>
+				<li><input type="checkbox" id="appleIcon" name="appleIcon" /><label for="appleIcon">Apple/IOS icons</label></li>
+			</ul>
+		</li>
+	</ul>
+
+	<h3>Page</h3>
+	<ul>
+		<li>HTML
+			<ul>
+				<li>W3C Validator</li>
+				<li>Accessibility</li>
+				<li>Cross-Browser Compatibility - check in all supported browsers</li>
+				<li>Responsive - different screen sizes</li>
+				<li>Broken Links - anchor tags, images, etc.</li>
+				<li>Images - works with no images</li>
+			</ul>
+		</li>
+		<li>SEO
+			<ul>
+				<li>&lt;title&gt; tag</li>
+				<li>one &lt;h1&gt; tag per page</li>
+			</ul>
+		</li>
+		<li>CSS
+			<ul>
+				<li>W3C Validator</li>
+				<li>No stylesheet</li>
+			</ul>
+		</li>
+		<li>JavaScript
+			<ul>
+				<li>Errors</li>
+				<li>Works with JavaScript disabled</li>
+				<li>Cross-Browser Compatibility - check in all supported browsers</li>
+			</ul>
+		</li>
+		<li>Performance
+			<ul>
+				<li>YSlow</li>
+			</ul>
+		</li>
+		<li>Security
+			<ul>
+				<li>Ensure user input is properly encoded when displayed on page - <code>@@Html.Encode()</code>, <code>@@Html.AttributeEncode()</code>, <code>@@Url.Encode()</code>, <code>@@Ajax.JavaScriptStringEncode()</code></li>
+			</ul>
+		</li>
+	</ul>
+	<h3>Form</h3>
+	<ul>
+		<li>Security
+			<ul>
+				<li>Never use GET requests to change data. Use POST, PUT, DELETE, etc. instead.</li>
+				<li>Use a View Model or the <code>[Bind]</code> attribute (whitelist only) to prevent over-posting</li>
+				<li>Use token verification to prevent Cross-Site Request Forgery attacks - <code>[ValidateAntiforgeryToken]</code>, <code>@@Html.AntiForgeryToken</code></li>
+				<li>Validation - <code>required</code>, <code>maxlength</code>, <code>pattern</code></li>
+				<li>Encode all user input displayed on a page: <code>@@Html.Encode()</code>, <code>@@Html.AttributeEncode()</code>, <code>@@Url.Encode()</code>, <code>@@Ajax.JavaScriptStringEncode()</code></li>
+				<li>Require SSL <code>[RequireHttps]</code></li>
+				<li>Use <code>HttpReferrer</code> validation - <code>[IsPostedFromThisSite]</code> custom attribute</li>
+				<li>Redirect URLs - use <code>Url.IsLocal()</code> to endure that the user cannot be redirected to another site.</li>
+				<li>HttpOnly cookies</li>
+			</ul>
+		</li>
+		<li>&lt;label&gt; tags - check <code>id</code> and <code>for</code> values</li>
+		<li><code>autofocus</code></li>
+		<li><code>size</code></li>
+		<li>Prevent Form Resubmitting - disable button using JavaScript when the <code>submit</code> event is fired and use RedirectToAction to redirect to another page on submission</li>
+	</ul>
+
+
+	<h3>Tools</h3>
+	<ul>
+		<li>W3C HTML Validator</li>
+		<li>W3C CSS Validator</li>
+		<li>YSlow (Performance)</li>
+		<li>Network Requests (Broken Links)</li>
+	</ul>
+
+</article>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+	<script>
+
+		$('#checkList').on('change, click', '#checkListAll', checkAll);
+		$('#checkList').on('change, click', 'input[type="checkbox"]:not(#checkListAll)', saveCheckboxValue);
+		$('#checkList').on('input', 'input[type="text"]', saveFieldValue);
+		setCheckboxValues();
+		setFieldValues();
+
+		function saveFieldValue(e) {
+			var el = e.target;
+			if (el.nodeName != 'INPUT') return;
+			localStorage.setItem(el.id, el.value);
+		}
+
+		function saveCheckboxValue(e) {
+			var el = e.target;
+			if (el.nodeName != 'INPUT') return;
+			localStorage.setItem(el.id, el.checked);
+		}
+
+		// sets default settings for checkboxes from values saved in localStorage
+		function setFieldValues() {
+
+			// go through saved values and check/uncheck checkbox items
+			var fieldItems = document.querySelectorAll('#checkList input[type="text"]');
+			if (fieldItems) {
+				for (var i = 0, len = fieldItems.length; i < len; i++) {
+					var fieldItem = fieldItems[i];
+					var savedValue = localStorage.getItem(fieldItem.id);
+					if (savedValue) {
+						fieldItem.value = savedValue;
+					}
+				}
+			}
+		}
+
+		// sets default settings for checkboxes from values saved in localStorage
+		function setCheckboxValues() {
+			// open the checkList if the saved value is set to true
+			var checkListOpen = localStorage.getItem('openCheckList');
+			var isOpen = (checkListOpen === 'true');
+			if (isOpen) opencheckList();
+
+			// go through saved values and check/uncheck checkbox items
+			var checkItems = document.querySelectorAll('#checkList input[type="checkbox"]');
+			if (checkItems) {
+				for (var i = 0, len = checkItems.length; i < len; i++) {
+					var checkedItem = checkItems[i];
+					var savedValue = localStorage.getItem(checkedItem.id);
+					if (savedValue) {
+						var isChecked = (savedValue === 'true');
+						checkedItem.checked = isChecked;
+					}
+				}
+			}
+		}
+
+		function checkAll(selector) {
+			var doc = document;
+			var checkListButton = doc.getElementById('checkListAll');
+			//alert(checkListButton.id);
+			var isChecked = checkListButton.checked;
+			var innerText = isChecked ? 'CLEAR ALL' : 'SELECT ALL';
+			$('label[for="checkListAll"]').text(innerText);
+
+			var checkItems = doc.querySelectorAll('#checkList input[type="checkbox"]');
+			if (checkItems) {
+				for (var i = 0, len = checkItems.length; i < len; i++) {
+					var checkedItem = checkItems[i];
+					checkedItem.checked = isChecked;
+					localStorage.setItem(checkItems[i].id, isChecked);
+				}
+			}
+		}
+
+	</script>

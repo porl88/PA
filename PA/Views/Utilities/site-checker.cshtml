@@ -1,0 +1,50 @@
+﻿@using PA.Services.Crawler.Transfer;
+@model List<PageLinkDto>
+
+@{
+	ViewBag.Title = "Site Checker";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home")</li>
+		<li>@Html.ActionLink("Utilities", "index", "utilities")</li>
+		<li>Site Checker</li>
+	</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-utilities.cshtml")
+}
+
+
+<article>
+	<h1>@ViewBag.Title</h1>
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken();
+		<input type="text" name="url" required="required" />
+		<button>Go</button>
+	}
+
+	@if (Model != null && Model.Count >= 0)
+	{
+		<p>Run time: <output>@ViewBag.StopWatch</output></p>
+		<p>Page count: <output>@ViewBag.PageCount</output></p>
+		<p>Link count: <output>@ViewBag.LinkCount</output></p>
+
+		<table>
+			@foreach (var link in Model)
+			{
+				<tr>
+					<td><a href="@link.PageUrl.AbsoluteUri" target="_blank">@link.PageUrl.AbsoluteUri</a></td>
+					<td><a href="@link.Link.AbsoluteUri" target="_blank">@link.Link.AbsoluteUri</a></td>
+					<td>@link.StatusCode</td>
+					<td>@link.StatusMessage</td>
+					<td>@link.ContentType</td>
+				</tr>
+			}
+		</table>
+	}
+</article>

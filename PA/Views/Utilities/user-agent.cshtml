@@ -1,0 +1,77 @@
+﻿@model ClassLibrary.ClientInfo
+
+@{
+    ViewBag.Title = "User Agent | Utilities";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home")</li>
+		<li>@Html.ActionLink("Utilities", "index", "utilities")</li>
+		<li>User Agent</li>
+	</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-utilities.cshtml")
+}
+
+<article>
+	<h1>Browser User Agent</h1>
+	@using (Html.BeginForm("user-agent", "utilities"))
+	{
+		@Html.AntiForgeryToken()
+
+		<textarea name="userAgent" required="required" autofocus="autofocus" placeholder="Enter a user agent"></textarea>
+
+		<div class="buttonBar">
+			<button>Go</button>
+		</div>
+
+	}
+	<table id="clientInfo">
+		<caption>ClassLibrary.ClientInfo Properties</caption>
+		<tbody>
+			<tr>
+				<td>Browser</td>
+				<td>@Model.Browser</td>
+			</tr>
+			<tr>
+				<td>Browser Version</td>
+				<td>@Model.BrowserVersion</td>
+			</tr>
+			<tr>
+				<td>Browser Major Version</td>
+				<td>@Model.BrowserMajorVersion</td>
+			</tr>
+			<tr>
+				<td>Rendering Engine</td>
+				<td>@Model.RenderingEngine</td>
+			</tr>
+			<tr>
+				<td>Rendering Engine Version</td>
+				<td>@Model.RenderingEngineVersion</td>
+			</tr>
+			<tr>
+				<td>Operating System</td>
+				<td>@Model.OS</td>
+			</tr>
+			<tr>
+				<td>Platform</td>
+				<td>@Model.Platform</td>
+			</tr>
+			<tr>
+				<td>Device</td>
+				<td>@Model.Device</td>
+			</tr>
+			<tr>
+				<td>Device Type</td>
+				<td>@Model.DeviceType</td>
+			</tr>
+			<tr>
+				<td>Is Crawler</td>
+				<td>@Model.IsCrawler</td>
+			</tr>
+		</tbody>
+	</table>
+</article>

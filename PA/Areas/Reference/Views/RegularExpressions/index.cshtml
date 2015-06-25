@@ -1,0 +1,268 @@
+﻿@{
+	ViewBag.Title = "Regular Expressions | Reference";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>Regular Expressions</li>
+	</ol>
+}
+
+<article>
+
+	<h1>Regular Expressions</h1>
+	<h2>.NET System.Text.RegularExpressions</h2>
+
+	<h3>Regular Expression Options</h3>
+	<dl>
+		<dt>IgnoreCase</dt>
+		<dd>Specifies case-insensitive matching.</dd>
+		<dt id="multiline">Multiline</dt>
+		<dd>Specifies multiline mode. Changes the meaning of <code>^</code> and <code>$</code> so that they match at the beginning and end, respectively, of any line, not just the beginning and end of the whole string.</dd>
+	</dl>
+
+	<h3>Anchors</h3>
+	<dl>
+		<dt>^</dt>
+		<dd>The beginning of a string. If in <a href="#multiline">multiline</a> mode: the beginning of a string or the beginning of a line.</dd>
+		<dt>$</dt>
+		<dd>The end of a string. If in <a href="#multiline">multiline</a> mode: the end of a string, before \n at the end of a string, or the end of a line.</dd>
+		<dt>\b</dt>
+		<dd>Word boundary. The first or last characters in words separated by any nonalphanumeric characters (i.e. between <code>\w</code> (alphanumeric) and <code>\W</code> (nonalphanumeric) characters).</dd>
+		<dt>\B</dt>
+		<dd>Not a word boundary.</dd>
+		<dt>\A</dt>
+		<dd>The beginning of a string. Ignores the <a href="#multiline">multiline</a> option.</dd>
+		<dt>\Z</dt>
+		<dd>The end of a string or before <code>\n</code> at the end of the string. Ignores the <a href="#multiline">multiline</a> option.</dd>
+		<dt>\z</dt>
+		<dd>The end of a string. Ignores the <a href="#multiline">multiline</a> option.</dd>
+		<dt>\&lt;</dt>
+		<dd>Start of a word.</dd>
+		<dt>/></dt>
+		<dd>End of a word.</dd>
+		<dt>\G</dt>
+		<dd>Specifies that the match must occur at the point where the previous match ended.</dd>
+	</dl>
+
+	<h3>Character Classes</h3>
+	<dl>
+		<dt>Ordinary Characters (e.g. <code>aA12@@=</code>)</dt>
+		<dd>
+			<p>Characters other than . <code>$ ^ { [ ( | ) * + ? \</code> match themselves i.e. all alphanumeric characters and certain special characters (e.g. <code>@@ - = %</code>). To match non-matching characters (<code>$ ^ { [ ( | ) * + ? \</code>), use a preceding <code>\</code> (e.g. <code>\*</code> matches <code>*</code>).</p>
+			<p>Within squared brackets (<code>[ ]</code>), a hyphen (-) specifies a range of characters (e.g. <code>[0-9]</code>); it specifies a hyphen if placed immediately after the opening [ or immediately before the closing ] or when it is escaped with a backslash (<code>\-</code>).</p>
+			<p>Non-matching characters do not need to be escaped within squared brackets (<code>[ ]</code>) (e.g. <code>[.]</code> will only match full-stops).</p>
+		</dd>
+		<dt>.</dt>
+		<dd>Matches any character except <code>\n</code>.</dd>
+		<dt>[aeiou]</dt>
+		<dd>Matches any single character included in the specified set of characters.</dd>
+		<dt>[^aeiou]</dt>
+		<dd>Matches any single character not in the specified set of characters.</dd>
+		<dt>[0-9a-fA-F]</dt>
+		<dd>Use of a hyphen (–) allows specification of contiguous character ranges.</dd>
+		<dt>\s</dt>
+		<dd>White space. Equivalent to <code>[ \f\n\r\t\v]</code>.</dd>
+		<dt>\S</dt>
+		<dd>Not white space. Equivalent to <code>[^ \f\n\r\t\v]</code>.</dd>
+		<dt>\d</dt>
+		<dd>A digit. Equivalent to <code>[0-9]</code>.</dd>
+		<dt>\D</dt>
+		<dd>Not a digit. Equivalent to <code>[^0-9]</code>.</dd>
+		<dt>\w</dt>
+		<dd>A word character. Equivalent to <code>[a-zA-Z_0-9]</code>.</dd>
+		<dt>\W</dt>
+		<dd>Not a word character. Equivalent to <code>[^a-zA-Z_0-9]</code>.</dd>
+	</dl>
+
+	<h3>Alternation Constructs</h3>
+	<dl>
+		<dt>|</dt>
+		<dd>Matches any one of the terms separated by the | (vertical bar) character (e.g. <code>cat|dog|tiger</code> matches either 'cat' or 'dog' or 'tiger'). The leftmost successful match wins.</dd>
+	</dl>
+
+	<h3>Grouping Constructs</h3>
+	<dl>
+		<dt>( )</dt>
+		<dd>Captures the matched substring. Captures using () are numbered automatically based on the order of the opening parenthesis, starting from one. The first capture, capture element number zero, is the text matched by the whole regular expression pattern.</dd>
+		<dt>(?&lt;name&gt; ) <em>or</em> (?'name' )</dt>
+		<dd>Captures the matched substring into a group name or number name. The string used for name must not contain any punctuation and it cannot begin with a number. You can use single quotes instead of angle brackets (e.g. <code>(?'name')</code>).</dd>
+		<dt>\k&lt;name&gt; <em>or</em> \k'name'</dt>
+		<dd>References a capturing group (e.g. <code>(?&lt;name&gt; )</code> <em>or</em> <code>(?'name' )</code>) within the regular expression iteself. For example, the regular expression that would match a 5 letter palindrome, (e.g. "radar"), would be: <code>(?'a'[a-z])(?'b'[a-z])[a-z]\k'b'\k'a'</code>.</dd>
+		<dt>(?: )</dt>
+		<dd>Noncapturing group.</dd>
+		<dt>(?= )</dt>
+		<dd>Zero-width positive lookahead assertion. Continues match only if the subexpression matches at this position on the right. For example, <code>\w+(?=\d)</code> matches a word followed by a digit, without matching the digit. This construct does not backtrack.</dd>
+		<dt>(?! )</dt>
+		<dd>Zero-width negative lookahead assertion. Continues match only if the subexpression does not match at this position on the right. For example, <code>\b(?!un)\w+\b</code> matches words that do not begin with un.</dd>
+		<dt>(?&lt;= )</dt>
+		<dd>Zero-width positive lookbehind assertion. Continues match only if the subexpression matches at this position on the left. For example, <code>(?&lt;=19)99</code> matches instances of 99 that follow 19. This construct does not backtrack.</dd>
+		<dt>(?&lt;! )</dt>
+		<dd>Zero-width negative lookbehind assertion. Continues match only if the subexpression does not match at the position on the left.</dd>
+		<dt>(?&gt; )</dt>
+		<dd>Nonbacktracking subexpression (also known as a "greedy" subexpression). The subexpression is fully matched once, and then does not participate piecemeal in backtracking. (That is, the subexpression matches only strings that would be matched by the subexpression alone.)</dd>
+	</dl>
+
+<p>The <code>(?=expr)</code> construct checks whether the text that follows matches <code>expr</code>, without
+including <code>expr</code> in the result. This is called positive lookahead. In the following example,
+we look for a number followed by the word "miles":</p>
+<pre><code>Console.WriteLine (Regex.Match ("say 25 miles more", @@"\d+\s(?=miles)"));</code></pre>
+<p>OUTPUT: <samp>25</samp></p>
+<p>Notice the word "miles" was not returned in the result, even though it was required
+to <em>satisfy</em> the match.</p>
+<p>After a successful <em>lookahead</em>, matching continues as though the sneak preview never
+took place. So, if we append <code>.*</code> to our expression as follows:</p>
+<pre><code>Console.WriteLine (Regex.Match ("say 25 miles more", @@"\d+\s(?=miles).*"));</code></pre>
+<p>The result is <samp>25 miles more</samp>.</p>
+<p>Lookahead can be useful in enforcing rules for a strong password. Suppose a password
+has to be at least six characters and contain at least one digit. With a lookup,
+we could achieve this as follows:</p>
+<pre><code>string <var>password</var> = "...";
+bool ok = Regex.IsMatch (<var>password</var>, @@"(?=.*\d).{6,}");</code></pre>
+<p>This first performs a <em>lookahead</em> to ensure that a digit occurs somewhere in the
+string. If satisfied, it returns to its position before the sneak preview began and
+matches six or more characters.</p>
+<p>The opposite is the <dfn>negative lookahead</dfn> construct, <code>(?!expr)</code>. This requires that the
+match not be followed by <code>expr</code>. The following expression matches "good" - unless
+"however" or "but" appears later in the string:</p>
+<pre><code>string <var>regex</var> = "(?i)good(?!.*(however|but))";
+Console.WriteLine (Regex.IsMatch ("Good work! But...", <var>regex</var>)); // False
+Console.WriteLine (Regex.IsMatch ("Good work! Thanks!", <var>regex</var>)); // True</code></pre>
+<p>The <code>(?&lt;=expr)</code> construct denotes <dfn>positive lookbehind</dfn> and requires that a match be
+<em>preceded</em> by a specified expression. The opposite construct, <code>(?&lt;!expr)</code>, denotes <dfn>negative
+lookbehind</dfn> and requires that a match <em>not be preceded</em> by a specified expression.
+For example, the following matches "good" - unless "however" appears earlier in
+the string:</p>
+<pre><code>string <var>regex</var> = "(?i)(?&lt;!however.*)good";
+Console.WriteLine (Regex.IsMatch ("However good, we...", <var>regex</var>)); // False
+Console.WriteLine (Regex.IsMatch ("Very good, thanks!", <var>regex</var>)); // True</code></pre>
+
+	<h3>Substitutions</h3>
+	<p>Used when doing a search-and-replace.</p>
+	<dl>
+		<dt>$number</dt>
+		<dd>Substitutes the last substring matched by group number number (decimal).</dd>
+		<dt>${name}</dt>
+		<dd>Substitutes the last substring matched by a (?&lt;name&gt; ) group.</dd>
+		<dt>$$</dt>
+		<dd>Substitutes a single "$" literal.</dd>
+		<dt>$&amp;</dt>
+		<dd>Substitutes a copy of the entire match itself.</dd>
+		<dt>$`</dt>
+		<dd>Substitutes all the text of the input string before the match.</dd>
+		<dt>$'</dt>
+		<dd>Substitutes all the text of the input string after the match.</dd>
+		<dt>$+</dt>
+		<dd>Substitutes the last group captured.</dd>
+		<dt>$_</dt>
+		<dd>Substitutes the entire input string.</dd>
+	</dl>
+
+	<h3>Non-Printing Characters</h3>
+	<dl>
+		<dt>\t</dt>
+		<dd>A tab.</dd>
+		<dt>\r</dt>
+		<dd>A carriage return.</dd>
+		<dt>\v</dt>
+		<dd>A vertical tab.</dd>
+		<dt>\f</dt>
+		<dd>A form feed.</dd>
+		<dt>\n</dt>
+		<dd>A new line.</dd>
+	</dl>
+	<p><code>\r\n</code> (Carriage Return + Line Feed) is equivalent to the
+		<abbr title="Structured Query Language">SQL</abbr>
+		<code>Char(13) + Char(10)</code> or the Visual Basic <code>vbCrLf</code>.</p>
+
+	<h3>Quantifiers</h3>
+	<dl>
+		<dt>*</dt>
+		<dd>Specifies zero or more matches (e.g. <code>\w*</code> or <code>(abc)*</code>). Equivalent to {0,}.</dd>
+		<dt>+</dt>
+		<dd>Specifies one or more matches (e.g. <code>\w+</code> or <code>(abc)+</code>). Equivalent to {1,}.</dd>
+		<dt>?</dt>
+		<dd>Specifies zero or one matches (e.g. <code>\w?</code> or <code>(abc)?</code>). Equivalent to {0,1}.</dd>
+		<dt>{n}</dt>
+		<dd>Specifies exactly n matches (e.g. <code>(pizza){2}</code>).</dd>
+		<dt>{n,}</dt>
+		<dd>Specifies at least n matches (e.g. <code>(abc){2,}</code>).</dd>
+		<dt>{n,m}</dt>
+		<dd>Specifies at least n, but no more than m, matches.</dd>
+	</dl>
+
+	<h3>Character Categories</h3>
+	<dl>
+		<dt>\p{L}</dt>
+		<dd>Letters</dd>
+		<dt>\p{Lu}</dt>
+		<dd>Uppercase letters</dd>
+		<dt>\p{Ll}</dt>
+		<dd>Lowercase letters</dd>
+		<dt>\p{N}</dt>
+		<dd>Numbers</dd>
+		<dt>\p{P}</dt>
+		<dd>Punctuation</dd>
+		<dt>\p{M}</dt>
+		<dd>Diacritic marks</dd>
+		<dt>\p{S} </dt>
+		<dd>Symbols</dd>
+		<dt>\p{Z}</dt>
+		<dd>Separators</dd>
+		<dt>\p{C}</dt>
+		<dd>Control characters</dd>
+	</dl>
+
+	<h3>Regular Expression Options</h3>
+	<dl>
+		<dt>(?i)</dt>
+		<dd>Case-insensitive match ("ignore" case)</dd>
+		<dt>(?m)</dt>
+		<dd>Multiline mode; changes ^ and $ so that they match beginning and end of any line</dd>
+		<dt>(?n)</dt>
+		<dd>Captures only explicitly named or numbered groups</dd>
+		<dt>(?c)</dt>
+		<dd>Compiles to IL</dd>
+		<dt>(?s)</dt>
+		<dd>Single-line mode; changes meaning of "." so that it matches every character</dd>
+		<dt>(?x)</dt>
+		<dd>Eliminates unescaped whitespace from the pattern</dd>
+		<dt>(?r)</dt>
+		<dd>Searches from right to left; can’t be specified midstream</dd>
+	</dl>
+
+    <h3>Greedy Versus Lazy Quantifiers</h3>
+
+    <p>By default, quantifiers are <dfn>greedy</dfn>, as opposed to <dfn>lazy</dfn>. A greedy quantifier repeats as
+    <em>many</em> times as it can before proceeding. A lazy quantifier repeats as <em>few</em> times as it
+    can before proceeding. You can make any quantifier lazy by suffixing it with the <code>?</code>
+    symbol. To illustrate the difference, consider the following <abbr title="HyperText Markup Language">HTML</abbr> fragment:</p>
+
+    <pre><code>string html = "&lt;i&gt;By default&lt;/i&gt; quantifiers are &lt;i&gt;greedy&lt;/i&gt; creatures";</code></pre>
+
+    <p>Suppose we want to extract the two phrases in italics. If we execute the following:</p>
+
+    <pre><code>foreach (Match m in Regex.Matches (html, @@"&lt;i&gt;.*&lt;/i&gt;"))
+    Console.WriteLine (m);</code></pre>
+
+    <p>the result is not two matches, but a <em>single</em> match, as follows:</p>
+
+    <pre><code>&lt;i&gt;By default&lt;/i&gt; quantifiers are &lt;i&gt;greedy&lt;/i&gt;</code></pre>
+
+    <p>The problem is that our * quantifier greedily repeats as many times as it can before
+    matching &lt;/i&gt;. So, it chomps right through the first &lt;/i&gt;, stopping only at the final
+    &lt;/i&gt; (the <em>last point</em> at which the rest of the expression can still match).&lt;/p&gt;
+    &lt;p&gt;If we make the quantifier lazy:</p>
+
+    <pre><code>foreach (Match m in Regex.Matches (html, @@"&lt;i&gt;.*?&lt;/i&gt;"))
+    Console.WriteLine (m);</code></pre>
+
+    <p>the * bails out at the <em>first</em> point at which the rest of the expression can match. Here’s
+    the result:</p>
+
+    &lt;i&gt;By default&lt;/i&gt;
+    &lt;i&gt;greedy&lt;/i&gt;
+
+</article>

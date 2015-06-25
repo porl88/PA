@@ -1,0 +1,79 @@
+﻿@{
+	var segments = Request.Url.Segments;
+	if (segments.Length > 1) {
+		ViewBag.Section = "nav-" + segments[1].Trim('/').ToLower();
+	}
+	else {
+		ViewBag.Section = "nav-home";
+	}
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-gb" dir="ltr">
+<head>
+	<meta charset="utf-8" />
+	<title>@ViewBag.Title</title>
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
+	@Styles.Render("~/css")
+	<link rel="stylesheet" href="~/content/css/css3info-fonts.css" />
+	<link rel="stylesheet" href="~/content/css/css3info_phone.css" media="screen and (max-width: 500px)" />
+	<link rel="icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="120x120" href="~/images/css3info/icon-iphone.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="~/images/css3info/icon-ipad.png" />
+	
+	<script src="~/scripts/css3info.js" async="async"></script>
+	<style>
+		#page {
+			width: calc(100% - 250px);
+		}
+	</style>
+	@RenderSection("Head", false)
+</head>
+<body>
+
+	<div id="page">
+
+		<header class="hdr" role="banner">
+			<h2 class="hdrLogo"><a href="/" title="Home">Paul</a></h2>
+			<nav class="hdrNav" role="navigation">
+				<ul class="@ViewBag.Section">
+					<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+					<li>@Html.ActionLink("Reference", "index", "reference", new { area = "" }, null)</li>
+					<li>@Html.ActionLink("Utilities", "index", "utilities", new { area = "" }, null)</li>
+					<li>@Html.ActionLink("Guidelines", "index", "guidelines", new { area = "" }, null)</li>
+					<li>@Html.ActionLink("Portfolio", "index", "portfolio", new { area = "" }, new { target = "_blank" })</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main role="main">
+			@RenderSection("Breadcrumb", false)
+			<div id="mainContent">
+				<div>
+					@RenderBody()
+				</div>
+				<div>
+					<nav class="pageNav">
+						@RenderSection("Navigation", false)
+					</nav>
+				</div>
+			</div>
+		</main>
+
+		<footer id="footer" role="contentinfo">
+			<ul>
+				<li>@Html.ActionLink("Sitemap", "sitemap", "home", new { area = "" }, null)</li>
+                <li><a href="#">Top</a></li>
+			</ul>
+		</footer>
+
+	</div>
+
+	@Scripts.Render("~/script")
+	@*@Scripts.Render("~/script-m")*@
+	<script src="~/scripts/m-css3info.js"></script>
+</body>
+</html>
+

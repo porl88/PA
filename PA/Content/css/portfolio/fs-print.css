@@ -1,0 +1,43 @@
+* {
+	background-color: #FFFFFF !important;
+	color: #000000 !important;
+	font-family: "Times New Roman", Times, serif !important;
+	font-size: 12pt !important;
+}
+
+#header, #lBody, #rBody, #footer {
+	display: none !important;
+}
+
+#siteLogo h1 {
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	display: block !important;
+}
+
+a[href] {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a[href]:after {
+	content: " [" attr(href) "]";
+}
+
+#siteInfo {
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	display: block;
+}
+
+#siteInfo * {
+	display: none;
+}
+
+#siteInfo h1, #siteInfo h2 {
+	display: inline;
+}
+
+#siteInfo h1:after {
+	content: ": ";
+}

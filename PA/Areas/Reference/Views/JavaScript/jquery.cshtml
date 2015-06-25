@@ -1,0 +1,1385 @@
+﻿@{
+    ViewBag.Title = "jQuery | JavaScript | Reference";
+}
+
+@section Breadcrumb {
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+        <li>@Html.ActionLink("Reference", "index", "reference")</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+    </ol>
+}
+
+<article class="jquery">
+    <h1>jQuery</h1>
+
+    <h2>jQuery Basics</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>jQuery</th>
+                <th>JavaScript Equivalent</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="3">Arguments to the Main jQuery Function</th>
+            </tr>
+            <tr>
+                <td><code>$(<var>function</var>)</code></td>
+                <td><code>addEventListener('DOMContentLoaded', <var>function</var>)</code></td>
+                <td>Specifies a function to be executed when the DOM is ready.</td>
+            </tr>
+            <tr>
+                <td><code>$(<var>selector</var>)<br />$(<var>selector</var>, <var>context</var>)</code></td>
+                <td><code>querySelectorAll(<var>selector</var>)</code></td>
+                <td>Selects elements from the document.</td>
+            </tr>
+            <tr>
+                <td><code>$(<var>HTMLElement</var>)<br />$(<var>HTMLElement[]</var>)</code></td>
+                <td></td>
+                <td>Creates a jQuery object from an HTMLElement or an array of HTMLElement objects.</td>
+            </tr>
+            <tr>
+                <td><code>$()</code></td>
+                <td></td>
+                <td>Creates an empty selection.</td>
+            </tr>
+            <tr>
+                <td><code>$(<var>HTML</var>)<br />$(<var>HTML</var>, <var>map</var>)</code></td>
+                <td>innerHTML</td>
+                <td>Creates new elements from a fragment of HTML with an optional map object to define attributes.</td>
+            </tr>
+            <tr>
+                <th colspan="3">jQuery Extension Selectors</th>
+            </tr>
+            <tr>
+                <td><code>:animated</code></td>
+                <td></td>
+                <td>Selects all elements that are being animated.</td>
+            </tr>
+            <tr>
+                <td><code>:contains(text)</code></td>
+                <td></td>
+                <td>Selects elements that contain the specified text.</td>
+            </tr>
+            <tr>
+                <td><code>:eq(n)</code></td>
+                <td><code>querySelector(":nth-child(n)")</code></td>
+                <td>Selects the element at the nth index (zero-based).</td>
+            </tr>
+            <tr>
+                <td><code>:even</code></td>
+                <td><code>querySelector(":nth-child(even)")</code></td>
+                <td>Selects all the event-numbered elements (zero-based).</td>
+            </tr>
+            <tr>
+                <td><code>:first</code></td>
+                <td><code>querySelector(":first-child")</code></td>
+                <td>Selects the first matched element.</td>
+            </tr>
+            <tr>
+                <td><code>:gt(n)</code></td>
+                <td></td>
+                <td>Selects all of the elements with an index greater than n (zero-based).</td>
+            </tr>
+            <tr>
+                <td><code>:has(selector)</code></td>
+                <td></td>
+                <td>Selects elements that contain at least one element that matches the specified selector.</td>
+            </tr>
+            <tr>
+                <td><code>:last</code></td>
+                <td><code>querySelector(":last-child")</code></td>
+                <td>Selects the last matched element.</td>
+            </tr>
+            <tr>
+                <td><code>:lt(n)</code></td>
+                <td></td>
+                <td>Selects all of the elements with an index smaller than n (zero-based).</td>
+            </tr>
+            <tr>
+                <td><code>:odd</code></td>
+                <td><code>querySelector(":nth-child(odd)")</code></td>
+                <td>Selects all the odd-numbered elements (zero-based).</td>
+            </tr>
+            <tr>
+                <td><code>:text</code></td>
+                <td><code>textContent</code></td>
+                <td>Selects all text elements.</td>
+            </tr>
+            <tr>
+                <th colspan="3">jQuery Type Extension Selectors</th>
+            </tr>
+            <tr>
+                <td><code>:button</code></td>
+                <td><code>querySelectorAll('button, input[type="button"]')</code></td>
+                <td>Selects all buttons.</td>
+            </tr>
+            <tr>
+                <td><code>:checkbox</code></td>
+                <td><code>querySelectorAll('[type="checkbox"]')</code></td>
+                <td>Selects all check boxes.</td>
+            </tr>
+            <tr>
+                <td><code>:file</code></td>
+                <td><code>querySelectorAll('[type="file"]')</code></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><code>:header</code></td>
+                <td><code>querySelectorAll('h1, h2, h3, h4, h5, h6')</code></td>
+                <td>Selects all header elements (h1, h2, etc.).</td>
+            </tr>
+            <tr>
+                <td><code>:hidden</code></td>
+                <td></td>
+                <td>Selects all hidden elements.</td>
+            </tr>
+            <tr>
+                <td><code>:image</code></td>
+                <td><code>querySelectorAll('[type="image"]')</code></td>
+                <td>Selects all image elements.</td>
+            </tr>
+            <tr>
+                <td><code>:input</code></td>
+                <td><code>querySelectorAll('input, button, textarea, select')</code></td>
+                <td>Selects all input elements.</td>
+            </tr>
+            <tr>
+                <td><code>:last</code></td>
+                <td><code>querySelectorAll(':last-child')</code></td>
+                <td>Selects the last matched element.</td>
+            </tr>
+            <tr>
+                <td><code>:parent</code></td>
+                <td><code>querySelectorAll(':not(:empty)')</code></td>
+                <td>Selects all of the elements that are parents to other elements (i.e are not empty).</td>
+            </tr>
+            <tr>
+                <td><code>:password</code></td>
+                <td><code>querySelectorAll('[type="password"]')</code></td>
+                <td>Selects all password elements.</td>
+            </tr>
+            <tr>
+                <td><code>:radio</code></td>
+                <td><code>querySelectorAll('[type="radio"]')</code></td>
+                <td>Selects all radio elements.</td>
+            </tr>
+            <tr>
+                <td><code>:reset</code></td>
+                <td><code>querySelectorAll('[type="reset"]')</code></td>
+                <td>Selects all elements that reset a form.</td>
+            </tr>
+            <tr>
+                <td><code>:selected</code></td>
+                <td><code></code></td>
+                <td>Selects all <code>&lt;option&gt;</code> elements that are selected. It does not work for checkboxes or radio inputs; use <code>:checked</code> for them.</td>
+            </tr>
+            <tr>
+                <td><code>:submit</code></td>
+                <td><code>querySelectorAll('input[type="submit"]<br />button[type="submit"]')</code></td>
+                <td>Selects all form submission elements.</td>
+            </tr>
+            <tr>
+                <td><code>:visible</code></td>
+                <td></td>
+                <td>Selects all visible elements.</td>
+            </tr>
+            <tr>
+                <th colspan="3">Basic jQuery Object Members</th>
+            </tr>
+            <tr>
+                <td><code>context</code></td>
+                <td></td>
+                <td>Returns the set of HTMLElement elements used as the search context.</td>
+            </tr>
+            <tr>
+                <td><code>each(<var>function</var>)</code></td>
+                <td><code>forEach(<var>function</var>)</code></td>
+                <td>Performs the function on each of the selected elements.</td>
+            </tr>
+            <tr>
+                <td><code>get(<var>index</var>)</code></td>
+                <td></td>
+                <td>Gets the HTMLElement object at the specified index.</td>
+            </tr>
+            <tr>
+                <td><code>index(<var>HTMLElement</var>)</code></td>
+                <td></td>
+                <td>Returns the index of the specified HTMLElement.</td>
+            </tr>
+            <tr>
+                <td><code>index(<var>jQuery</var>)</code></td>
+                <td></td>
+                <td>Returns the index of the first element in the jQuery object.</td>
+            </tr>
+            <tr>
+                <td><code>index(<var>selector</var>)</code></td>
+                <td></td>
+                <td>Returns the index of the first element in the jQuery object in the set of elements matched by the selector.</td>
+            </tr>
+            <tr>
+                <td><code>length</code></td>
+                <td>length</td>
+                <td>Returns the number of elements contained by the jQuery object.</td>
+            </tr>
+            <tr>
+                <td><code>size()</code></td>
+                <td></td>
+                <td>Returns the number of elements in the jQuery object.</td>
+            </tr>
+            <tr>
+                <td><code>toArray()</code></td>
+                <td></td>
+                <td>Returns the HTMLElement objects contained by the jQuery object as an array.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Managing the Element Selection</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>jQuery</th>
+                <th>JavaScript Equivalent</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="3">Expanding the Selection: <code>add</code> Method Argument Types</th>
+            </tr>
+            <tr>
+                <td><code>add(selector)<br />add(selector, context)</code></td>
+                <td></td>
+                <td>Adds all of the elements that are matched by the selector, with or without a context.</td>
+            </tr>
+            <tr>
+                <td><code>add(HTMLElement)<br />add(HTMLElement[])</code></td>
+                <td></td>
+                <td>Adds a single HTMLElement or an array of HTMLElement objects.</td>
+            </tr>
+            <tr>
+                <td><code>add(jQuery)</code></td>
+                <td></td>
+                <td>Adds the contents of the specified jQuery object.</td>
+            </tr>
+            <tr>
+                <th colspan="3">Narrowing the Selection: Methods to Filter Elements</th>
+            </tr>
+            <tr>
+                <td><code>eq(index)</code></td>
+                <td></td>
+                <td>Removes all of the elements except the one at the specified index.</td>
+            </tr>
+            <tr>
+                <td><code>filter(condition)</code></td>
+                <td></td>
+                <td>Removes elements that don’t match the specified condition.</td>
+            </tr>
+            <tr>
+                <td><code>first()</code></td>
+                <td></td>
+                <td>Removes all of the elements except the first.</td>
+            </tr>
+            <tr>
+                <td><code></code></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><code>has(selector)<br />has(jQuery)<br />has(HTMLElement)<br />has(HTMLElement[])</code></td>
+                <td></td>
+                <td>Removes elements that don’t have a descendant matched by the specified selector or jQuery object or whose descendants don’t include the specified HTMLElement objects.</td>
+            </tr>
+            <tr>
+                <td><code>last()</code></td>
+                <td></td>
+                <td>Removes all but the last element.</td>
+            </tr>
+            <tr>
+                <td><code>not(condition)</code></td>
+                <td></td>
+                <td>Removes all elements that match the condition.</td>
+            </tr>
+            <tr>
+                <td><code>slice(start, end)</code></td>
+                <td></td>
+                <td>Removes all elements outside the specified range of index values.</td>
+            </tr>
+            <tr>
+                <td><code>filter(selector | HTMLElement | jQuery | function(index))</code></td>
+                <td></td>
+                <td>Removes elements that don’t match the selector | HTML element | jQuery object | function.</td>
+            </tr>
+            <tr>
+                <td><code>not(selector | HTMLElement[] | HTMLElement | jQuery | function(index))</code></td>
+                <td></td>
+                <td>Removes elements that match the selector | HTML element | jQuery object | function.</td>
+            </tr>
+            <tr>
+                <td><code>is(selector | HTMLElement[] | HTMLElement | jQuery | function(index))</code></td>
+                <td></td>
+                <td>Returns true if the jQuery object contains at least one of the elements matched.</td>
+            </tr>
+            <tr>
+                <th colspan="3">Methods to Unwind the Selection Stack</th>
+            </tr>
+            <tr>
+                <td><code>end()</code></td>
+                <td></td>
+                <td>Pops the current selection off the stack and returns to the previous selection.</td>
+            </tr>
+            <tr>
+                <td><code>addBack()<br />addBack(selector)</code></td>
+                <td></td>
+                <td>Adds the previous selection to the current selection, with an optional selector that filters the previous selection.</td>
+            </tr>
+            <tr>
+                <th colspan="3">Methods to Navigate Down the DOM Hierarchy</th>
+            </tr>
+            <tr>
+                <td><code>children()</code></td>
+                <td></td>
+                <td>Selects the children of all of the elements in the jQuery object.</td>
+            </tr>
+            <tr>
+                <td><code>children(selector)</code></td>
+                <td></td>
+                <td>Selects all of the elements that match the selector and that are children of the elements in the jQuery object.</td>
+            </tr>
+            <tr>
+                <td><code>contents()</code></td>
+                <td></td>
+                <td>Returns the children and text content of all the elements in the jQuery object.</td>
+            </tr>
+            <tr>
+                <td><code>find()</code></td>
+                <td></td>
+                <td>Selects the descendants of the elements in the jQuery object.</td>
+            </tr>
+            <tr>
+                <td><code>find(selector)</code></td>
+                <td></td>
+                <td>Selects the elements that match the selector and that are descendants of the elements in the jQuery object.</td>
+            </tr>
+            <tr>
+                <td><code>find(jQuery)<br />find(HTMLElement)<br />find(HTMLElement[])</code></td>
+                <td></td>
+                <td>Selects the intersection between the children of the elements in the jQuery object and the argument object.</td>
+            </tr>
+            <tr>
+                <th colspan="3">Methods to Navigate Up the DOM Hierarchy:</th>
+            </tr>
+            <tr>
+                <td><code>closest(selector)<br />closest(selector, context)</code></td>
+                <td></td>
+                <td>Selects the nearest ancestor for each element in the jQuery object that intersects with the specified selector.</td>
+            </tr>
+            <tr>
+                <td><code>closest(jQuery)<br />closest(HTMLElement)</code></td>
+                <td></td>
+                <td>Selects the nearest ancestor for each element in the jQuery object that intersects with the elements contained in the argument object. offsetParent() Finds the nearest ancestor that has a value for the CSS position property of fixed, absolute, or relative.</td>
+            </tr>
+            <tr>
+                <td><code>parent()<br />parent(selector)</code></td>
+                <td></td>
+                <td>Selects the parent for each element in the jQuery object, optionally filtered by a selector.</td>
+            </tr>
+            <tr>
+                <td><code>parents()<br />parents(selector)</code></td>
+                <td></td>
+                <td>Selects the ancestors for each element in the jQuery object, optionally filtered by a selector.</td>
+            </tr>
+            <tr>
+                <td><code>parentsUntil(selector)<br />parentsUntil(selector, selector)</code></td>
+                <td></td>
+                <td>Selects the ancestors for each element in the jQuery object until a match for the selector is encountered. The results can be filtered using a second selector.</td>
+            </tr>
+            <tr>
+                <td><code>parentsUntil(HTMLElement)<br />parentsUntil(HTMLElement, selector)<br />parentsUntil(HTMLElement[])<br />parentsUntil(HTMLElement[], selector)</code></td>
+                <td></td>
+                <td>Selects the ancestors for each element in the jQuery object until one of the specified elements is encountered. The results can be filtered using a selector.</td>
+            </tr>
+            <tr>
+                <th colspan="3">Methods to Navigate Across the DOM Hierarchy</th>
+            </tr>
+            <tr>
+                <td><code>next()<br />next(selector)</code></td>
+                <td>nextSibling<br />nextElementSibling</td>
+                <td>Selects the immediate next sibling for each element in the jQuery object, optionally filtered by a selector.</td>
+            </tr>
+            <tr>
+                <td><code>nextAll()<br />nextAll(selector)</code></td>
+                <td></td>
+                <td>Selects all of the next siblings for each element in the jQuery object, optionally filtered by a selector.</td>
+            </tr>
+            <tr>
+                <td><code>nextUntil((selector)<br />nextUntil(selector, selector)<br />nextUntil(jQuery)<br />nextUntil(jQuery, selector)<br />nextUntil(HTMLElement[])<br />nextUntil(HTMLElement[], selector)</code></td>
+                <td></td>
+                <td>Selects the next siblings for each element up to (and excluding) an element that matches the selector or an element in the jQuery object or the HTMLElement array. The results can optionally be filtered by a selector as the second argument to the method.</td>
+            </tr>
+            <tr>
+                <td><code>prev()<br />prev(selector)</code></td>
+                <td>previousSibling<br />previousElementSibling</td>
+                <td>Selects the immediate previous sibling for each element in the jQuery object, optionally filtered by a selector.</td>
+            </tr>
+            <tr>
+                <td><code>prevAll()<br />prevAll(selector)</code></td>
+                <td></td>
+                <td>Selects all of the previous siblings for each element in the jQuery object, optionally filtered by a selector.</td>
+            </tr>
+            <tr>
+                <td><code>prevUntil(selector)<br />prevUntil(selector, selector)<br />prevUntil(jQuery)<br />prevUntil(jQuery, selector)<br />prevUntil(HTMLElement[])<br />prevUntil(HTMLElement[], selector)</code></td>
+                <td></td>
+                <td>Selects the previous siblings for each element up to (and excluding) an element that matches the selector or an element in the jQuery object or the HTMLElement array. The results can optionally be filtered by a selector as the second argument to the method.</td>
+            </tr>
+            <tr>
+                <td><code>siblings()<br />siblings(selector)</code></td>
+                <td></td>
+                <td>Selects all of the siblings for each of the elements in the jQuery object, optionally filtered by a selector.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Manipulating the <abbr title="Document Object Model">DOM</abbr></h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>jQuery</th>
+                <th>JavaScript Equivalent</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="3">Methods for Inserting Child and Descendant Elements</th>
+            </tr>
+            <tr>
+				<td><code>append(HTML)<br />append(jQuery)<br />append(HTMLElement[])</code></td>
+				<td></td>
+				<td>Inserts the specified elements as the last children of all of the elements in the DOM.</td>
+			</tr>
+            <tr>
+				<td><code>prepend(HTML)<br />prepend(jQuery)<br />prepend(HTMLElement[])</code></td>
+				<td></td>
+				<td>Inserts the specified elements as the first children of all of the elements in the DOM.</td>
+			</tr>
+            <tr>
+				<td><code>appendTo(jQuery)<br />appendTo(HTMLElement[])</code></td>
+				<td></td>
+				<td>Inserts the elements in the jQuery object as the last children of the elements specified by the argument.</td>
+			</tr>
+            <tr>
+				<td><code>prependTo(HTML)<br />prependTo(jQuery)<br />prependTo(HTMLElement[])</code></td>
+				<td></td>
+				<td>Inserts the elements in the jQuery object as the first children of the elements specified by the argument.</td>
+			</tr>
+            <tr>
+				<td><code>append(function)<br />prepend(function)</code></td>
+				<td></td>
+				<td>Appends or prepends the result of a function to the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Inserting Parent and Ancestor Elements - Methods for Wrapping Elements</th>
+            </tr>
+            <tr>
+				<td><code>wrap(HTML)<br />wrap(jQuery)<br />wrap(HTMLElement[])</code></td>
+				<td></td>
+				<td>Wraps the specified elements around each of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>wrapAll(HTML)<br />wrapAll(jQuery)<br />wrapAll(HTMLElement[])</code></td>
+				<td></td>
+				<td>Wraps the specified elements around the set of elements in the jQuery object (as a single group).</td>
+			</tr>
+            <tr>
+				<td><code>wrapInner(HTML)<br />wrapInner(jQuery)<br />wrapInner(HTMLElement[])</code></td>
+				<td></td>
+				<td>Wraps the specified elements around the content of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>wrap(function)<br />wrapInner(function)</code></td>
+				<td></td>
+				<td>Wraps elements dynamically using a function.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Methods for Inserting Sibling Elements</th>
+            </tr>
+            <tr>
+				<td><code>after(HTML)<br />after(jQuery)<br />after(HTMLElement[])</code></td>
+				<td></td>
+				<td>Inserts the specified elements as next siblings to each element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>before(HTML)<br />before(jQuery)<br />before(HTMLElement[])</code></td>
+				<td></td>
+				<td>Inserts the specified elements as previous siblings to each element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>insertAfter(HTML)<br />insertAfter(jQuery)<br />insertAfter(HTMLElement[])</code></td>
+				<td></td>
+				<td>Inserts the elements in the jQuery object as the next siblings for each element specified in the argument.</td>
+			</tr>
+            <tr>
+				<td><code>insertBefore(HTML)<br />insertBefore(jQuery)<br />insertBefore(HTMLElement[])</code></td>
+				<td></td>
+				<td>Inserts the elements in the jQuery object as the previous siblings for each element specified in the argument.</td>
+			</tr>
+            <tr>
+				<td><code>after(function)<br />before(function)</code></td>
+				<td></td>
+				<td>Inserts siblings dynamically using a function.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Replacing Elements</th>
+            </tr>
+            <tr>
+				<td><code>replaceWith(HTML)<br />replaceWith(jQuery)<br />replaceWith(HTMLElement[])</code></td>
+				<td></td>
+				<td>Replace the elements in the jQuery object with the specified content.</td>
+			</tr>
+            <tr>
+				<td><code>replaceAll(jQuery)<br />replaceAll(HTMLElement[])</code></td>
+				<td></td>
+				<td>Replace the elements specified by the argument with the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>replaceWith(function)</code></td>
+				<td></td>
+				<td>Replaces the elements in the jQuery object dynamically using a function.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Methods for removing elements</th>
+            </tr>
+            <tr>
+				<td><code>detach()<br />detach(selector)</code></td>
+				<td></td>
+				<td>Removes elements from the DOM. The data associated with the elements is preserved.</td>
+			</tr>
+            <tr>
+				<td><code>empty()</code></td>
+				<td></td>
+				<td>Removes all of the child nodes from each element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>remove()<br />remove(selector)</code></td>
+				<td></td>
+				<td>Removes elements from the DOM. As the elements are removed, the data associated with the elements is destroyed.</td>
+			</tr>
+            <tr>
+				<td><code>unwrap()</code></td>
+				<td></td>
+				<td>Removes the parent of each of the elements in the jQuery object.</td>
+			</tr>
+        </tbody>
+    </table>
+
+    <h2>Manipulating Elements</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>jQuery</th>
+                <th>JavaScript Equivalent</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="3">Methods for working with attributes</th>
+            </tr>
+            <tr>
+				<td><code>attr(name)</code></td>
+				<td></td>
+				<td>Gets the value of the attribute with the specified name for the first element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>attr(name, value)</code></td>
+				<td></td>
+				<td>Sets the value of the attribute with the specified name to the specified value for all of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>attr(map)</code></td>
+				<td></td>
+				<td>Sets the attributes specified in the map object for all of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>attr(name, function)</code></td>
+				<td></td>
+				<td>Sets the specified attribute for all of the elements in the jQuery object using a function.</td>
+			</tr>
+            <tr>
+				<td><code>removeAttr(name)<br />removeAttr(name[])</code></td>
+				<td></td>
+				<td>Remove the attribute from all of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>prop(name)</code></td>
+				<td></td>
+				<td>Returns the value of the specified property for the first element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>prop(name, value)<br />prop(map)</code></td>
+				<td></td>
+				<td>Sets the value for one or more properties for all of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>prop(name, function)</code></td>
+				<td></td>
+				<td>Sets the value of the specified property for all of the elements in the jQuery object using a function.</td>
+			</tr>
+            <tr>
+				<td><code>removeProp(name)</code></td>
+				<td></td>
+				<td>Removes the specified property from all of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Methods for working with classes</th>
+            </tr>
+            <tr>
+				<td><code>addClass(<var>name</var> <var>name</var>)</code></td>
+				<td><code>classList.add(<var>name</var> <var>name</var>)</code></td>
+				<td>Adds all of the elements in a jQuery object to the specified class.</td>
+			</tr>
+            <tr>
+				<td><code>addClass(<var>function</var>)</code></td>
+				<td></td>
+				<td>Assigns the elements in a jQuery object to classes dynamically.</td>
+			</tr>
+            <tr>
+				<td><code>hasClass(<var>name</var>)</code></td>
+				<td><code>classList.contains(<var>name</var>)</code></td>
+				<td>Returns true if at least one of the elements in the jQuery object is a member of the specified class.</td>
+			</tr>
+            <tr>
+				<td><code>removeClass(<var>name</var> <var>name</var>)</code></td>
+				<td><code>classList.remove(<var>name</var>)</code></td>
+				<td>Removes the elements in the jQuery object from the specified class.</td>
+			</tr>
+            <tr>
+				<td><code>removeClass(<var>function</var>)</code></td>
+				<td></td>
+				<td>Removes the elements in a jQuery object from classes dynamically.</td>
+			</tr>
+            <tr>
+				<td><code>toggleClass()</code></td>
+				<td></td>
+				<td>Toggles all of the classes that the elements in the jQuery object belong to.</td>
+			</tr>
+            <tr>
+				<td><code>toggleClass(<var>boolean</var>)</code></td>
+				<td></td>
+				<td>Toggles all of the classes that the elements in the jQuery object belong to in one direction.</td>
+			</tr>
+            <tr>
+				<td><code>toggleClass(<var>name</var>)<br />toggleClass(<var>name</var> <var>name</var>)</code></td>
+				<td><code>classList.toggle(<var>name</var>)</code></td>
+				<td>Toggles one or more named classes for all of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>toggleClass(<var>name</var>, <var>boolean</var>)</code></td>
+				<td><code>classList.toggle(<var>name</var>, <var>boolean</var>)</code></td>
+				<td>Toggles a named class for all of the elements in the jQuery object in one direction.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Methods for working with CSS</th>
+            </tr>
+            <tr>
+				<td><code>css(<var>name</var>)</code></td>
+				<td><code>style.<var>name</var></code></td>
+				<td>Gets the value of the specified property from the first element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>css(<var>names</var>)</code></td>
+				<td></td>
+				<td>Gets the value of multiple CSS properties, expressed as an array.</td>
+			</tr>
+            <tr>
+				<td><code>css(<var>name</var>, <var>value</var>)</code></td>
+				<td><code>style.<var>name</var> = <var>value</var></code></td>
+				<td>Sets the value of the specific property for all elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>css(<var>map</var>)</code></td>
+				<td></td>
+				<td>Sets multiple properties for all of the elements in a jQuery object using a map object.</td>
+			</tr>
+            <tr>
+				<td><code>css(<var>name</var>, <var>function</var>)</code></td>
+				<td></td>
+				<td>Sets values for the specified property for all of the elements in a jQuery object using a function.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Methods for Working with Specific CSS Properties</th>
+            </tr>
+            <tr>
+				<td><code>height()</code></td>
+				<td>getComputedStyle().height</td>
+				<td>Gets the height in pixels for the first element in the jQuery object. Returns only the content height, and does not include padding, border or margin.</td>
+			</tr>
+            <tr>
+				<td><code>height(<var>value</var>)</code></td>
+				<td>getComputedStyle(<var>value</var>).height</td>
+				<td>Sets the height for all of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>innerHeight()</code></td>
+				<td></td>
+				<td>Gets the inner height of the first element in the jQuery object (this is the height including padding but excluding the border and margin).</td>
+			</tr>
+            <tr>
+				<td><code>innerWidth()</code></td>
+				<td></td>
+				<td>Gets the inner width of the first element in the jQuery object (this is the width including padding but excluding the border and margin).</td>
+			</tr>
+            <tr>
+				<td><code>offset()</code></td>
+				<td></td>
+				<td>Returns the coordinates of the first element in the jQuery object relative to the document.</td>
+			</tr>
+            <tr>
+				<td><code>outerHeight(boolean)</code></td>
+				<td>offsetHeight<br />getBoundingClientRect().height</td>
+				<td>Gets the height of the first element in the jQuery object, including padding and border the argument determines if the margin is included. Only equivalent to <code>offestHeight</code> and <code>getBoundingClinetRect().height</code> when the parameter is set to <code>false</code>.</td>
+			</tr>
+            <tr>
+				<td><code>outerWidth(boolean)</code></td>
+				<td></td>
+				<td>Gets the width of the first element in the jQuery object, including padding and border; the argument determines whether the margin is included.</td>
+			</tr>
+            <tr>
+				<td><code>position()</code></td>
+				<td></td>
+				<td>Returns the coordinates of the first element in the jQuery object relative to the offset.</td>
+			</tr>
+            <tr>
+				<td><code>scrollLeft()<br />scrollTop()</code></td>
+				<td></td>
+				<td>Gets the horizontal or vertical position of the first element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>scrollLeft(value)<br />scrollTop(value)</code></td>
+				<td></td>
+				<td>Sets the horizontal or vertical position of all the elements in a jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>width()</code></td>
+				<td></td>
+				<td>Gets the width of the first element in a jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>width(value)</code></td>
+				<td></td>
+				<td>Sets the width of all of the elements in a jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>height(function)<br />width(function)</code></td>
+				<td></td>
+				<td>Sets the width or height for all of the elements in the jQuery object using a function.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Methods for Working with Element Content</th>
+            </tr>
+            <tr>
+				<td><code>text()</code></td>
+				<td></td>
+				<td>Gets the combined text contents of all the element in the jQuery object and their descendants.</td>
+			</tr>
+            <tr>
+				<td><code>text(value)</code></td>
+				<td></td>
+				<td>Sets the content of each element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>html()</code></td>
+				<td></td>
+				<td>Gets the HTML contents of the first element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>html(value)</code></td>
+				<td></td>
+				<td>Sets the HTML content of each element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>text(function)<br />html(function)</code></td>
+				<td></td>
+				<td>Sets the text or HTML content using a function.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Working with Form Elements - The val method</th>
+            </tr>
+            <tr>
+				<td><code>val()</code></td>
+				<td></td>
+				<td>Returns the value of the first element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>val(value)</code></td>
+				<td></td>
+				<td>Sets the value of all of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>val(function)</code></td>
+				<td></td>
+				<td>Sets the values for the elements in the jQuery object using a function.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Methods for Working with Arbitrary Element Data</th>
+            </tr>
+            <tr>
+				<td><code>data(key, value)<br />data(map)</code></td>
+				<td></td>
+				<td>Associates one or more key/value pairs with the elements in a jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>data(key)</code></td>
+				<td></td>
+				<td>Retrieves the value associated with the specified key from the first element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>data()</code></td>
+				<td></td>
+				<td>Retrieves the key/value pairs from the first element in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>removeData(key)</code></td>
+				<td></td>
+				<td>Removes the data associated with the specified key from all of the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>removeData()</code></td>
+				<td></td>
+				<td>Removes all of the data items from all of the elements in the jQuery object.</td>
+			</tr>
+        </tbody>
+    </table>
+    
+    <h2>Working with Events</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>jQuery</th>
+                <th>JavaScript Equivalent</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+				<td><code>bind(eventType, function)<br />bind(eventType, data, function)</code></td>
+				<td></td>
+				<td>Adds an event handler to the elements in a jQuery object with an optional data item.</td>
+			</tr>
+            <tr>
+				<td><code>bind(eventType, boolean)</code></td>
+				<td></td>
+				<td>Creates a default handler that always returns false, preventing the default action; the boolean argument controls event bubbling.</td>
+			</tr>
+            <tr>
+				<td><code>bind(map)</code></td>
+				<td></td>
+				<td>Adds a set of event handlers based on a map object to all elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>one(eventType, function)<br />one(eventType, data, function)</code></td>
+				<td></td>
+				<td>Adds an event handler to each element in a jQuery object with an optional data item; the handler will be unregistered from an element once it has been executed.</td>
+			</tr>
+            <tr>
+				<td><code>unbind()</code></td>
+				<td></td>
+				<td>Removes all event handlers on all elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>unbind(eventType)</code></td>
+				<td></td>
+				<td>Removes a previously registered event handler from all elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>unbind(eventType, boolean)</code></td>
+				<td></td>
+				<td>Removes a previously registered always-false handler from all elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>unbind(Event)</code></td>
+				<td></td>
+				<td>Removes an event handler using an Event object.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Members of the jQuery Event Object</th>
+            </tr>
+            <tr>
+				<td><code>currentTarget</code></td>
+				<td></td>
+				<td>Gets the element whose listeners are currently being invoked HTMLElement.</td>
+			</tr>
+            <tr>
+				<td><code>Data</code></td>
+				<td></td>
+				<td>Gets the optional data passed to the bind method when the handler was registered.</td>
+			</tr>
+            <tr>
+				<td><code>isDefaultPrevented()</code></td>
+				<td></td>
+				<td>Returns true if the preventDefault method has been called Boolean.</td>
+			</tr>
+            <tr>
+				<td><code>isImmediatePropagationStopped()</code></td>
+				<td></td>
+				<td>Returns true if the stopImmediatePropagation method has been called.</td>
+			</tr>
+            <tr>
+				<td><code>isPropagationStopped()</code></td>
+				<td></td>
+				<td>Returns true if the stopPropagation method has been called Boolean originalEvent Returns the original DOM Event object Event.</td>
+			</tr>
+            <tr>
+				<td><code>pageX<br />pageY</code></td>
+				<td></td>
+				<td>Returns the mouse position relative to the left edge of the document.</td>
+			</tr>
+            <tr>
+				<td><code>preventDefault()</code></td>
+				<td></td>
+				<td>Prevents the default action associated with the event from being performed.</td>
+			</tr>
+            <tr>
+				<td><code>relatedTarget</code></td>
+				<td></td>
+				<td>For mouse events, returns the related element; this varies depending on which event has been triggered.</td>
+			</tr>
+            <tr>
+				<td><code>Result</code></td>
+				<td></td>
+				<td>Returns the result from the last event handler that processed this event.</td>
+			</tr>
+            <tr>
+				<td><code>stopImmediatePropagation()</code></td>
+				<td></td>
+				<td>Prevents any other event handlers being called for this event.</td>
+			</tr>
+            <tr>
+				<td><code>stopPropagation()</code></td>
+				<td></td>
+				<td>Prevents the event from bubbling but allows handlers attached to the current target element to receive the event.</td>
+			</tr>
+            <tr>
+				<td><code>Target</code></td>
+				<td></td>
+				<td>Gets the element that triggered the event HTMLElement.</td>
+			</tr>
+            <tr>
+				<td><code>timeStamp</code></td>
+				<td></td>
+				<td>Gets the time at which the event was triggered.</td>
+			</tr>
+            <tr>
+				<td><code>Type</code></td>
+				<td></td>
+				<td>Gets the type of the event string.</td>
+			</tr>
+            <tr>
+				<td><code>Which</code></td>
+				<td></td>
+				<td>Returns the button or key that was pressed for mouse and keyboard events.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Methods for Automatically Registering Event Handlers</th>
+            </tr>
+            <tr>
+				<td><code>on(events, selector, data, function)<br />on (map, selector, data)</code></td>
+				<td></td>
+				<td>Defines handlers for events for elements that exist now or in the future.</td>
+			</tr>
+            <tr>
+				<td><code>off(events, selector, function)<br />off(map, selector)</code></td>
+				<td></td>
+				<td>Removes event handlers created using the on method.</td>
+			</tr>
+            <tr>
+				<td><code>delegate(selector, eventType, function)<br />delegate(selector, eventType, data, function)<br />delegate(selector, map)</code></td>
+				<td></td>
+				<td>Adds an event handler to the elements that match the selector (now or in the future) attached to the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>undelegate()<br />undelegate(selector, eventType)</code></td>
+				<td></td>
+				<td>Removes event handlers created with the delegate method for the specified event types.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Manually Invoking Event Handlers</th>
+            </tr>
+            <tr>
+				<td><code>trigger(eventType)</code></td>
+				<td></td>
+				<td>Triggers the handler functions for the specified event types on all of the elements in a jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>trigger(event)</code></td>
+				<td></td>
+				<td>Triggers the handler functions for the specified event on all of the elements in a jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>triggerHandler(eventType)</code></td>
+				<td></td>
+				<td>Triggers the handler function on the first element in the jQuery object, without performing the default action or bubbling the event.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Document Event Shorthand Methods</th>
+            </tr>
+            <tr>
+				<td><code>load(function)</code></td>
+				<td></td>
+				<td>Corresponds to the load event, triggered when the elements and resources in the document have been loaded.</td>
+			</tr>
+            <tr>
+				<td><code>ready(function)</code></td>
+				<td></td>
+				<td>Triggered when the elements in the document have been processed and the DOM is ready to use.</td>
+			</tr>
+            <tr>
+				<td><code>unload(function)</code></td>
+				<td></td>
+				<td>Corresponds to the unload event, triggered when the user navigates away from the page.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Browser Event Shorthand Methods</th>
+            </tr>
+            <tr>
+				<td><code>error(function)</code></td>
+				<td></td>
+				<td>Corresponds to the error event, triggered when there is a problem loading an external resource, such as an image.</td>
+			</tr>
+            <tr>
+				<td><code>resize(function)</code></td>
+				<td></td>
+				<td>Corresponds to the resize event, triggered when the browser window is resized.</td>
+			</tr>
+            <tr>
+				<td><code>scroll(function)</code></td>
+				<td></td>
+				<td>Corresponds to the scroll event, triggered when the scrollbars are used.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Mouse Event Shorthand methods</th>
+            </tr>
+            <tr>
+				<td><code>click(function)</code></td>
+				<td></td>
+				<td>Corresponds to the click event, triggered when the user presses and releases the mouse.</td>
+			</tr>
+            <tr>
+				<td><code>dblclick(function)</code></td>
+				<td></td>
+				<td>Corresponds to the dblclick event, triggered when the user presses and releases the mouse twice in quick succession.</td>
+			</tr>
+            <tr>
+				<td><code>focusin(function)</code></td>
+				<td></td>
+				<td>Corresponds to the focusin event, triggered when the element gains the focus.</td>
+			</tr>
+            <tr>
+				<td><code>focusout(function)</code></td>
+				<td></td>
+				<td>Corresponds to the focusout event, triggered when the element loses the focus.</td>
+			</tr>
+            <tr>
+				<td><code>hover(function)<br />hover(function, function)</code></td>
+				<td></td>
+				<td>Triggered when the mouse enters or leaves an element; when one function is specified, it is used for both enter and exit events.</td>
+			</tr>
+            <tr>
+				<td><code>mousedown(function)</code></td>
+				<td></td>
+				<td>Corresponds to the mousedown event, triggered when the mouse button is pressed over an element.</td>
+			</tr>
+            <tr>
+				<td><code>mouseenter(function)</code></td>
+				<td></td>
+				<td>Corresponds to the mouseenter event, triggered when the mouse enters the region of screen occupied by an element.</td>
+			</tr>
+            <tr>
+				<td><code>mouseleave(function)</code></td>
+				<td></td>
+				<td>Corresponds to the mouseleave event, triggered when the mouse leaves the region of screen occupied by an element.</td>
+			</tr>
+            <tr>
+				<td><code>mousemove(function)</code></td>
+				<td></td>
+				<td>Corresponds to the mousemouse event, triggered when the mouse is moved within the region of screen occupied by an element.</td>
+			</tr>
+            <tr>
+				<td><code>mouseout(function)</code></td>
+				<td></td>
+				<td>Corresponds to the mouseout event, triggered when the mouse leaves the region of screen occupied by an element.</td>
+			</tr>
+            <tr>
+				<td><code>mouseover(function)</code></td>
+				<td></td>
+				<td>Corresponds to the mouseover event, triggered when the mouse enters the region of screen occupied by an element.</td>
+			</tr>
+            <tr>
+				<td><code>mouseup(function)</code></td>
+				<td></td>
+				<td>Corresponds to the mouseup event, triggered when the mouse button is pressed over an element.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Form Event Shorthand Methods</th>
+            </tr>
+            <tr>
+				<td><code>blur(function)</code></td>
+				<td></td>
+				<td>Corresponds to the blur event, triggered when an element loses the focus.</td>
+			</tr>
+            <tr>
+				<td><code>change(function)</code></td>
+				<td></td>
+				<td>Corresponds to the change event, triggered when the value of an element changes.</td>
+			</tr>
+            <tr>
+				<td><code>focus(function)</code></td>
+				<td></td>
+				<td>Corresponds to the focus event, triggered when an element gains the focus.</td>
+			</tr>
+            <tr>
+				<td><code>select(function)</code></td>
+				<td></td>
+				<td>Corresponds to the select event, triggered when the user selects the element value.</td>
+			</tr>
+            <tr>
+				<td><code>submit(function)</code></td>
+				<td></td>
+				<td>Corresponds to the submit event, triggered when the user submits a form.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Keyboard Event Shorthand Methods</th>
+            </tr>
+            <tr>
+				<td><code>keydown(function)</code></td>
+				<td></td>
+				<td>Corresponds to the keydown event, triggered when the user presses a key.</td>
+			</tr>
+            <tr>
+				<td><code>keypress(function)</code></td>
+				<td></td>
+				<td>Corresponds to the keypress event, triggered when the user presses and releases a key.</td>
+			</tr>
+            <tr>
+				<td><code>keyup(function)</code></td>
+				<td></td>
+				<td>Corresponds to the keyup event, triggered when the user releases a key.</td>
+			</tr>
+        </tbody>
+    </table>
+
+    <h2>jQuery Effects</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>jQuery</th>
+                <th>JavaScript Equivalent</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="3">Basic Effects Methods</th>
+            </tr>
+            <tr>
+				<td><code>hide()</code></td>
+				<td></td>
+				<td>Hides all of the elements in a jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>hide(time)<br />hide(time, easing)</code></td>
+				<td></td>
+				<td>Hides the elements in a jQuery object over the specified period of time with an optional easing style.</td>
+			</tr>
+            <tr>
+				<td><code>hide(time, function)<br />hide(time, easing, function)</code></td>
+				<td></td>
+				<td>Hides the elements in a jQuery object over the specified period of time with an optional easing style and a function that is called when the effect is complete.</td>
+			</tr>
+            <tr>
+				<td><code>show()</code></td>
+				<td></td>
+				<td>Shows all of the elements in a jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>show(time)<br />show(time, easing)</code></td>
+				<td></td>
+				<td>Shows the elements in a jQuery object over the specified period of time with an optional easing style.</td>
+			</tr>
+            <tr>
+				<td><code>show(time, function)<br />show(time, easing, function)</code></td>
+				<td></td>
+				<td>Shows the elements in a jQuery object over the specified period of time with an optional easing style and a function that is called when the effect is complete.</td>
+			</tr>
+            <tr>
+				<td><code>toggle()</code></td>
+				<td></td>
+				<td>Toggles the visibility of the elements in a jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>toggle(time)<br />toggle(time, easing)</code></td>
+				<td></td>
+				<td>Toggles the visibility of the elements in a jQuery object over the specified period of time with an optional easing style.</td>
+			</tr>
+            <tr>
+				<td><code>toggle(time, function)<br />toggle(time, easing, function)</code></td>
+				<td></td>
+				<td>Toggles the visibility of the elements in a jQuery object over the specified period of time with an optional easing style and a function that is called when the effect is complete.</td>
+			</tr>
+            <tr>
+				<td><code>toggle(boolean)</code></td>
+				<td></td>
+				<td>Toggles the elements in a jQuery object in one direction.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Slide Effects Methods</th>
+            </tr>
+            <tr>
+				<td><code>slideDown()<br />slideDown((time, function)<br />slideDown(time, easing, function)</code></td>
+				<td></td>
+				<td>Show elements by sliding them down.</td>
+			</tr>
+            <tr>
+				<td><code>slideUp()<br />slideUp(time, function)<br />slideUp(time, easing, function)</code></td>
+				<td></td>
+				<td>Hide elements by sliding them up.</td>
+			</tr>
+            <tr>
+				<td><code>slideToggle()<br />slideToggle(time, function)<br />slideToggle(time, easing, function)</code></td>
+				<td></td>
+				<td>Toggle the visibility of elements by sliding them up and down.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Fade Effects Methods</th>
+            </tr>
+            <tr>
+				<td><code>fadeOut() fadeOut(timespan) fadeOut(timespan, function) fadeOut(timespan, easing, function)</code></td>
+				<td></td>
+				<td>Hide elements by decreasing opacity.</td>
+			</tr>
+            <tr>
+				<td><code>fadeIn()<br />fadeIn(timespan)<br />fadeIn(timespan, function)<br />fadeIn(timespan, easing, function)</code></td>
+				<td></td>
+				<td>Show elements by increasing opacity.</td>
+			</tr>
+            <tr>
+				<td><code>fadeTo(timespan, opacity)<br />fadeTo(timespan, opacity, easing, function)</code></td>
+				<td></td>
+				<td>Change the opacity to the specified level.</td>
+			</tr>
+            <tr>
+				<td><code>fadeToggle()<br />fadeToggle(timespan)<br />fadeToggle(timespan, function)<br />fadeToggle(timespan, easing, function)</code></td>
+				<td></td>
+				<td>Toggle the visibility of elements using opacity.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Custom Effects Methods</th>
+            </tr>
+            <tr>
+				<td><code>animate(properties)<br />animate(properties, time)<br />animate(properties, time, function)<br />animate(properties, time, easing, function)</code></td>
+				<td></td>
+				<td>Animates one or more CSS properties, with an optional time span, easing style, and callback function.</td>
+			</tr>
+            <tr>
+				<td><code>animate(properties, options)</code></td>
+				<td></td>
+				<td>Animates one or more CSS properties, specifying the options as a map.</td>
+			</tr>
+            <tr>
+                <th colspan="3">Effects Queue Methods</th>
+            </tr>
+            <tr>
+				<td><code>queue()</code></td>
+				<td></td>
+				<td>Returns the queue of effects to be performed on the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>queue(function)</code></td>
+				<td></td>
+				<td>Adds a function to the end of the queue.</td>
+			</tr>
+            <tr>
+				<td><code>dequeue()</code></td>
+				<td></td>
+				<td>Removes and executes the first item in the queue for the elements in the jQuery object.</td>
+			</tr>
+            <tr>
+				<td><code>stop()<br />stop(clear)<br />stop(clear, jumpToEnd)</code></td>
+				<td></td>
+				<td>Stops the current animation.</td>
+			</tr>
+            <tr>
+				<td><code>finish()</code></td>
+				<td></td>
+				<td>Stops the current animation and clears any queued animations.</td>
+			</tr>
+            <tr>
+				<td><code>delay(time)</code></td>
+				<td></td>
+				<td>Inserts a delay between effects in the queue.</td>
+			</tr>
+        </tbody>
+    </table>
+
+    <h2>AJAX</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>jQuery</th>
+                <th>JavaScript Equivalent</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="3">The jQuery Ajax Shorthand Methods</th>
+            </tr>
+            <tr>
+				<td><code>$.get()</code></td>
+				<td></td>
+				<td>Performs an Ajax request using the HTTP GET method.</td>
+			</tr>
+            <tr>
+				<td><code>$.post()</code></td>
+				<td></td>
+				<td>Performs an Ajax request using the HTTP POST method.</td>
+			</tr>
+            <tr>
+                <th colspan="3">The jQuery Ajax Type-Specific Convenience Methods</th>
+            </tr>
+            <tr>
+				<td><code>load()</code></td>
+				<td></td>
+				<td>Loads HTML elements and inserts them into the elements in the jQuery object on which the method has been called.</td>
+			</tr>
+            <tr>
+				<td><code>$.getScript()</code></td>
+				<td></td>
+				<td>Gets and executes JavaScript code.</td>
+			</tr>
+            <tr>
+				<td><code>$.getJSON()</code></td>
+				<td></td>
+				<td>Gets JSON data.</td>
+			</tr>
+            <tr>
+				<td><code>$.ajax()</code></td>
+				<td></td>
+				<td></td>
+			</tr>
+        </tbody>
+    </table>
+
+</article>

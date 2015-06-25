@@ -1,0 +1,281 @@
+﻿@model PA.Models.RemoveHtmlModel
+@{
+	ViewBag.Title = "Strip Out HTML | Utilities";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home")</li>
+		<li>@Html.ActionLink("Utilities", "index", "utilities")</li>
+		<li>Strip Out <abbr title="Hypertext Markup Language">HTML</abbr></li>
+	</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-utilities.cshtml")
+}
+
+<article>
+	@using (Html.BeginForm("strip-out-html", "utilities", FormMethod.Post, new { @class = "html" }))
+	{
+		@Html.AntiForgeryToken()
+
+		<h1>Strip Out Html</h1>
+
+		@Html.TextAreaFor(x => x.Html, new { @class = "htmlHtml", autofocus = "autofocus" })
+
+		<div class="buttonBar">
+			<button name="removeHtml" value="selected">Keep permitted elements and attributes</button>
+			<button name="removeHtml" value="all">Remove ALL HTML</button>
+		</div>
+
+		<fieldset class="htmlElements">
+			<legend>Permitted Elements</legend>
+
+			<div class="htmlCheckboxes">
+				<fieldset>
+					<legend>Root &amp; Document Metadata</legend>
+					<ul>
+						<li><input type="checkbox" id="html" name="HtmlElements" value="html" /><label for="html">&lt;html&gt;</label></li>
+						<li><input type="checkbox" id="head" name="HtmlElements" value="head" /><label for="head">&lt;head&gt;</label></li>
+						<li><input type="checkbox" id="titleX" name="HtmlElements" value="title" /><label for="titleX">&lt;title&gt;</label></li>
+						<li><input type="checkbox" id="base" name="HtmlElements" value="base" /><label for="base">&lt;base&gt;</label></li>
+						<li><input type="checkbox" id="link" name="HtmlElements" value="link" /><label for="link">&lt;link&gt;</label></li>
+						<li><input type="checkbox" id="meta" name="HtmlElements" value="meta" /><label for="meta">&lt;meta&gt;</label></li>
+						<li><input type="checkbox" id="styleX" name="HtmlElements" value="style" /><label for="styleX">&lt;style&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+
+				<fieldset>
+					<legend>Scripting</legend>
+					<ul>
+						<li><input type="checkbox" id="script" name="HtmlElements" value="script" /><label for="script">&lt;script&gt;</label></li>
+						<li><input type="checkbox" id="noscript" name="HtmlElements" value="noscript" /><label for="noscript">&lt;noscript&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+
+				<fieldset>
+					<legend>Sections</legend>
+					<ul class="htmlCol2">
+						<li><input type="checkbox" id="body" name="HtmlElements" value="body" /><label for="body">&lt;body&gt;</label></li>
+						<li><input type="checkbox" id="section" name="HtmlElements" value="section" /><label for="section">&lt;section&gt;</label></li>
+						<li><input type="checkbox" id="nav" name="HtmlElements" value="nav" /><label for="nav">&lt;nav&gt;</label></li>
+						<li><input type="checkbox" id="article" name="HtmlElements" value="article" /><label for="article">&lt;section&gt;</label></li>
+						<li><input type="checkbox" id="aside" name="HtmlElements" value="aside" /><label for="aside">&lt;aside&gt;</label></li>
+						<li><input type="checkbox" id="h1" name="HtmlElements" value="h1" checked="checked" /><label for="h1">&lt;h1&gt;</label></li>
+						<li><input type="checkbox" id="h2" name="HtmlElements" value="h2" checked="checked" /><label for="h2">&lt;h2&gt;</label></li>
+						<li><input type="checkbox" id="h3" name="HtmlElements" value="h3" checked="checked" /><label for="h3">&lt;h3&gt;</label></li>
+						<li><input type="checkbox" id="h4" name="HtmlElements" value="h4" checked="checked" /><label for="h4">&lt;h4&gt;</label></li>
+						<li><input type="checkbox" id="h5" name="HtmlElements" value="h5" checked="checked" /><label for="h5">&lt;h5&gt;</label></li>
+						<li><input type="checkbox" id="h6" name="HtmlElements" value="h6" checked="checked" /><label for="h6">&lt;h6&gt;</label></li>
+						<li><input type="checkbox" id="headerX" name="HtmlElements" value="header" /><label for="headerX">&lt;header&gt;</label></li>
+						<li><input type="checkbox" id="footerX" name="HtmlElements" value="footer" /><label for="footerX">&lt;footer&gt;</label></li>
+						<li><input type="checkbox" id="address" name="HtmlElements" value="address" /><label for="address">&lt;address&gt;</label></li>
+						<li><input type="checkbox" id="main" name="HtmlElements" value="main" /><label for="main">&lt;main&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+
+				<fieldset>
+					<legend>Grouping Content</legend>
+					<ul class="htmlCol2">
+						<li><input type="checkbox" id="p" name="HtmlElements" value="p" checked="checked" /><label for="p">&lt;p&gt;</label></li>
+						<li><input type="checkbox" id="hr" name="HtmlElements" value="hr" /><label for="hr">&lt;hr&gt;</label></li>
+						<li><input type="checkbox" id="pre" name="HtmlElements" value="pre" /><label for="pre">&lt;pre&gt;</label></li>
+						<li><input type="checkbox" id="blockquote" name="HtmlElements" value="blockquote" checked="checked" /><label for="blockquote">&lt;blockquote&gt;</label></li>
+						<li><input type="checkbox" id="ol" name="HtmlElements" value="ol" checked="checked" /><label for="ol">&lt;ol&gt;</label></li>
+						<li><input type="checkbox" id="ul" name="HtmlElements" value="ul" checked="checked" /><label for="ul">&lt;ul&gt;</label></li>
+						<li><input type="checkbox" id="li" name="HtmlElements" value="li" checked="checked" /><label for="li">&lt;li&gt;</label></li>
+						<li><input type="checkbox" id="dl" name="HtmlElements" value="dl" /><label for="dl">&lt;dl&gt;</label></li>
+						<li><input type="checkbox" id="dt" name="HtmlElements" value="dt" /><label for="dt">&lt;dt&gt;</label></li>
+						<li><input type="checkbox" id="dd" name="HtmlElements" value="dd" /><label for="dd">&lt;dd&gt;</label></li>
+						<li><input type="checkbox" id="figure" name="HtmlElements" value="figure" checked="checked" /><label for="figure">&lt;figure&gt;</label></li>
+						<li><input type="checkbox" id="figcaption" name="HtmlElements" value="figcaption" checked="checked" /><label for="figcaption">&lt;figcaption&gt;</label></li>
+						<li><input type="checkbox" id="div" name="HtmlElements" value="div" /><label for="div">&lt;div&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+
+				<fieldset>
+					<legend>Text-Level Semantics</legend>
+					<ul class="htmlCol3">
+						<li><input type="checkbox" id="a" name="HtmlElements" value="a" checked="checked" /><label for="a">&lt;a&gt;</label></li>
+						<li><input type="checkbox" id="em" name="HtmlElements" value="em" checked="checked" /><label for="em">&lt;em&gt;</label></li>
+						<li><input type="checkbox" id="strong" name="HtmlElements" value="strong" checked="checked" /><label for="strong">&lt;strong&gt;</label></li>
+						<li><input type="checkbox" id="small" name="HtmlElements" value="small" checked="checked" /><label for="small">&lt;small&gt;</label></li>
+						<li><input type="checkbox" id="s" name="HtmlElements" value="s" checked="checked" /><label for="s">&lt;s&gt;</label></li>
+						<li><input type="checkbox" id="cite" name="HtmlElements" value="cite" checked="checked" /><label for="cite">&lt;cite&gt;</label></li>
+						<li><input type="checkbox" id="q" name="HtmlElements" value="q" checked="checked" /><label for="q">&lt;q&gt;</label></li>
+						<li><input type="checkbox" id="dfn" name="HtmlElements" value="dfn" checked="checked" /><label for="dfn">&lt;dfn&gt;</label></li>
+						<li><input type="checkbox" id="abbr" name="HtmlElements" value="abbr" checked="checked" /><label for="abbr">&lt;abbr&gt;</label></li>
+						<li><input type="checkbox" id="data" name="HtmlElements" value="data" checked="checked" /><label for="data">&lt;data&gt;</label></li>
+						<li><input type="checkbox" id="time" name="HtmlElements" value="time" checked="checked" /><label for="time">&lt;time&gt;</label></li>
+						<li><input type="checkbox" id="code" name="HtmlElements" value="code" checked="checked" /><label for="code">&lt;code&gt;</label></li>
+						<li><input type="checkbox" id="var" name="HtmlElements" value="var" checked="checked" /><label for="var">&lt;var&gt;</label></li>
+						<li><input type="checkbox" id="samp" name="HtmlElements" value="samp" checked="checked" /><label for="samp">&lt;samp&gt;</label></li>
+						<li><input type="checkbox" id="kbd" name="HtmlElements" value="kbd" checked="checked" /><label for="kbd">&lt;kbd&gt;</label></li>
+						<li><input type="checkbox" id="sub" name="HtmlElements" value="sub" checked="checked" /><label for="sub">&lt;sub&gt;</label></li>
+						<li><input type="checkbox" id="sup" name="HtmlElements" value="sup" checked="checked" /><label for="sup">&lt;sup&gt;</label></li>
+						<li><input type="checkbox" id="i" name="HtmlElements" value="i" checked="checked" /><label for="i">&lt;i&gt;</label></li>
+						<li><input type="checkbox" id="b" name="HtmlElements" value="b" checked="checked" /><label for="b">&lt;b&gt;</label></li>
+						<li><input type="checkbox" id="u" name="HtmlElements" value="u" checked="checked" /><label for="u">&lt;u&gt;</label></li>
+						<li><input type="checkbox" id="mark" name="HtmlElements" value="mark" checked="checked" /><label for="mark">&lt;mark&gt;</label></li>
+						<li><input type="checkbox" id="ruby" name="HtmlElements" value="ruby" checked="checked" /><label for="ruby">&lt;ruby&gt;</label></li>
+						<li><input type="checkbox" id="rt" name="HtmlElements" value="rt" checked="checked" /><label for="rt">&lt;rt&gt;</label></li>
+						<li><input type="checkbox" id="rp" name="HtmlElements" value="rp" checked="checked" /><label for="rp">&lt;rp&gt;</label></li>
+						<li><input type="checkbox" id="bdi" name="HtmlElements" value="bdi" checked="checked" /><label for="bdi">&lt;bdi&gt;</label></li>
+						<li><input type="checkbox" id="bdo" name="HtmlElements" value="bdo" checked="checked" /><label for="bdo">&lt;bdo&gt;</label></li>
+						<li><input type="checkbox" id="span" name="HtmlElements" value="span" /><label for="span">&lt;span&gt;</label></li>
+						<li><input type="checkbox" id="br" name="HtmlElements" value="br" /><label for="br">&lt;br&gt;</label></li>
+						<li><input type="checkbox" id="wbr" name="HtmlElements" value="wbr" checked="checked" /><label for="wbr">&lt;wbr&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+
+				<fieldset>
+					<legend>Edits</legend>
+					<ul>
+						<li><input type="checkbox" id="ins" name="HtmlElements" value="ins" checked="checked" /><label for="ins">&lt;ins&gt;</label></li>
+						<li><input type="checkbox" id="del" name="HtmlElements" value="del" checked="checked" /><label for="del">&lt;del&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+
+				<fieldset>
+					<legend>Embedded Content</legend>
+					<ul class="htmlCol2">
+						<li><input type="checkbox" id="img" name="HtmlElements" value="img" checked="checked" /><label for="img">&lt;img&gt;</label></li>
+						<li><input type="checkbox" id="iframe" name="HtmlElements" value="iframe" /><label for="iframe">&lt;iframe&gt;</label></li>
+						<li><input type="checkbox" id="embed" name="HtmlElements" value="embed" /><label for="embed">&lt;embed&gt;</label></li>
+						<li><input type="checkbox" id="object" name="HtmlElements" value="object" /><label for="object">&lt;object&gt;</label></li>
+						<li><input type="checkbox" id="param" name="HtmlElements" value="param" /><label for="param">&lt;param&gt;</label></li>
+						<li><input type="checkbox" id="video" name="HtmlElements" value="video" /><label for="video">&lt;video&gt;</label></li>
+						<li><input type="checkbox" id="audio" name="HtmlElements" value="audio" /><label for="audio">&lt;audio&gt;</label></li>
+						<li><input type="checkbox" id="source" name="HtmlElements" value="source" /><label for="source">&lt;source&gt;</label></li>
+						<li><input type="checkbox" id="track" name="HtmlElements" value="track" /><label for="track">&lt;track&gt;</label></li>
+						<li><input type="checkbox" id="canvas" name="HtmlElements" value="canvas" /><label for="canvas">&lt;canvas&gt;</label></li>
+						<li><input type="checkbox" id="map" name="HtmlElements" value="map" /><label for="map">&lt;map&gt;</label></li>
+						<li><input type="checkbox" id="area" name="HtmlElements" value="area" /><label for="area">&lt;area&gt;</label></li>
+						<li><input type="checkbox" id="svg" name="HtmlElements" value="svg" /><label for="svg">&lt;svg&gt;</label></li>
+						<li><input type="checkbox" id="math" name="HtmlElements" value="math" /><label for="math">&lt;math&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+
+				<fieldset>
+					<legend>Tabular Data</legend>
+					<ul>
+						<li><input type="checkbox" id="table" name="HtmlElements" value="table" /><label for="table">&lt;table&gt;</label></li>
+						<li><input type="checkbox" id="caption" name="HtmlElements" value="caption" /><label for="caption">&lt;caption&gt;</label></li>
+						<li><input type="checkbox" id="colgroup" name="HtmlElements" value="colgroup" /><label for="colgroup">&lt;colgroup&gt;</label></li>
+						<li><input type="checkbox" id="col" name="HtmlElements" value="col" /><label for="col">&lt;col&gt;</label></li>
+						<li><input type="checkbox" id="tbody" name="HtmlElements" value="tbody" /><label for="tbody">&lt;tbody&gt;</label></li>
+						<li><input type="checkbox" id="thead" name="HtmlElements" value="thead" /><label for="thead">&lt;thead&gt;</label></li>
+						<li><input type="checkbox" id="tfoot" name="HtmlElements" value="tfoot" /><label for="tfoot">&lt;tfoot&gt;</label></li>
+						<li><input type="checkbox" id="tr" name="HtmlElements" value="tr" /><label for="tr">&lt;tr&gt;</label></li>
+						<li><input type="checkbox" id="td" name="HtmlElements" value="td" /><label for="td">&lt;td&gt;</label></li>
+						<li><input type="checkbox" id="th" name="HtmlElements" value="th" /><label for="th">&lt;th&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+
+				<fieldset>
+					<legend>Forms</legend>
+					<ul class="htmlCol2">
+						<li><input type="checkbox" id="form" name="HtmlElements" value="form" /><label for="form">&lt;form&gt;</label></li>
+						<li><input type="checkbox" id="fieldset" name="HtmlElements" value="fieldset" /><label for="fieldset">&lt;fieldset&gt;</label></li>
+						<li><input type="checkbox" id="legend" name="HtmlElements" value="legend" /><label for="legend">&lt;legend&gt;</label></li>
+						<li><input type="checkbox" id="label" name="HtmlElements" value="label" /><label for="label">&lt;label&gt;</label></li>
+						<li><input type="checkbox" id="input" name="HtmlElements" value="input" /><label for="input">&lt;input&gt;</label></li>
+						<li><input type="checkbox" id="button" name="HtmlElements" value="button" /><label for="button">&lt;button&gt;</label></li>
+						<li><input type="checkbox" id="select" name="HtmlElements" value="select" /><label for="select">&lt;select&gt;</label></li>
+						<li><input type="checkbox" id="datalist" name="HtmlElements" value="datalist" /><label for="datalist">&lt;datalist&gt;</label></li>
+						<li><input type="checkbox" id="optgroup" name="HtmlElements" value="optgroup" /><label for="optgroup">&lt;optgroup&gt;</label></li>
+						<li><input type="checkbox" id="option" name="HtmlElements" value="option" /><label for="option">&lt;option&gt;</label></li>
+						<li><input type="checkbox" id="textarea" name="HtmlElements" value="textarea" /><label for="textarea">&lt;textarea&gt;</label></li>
+						<li><input type="checkbox" id="keygen" name="HtmlElements" value="keygen" /><label for="keygen">&lt;keygen&gt;</label></li>
+						<li><input type="checkbox" id="output" name="HtmlElements" value="output" /><label for="output">&lt;output&gt;</label></li>
+						<li><input type="checkbox" id="progress" name="HtmlElements" value="progress" /><label for="progress">&lt;progress&gt;</label></li>
+						<li><input type="checkbox" id="meter" name="HtmlElements" value="meter" /><label for="meter">&lt;meter&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+
+				<fieldset>
+					<legend>Interactive Elements</legend>
+					<ul>
+						<li><input type="checkbox" id="details" name="HtmlElements" value="details" /><label for="details">&lt;details&gt;</label></li>
+						<li><input type="checkbox" id="summary" name="HtmlElements" value="summary" /><label for="summary">&lt;summary&gt;</label></li>
+						<li><input type="checkbox" id="menuitem" name="HtmlElements" value="menuitem" /><label for="menuitem">&lt;menuitem&gt;</label></li>
+						<li><input type="checkbox" id="menu" name="HtmlElements" value="menu" /><label for="menu">&lt;menu&gt;</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+			</div>
+
+		</fieldset>
+
+		<fieldset class="htmlAttributes">
+			<legend>Permitted Attributes</legend>
+
+			<div class="htmlCheckboxes">
+				<fieldset>
+					<legend>Global</legend>
+					<ul class="htmlCol2">
+						<li><input type="checkbox" id="id" name="HtmlAttributes" value="id" /><label for="id">id</label></li>
+						<li><input type="checkbox" id="class" name="HtmlAttributes" value="class" /><label for="class">class</label></li>
+						<li><input type="checkbox" id="style" name="HtmlAttributes" value="style" /><label for="style">style</label></li>
+						<li><input type="checkbox" id="title" name="HtmlAttributes" value="title" checked="checked" /><label for="title">title</label></li>
+						<li><input type="checkbox" id="lang" name="HtmlAttributes" value="lang" checked="checked" /><label for="lang">lang</label></li>
+						<li><input type="checkbox" id="accesskey" name="HtmlAttributes" value="accesskey" /><label for="accesskey">accesskey</label></li>
+						<li><input type="checkbox" id="contenteditable" name="HtmlAttributes" value="contenteditable" /><label for="contenteditable">contenteditable</label></li>
+						<li><input type="checkbox" id="contextmenu" name="HtmlAttributes" value="contextmenu" /><label for="contextmenu">contextmenu</label></li>
+						<li><input type="checkbox" id="dir" name="HtmlAttributes" value="dir" /><label for="dir">dir</label></li>
+						<li><input type="checkbox" id="draggable" name="HtmlAttributes" value="draggable" /><label for="draggable">draggable</label></li>
+						<li><input type="checkbox" id="dropzone" name="HtmlAttributes" value="dropzone" /><label for="dropzone">dropzone</label></li>
+						<li><input type="checkbox" id="hidden" name="HtmlAttributes" value="hidden" /><label for="hidden">hidden</label></li>
+						<li><input type="checkbox" id="spellcheck" name="HtmlAttributes" value="spellcheck" /><label for="spellcheck">spellcheck</label></li>
+						<li><input type="checkbox" id="tabindex" name="HtmlAttributes" value="tabindex" /><label for="tabindex">tabindex</label></li>
+						<li><input type="checkbox" id="translate" name="HtmlAttributes" value="translate" /><label for="translate">translate</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+				<fieldset>
+					<legend>&lt;a&gt;, &lt;link&gt;</legend>
+					<ul>
+						<li><input type="checkbox" id="href" name="HtmlAttributes" value="href" checked="checked" /><label for="href">href</label></li>
+						<li><input type="checkbox" id="target" name="HtmlAttributes" value="target" /><label for="target">target</label></li>
+						<li><input type="checkbox" id="rel" name="HtmlAttributes" value="rel" checked="checked" /><label for="rel">rel</label></li>
+						<li><input type="checkbox" id="download" name="HtmlAttributes" value="download" /><label for="download">download</label></li>
+						<li><input type="checkbox" id="hreflang" name="HtmlAttributes" value="hreflang" /><label for="hreflang">hreflang</label></li>
+						<li><input type="checkbox" id="media" name="HtmlAttributes" value="media" /><label for="media">media</label></li>
+						<li><input type="checkbox" id="type" name="HtmlAttributes" value="type" /><label for="type">type</label></li>
+						<li><input type="checkbox" id="sizes" name="HtmlAttributes" value="sizes" /><label for="sizes">sizes</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+				<fieldset>
+					<legend>&lt;img&gt;, &lt;video&gt;, &lt;audio&gt;</legend>
+					<ul class="htmlCol2">
+						<li><input type="checkbox" id="src" name="HtmlAttributes" value="src" checked="checked" /><label for="src">src</label></li>
+						<li><input type="checkbox" id="alt" name="HtmlAttributes" value="alt" checked="checked" /><label for="alt">alt</label></li>
+						<li><input type="checkbox" id="width" name="HtmlAttributes" value="width" checked="checked" /><label for="width">width</label></li>
+						<li><input type="checkbox" id="height" name="HtmlAttributes" value="height" checked="checked" /><label for="height">height</label></li>
+						<li><input type="checkbox" id="autoplay" name="HtmlAttributes" value="autoplay" /><label for="autoplay">autoplay</label></li>
+						<li><input type="checkbox" id="controls" name="HtmlAttributes" value="controls" /><label for="controls">controls</label></li>
+						<li><input type="checkbox" id="loop" name="HtmlAttributes" value="loop" /><label for="loop">loop</label></li>
+						<li><input type="checkbox" id="muted" name="HtmlAttributes" value="muted" /><label for="muted">muted</label></li>
+						<li><input type="checkbox" id="poster" name="HtmlAttributes" value="poster" /><label for="poster">poster</label></li>
+						<li><input type="checkbox" id="preload" name="HtmlAttributes" value="preload" /><label for="preload">preload</label></li>
+						<li><input type="checkbox" id="avType" name="HtmlAttributes" value="type" /><label for="avType">type</label></li>
+					</ul>
+					<button type="button" class="htmlSelect">Select All</button>
+				</fieldset>
+			</div>
+		</fieldset>
+	}
+
+
+</article>

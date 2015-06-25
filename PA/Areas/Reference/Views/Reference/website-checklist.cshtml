@@ -1,0 +1,175 @@
+﻿@{
+	ViewBag.Title = "Website Checklist";
+}
+
+@section breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>Website Checklist</li>
+	</ol>
+}
+
+<article>
+	<h1>Website Checklist</h1>
+	<h2>Website</h2>
+
+	<ol>
+		<li>ERROR SYSTEM</li>
+		<li>MESSAGING SYSTEM</li>
+		<li>LOGIN SYSTEM</li>
+		<li>CMS SYSTEM</li>
+		<li>SHOP</li>
+		<li>ARTICLES</li>
+	</ol>
+
+	<h2>web.config</h2>
+
+	<ul>
+		<li>
+			Security - do﻿ not rely on machine.config for security settings:
+			<ul>
+				<li>compilation/@@debug="False"</li>
+				<li>customErrors/@@mode="RemoteOnly"</li>
+				<li>forms/@@cookieless="UseCookies"</li>
+				<li>forms/@@name - use a GUID to create a unique name</li>
+				<li>forms/@@protection="All"</li>
+				<li>forms/@@requireSSL="True"</li>
+				<li>forms/@@slidingExpiration="False"</li>
+				<li>membership/@@enablePasswordRetrieval="False"</li>
+				<li>pages/@@validateRequest="True"</li>
+				<li>httpCookies/@@httpOnlyCookies="True"</li>
+				<li>sessionState/@@cookieless="UseCookies"</li>
+				<li>trace/@@enabled="False"</li>
+				<li>do not use hard-coded &lt;credentials&gt;</li>
+				<li>user membership/providers settings to force users to use strong passwords</li>
+				<li>encrypt connectionStrings</li>
+				<li>use SHA1 encyption - check &lt;machinekey&gt; settings</li>
+			</ul>
+		</li>
+		<li>
+			Performance
+			<ul>
+				<li>compilation/@@debug="False"</li>
+				<li>trace/@@enabled="False"</li>
+				<li>customErrors/@@mode="RemoteOnly"</li>
+				<li>anonymousIdentification/@@enabled="False"</li>
+				<li>pages/@@enableSessionState="False"</li>
+			</ul>
+		</li>
+		<li>
+			Backwards Compatibility
+			<ul>
+				<li>system.webServer/httpProtocol/customHeaders - &lt;add name="X-UA-Compatible" value="IE=edge,chrome=1" /&gt;</li>
+                <li>add &lt;mimeMap&gt; to &lt;staticContent&gt; section for static content files, if necessary</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Site Settings</h2>
+	<ul>
+		<li>
+			HTML Template
+			<ul>
+				<li>Doctype</li>
+				<li>Meta Tags - Charset, Keywords, Description, X-UA-Compatible (if not in web.config)</li>
+				<li>Favicons - standard, Apple/IOS</li>
+				<li>Language settings - "lang" attribute</li>
+				<li>HTML5 Shiv for Internet Explorer 8-</li>
+			</ul>
+		</li>
+		<li>
+			CSS
+			<ul>
+				<li>Font Size Adjust</li>
+				<li>Print style sheet</li>
+			</ul>
+		</li>
+		<li>
+			JavaScript
+			<ul>
+				<li>No script message</li>
+			</ul>
+		</li>
+		<li>
+			Error pages
+			<ul>
+				<li>Default error page</li>
+				<li>404 error page</li>
+				<li>Error logging</li>
+			</ul>
+		</li>
+		<li>
+			Cookies
+			<ul>
+				<li>Check cookies are enabled on login page</li>
+				<li>Cookie message</li>
+				<li>Cookies help page</li>
+			</ul>
+		</li>
+		<li>
+			Backwards Compatibility
+			<ul>
+				<li>Unsupported browser page - on all pages, or just error pages and other pages that have unused space</li>
+				<li>HTML5 Shiv for Internet Explorer 8-</li>
+			</ul>
+		</li>
+		<li>
+			SEO
+			<ul>
+				<li>Robots.txt</li>
+				<li>Title tags</li>
+				<li>Meta tags - Keywords, Description</li>
+				<li>301 Redirects</li>
+				<li>Google sitemap</li>
+				<li>Google Webmaster</li>
+			</ul>
+		</li>
+		<li>
+			Performance
+			<ul>
+				<li>Bundle and minify JavaScript and CSS files</li>
+			</ul>
+		</li>
+		<li>
+			Accessibility
+			<ul>
+				<li>Site map</li>
+			</ul>
+		</li>
+		<li>
+			Analytics
+			<ul>
+				<li>Google Analytics</li>
+			</ul>
+		</li>
+		<li>Caching</li>
+	</ul>
+	<h2>HTML Pages</h2>
+	<ul>
+		<li>
+			HTML
+			<ul>
+				<li>Validate HTML - W3C Validation Tool</li>
+				<li>Check for broken links & missing images</li>
+				<li>Test in supported browsers</li>
+				<li>Title tag</li>
+				<li>em / rem resizing</li>
+				<li>HTML5 Outline</li>
+			</ul>
+		</li>
+		<li>
+			CSS
+			<ul>
+				<li>Validate - W3C Validation Tool</li>
+			</ul>
+		</li>
+		<li>
+			JavaScript
+			<ul>
+				<li>Check for JavaScript errors</li>
+				<li>Test page with JavaScript disabled</li>
+				<li>No Script message - if needed</li>
+			</ul>
+		</li>
+	</ul>
+</article>

@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Fonts | Guidelines";
+}
+
+@section Breadcrumb {
+<ol class="breadcrumb">
+	<li>@Html.ActionLink("Home", "index", "home")</li>
+	<li>@Html.ActionLink("Guidelines", "index", "guidelines")</li>
+	<li>Fonts</li>
+</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-guidelines.cshtml")
+}
+
+<article>
+
+	<h1>Fonts</h1>
+
+	<h2>Web-Safe Fonts</h2>
+	<p>Web-safe fonts are fonts that end-user is considered guaranteed to have installed on their computer.</p>
+	<p>Advantages of of web-safe fonts:</p>
+	<ul>
+		<li>no need to pay for a licence</li>
+		<li>optimised for legibility on screen</li>
+		<li>will work in older browsers</li>
+	</ul>
+
+	<h3>List of Web Safe Fonts</h3>
+	<p>It is debatable as to what could be considered a web safe font. Below is a list of what is generally considered safe. Because some fonts are PC only or Mac only, a set of fonts is usually used. The computer then uses the first font in the list that it has installed. For example, Helvetica is included with Arial because older Macs did not have Arial installed. Helvetica was the closest Mac equivalent. You may find lists online with more fonts, but you will need to check that these are actually guaranteed to be installed on all your supported devices.</p>
+	
+	<h4>Sans-Serif Fonts</h4>
+	<ul>
+		<li>Arial, Helvetica, sans-serif</li>
+		<li>"Arial Black", Gadget, sans-serif</li>
+		<li>Impact, Charcoal, sans-serif</li>
+		<li>"Lucida Sans Unicode", "Lucida Grande", sans-serif</li>
+		<li>Tahoma, Geneva, sans-serif</li>
+		<li>"Trebuchet MS", Helvetica, sans-serif</li>
+		<li>Verdana, Geneva, sans-serif</li>
+	</ul>
+	<p>Sans-serif fonts are generally more legible on screen than serif fonts. For this reason they are usually the preferred choice for website text. Serif fonts tend to be more legible on printed paper.</p>
+	<p>Verdana was designed specifically for web use. It has the clearest font for on-screen reading, even at small sizes.</p>
+	<p>Arial readability is not so good at small sizes, when it becomes too narrow and the spacing between characters too small.</p>
+	<p>For older Mac users, the equivalent of Arial is Helvetica.</p>
+
+	<h4>Serif Fonts</h4>
+	<ul>
+		<li>Georgia, serif</li>
+		<li>"Palatino Linotype", "Book Antiqua", Palatino, serif</li>
+		<li>"Times New Roman", Times, serif</li>
+	</ul>
+	<p>Serifs have generally been used mainly for headings in websites, since they are less legible than sans-serif fonts at small sizes.</p>
+	<p>Georgia is the best serif font for online reading, since it was specifically designed for that purpose.</p>
+	<p>For Mac users, the equivalent of Times New Roman is Times.</p>
+
+	<h4>Monospace Fonts</h4>
+	<ul>
+		<li>"Courier New", Courier, monospace</li>
+		<li>"Lucida Console", Monaco, monospace</li>
+	</ul>
+	<p>Most fonts are <dfn>proportionally spaced</dfn>, which means narrower letters, such as 'i', take up less space than wider letters, such as 'm'. It makes the text look nicer, but it also means that it's more difficult to predict how long a sentence will be, since two different sentences can vary considerably in length even though they have the same number of characters.</p>
+	<p>With <dfn>monospaced fonts</dfn>, each letter takes up exactly the same with. It also means that different sentences with the same number of characters will be exactly the same length. It is useful if you want to display text in columns.</p>
+
+	<h4>Cursive Fonts</h4>
+	<ul>
+		<li>"Comic Sans MS", cursive</li>
+	</ul>
+
+	<h2>Custom Fonts</h2>
+	<p>Nowadays you are not restricted to using web safe fonts. You can use any fonts you like in a website. If, however, you are planning on using a non web-safe font, you will need to make sure that:</p>
+	<ul>
+		<li>you have a licence to use it.</li>
+		<li>you have the full font set (.woff, .ttf, .eot, .svg) or have a service - such as <a href="http://typekit.com" target="_blank">Typekit</a> - that provides these fonts.</li>
+		<li>the fonts look OK on a website. Many fonts do not look good on screen, particularly at small sizes. You will need to test at different sizes - or use only where large fonts are required, such as titles.</li>
+	</ul>
+
+	<h3>Where to Obtain Custom Fonts</h3>
+	<p>The best way to install custom fonts is to use a font set - i.e. a set of fonts in the following formats: .woff, .ttf, .eot, .svg.</p>
+	<p>.woff is the most important as it is a compressed format specially designed for websites and is supported by all current browsers. The other fonts are for backwards compatibility.</p>
+	<p>You can download font sets at the following sites:</p>
+	<ul>
+		<li><a href="http://www.theleagueofmoveabletype.com/" target="_blank">The League of Moveable Type</a> - free, open source font sets to download</li>
+		<li><a href="http://www.fontsquirrel.com" target="_blank">Font Squirrel</a> - free, open source font sets to download - usually in .ttf format only, but provides a <a href="http://www.fontsquirrel.com/tools/webfont-generator" target="_blank">'Webfont Generator'</a> to convert to the full set of web fonts</li>
+	</ul>
+	<p>Alternatively, you can subscribe to a font service:</p>
+	<ul>
+		<li><a href="http://typekit.com" target="_blank">Typekit</a></li>
+		<li><a href="http://www.google.com/webfonts" target="_blank">Google Web Fonts</a> - free, open source web fonts</li>
+	</ul>
+</article>
+
+

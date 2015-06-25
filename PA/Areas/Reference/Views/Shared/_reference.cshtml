@@ -1,0 +1,69 @@
+﻿@{
+	Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@section Head {
+	@RenderSection("Head", false)
+}
+
+@section Breadcrumb {
+	@RenderSection("Breadcrumb", false)
+}
+
+@RenderBody()
+
+@section Navigation {
+	<section>
+		<h2>Miscellaneous</h2>
+		<ul>
+			<li>@Html.ActionLink("Website Checklist", "website-checklist", "reference", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Request Information", "request-information", "reference", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Character Sets", "character-sets", "reference", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Performance", "performance", "reference", new { area = "reference" }, null)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>ASPX</h2>
+		<ul>
+			<li>@Html.ActionLink("Formatting: Numbers", "formatting-numeric", "aspx", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Formatting: Dates", "formatting-datetime", "aspx", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Arrays", "arrays", "aspx", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Security", "security", "aspx", new { area = "reference" }, null)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>CSS</h2>
+		<ul>
+			<li>@Html.ActionLink("Layout Engines", "layout-engines", "css", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Browser Support", "browser-support", "css", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Selectors", "selectors", "css", new { area = "reference" }, null)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>JavaScript</h2>
+		<ul>
+			<li>@Html.ActionLink("jQuery", "jquery", "javascript", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Dimensions", "dimensions", "javascript", new { area = "reference" }, null)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Regular Expressions</h2>
+		<ul>
+			<li>@Html.ActionLink("Regular Expressions", "index", "regularexpressions", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Common Expressions", "common-expressions", "regularexpressions", new { area = "reference" }, null)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>EBooks</h2>
+		<ul>
+			<li>@Html.ActionLink("EPUB", "epub", "ebooks", new { area = "reference" }, null)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>SQL</h2>
+		<ul>
+			<li>@Html.ActionLink("Data Types", "data-types", "sql", new { area = "reference" }, null)</li>
+			<li>@Html.ActionLink("Performance", "performance", "sql", new { area = "reference" }, null)</li>
+		</ul>
+	</section>
+}

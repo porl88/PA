@@ -1,0 +1,135 @@
+﻿/*
+*****************************************************************************************************************************************
+STYLE SHEET FOR INTERNET EXPLORER 6
+*****************************************************************************************************************************************
+*/
+
+
+
+
+
+/*
+=========================================================================================================================================
+ CLASSES
+=========================================================================================================================================
+*/
+
+/* PAGE LAYOUT		========================================================================================================================*/
+
+/* div.columns - creates 2 CSS accessible columns without the use of tables */
+div.columns div.lCol
+{
+	float: left;
+	margin-left: 0;
+	padding-right: 2%;
+	width: 49%;
+}
+
+div.columns div.rCol
+{
+	margin-left: 51%;
+	padding: 0;
+	overflow: visible;
+}
+
+
+
+/* div.download - for creating a box to download software, etc. */
+div.download
+{
+	padding: 0.5em;
+	height: 75px;
+	clear: left;
+}
+
+div.download div.lCol
+{
+	float: left;
+	width: 80px;
+}
+
+div.download div.rCol
+{
+	position: relative;
+	margin-left: 85px;
+}
+
+div.download h4 span
+{
+	color: #FF0000;
+	font-style: italic;
+}
+
+
+/* TABLES		========================================================================================================================*/
+
+/* table.standard - standard formatting for a table throughout the site */
+table.standard td
+{
+	border-style: solid;
+	border-width: 1px;
+}
+
+
+/* MENUS		========================================================================================================================*/
+
+/* ul.menu - vertical menu list */
+ul.menu li 
+{
+	clear: left;
+}
+
+ul.menu li.firstChild
+{
+	border: none;
+}
+
+ul.menu li a:hover
+{
+	text-decoration: none;
+}
+
+/* .hover is dynamically added by JavaScript as a fix for IE5 + IE6 */
+ul.menu li.hover 
+{
+	position: relative;
+}
+
+ul.menu li.hover ul
+{
+	display: block;
+	background-color: #101175;
+}
+
+
+
+/*
+=========================================================================================================================================
+ MASTER PAGE
+=========================================================================================================================================
+*/
+#pageContent
+{
+	height: 500px;
+}
+
+
+
+/* /Contact.aspx */
+#address div.lCol
+{
+	width: 14em;
+	padding-right: 0;
+	margin-left: 0;
+}
+
+#address div.rCol
+{
+	margin-left: 14em;
+}
+
+#address #map
+{
+	float: left;
+}
+

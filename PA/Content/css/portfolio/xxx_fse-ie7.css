@@ -1,0 +1,152 @@
+﻿/*
+*****************************************************************************************************************************************
+STYLE SHEET FOR INTERNET EXPLORER 7
+*****************************************************************************************************************************************
+
+*/
+
+/*
+=========================================================================================================================================
+ DEFAULT STYLES
+=========================================================================================================================================
+*/
+
+/*
+=========================================================================================================================================
+ CLASSES
+=========================================================================================================================================
+*/
+
+/* PAGE LAYOUT		========================================================================================================================*/
+
+/* div.columns - creates 2 CSS accessible columns without the use of tables */
+div.columns > div > div
+{
+	width: 49%;
+	margin-left: 51%;
+	padding: 0 !important;
+}
+
+div.columns > div > div:first-child
+{
+	float: left;
+	width: 49%;
+	margin-left: 0;
+	padding: 0 !important;
+}
+
+div.columns + *
+{
+	clear: left;
+}
+
+
+
+/* div.download - for creating a box to download software, etc. */
+div.download
+{
+	width: auto;
+	padding: 0;
+}
+
+div.download > div:first-child
+{
+	float: left;
+	width: 80px;
+}
+
+div.download > div:first-child + div
+{
+	position: relative;
+	top: -5px;
+	margin-left: 80px;
+}
+
+
+
+/* FORMS		========================================================================================================================*/
+
+
+
+
+/* MENUS		========================================================================================================================*/
+
+/* ul.menu - vertical menu list */
+
+ul.menu 
+{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+ul.menu li a
+{
+	width: 100%;
+	background-image: url(x); /* needed as a fix if there is no background-color/image set */
+	padding-left: 0;
+	padding-right: 0;
+	text-indent: 5px;
+}
+
+ul.menu ul li 
+{
+	width: 15em;
+}
+
+
+
+/* MISC		========================================================================================================================*/
+
+/* div.passwordGauge - measures strength of password */
+div.passwordGauge div
+{
+	height: 1.9em;
+}
+
+div.passwordGauge div div
+{
+	float: left;
+	width: 4.4em;
+	height: 1.4em;
+}
+	
+
+
+
+
+/*
+=========================================================================================================================================
+ MASTER PAGE
+=========================================================================================================================================
+*/
+
+#lCol
+{
+	float: left;
+}
+
+#rCol
+{
+	margin-left: 23.5em;
+}
+
+#footer
+{
+	clear: left;
+}
+
+
+
+/* /Contact.aspx */
+#address > div > div
+{
+	margin-left: 14em;
+}
+
+#address > div > div:first-child
+{
+	width: 14em;
+	padding-right: 0;
+	margin-left: 0;
+}

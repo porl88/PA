@@ -1,0 +1,175 @@
+﻿@{
+	Layout = null;
+	ViewBag.Title = "Browser Not Supported";
+	ViewBag.Browser = Request.Browser.Browser;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" dir="ltr">
+<head>
+	<title>@ViewBag.Title</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<meta name="Author" content="Paul Arnold" />
+
+	<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+
+	<base target="_top" />
+
+	<link rel="stylesheet" href="~/content/css/default.css" />
+	<link rel="stylesheet" href="~/content/css/css3info.css" />
+
+	<style type="text/css">
+		/*<[CDATA[*/
+		a {
+			color: #000;
+		}
+
+			a:hover {
+				text-decoration: none;
+			}
+
+		#page h1 {
+			color: rgb(204, 102, 0);
+			font-size: 24px;
+			line-height: 24px;
+			padding-bottom: 9px;
+			margin-bottom: 9px;
+			background: url(/images/css3info/h1-border.gif) repeat-x 0px 100%;
+		}
+
+		#warning {
+			border: 2px solid red;
+			padding: 20px;
+			background-color: lemonchiffon;
+			margin: 50px 130px 0 130px;
+		}
+
+			#warning h2 {
+				text-transform: uppercase;
+				font-size: 1.3em;
+				text-decoration: underline;
+			}
+
+			#warning p {
+				margin: 0;
+				margin-top: 10px;
+			}
+
+			#warning p:first-child {
+				margin-top: 0;
+			}
+
+		#download {
+			width: 600px;
+			margin: 6em auto 0 auto;
+			height: 130px;
+		}
+
+			#download div {
+				float: left;
+				width: 200px;
+				text-align: center;
+			}
+
+				#download div img {
+					display: block;
+					margin: auto;
+				}
+
+				#download div p {
+					color: #F00;
+					font-size: 0.9em;
+				}
+
+		#skip {
+			text-align: right;
+			margin-top: 0.8em;
+			margin-bottom: 6em;
+		}
+
+			#skip a {
+				background-color: gold;
+				color: #FFF;
+				font-weight: bold;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-size: 0.9em;
+				padding: 0.5em 0.8em;
+			}
+
+		#reappear {
+			font-size: 0.9em;
+		}
+
+		/*]]>*/
+	</style>
+	
+</head>
+<body>
+	<div id="page">
+
+		<div id="header" role="banner">
+			<h2 class="logo"><a href="/" title="Home">Paul</a></h2>
+		</div>
+
+		<div id="main" role="main">
+
+			<h1>Your browser is out-of-date and needs upgrading</h1>
+
+			<div id="warning">
+				<h2>Your browser is out-of-date and needs upgrading!</h2>
+				<p><strong>You are using an old version of @ViewBag.Browser.Replace("IE", "Internet Explorer") which is not supported by this site.</strong></p>
+				<p>In order to use this site, <strong>you <em>must</em> upgrade your browser</strong>.</p>
+				@if (Request.UserAgent.Contains("Windows NT 5")) {
+					<p>If you are using Windows XP or earlier, you cannot use Internet Explorer, since the minimum version required for this site is Internet Explorer 9 and XP only supports up to Internet Explorer 8. You will need to download one of the browsers below.</p>
+				}
+				<p>You can choose any of the browsers below. They are <strong>FREE</strong>. Just click on one of the links and follow the download instructions.</p>
+			</div>
+
+
+			<div id="download">
+				<div>
+					<a href="http://www.firefox.com/" title="Click here to download the latest version of Firefox" target="_blank">
+						<img src="/images/browser/firefox.png" alt="Firefox" height="83" width="83" /></a>
+					<a href="http://www.firefox.com/" title="Click here to download the latest version of Firefox" target="_blank">Firefox</a>
+				</div>
+				<div>
+					<a href="http://www.google.com/chrome/" title="Click here to download the latest version of Chrome" target="_blank">
+						<img src="/images/browser/chrome.png" alt="Chrome" height="83" width="83" /></a>
+					<a href="http://www.google.com/chrome/" title="Click here to download the latest version of Chrome" target="_blank">Chrome</a>
+					<p>Recommended</p>
+				</div>
+				@if (ViewBag.Browser == "IE" && !Request.UserAgent.Contains("Windows NT 5")) {
+					<div>
+						<a href="http://www.microsoft.com/ie/" title="Click here to download the latest version of Internet Explorer" target="_blank">
+							<img src="/images/browser/ie.png" alt="Internet Explorer" height="83" width="83" /></a>
+						<a href="http://www.microsoft.com/ie/" title="Click here to download the latest version of Internet Explorer" target="_blank">Internet Explorer</a>
+					</div>
+	}
+	else if (ViewBag.Browser == "Safari") {
+					<div>
+						<a href="http://www.apple.com/safari/" title="Click here to download the latest version of Safari" target="_blank">
+							<img src="/images/browser/safari.png" alt="Safari" height="83" width="83" /></a>
+						<a href="http://www.apple.com/safari/" title="Click here to download the latest version of Safari" target="_blank">Safari</a>
+					</div>
+	}
+	else {
+					<div>
+						<a href="http://www.opera.com/" title="Click here to download the latest version of Opera" target="_blank">
+							<img src="/images/browser/opera.png" alt="Opera" height="83" width="83" /></a>
+						<a href="http://www.opera.com/" title="Click here to download the latest version of Opera" target="_blank">Opera</a>
+					</div>
+	}
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,1239 @@
+﻿/* MASTER STYLE SHEET - CSS1 */
+/* supports IE 5, IE 6, Netscape 6, Netscape 7, Firefox 1, Opera 7 */
+
+/*
+ ------------------------------------------------------
+ DEFAULT SETTINGS: SELECTORS & CLASSES
+ ------------------------------------------------------
+*/
+
+/* TEXT: Start ================================================================================ */
+/* Text Size: Start*/
+body {
+	background-color: #FFFFFF;
+	font-size: 0.707em;
+}
+
+input, textarea, select {
+	font-size: 1em;
+}
+/* Text Size: End*/
+
+body, p, td, input, textarea, select {
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: normal;
+	line-height: 1.4em;
+	text-align: left;
+	word-spacing: normal;
+}
+
+.smallprint {
+	font-size: 0.9em;	
+}
+
+.warning {
+	color: #CC0000;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.errorMessage {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+div.report {
+	margin-bottom: 10px;
+}
+
+div.error h2 {
+	color: #CC0000;
+}
+
+div.report table {
+	margin: auto;
+}
+
+div.report td, div.report th {
+	padding: 5px;
+	border: 1px solid black;
+}
+
+div.report form {
+	text-align: right;
+}
+
+/* TEXT: End ================================================================================ */
+
+
+/* HEADINGS: Start ================================================================================ */
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 1.6em;
+	margin-bottom: 0.5em;
+}
+
+h1 {
+	font-size: 130%;
+}
+
+h2 {
+	font-size: 120%;
+}
+
+h3 {
+	font-size: 110%;
+}
+
+h4, h5 {
+	font-size: 100%;
+}
+
+/* HEADINGS: End ================================================================================ */
+
+
+/* LINKS:Start ================================================================================ */
+a {
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+a:focus {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+/* LINKS: End ================================================================================ */
+
+
+/* IMAGES: Start ================================================================================ */
+img {
+	border: 0px;
+}
+/* IMAGES: End ================================================================================ */
+
+
+/* FORMS: Start ================================================================================ */
+form, input, textarea {
+	margin: 0px;
+}
+
+form br {
+	clear: left;
+}
+
+input.text {
+	line-height: 1.1em;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	height: 1.1em;
+}
+
+html>body input.text {
+	height: auto;
+}
+
+input[type="text"], input[type="password"] { /* not IE5, IE6 */
+	width: 140px;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"]  { 
+	background-color: #DD2211;
+	border-width: 0px;
+	color: #FFFFFF;
+	font-variant: normal;
+	font-weight: bold;
+	text-align: center;
+	text-transform: capitalize;
+	width: auto;
+	cursor: pointer;
+}
+
+input.button  { /* fix for IE5, IE6 - must be done separately */
+	background-color: #DD2211;
+	border-width: 0px;
+	color: #FFFFFF;
+	font-variant: normal;
+	font-weight: bold;
+	text-align: center;
+	text-transform: capitalize;
+	width: auto;
+	cursor: pointer;
+}
+
+input.small {
+	width: 4ex;
+}
+
+textarea {
+	height: 5.5em;
+}
+
+fieldset {
+	border: none;
+	border: 1px solid #DD2211;
+	padding-bottom: 5px;
+	margin-bottom: 8px;
+}
+
+legend {
+	font-weight: bold;
+	color: #DD2211;
+	background-color: #FFFFFF;
+	padding: 0 2px;
+}
+
+label {
+	color: #774477;
+	font-weight: bold;
+}
+
+
+
+/* TABLES: Start ================================================================================ */
+table {
+	border-collapse: collapse;
+	empty-cells: show;
+	table-layout: auto;
+}
+
+td, th {
+	border: none;
+	text-align: left;
+	vertical-align: top;
+}
+/* TABLES: End ================================================================================ */
+
+
+
+
+
+
+
+/*
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CLASSES
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* LINKS ============================================================================================================================= */
+.blockLink {
+	display: block;
+	height: 100%;
+	overflow: hidden;
+	text-decoration: none;
+	text-indent: -9999px;
+	width: 100%;
+}
+
+
+/* MENU: creates a rollover-style menu ========================================================== */
+.menu * {
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+.menu p {
+	display: none;
+}
+
+.menu ul {
+	border-collapse: inherit; /* fix for Opera 5 and Opera 6 */
+	display: table;
+	list-style: none;
+}
+
+html>body .menu ul {
+	width: 100%;
+}
+
+.menu ul li {
+	display: table-row;
+	float: left; /* fix for IE 5 */
+}
+
+.menu ul a {
+	background-color: #DD2211;
+	display: table-cell;
+	float: left; /* fix for IE 5 */
+	border-bottom: 1px solid #FFFFFF;
+	padding: 0.3em 0.6em;
+	text-decoration: none;
+	width: 100%; /* value for IE5 */
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	padding: 3px 5px;
+	width: 135px; /* value for IE6 - calculated by subtracting left and right padding values from total width */
+}
+
+html>body .menu * {
+	float: none;
+}
+
+html>body .menu ul a {
+	padding: 0.3em 0.6em;
+	width: auto;
+}
+
+.menu ul li a:focus, .menu ul li a:hover {
+	background-color: #FFFFFF;
+	color: #DD2211;
+}
+
+
+
+/* Text Box: Start */
+.box {
+	clear: both;
+	margin: 0 auto 10px auto;
+	width: 100%;
+	position: relative;
+}
+
+.box * {
+	margin: 0;
+}
+
+.box a {
+	color: #000000;
+}
+
+.box h1 {
+	height: 1.1em;
+	font-size: 1.1em;
+	line-height: 1.1em;
+	background-color: #FFAA77;
+	margin-bottom: 0.07em;
+	overflow: hidden;
+}
+
+.box h1 span {
+	background-color: #FFFFFF;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 15px;
+	color: #DD2211;
+	padding: 0px 0.3em;
+	text-transform: uppercase;
+}
+
+.box h4 {
+	width: 394px;
+	float: right;
+}
+
+.box h4 span {
+	font-weight: normal;
+	color: #DD2211;
+	white-space: nowrap;
+}
+
+.box p {
+	margin-left: 80px;
+	padding: 0 0.4em;
+}
+
+.box img {
+	float: left;
+	width: 80px;
+}
+
+.box .links {
+	text-align: right;
+	font-size: 0.8em;
+	margin-top: 1em;
+}
+
+.box .button {
+	float: right;
+}
+
+div.box hr {
+	background-color: #DD2211;
+	color: #DD2211;
+	height: 1px;
+	border: none;
+	width: 100%;
+	clear: both;
+	font-size: 1px;
+}
+
+
+/* Text Box: End */
+
+
+
+/* TABLE-FORMATTED FORM: form put in table format =============================================== */
+/* fix for IE5 and IE6 */
+.frmStandard div {
+	clear: both;
+	width: 100%;
+}
+
+.frmStandard div.left, .frmStandard div.right {
+	padding: 0.3em 0px;
+}
+
+.frmStandard div.left {
+	padding-top: 0.5em;
+	display: block;
+	float: left;
+}
+
+.frmStandard div.right {
+	float: right;
+	width: 68%;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+.frmStandard div.checkbox, .frmStandard div.radio {
+	padding-top: 0.2em;
+}
+/* /fix for IE5 and IE6 */
+
+/* all supported browsers apart from IE5 and IE6 */
+.frmStandard {
+	border-collapse: collapse;
+	display: table;
+	empty-cells: show;
+	margin: auto;
+	table-layout: fixed;
+	width: 400px;
+}
+
+.frmStandard div {
+	display: table-row;
+}
+
+.frmStandard div.left, .frmStandard div.right {
+	display: table-cell;
+}
+
+html>body .frmStandard div.left, html>body .frmStandard div.right{ /* fix for IE5, IE6 */
+	border: none;
+	float: none;
+	padding: 0.3em;
+	vertical-align: top;
+}
+
+.frmStandard div.left {
+	text-align: right;
+	width: 30%;
+}
+
+html>body .frmStandard div.checkbox, html>body .frmStandard div.radio {
+	padding-top: 0.4em;
+}
+
+.frmStandard div.right {
+	text-align: left;
+}
+
+html>body .frmStandard div.right { /* fix for IE5, IE6 */
+	width: 70%;
+}
+
+.frmStandard textarea { /* fix for IE5, IE6 */
+	width: 99%;
+}
+
+.frmStandard div.submit {
+	text-align: right;
+}
+
+.frmStandard input.button {
+	margin-left: 10px;
+}
+/* /all supported browsers apart from IE5 and IE6 */
+/* /TABLE-FORMATTED FORM ========================================================================= */
+
+
+.frmSearch {
+	border-bottom: 1px solid #DD2211;
+	clear: both;
+	margin: 0 auto 10px auto;
+	position: relative;
+	width: 100%;
+}
+
+.frmSearch * {
+	margin: 0;
+}
+
+.frmSearch h1, .frmSearch h2 {
+	height: 1.1em;
+	font-size: 1.1em;
+	line-height: 1.13em;
+	background-color: #FFAA77;
+	margin-bottom: 0.07em;
+}
+
+.frmSearch h1 {
+	float: left;
+	padding-left: 320px;
+}
+
+.frmSearch h1 span, .frmSearch h2 span {
+	background-color: #FFFFFF;
+	color: #DD2211;
+	padding: 0px 0.3em;
+	text-transform: uppercase;
+}
+
+.frmSearch div {
+	float: left;
+	width: 33.333%;
+	font-weight: bold;
+	padding: 0.3em 0;
+}
+
+.frmSearch div.right {
+	float: none;
+	width: auto;
+}
+
+.frmSearch div input, .frmSearch div select {
+	font-weight: normal;
+}
+
+.frmSearch div.submit {
+	float: none;
+	width: 100%;
+	clear: both;
+	text-align: right;
+}
+
+.frmSearch div select {
+	max-width: 155px;
+}
+
+
+.boxPage {
+	border-bottom: 1px solid #DD2211;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	position: relative;
+}
+
+.boxPage h1 {
+	height: 1.1em;
+	font-size: 1.1em;
+	line-height: 1.1em;
+	background-color: #FFAA77;
+	margin-top: 0;
+	margin-bottom: 0.07em;
+	overflow: hidden;
+}
+
+.boxPage h1 span {
+	background-color: #FFFFFF;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 15px;
+	color: #DD2211;
+	padding: 0px 0.3em;
+	text-transform: uppercase;
+}
+
+.boxPage .boxHeader h1 {
+	background-color: #FFFFFF;
+	display: inline;
+	margin: 0px 15px;
+	font-size: 1.1em;
+	line-height: 1.1em;
+	color: #DD2211;
+	padding: 0px 0.3em;
+	text-transform: uppercase;
+}
+
+
+.boxForm {
+	width: 100%;
+	border-bottom-width: 0;
+}
+
+.boxForm * {
+	float: none !important;
+	margin: 0;
+}
+
+.boxForm .boxHeader {
+	margin-bottom: 15px;
+}
+
+.boxForm h3 {
+	background-color: transparent;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.boxForm form {
+	border-width: 0;
+	margin: auto;
+	background-color: #F7E6E7;
+	padding: 0 0.5em;
+}
+
+.boxForm div.button {
+	border-top: 1px solid #FFFFFF;
+	text-align: center;
+	float: none;
+	margin: 0;
+	padding: 0.5em;
+}
+
+.boxForm form input.text, .boxForm form select, .boxForm form textarea, .boxForm form p {
+	margin-bottom: 0.4em;
+}
+
+.boxForm p * {
+	vertical-align: middle;
+}
+
+.boxForm a {
+	vertical-align: baseline;
+}
+
+.boxForm form input.text {
+	width: 205px;
+}
+
+.boxForm form h3 {
+	margin: 0;
+}
+
+.boxForm form h4 {
+	margin-left: 0.3em;
+}
+
+.boxForm form input.button {
+	float: none;
+	text-transform: uppercase;
+}
+
+
+
+/*
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+IDs
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/
+
+
+/* PAGE TEMPLATE: Start ================================================================================ */
+
+/* TEMPLATE		========================================================================================================================*/
+
+/* fix for IE5 and IE6 */
+/* FIXED WIDTH ONLY */
+
+body, #header, #body, #footer, #headerMenuBar {
+	clear: both;
+	text-align: center; /* fix for IE5 */
+}
+
+.leftColumn {
+	float: left;
+	width: 145px;
+}
+
+.rightColumn {
+	float: right;
+	width: 145px;
+}
+
+.centreColumn {
+	float: left;
+	width: 500px;
+}
+
+#info {
+	display: none;
+}
+
+#body {
+	background-image: url(/images/portfolio/fse/bgBody.gif);
+	width: 790px;
+}
+
+html>body #body, html>body .leftColumn, html>body .centreColumn, html>body .rightColumn  { /* resets values for all supported browsers apart from IE5 & IE6 */
+	border: none;
+	background-image: none;
+	float: none;
+}
+/* /fix for IE5 and IE6 */
+
+html, body {
+	background-color: #FFFFFF;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center; /* fix for IE5 */
+}
+
+#info {
+	display: none;
+}
+
+#container {
+	margin: 0 auto;
+	width: 790px;
+}
+
+#header, #body, #footer, #headerMenuBar {
+	position:relative;
+	width: 790px;
+	min-width: 68.5em;
+}
+
+.leftColumn, .centreColumn, .rightColumn {
+	display: table-cell;
+	position: relative;
+	text-align: left;
+	vertical-align: top;
+}
+
+.leftColumn {
+	background-color: #CCCCDD;
+	z-index: 2;
+}
+
+.centreColumn {
+	z-index: 1;
+}
+
+.rightColumn {
+	background-color: #774477;
+	z-index: 3;
+}
+
+.leftColumn *, .rightColumn * {
+	color: #FFFFFF;
+	margin: 0;
+}
+
+html>body .leftColumn { /* for all supported browsers apart from IE5 & IE6 */
+	width: 145px;
+}
+
+html>body .centreColumn { /* for all supported browsers apart from IE5 & IE6 */
+	width: auto; /* always keep this as auto so it automatically adjusts for padding */
+}
+
+html>body .rightColumn { /* for all supported browsers apart from IE5 & IE6 */
+	width: 145px;
+}
+
+#header {
+	background-color: #ED8243;
+	border-bottom: 2px solid #FFFFFF;
+	height: 92px;
+}
+
+#header * {
+	color: #FFFFFF;
+	margin: 0;
+}
+
+#header #siteLogo {
+	background-image:  url(/images/portfolio/fse/siteLogo.gif);
+	background-position: right;
+	background-repeat: no-repeat;
+	width: 342px;
+	height: 100%;
+	background-color: #E12419;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#header #siteLogo a.blockLink {
+	float: right;
+	height: 92px;
+	width: 237px;
+}
+
+#header #home {
+	background-image:  url(/images/portfolio/fse/home.gif);
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 18px;
+	left: 10px;
+	width: 83px;
+	height: 28px;
+}
+
+#header #cmpLogo {
+	background-image: url(/images/portfolio/fse/logoCMP.gif);
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 50px;
+	left: 15px;
+	height: 39px;
+	width: 43px;
+}
+
+#header #strapline {
+	background-image: url(/images/portfolio/fse/header_tagline.gif);
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 1.3em;
+	right: 10px;
+	height: 9px;
+	width: 305px;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+#header #issue {
+	position: absolute;
+	top: 2.5em;
+	right: 10px;
+}
+
+#headerMenuBar {
+	background-color: #CCCCDD;
+	border-bottom: 2px solid #FFFFFF;
+	line-height: 2.5em;
+	height: 2.5em;
+}
+
+#headerMenuBar a {
+	color: #000000;
+	text-decoration: none;
+}
+
+#headerMenuBar a:focus, #headerMenuBar a:hover {
+	text-decoration: underline;
+}
+
+#headerMenuBar #frmQuickSearch {
+	float: left;
+	width: 12.76em;
+	margin-top: 0.44em;
+}
+
+#headerMenuBar #frmQuickSearch input.text {
+	border: 1px solid #7799BB;
+	height: 1.4em;
+	width: 9.24em;
+	float: left;
+	margin-left: 0.88em;
+	font-weight: bold;
+	line-height: 1.35em;
+	padding-left: 0.264em;
+	background-color: #FFFFFF;
+}
+
+#headerMenuBar #frmQuickSearch .button {
+	background-color: #554477;
+	height: 1.584em;
+	width: 1.936em;
+	float: right;
+	margin-top: 0.088em;
+	padding: 0px;
+}
+
+#headerMenuBar #leftText {
+	float: left;
+	font-weight: bold;
+	margin-left: 15px;
+}
+
+#headerMenuBar #rightText {
+	float: right;
+	font-weight: bold;
+	margin-right: 15px;
+}
+
+#body {
+	border-collapse: collapse;
+	display: table;
+}
+
+#body .row {
+	display: table-row;
+}
+
+#body .leftColumn, #body .centreColumn, #body .rightColumn {
+	height: 500px; /* used to set the min height - cannot use min-height with table-formatted cells */
+}
+
+#content {
+	padding: 8px 10px 10px 10px;
+}
+
+#footer {
+	background-color: #DD2211;
+	color: white;
+	text-align: center;
+	border-top: 2px solid #FFFFFF;
+	padding: 0.3em 0;
+}
+
+#footer a {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 0.9em;
+}
+
+#footer a:focus, #footer a:hover {
+	text-decoration: underline;
+}
+
+#menuLeftTop {
+	text-transform: uppercase;
+	margin-top: -1px;
+}
+
+#menuLeftTop a {
+	text-decoration: none;
+}
+
+#menuLeftBottom ul a {
+	background-color: #EEAA77;
+	color: #DD2211;
+}
+
+#menuLeftBottom ul a:focus, #menuLeftBottom ul a:hover {
+	background-color: #FFFFFF;
+}
+
+
+
+#fseAward {
+	background-image: url(/images/portfolio/fse/FSEAward.gif);
+	background-repeat: no-repeat;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 2px solid #FFFFFF;
+	display: block;
+	height: 39px;
+	width: 145px;
+}
+
+#fseAward p {
+	display: none;
+}
+
+#frmSurvey {
+	background-color: #444477;
+	padding: 15px 8px;
+	border-top: 2px solid #FFFFFF;
+}
+
+#frmSurvey h3 {
+	color: #FDCDAD;
+}
+
+#frmSurvey p {
+	font-weight: bold;
+}
+
+#frmSurvey .button {
+	margin: 10px auto;
+	display: block;
+	border-width: 0px;
+	background-color: #FDCDAD;
+	color: #444477;
+}
+
+#subscribe {
+	background-image: url(/images/portfolio/fse/subscribe.gif);
+	background-repeat: no-repeat;
+	border-bottom: 2px solid #FFFFFF;
+	display: block;
+	height: 39px;
+	width: 145px;
+}
+
+#subscribe p {
+	display: none;
+}
+
+#frmEmailUpdate {
+	background-color: #DD6611;
+	border-bottom: 2px solid #FFFFFF;
+	padding: 5px;
+	padding-left: 8px;
+}
+
+#frmEmailUpdate h3 {
+	margin-bottom: 0.3em;
+}
+
+#frmEmailUpdate input {
+	width: 124px;
+	margin: auto;
+	border: 1px solid #000000;
+	color: #000000;
+}
+
+#frmEmailUpdate input.button {
+	width: auto;
+	margin-top: 5px;
+	margin-bottom: 3px;
+	margin-right: 6px;
+	background-color: #DD2211;
+	border-width: 0px;
+	color: #FFFFFF;
+}
+
+#tellFriend {
+	background-image:  url(/images/tellFriend.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #DD2211;
+	border-bottom: 2px solid #FFFFFF;
+	height: 40px;
+}
+
+#advertisements h3 {
+	margin-top: 4px;
+}
+
+#advertisements img {
+	margin: 0px auto;
+	margin-top: 10px;
+}
+
+/* PAGE TEMPLATE: END ================================================================================ */
+
+/* HOME PAGE: Start ================================================================================ */
+
+#boxThisMonth .boxText {
+	padding-bottom: 0.3em;
+	padding-top: 0.3em;
+	float: right;
+	clear: none;
+	width: 295px;
+}
+
+#boxThisMonth span {
+	font-weight: bold;
+}
+
+#boxThisMonth img {
+	float: left;
+	display: block;
+}
+
+#box2 {
+	border-color: #EE5555;
+}
+
+#box2 h1 {
+	background-color: #EE5555;
+}
+
+#box3 h1 {
+	background-color: #666699;
+}
+
+#box3 img {
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+#box3 .boxText h3 {
+	padding-top: 0.4em;
+}
+
+#latestIssue {
+	background-color: #DD2211;
+	border-bottom: 2px solid #FFFFFF;
+}
+
+#latestIssue h3 {
+	text-align: right;
+	padding: 5px 10px;
+	padding-right: 10px;
+}
+
+/* HOME PAGE: END ================================================================================ */
+
+/* ARTICLE.ASP: Start ================================================================================ */
+#article h3 {
+	margin: 10px 0;
+	width: 100%;
+	border-bottom: 1px solid #DD2211;
+}
+
+#article h2 input {
+	float: right;
+}
+
+#article p {
+	float: none;
+	width: auto;
+	margin-left: 0;
+}
+
+#article img {
+	float: left;
+	margin-right: 10px;
+}
+
+#article .links * {
+	color: #DD2211;
+}
+
+/* ARTICLE.ASP: End ================================================================================ */
+
+/* PRODUCT 1 PAGE: Start ================================================================================ */
+
+#relatedProducts h4 {
+	margin: 0.5em 0;
+}
+
+
+
+/* PRODUCT 1 PAGE: End ================================================================================ */
+
+/* JOBS PAGE: Start ================================================================================ */
+
+#boxJobsList {
+	padding-bottom: 0.3em;
+}
+
+#boxJobsList .boxHeader {
+	background-color: #CCADBB;
+	margin-bottom: 15px;
+}
+
+#boxJobsList h4 {
+	border-top: 1px solid #DD2211;
+	margin-top: 0.5em;
+	padding-top: 0.2em;
+}
+
+#frmSearchJobs {
+	margin-top: 30px;
+}
+
+/* JOBS PAGE: End ================================================================================ */
+
+/* SEARCH PAGE: Start =============================================================================== */
+
+#boxAdvancedSearch form {
+	margin-top: 1em;
+}
+
+#boxAdvancedSearch h3 {
+	padding: 0.3em;
+	color: #DD2211;
+}
+
+#boxSearchResults {
+	border-bottom: 1px solid #DD2211;
+}
+
+#boxSearchResults * {
+	margin: 0;
+}
+
+#boxSearchResults h2, #boxSearchResults h3 {
+	background-color: #F7E6E7;
+	font-size: 1.1em;
+	padding: 0.3em;
+}
+
+#boxSearchResults h2 span, #boxSearchResults h3 span {
+	color: #DD2211;
+}
+
+#boxSearchResults h3 span:before {
+	content: " - "
+}
+
+#boxSearchResults h2 {
+	float: left;
+}
+
+#boxSearchResults h4 {
+	border-top: 1px solid #DD2211;
+	border-bottom: 1px solid #DD2211;
+	margin: 0.8em 0;
+}
+
+#boxSearchResults h5 {
+	color: #DD2211;
+}
+
+#boxSearchResults span {
+	color: #000000;
+	font-weight: bold;
+}
+
+#boxSearchResults p {
+	margin-bottom: 1em;
+}
+
+#boxSearchResults a {
+	color: #000000;
+}
+
+#boxSearchResults a:focus, #boxSearchResults a:hover {
+	color: #CC0000;
+}
+
+.pageLinks {
+	margin: 1em 0;
+	width: 100%;
+}
+
+.pageLinks div.left {
+	float: left;
+	width: 15%;
+}
+
+.pageLinks div.centre {
+	text-align: center;
+	margin: 0 15%;
+}
+
+.pageLinks div.right {
+	text-align: right;
+	float: right;
+	width: 15%;
+}
+
+
+/* SEARCH PAGE: End =============================================================================== */
+
+/* SUBSCRIPTIONS (/subs/subscriptions.asp) =============================================================================== */
+
+#subsImages {
+	margin-bottom: 10px;
+}
+
+#subsImages img {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+/* /SUBSCRIPTIONS (/subs/subscriptions.asp) =============================================================================== */
+
+
+/* FSE-MAIL (fsemail.asp) =============================================================================== */
+#frmFSEmail h3 {
+	color: #DD2211;
+	padding: 0.3em 0;
+}
+
+#frmFSEmail textarea {
+	width: 95%;
+}
+
+/* /FSE-MAIL (fsemail.asp) =============================================================================== */
+

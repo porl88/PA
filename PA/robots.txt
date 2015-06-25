@@ -1,0 +1,6 @@
+﻿User-Agent: *
+Disallow: /App_Data/
+Disallow: /App_Start/
+Disallow: /account/
+Disallow: /error/
+Disallow: /portfolio/

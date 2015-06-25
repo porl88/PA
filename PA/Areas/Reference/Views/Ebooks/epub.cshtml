@@ -1,0 +1,100 @@
+﻿@{
+	ViewBag.Title = "EPUB | EBooks | Reference";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>EPUB</li>
+	</ol>
+}
+
+<article>
+	<h1>EPUB eBooks</h1>
+	<h2>Minimum Needed to create an EPUB eBook</h2>
+	<ul>
+		<li>mimetype</li>
+		<li>META-INF/container.xml</li>
+		<li>content/package.opf</li>
+		<li>content/nav.xhtml</li>
+		<li>content/content.xhtml</li>
+	</ul>
+
+	<h3>mimetype</h3>
+	<pre><code>application/epub+zip</code></pre>
+
+	<h3>container.xml</h3>
+	<pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;container xmlns=&quot;urn:oasis:names:tc:opendocument:xmlns:container&quot; version=&quot;1.0&quot;&gt;
+	&lt;rootfiles&gt;
+		&lt;rootfile full-path=&quot;content/package.opf&quot; media-type=&quot;application/oebps-package+xml&quot; /&gt;
+	&lt;/rootfiles&gt;
+&lt;/container&gt;
+	</code></pre>
+
+	<h3>package.opf</h3>
+	<pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;package version=&quot;3.0&quot; unique-identifier=&quot;pub-id&quot; xmlns=&quot;http://www.idpf.org/2007/opf&quot;&gt;
+	&lt;metadata xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;&gt;
+		&lt;dc:identifier id=&quot;pub-id&quot;&gt;urn:uuid:A1B0D67E-2E81-4DF5-9367-A64CBE366809&lt;/dc:identifier&gt;
+		&lt;dc:title&gt;Book Title&lt;/dc:title&gt;
+		&lt;dc:language&gt;en-GB&lt;/dc:language&gt;
+		&lt;meta property=&quot;dcterms:modified&quot;&gt;2-11-01-01T12:00:00Z&lt;/meta&gt;
+	&lt;/metadata&gt;
+	&lt;manifest&gt;
+		&lt;item id=&quot;nav&quot; href=&quot;nav.xhtml&quot; media-type=&quot;application/xhtml+xml&quot; properties=&quot;nav&quot; /&gt;
+		&lt;item id=&quot;content&quot; href=&quot;content.xhtml&quot; media-type=&quot;application/xhtml+xml&quot; /&gt;
+	&lt;/manifest&gt;
+	&lt;spine&gt;
+		&lt;itemref idref=&quot;nav&quot; /&gt;
+		&lt;itemref idref=&quot;content&quot; /&gt;
+	&lt;/spine&gt;
+&lt;/package&gt;
+	</code></pre>
+
+	<h3>nav.xhtml</h3>
+	<pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:epub=&quot;http://www.idpf.org/2007/ops&quot;&gt;
+&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot; /&gt;
+	&lt;title&gt;Contents&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;nav epub:type=&quot;toc&quot;&gt;
+		&lt;h1&gt;Contents&lt;/h1&gt;
+		&lt;ol&gt;
+			&lt;li&gt;
+				&lt;a href=&quot;content.xhtml&quot;&gt;Content&lt;/a&gt;
+			&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/nav&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+	</code></pre>
+
+	<h3>content.xhtml</h3>
+	<pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:epub=&quot;http://www.idpf.org/2007/ops&quot;&gt;
+&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot; /&gt;
+	&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+	</code></pre>
+
+	<h2>How to strip out DRM</h2>
+    <ol>
+        <li>Download .acsm file.</li>
+        <li>Open up in Adobe Digital Editions.</li>
+        <li>Go to 'My Digital Editions' folder, find the eBook file created and open up in Calibre.</li>
+        <li>Go the 'Calibre Library' folder and find the DRM-free file in the relevant folder.</li>
+    </ol>
+
+</article>

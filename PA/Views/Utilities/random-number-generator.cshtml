@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Random Number Generator | Utilities";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home")</li>
+		<li>@Html.ActionLink("Utilities", "index", "utilities")</li>
+		<li>Random Number Generator</li>
+	</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-utilities.cshtml")
+}
+
+<article>
+	<h1>Random Number Generator</h1>
+
+	@using (Html.BeginForm("random-number-generator", "utilities"))
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="buttonBar">
+			<button name="action" value="password">Password</button>
+			<button name="action" value="guid">GUID</button>
+		</div>
+		
+		if (ViewBag.Output != null)
+		{ 
+			<output>@ViewBag.Output</output>
+		}
+	}
+
+</article>

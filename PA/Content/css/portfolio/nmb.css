@@ -1,0 +1,3293 @@
+﻿/*
+*****************************************************************************************************************************************
+ MASTER PAGE STYLE SHEET
+ (CSS2.1)
+*****************************************************************************************************************************************
+SELECTORS - default values
+Text
+Links
+Headers
+Forms
+Tables
+Lists
+Multimedia
+Misc
+
+CLASSES
+
+MASTER PAGE
+
+*/
+
+/*
+=========================================================================================================================================
+ SELECTORS (DEFAULT STYLES)
+=========================================================================================================================================
+*/
+
+/* TEXT			========================================================================================================================*/
+body, p, td, textarea, input, select {
+	color: #373737;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: normal;
+	line-height: normal;
+	text-align: left;
+	word-spacing: normal;
+}
+
+body {
+	font-size: 12px;
+	word-wrap: break-word;
+}
+
+input, textarea, select {
+	font-size: 1em;
+}
+
+	
+
+
+/* PSEUDO-CLASSES	========================================================================================================================*/
+::selection {
+	background-color: #FE4902;
+	color: #FFF;
+}
+
+::-moz-selection {
+	background-color: #FE4902;
+	color: #FFF;
+}
+
+:target {
+	background-color: #DDEEFF;
+}
+
+
+
+
+/* LINKS		========================================================================================================================*/
+a, input[type="image"] {
+	color: #373737;
+	text-decoration: underline;
+}
+
+a:focus, a:hover, input[type="image"]:focus, input[type="image"]:hover {
+	text-decoration: none;
+}
+
+
+
+
+/* links to external sites */
+p > a[href^="http"], li > a[href^="http"] {
+	background: url(/images/portfolio/nmb/icon_external.png) center right no-repeat;
+	padding-right: 13px;
+}
+
+a[href*="paularnold.me.uk"] {
+	background: none !important;
+	padding-right: 0 !important;
+}
+
+
+/* LINKS TO DIFFERENT FILE TYPES */
+
+/* Adobe Portable Document Format (PDF) */
+p > a[href$=".pdf"], li > a[href$=".pdf"] {
+	background: url(/images/portfolio/nmb/icon_pdf.png) center right no-repeat;
+	padding-right: 19px !important;
+}
+
+/* EPUB */
+p > a[href$=".epub"], li > a[href$=".epub"] {
+	background: url(/images/portfolio/nmb/icon_epub.png) center right no-repeat;
+	padding-right: 19px !important;
+}
+
+/* RSS */
+p > a[href$=".rss"], li > a[href$=".rss"] {
+	background: url(/images/portfolio/nmb/icon_rss.png) center right no-repeat;
+	padding-right: 19px !important;
+}
+
+/* MS Word */
+p > a[href$=".doc"], li > a[href$=".doc"], p > a[href$=".docx"], li > a[href$=".docx"] {
+	background: url(/images/portfolio/nmb/icon_doc.png) center right no-repeat;
+	padding-right: 19px !important;
+}
+
+/* MS Excel */
+p > a[href$=".xls"], li > a[href$=".xls"], p > a[href$=".xlsx"], li > a[href$=".xlsx"] {
+	background: url(/images/portfolio/nmb/icon_xls.png) center right no-repeat;
+	padding-right: 19px !important;
+}
+
+/* MS PowerPoint */
+p > a[href$=".ppt"], li > a[href$=".ppt"], p > a[href$=".pps"], li > a[href$=".pps"], p > a[href$=".pptx"], li > a[href$=".pptx"], p > a[href$=".ppsx"], li > a[href$=".ppsx"] {
+	background: url(/images/portfolio/nmb/icon_ppt.png) center right no-repeat;
+	padding-right: 19px !important;
+}
+
+/* OpenOffice Writer */
+p > a[href$=".odt"], li > a[href$=".odt"] {
+	background: url(/images/portfolio/nmb/icon_odt.png) center right no-repeat;
+	padding-right: 19px !important;
+}
+
+/* OpenOffice Calc */
+p > a[href$=".ods"], li > a[href$=".ods"] {
+	background: url(/images/portfolio/nmb/icon_ods.png) center right no-repeat;
+	padding-right: 19px !important;
+}
+
+/* OpenOffice Impress */
+p > a[href$=".odp"], li > a[href$=".odp"] {
+	background: url(/images/portfolio/nmb/icon_odp.png) center right no-repeat;
+	padding-right: 19px !important;
+}
+
+
+
+/* FORMS		========================================================================================================================*/
+form {
+	margin: 0;
+}
+
+label[for] {
+	cursor: pointer;
+}
+
+label[for]:focus, label[for]:hover {
+	text-decoration: underline;
+}
+
+input[type="submit"], input[type="reset"], button {
+	cursor: pointer;
+}
+
+/* error */
+input[type="text"].error, input[type="password"].error, textarea.error, select.error {
+	background-color: #FFDDDD;
+}
+
+input[type="checkbox"].error, input[type="radio"].error {
+	outline: #FF0000 solid 2px;
+}
+
+input[type="text"], input[type="password"], select {
+	color: #636466;
+	border: 1px solid #B7B7B7;
+}
+
+/* TABLES		========================================================================================================================*/
+table {
+	border-collapse: collapse;
+	empty-cells: show;
+	table-layout: auto;
+}
+
+td, th {
+	border: none;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	vertical-align: top;
+}
+
+caption {
+	caption-side: top;
+}
+
+
+/* LISTS		========================================================================================================================*/
+
+
+/* MULTIMEDIA	========================================================================================================================*/
+img {
+	border: 0;
+	text-align: center;
+}
+
+
+/* CURSORS		========================================================================================================================*/
+*[title] { /* any element that has a title attribute */
+	cursor: help;
+}
+
+a[title], input[title] {
+	cursor: pointer;
+}
+
+
+
+/* MISC.		========================================================================================================================*/
+abbr {
+	border: none;
+	speak: spell-out;
+}
+
+p > abbr[title], li > abbr[title] {
+	border-bottom: 1px dotted #333;
+}
+
+acronym {
+	border: none;
+	speak: normal;
+}
+
+p > acronym[title], li > acronym[title] {
+	border-bottom: 1px dotted #333;
+}
+
+address {
+	font-style: normal;
+}
+
+/* definition - marks the first occurrence of a term */
+dfn:before {
+	content: open-quote;
+}
+
+dfn:after {
+	content: close-quote;
+}
+
+/* pre-formatted text */
+pre {
+	background-color: #FFFFEE;
+	border: 1px dotted #CCCC99;
+	color: #000;
+	font-size: 13px;
+	overflow: auto;
+	padding: 0.5em;
+	word-wrap: normal;
+}
+
+pre > code {
+	font-weight: normal;
+}
+
+/* sample text */
+samp {
+	font-size: 1.3em;
+}
+
+/* programming code - inline */
+code {
+	color: #000;
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: bold;
+}
+
+/* used to signify that the indicated text is to be typed by the user on the keyboard */
+kbd {
+	color: #000;
+	font-family: 'Courier New', Courier, monospace;
+	border: 1px solid #000;
+	padding: 0 0.3em;
+	font-size: 0.9em;
+}
+
+/* teletype or monospace font */
+tt {
+	font-size: 1.2em;
+}
+
+
+
+
+
+
+
+/*
+=========================================================================================================================================
+ CLASSES
+=========================================================================================================================================
+*/
+
+
+/* PAGE LAYOUT	========================================================================================================================*/
+
+/* div.columns - creates 2 CSS accessible columns without the use of tables */
+div.columns {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+
+div.columns > div {
+	display: table-row;
+}
+
+div.columns > div > div {
+	display: table-cell;
+	width: 50%;
+	overflow: hidden;
+	vertical-align: top;
+}
+
+div.columns > div > div:first-child {
+	padding-right: 0.5em;
+}
+
+div.columns > div > div:last-child {
+	padding-left: 0.5em;
+}
+
+
+/* div.rightCol - creates a page with a right-hand column - used in conjunction with div.columns e.g. class="columns rightCol" */
+div.rightCol > div > div {
+	width: auto;
+}
+
+div.rightCol > div > div:last-child {
+	width: 175px;
+}
+
+
+/* div.table - creates a CSS accessible table - replicates a table with div tags - used within fieldset.standard */
+div.table {
+	display: table;
+}
+
+div.table > div {
+	display: table-row;
+}
+
+div.table > div > div {
+	display: table-cell;
+	padding: 4px 5px;
+	vertical-align: top;
+}
+
+div.table > div > div:first-child {
+	padding-left: 0;
+}
+
+div.table > div > div:last-child {
+	padding-right: 0;
+}
+
+
+
+/* TEXT		========================================================================================================================*/
+
+/* .alert - used for highlighting text as important */
+.alert, .error {
+	color: #CA2027;
+	font-weight: bold;
+}
+
+
+
+/* LINKS	========================================================================================================================*/
+/* .top - for displaying 'back to top of page' links - the link is contained within a block-level element - e.g. <h2>Heading Title<a href="#">Top</a></h2> */
+div.top {
+	float: right;
+}
+
+div.top a, a.top {
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: 9px;
+	padding-left: 10px;
+	background: url(/images/portfolio/nmb/bullet_dbl_up.png) no-repeat left 50%;
+}
+
+a.top {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+
+/* .logoLinks - links with logos used in the sidebars */
+.logoLinks {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 7px;
+	text-align: center;
+}
+
+.logoLinks > li {
+	background: #103A64 url(/images/portfolio/nmb/bkgd_apply.png) repeat-x;
+	display: table;
+	table-layout: fixed;
+	height: 42px;
+	margin-bottom: 3px;
+	padding: 0 !important;
+	width: 100%;
+}
+
+.logoLinks > li:focus, .logoLinks > li:hover {
+	background-color: #0B2A48;
+	background-position: 0 -42px;
+}
+
+.logoLinks > li > a {
+	background: url(/images/portfolio/nmb/bkgd_apply_logo.png) no-repeat top right;
+	display: table-cell;
+	height: 36px;
+	color: #FFF;
+	font-size: 12px;
+	padding: 0 42px 0 0;
+	text-transform: uppercase;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.logoLinks > li > a:focus {
+	background: url(/images/portfolio/nmb/bkgd_apply_logo.png) no-repeat top right, url(/images/portfolio/nmb/bkgd_apply.png) repeat-x 0 -42px;
+}
+
+
+/* HEADINGS		========================================================================================================================*/
+
+/* h1.standard - standard formatting for a page header */
+h1.standard, h2.standard {
+	background-color: #103A64;
+	clear: left;
+	color: #FFF;
+	font-size: 13px;
+	font-weight: bold;
+	height: 32px;
+	line-height: 32px;
+	margin: 0;
+	margin-bottom: 7px;
+	padding: 0 18px;
+}
+
+h1.basket {
+	background-image: url(/images/portfolio/nmb/logo_basket.png);
+	background-repeat: no-repeat;
+	background-position: 11.2em 9px;
+}
+
+
+
+/* FORMS	========================================================================================================================*/
+fieldset.standard {
+	margin-bottom: 1em;
+	padding: 1em;
+}
+
+fieldset.standard * {
+	margin: 0;
+}
+
+fieldset.standard fieldset {
+	margin-bottom: 2em;
+}
+
+fieldset.standard fieldset:first-of-type {
+	margin-top: 1em;
+}
+
+fieldset.standard fieldset:last-child {
+	margin-bottom: 0;
+}
+
+fieldset.standard > legend {
+	font-weight: bold;
+}
+
+fieldset.standard div.table {
+	width: 100%;
+	margin: 0.5em 0;
+}
+
+fieldset.standard div.table > div > div:first-child, fieldset.standard > table td:first-child {
+	width: 16em;
+}
+
+fieldset.standard label:only-child:after {
+	content: ":";
+}
+
+fieldset.standard span.error {
+	float: right;
+}
+
+fieldset.standard .buttonBar {
+	border-width: 0;
+	margin: 0;
+	padding: 0;
+	padding-right: 9px;
+}
+
+fieldset.standard input[type="checkbox"], fieldset.standard input[type="radio"] {
+	margin-right: 0.3em;
+	vertical-align: middle;
+}
+
+fieldset.standard input[type="checkbox"] + label, fieldset.standard input[type="radio"] + label {
+	vertical-align: middle;
+}
+
+fieldset.standard input[type="checkbox"] + label:after, fieldset.standard input[type="radio"] + label:after {
+	content: normal;
+}
+
+fieldset.standard input[type="text"], fieldset.standard input[type="password"], fieldset.standard textarea {
+	width: 97%;
+}
+
+fieldset.standard select {
+	width: 99%;
+}
+
+fieldset.standard input[type="text"]:focus, fieldset.standard input[type="password"]:focus, fieldset.standard textarea:focus, fieldset.standard select:focus {
+	background-color: #EBF5FF;
+	border-color: #FF0000;
+	border-style: solid;
+	/*outline: #FF0000 solid 1px;*/
+}
+
+
+
+/* form.searchForm - search form */
+form.searchForm * {
+	vertical-align: middle;
+}
+
+form.searchForm fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+form.searchForm label {
+	display: none;
+}
+
+
+/* .addToBasket - 'add to basket' form button - to be added to the containing element */
+.addToBasket {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.addToBasket > input {
+	vertical-align: middle;
+}
+
+.addToBasket > input[type="text"] {
+	width: 1.6em;
+	height: 15px;
+	margin-right: 0.5em;
+}
+
+
+
+
+
+/* TABLES		========================================================================================================================*/
+td.number {
+	text-align: right;
+}
+
+td.button {
+	text-align: right;
+}
+
+td.addToBasket {
+	width: 12.5em;
+}
+
+
+/* table.standard - standard formatting for a table throughout the site */
+table.standard {
+	background-color: #F0F0F0;
+	margin-bottom: 7px;
+	width: 100%;
+	table-layout: auto;
+}
+
+table.standard caption {
+}
+
+table.standard > thead, table.standard > tfoot {
+	background-color: #103A64;
+	color: #FFF;
+}
+
+table.standard th, table.standard td {
+	border: 1px solid #FFF;
+	border-right-width: 0;
+	padding: 7px 18px;
+	vertical-align: top;
+	word-wrap: normal;
+}
+
+table.standard tr > th {
+	border-left: none;
+}
+
+table.standard tr:first-child > td, table.standard tr:first-child > th {
+	border-top: none;
+}
+
+table.standard tr:last-child > td, table.standard tr:last-child > th {
+	border-bottom: none;
+}
+
+table.standard td > *:first-child {
+	margin-top: 0;
+}
+
+table.standard td > *:last-child {
+	margin-bottom: 0;
+}
+
+
+
+.tableWhite {
+	width: 100%;
+	font-size: 11px;
+	margin-bottom: 7px;
+}
+
+.tableWhite > caption {
+	background-color: #103A64;
+	color: #FFF;
+	font-size: 13px;
+	font-weight: bold;
+	height: 32px;
+	line-height: 32px;
+	margin: 0;
+	margin-bottom: 7px;
+	padding: 0 18px;
+}
+
+.tableWhite th, .tableWhite td {
+	border: 1px solid #CCC;
+	padding: 10px 18px;
+}
+
+.tableWhite > thead > tr > th {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_tbl_header.png) repeat-x;
+	font-weight: normal;
+	height: 40px;
+	padding-top: 0;
+	padding-bottom: 0;
+	vertical-align: middle;
+}
+
+.tableWhite ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.tableWhite ul > li {
+	padding-left: 12px;
+	background: url(/images/portfolio/nmb/bullet.png) no-repeat 0 4px;
+	margin: 0.3em 0;
+}
+
+
+
+/* BOXES		========================================================================================================================*/
+
+/* .adsHorizontal - a horizontally-aligned block of ads - for skyscraper ads, etc. - images, flash objects, etc. */
+.adsHorizontal {
+	margin-bottom: 7px;
+	position: relative;
+	text-align: center;
+}
+
+.adsHorizontal img, .adsHorizontal object {
+	display: inline-block;
+	margin-left: 7px;
+	vertical-align: bottom;
+}
+
+.adsHorizontal img:first-child, .adsHorizontal object:first-child {
+	margin-left: 0;
+}
+
+.adsHorizontal a {
+	display: inline-block;
+	margin-left: 7px;
+}
+
+.adsHorizontal a:first-child {
+	margin-left: 0;
+}
+
+.adsHorizontal a img {
+	margin-left: 0;
+}
+
+.adsHorizontal input {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+
+/* .adsVertical - a vertically-aligned block of ads - for skyscraper ads, etc. - images, flash objects, etc. */
+.adsVertical {
+	margin-bottom: 1em;
+	position: relative;
+	text-align: center;
+}
+
+.adsVertical img, .adsVertical object {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 0.5em;
+}
+
+.adsVertical a {
+	display: inline-block;
+	margin-bottom: 7px;
+}
+
+.adsVertical a img, .adsVertical a object {
+	display: inline;
+	margin: 0;
+}
+
+.adsVertical input {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+
+/* .productGallery - for displaying a gallery of products */
+.productGallery {
+	height: 518px;
+	width: 623px;
+}
+		
+.productGallery > div {
+	background: url(/images/portfolio/nmb/bkgd_prod_gallery.png) repeat-x bottom left;
+	border-bottom: 1px solid #CDCDCD;
+	color: #373737;
+	height: 252px;
+	width: 203px;
+	margin-bottom: 7px;
+	float: left;
+	font-size: 12px;
+	text-align: center;
+}
+		
+.productGallery > div:first-child + div, .productGallery > div:first-child + div + div + div + div { /* for browsers that cannot support nth-child */
+	margin: 0 7px;
+}
+		
+.productGallery > div:nth-child(3n + 2) {
+	margin: 0 7px;
+}
+		
+.productGallery > div > h4, .productGallery > div > p, .productGallery > div > dl {
+	margin-top: 0;
+	margin-bottom: 8px;
+	padding: 0 10px;
+}
+
+.productGallery > div > h4 {
+	font-weight: normal;
+	font-size: 12px;
+	min-height: 2.4em;
+}
+		
+.productGallery > div > p {
+	color: #CA2027;
+	font-weight: bold;
+	text-align: center;
+	min-height: 2.4em;
+}
+		
+.productGallery > div > dl > dt, .productGallery > div > dl > dd {
+	display: inline;
+	margin:0;
+}
+
+.productGallery > div > dl > dd {
+	color: #CA2027;
+	font-weight: bold;
+}
+		
+.productGallery > div > div {
+	background: url(/images/portfolio/nmb/bullet_dbl.png) no-repeat 140px 5px;
+}
+		
+
+/* div.faq - for formatting question and answers in faq lists */
+div.faq {
+	margin-bottom: 3em;
+}
+
+div.faq:target {
+	padding: 0 7px 7px 7px;
+}
+
+div.faq > div.top > a {
+	color: #FFF;
+	
+}
+
+
+
+/* div.download - for creating a box to download software, etc. */
+div.download {
+	background-color: #FFF;
+	border: 1px solid #000;
+	display: table;
+	margin-bottom: 7px;
+	width: 100%; 
+}
+
+div.download * {
+	margin: 0;
+	padding: 0;
+}
+
+div.download > div {
+	display: table-cell;
+	vertical-align: top;
+	padding: 0.5em;
+}
+
+div.download > div:first-child {
+	text-align: center;
+	width: 80px;
+}
+
+div.download h4 {
+	background-color: #000;
+	color: #FFF;
+	font-size: 1.1em;
+	margin-bottom: 0.5em;
+	padding: 0.3em 0.5em;
+	position: relative;
+}
+
+div.download h4 > span {
+	color: #FFFF00;
+	position: absolute;
+	right: 1em;
+}
+
+div.download p {
+	margin-bottom: 0.5em;
+}
+
+div.download div.button {
+	text-align: right;
+}
+
+
+/* div.imageBox - contains an image and its caption */
+div.imageBox {
+	text-align: center;
+	margin: 0.3em auto;
+}
+
+div.imageBox * {
+	margin: 0;
+	padding: 0;
+}
+
+div.imageBox > p {
+	font-weight: bold;
+	font-size: 0.9em;
+	text-align: center;
+}
+
+/* div.imageLeft - aligns an image box to the left - used in conjunction with div.imageBox */
+div.imageLeft {
+	float: left;
+	margin: 0.3em 1em 0.3em 0;
+}
+
+/* div.imageRight - aligns an image box to the left - used in conjunction with div.imageBox */
+div.imageRight {
+	float: right;
+	margin: 0.3em 0 0.3em 1em;
+}
+
+
+/* div.pager - displays pager items for a ListView */
+div.pager {
+	display: table;
+	font-size: 11px;
+	margin: 7px 0;
+	text-align: center;
+	width: 100%;
+}
+
+div.pager a {
+	color: #CA2027;
+	text-decoration: none;
+}
+
+div.pager a:focus, div.pager a:hover {
+	text-decoration: underline;
+}
+
+div.pager > span {
+	display: table-row;
+}
+
+div.pager > span > span {
+	display: table-cell;
+	width: 33.33%;
+	vertical-align: bottom;
+}
+
+div.pager > span > span:first-child {
+	text-align: left;
+}
+
+div.pager .rCol {
+	text-align: right;
+	padding-right: 18px;
+}
+
+div.pager .pageNo, div.pager .selected {
+	font-size: 12px;
+	font-weight: bold;
+	display: inline-block;
+	padding: 0 2px;
+}
+
+div.pager .selected {
+	color: #CA2027;
+	text-decoration: underline;
+}
+
+div.pager .next {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+
+/* div.pageOptions - styles the page options - e.g. the Printable Version link, Email a Friend link */
+div.pageOptions {
+	height: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+div.pageOptions * {
+	padding: 0;
+	margin: 0;
+}
+
+div.pageOptions > ul {
+	display: table;
+	float: right;
+	list-style: none;
+}
+
+div.pageOptions > ul > li {
+	display: table-cell;
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: capitalize;
+	padding-left: 0.4em;
+	line-height: 1.5em;
+}
+
+div.pageOptions li > a {
+	text-decoration: none;
+	color: #373737;
+}
+
+div.pageOptions > ul > li > a:focus, div.pageOptions > ul > li > a:hover {
+	text-decoration: underline;
+}
+
+div.pageOptions > ul > li.print {
+	padding-right: 25px;
+	background: url(/images/portfolio/nmb/icon_print.png) no-repeat top right;
+}
+
+div.pageOptions > ul > li.email {
+	padding-left: 1.8em;
+	background: url(/images/portfolio/nmb/icon_email.png) no-repeat 0.4em 50%;
+}
+
+
+
+
+/* .box - main box style for site */
+.box {
+	border: none;
+	font-size: 11px;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 6px;
+}
+
+.box > h2 {
+	background-color: #103A64;
+	color: #FFF;
+	font-size: 13px;
+	font-weight: bold;
+	height: 32px;
+	line-height: 32px;
+	margin: 0;
+	margin-bottom: 1px;
+	padding: 0 18px;
+}
+
+.box > .content {
+	background: #FFF url(/images/portfolio/nmb/bkgd_standard.png) repeat-x left bottom;
+	border-bottom: 1px solid #B5B5B5;
+	padding: 7px 18px 10px 18px;
+}
+
+.box > .section {
+	background: #F5F5F5;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 1px;
+	padding: 8px 18px;
+}
+
+.box > .section > h3 {
+	font-weight: bold;
+	font-size: 12px;
+	margin: 0;
+}
+
+.box > .section > h4 {
+	font-weight: bold;
+	font-size: 11px;
+	margin: 8px 0 5px 0;
+}
+
+.box > .section > h5 {
+	font-weight: bold;
+	font-size: 10px;
+	margin: 3px 0;
+}
+
+.box > .section > ul {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 1px;
+	list-style: none;
+}
+
+.box > .section > ul > li {
+	padding: 2px 6px 2px 0;
+	background: url(/images/portfolio/nmb/bullet_menu_vertical.gif) no-repeat right 5px;
+}
+
+.box > .section a {
+	text-decoration: none;
+}
+
+.box > .section a:focus, .box > .section a:hover {
+	text-decoration: underline;
+}
+
+
+
+.boxWhite {
+	border: 1px solid #CCC;
+	font-size: 11px;
+	margin-bottom: 7px;
+}
+
+.boxWhite > h2 {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_tbl_header.png) repeat-x;
+	font-size: 11px;
+	font-weight: normal;
+	height: 28px;
+	margin: 0;
+	padding: 0 18px;
+	padding-top: 12px;
+	vertical-align: middle;
+}
+
+.boxWhite > div {
+	padding: 10px 18px;
+}
+
+.boxWhite table {
+	margin-top: 10px;
+}
+
+.boxWhite th, .boxWhite td {
+	padding: 0 18px;
+	padding-bottom: 3px;
+}
+
+
+
+
+/*div.tabContainer - styles headers and content into a box with a series of clickable tabs - requires JavaScript - programmatically works out header and content tags */
+.tabContainer {
+	position: relative;
+	padding-top: 39px;
+}
+
+.tabContainer * {
+	padding: 0;
+	margin: 0;
+}
+
+.tabContainer > h2 {
+	border: 1px solid #CCC;
+	font-size: 12px;
+	font-weight: normal;
+	padding-top: 5px;
+	height: 34px;
+	margin-top: -1px !important;
+	width: 105px;
+	background: #EEE url(/images/portfolio/nmb/bkgd_tab.png) repeat-x 0 0;
+	text-align: center;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+}
+
+.tabContainer > .header {
+	cursor: pointer;
+	position: absolute;
+	top: 0px;
+}
+
+.tabContainer > .header:hover {
+	background-color: #E9E9E9;
+	background-position: 0 -39px;
+}
+
+.tabContainer > .header.selected {
+	background-color: #E9E9E9;
+	background-position: 0 -39px;
+	cursor: default;
+}
+
+.tabContainer > .h2 {
+	left: 105px;
+}
+
+.tabContainer > .h3 {
+	left: 210px;
+}
+
+.tabContainer > .h4 {
+	left: 315px;
+}
+
+.tabContainer > .h5 {
+	left: 420px;
+}
+
+.tabContainer > .h6 {
+	left: 525px;
+}
+
+.tabContainer .content {
+	display: none;
+}
+
+.tabContainer .content.selected {
+	border-top: 1px solid #CCC;
+	padding: 18px 0;
+	display: block;
+}
+
+.tabContainer pre {
+	background: transparent;
+	color: inherit;
+	border: none;
+	font: inherit;
+}
+
+
+
+/* ALERTS		========================================================================================================================*/
+/* div.alert - for general alerts */
+div.alert {
+	background: #CA2027 url(/images/portfolio/nmb/bkgd_alert.png) repeat-x;
+	clear: left;
+	font-weight: bold;
+	margin-bottom: 7px;
+}
+
+div.alert > h4 {
+	background: url(/images/portfolio/nmb/bkgd_alert_icon.png) no-repeat;
+	border-bottom: 1px solid #FFF;
+	color: #FFF;
+	font-size: 13px;
+	height: 33px;
+	line-height: 33px;
+	margin: 0;
+	padding: 0 14px 0 46px;
+}
+
+div.alert > div, div.alert > ul {
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	margin: 0;
+	padding: 15px 18px;
+	font-size: 11px;
+}
+
+div.alert > div > p, div.alert > ul > li {
+	margin-top: 0.4em;
+	margin-bottom: 0;
+}
+
+div.alert > div > p:first-child {
+	margin-top: 0;
+}
+
+div.alert > ul > li {
+	list-style: none;
+	padding-left: 12px;
+	background: url(/images/portfolio/nmb/bullet.png) no-repeat 0 4px;
+	margin: 0.3em 0;
+}
+
+
+/* div.warning - for critical alerts - used in conjunction with the alert class - e.g. class="alert warning" */
+div.warning {
+	background-image: url(/images/portfolio/nmb/bkgd_alert_error.png);
+}
+
+div.warning > h4 {
+	background-image: url(/images/portfolio/nmb/bkgd_alert_error_icon.png);
+}
+
+div.warning a {
+	color: #CA2027;
+}
+
+div.warning > div > p, div.warning > ul > li {
+	margin-top: 0.4em;
+	margin-bottom: 0;
+	color: #CA2027;
+}
+
+
+/* div.success - for reporting the success of an event - used in conjunction with the alert class - e.g. class="alert success" */
+div.success {
+	background-image: url(/images/portfolio/nmb/bkgd_alert_success.png);
+}
+
+div.success > h4 {
+	background-image: url(/images/portfolio/nmb/bkgd_alert_success_icon.png);
+}
+
+
+/* div.failure - for reporting the failure of an event - used in conjunction with the alert class - e.g. class="alert warning" */
+div.failure {
+	background-image: url(/images/portfolio/nmb/bkgd_alert_error.png);
+}
+
+div.failure > h4 {
+	background-image: url(/images/portfolio/nmb/bkgd_alert_error_icon.png);
+}
+
+div.failure a {
+	color: #CA2027;
+}
+
+div.failure > div > p, div.failure > ul > li {
+	margin-top: 0.4em;
+	margin-bottom: 0;
+	color: #CA2027;
+}
+
+
+
+/* div.compact - used in conjunction with div. alert, div.warning, div.success and div.failure - displays message on one line */
+div.compact {
+	height: 33px;
+}
+
+div.compact a {
+	color: #FFF;
+}
+
+div.compact > h4 {
+	float: left;
+}
+
+div.compact > p {
+	color: #FFF;
+	height: 33px;
+	line-height: 33px;
+	margin: 0;
+}
+
+
+
+/* .charCount - character count message that appears to display textarea MaxLength - altered by JavaScript */
+.charCount {
+	text-align: center;
+	margin: 0;	
+}
+
+.countLimit {
+	color: #FF0000;
+}
+
+
+
+
+/* SHOPPING BASKET		========================================================================================================================*/
+.shopBasketSummary {
+	border-left: 1px solid #DCDCDC;
+	float: right;
+	height: 13px;
+	padding: 12px;
+	font-size: 11px;
+	text-transform: none;
+}
+
+a.shopBasketSummary:focus, a.shopBasketSummary:hover {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_basket_compact_header.png) repeat-x top left;
+}
+		
+.shopBasketSummary > span {
+	background: url(/images/portfolio/nmb/bkgd_basket_summary_logo.gif) no-repeat top left;
+	padding-left: 20px;
+}
+		
+.shopBasketSummary > span > span {
+	color: #CA2027;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+.shopBasketCompact {
+	display: none;
+	font-size: 11px;
+	padding-top: 45px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 495px;
+	text-transform: none;
+	z-index: 5;
+}
+
+.shopBasketCompact .shopBasketSummary {
+	height: 22px;
+	border-bottom: none;
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_basket_compact_header.png) repeat-x top left;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+a.shopBasketSummary:focus, a.shopBasketSummary:hover, .shopBasketCompact > .shopBasketSummary:focus, .shopBasketCompact > .shopBasketSummary:hover {
+	cursor: pointer;
+}
+		
+.shopBasketCompact > table {
+	background-color: #FFF;
+	width: 100%;
+}
+
+.shopBasketCompact > table tr {
+	height: 42px;
+}
+
+.shopBasketCompact > table td, .shopBasketCompact > table th {
+	border: 1px solid #DCDCDC;
+	font-weight: normal;
+	padding: 9px 18px;
+	vertical-align: middle;
+}
+
+.shopBasketCompact > table > thead > tr {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_basket_compact_header.png) repeat-x bottom left;
+	border: 1px solid #DCDCDC;
+}
+
+.shopBasketCompact > table > thead > tr > th {
+	white-space: nowrap;
+	border: none;
+}		
+
+.shopBasketCompact > table > tbody td > a {
+	font-size: 10px;
+	position: relative;
+	top: -0.1em;
+}
+
+.shopBasketCompact td.price {
+	font-weight: bold;
+	text-align: right;
+}
+		
+.shopBasketCompact > table > tfoot > tr > th > span {
+	float: right;
+	padding-top: 5px;
+}
+
+.shopBasketCompact > table > tfoot > tr > td {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_basket_compact_total.png);
+	color: #CA2027;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+}
+		
+.shopBasketCompact dl {
+	margin: 0;
+}
+		
+.shopBasketCompact dl > dt, .shopBasketCompact dl > dd {
+	display: inline;
+	margin: 0;
+}
+		
+.shopBasketCompact dl > dd {
+	padding-left: 0.3em;
+}
+
+
+#shopBasketFull {
+	width: 100%;
+}
+
+#bskItemId {
+	width: 6em;
+}
+
+#bskStock {
+	width: 3em;
+}
+
+#bskQty {
+	width: 6.35em;
+}
+
+#bskPrice {
+	width: 6em;
+}
+
+#bskTotal {
+	width: 5em;
+}
+
+#shopBasketFull {
+	margin-bottom: 7px;
+}
+
+#shopBasketFull .quantity > input[type="text"] {
+	width: 1.5em;
+}
+
+#shopBasketFull .quantity > a {
+	font-size: 10px;
+	position: relative;
+	top: -0.1em;
+}
+
+#shopBasketFull .price {
+	font-weight: bold;
+}
+
+#shopBasketFull .spacer {
+	height: 7px;
+}
+
+#shopBasketFull .spacer > td {
+	background: #FFF;
+	border: none;
+	position: absolute;
+	height: 6px;
+	padding: 0;
+	left: -5px;
+	right: -1px;
+}
+
+#shopBasketFull > tfoot > tr > th {
+	font-weight: normal;
+	text-align: right;
+}
+
+#shopBasketFull td.total {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_basket_compact_total.png);
+	color: #CA2027;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+}
+
+
+/* BARS		========================================================================================================================*/
+/* div.buttonBar - for displaying buttons */
+div.buttonBar {
+	border: 1px solid #000;
+	margin-bottom: 1em;
+	padding: 0.4em 0.5em;
+	text-align: right;
+}
+
+div.buttonBar * {
+	margin: 0;
+	padding: 0;
+}
+
+div.buttonBar a {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+div.buttonBar img, div.buttonBar input {
+	vertical-align: bottom;
+}
+
+div.buttonBar input {
+	margin-left: 10px;
+}
+
+
+/* LISTS	========================================================================================================================*/
+
+/* ul.standard */
+ul.standard {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 7px;
+}
+
+ul.standard li {
+	padding-left: 12px;
+	background: url(/images/portfolio/nmb/bullet.png) no-repeat 0 4px;
+	margin: 0.3em 0;
+}
+
+
+/* dl.standard */
+dl.standard dt {
+	font-weight: bold;
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+}
+
+dl.standard dd > *:first-child {
+	margin-top: 0;
+}
+
+dl.standard dd > *:last-child {
+	margin-bottom: 0;
+}
+
+
+
+
+/* ul.treeView - styles an expandable/collapsable list */
+ul.treeView {
+	list-style: none;
+	padding: 0;
+}
+
+ul.treeView li {
+	padding-top: 0.4em;
+}
+
+ul.treeView img, #SiteMapAll img {
+	padding-right: 0.4em;
+	cursor: pointer;
+}
+
+
+
+/* ul.breadcrumb - displays list as breadcrumb trail */
+ul.breadcrumb {
+	display: table;
+	table-layout: fixed;
+	float: left;
+	text-transform: capitalize;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 0.6em;
+}
+
+ul.breadcrumb > li {
+	background: url(/images/portfolio/nmb/bullet_dbl.png) no-repeat 0 50%;
+	display: table-cell;
+	padding: 0 5px 0 15px;
+}
+
+ul.breadcrumb > li:first-child {
+	padding: 0 5px 0 0;
+	background: none;
+}
+
+ul.breadcrumb + * {
+	clear: left;
+}
+
+ul.breadcrumb + .pageOptions {
+	clear: none;
+}
+
+
+/* ul.columns - splits a list into 2 dynamic columns - for single tier lists */
+ul.columns {
+	-moz-column-count: 2;
+	-moz-column-gap: 1em;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 1em;
+}
+
+
+/* ul.inputList - formats checkbox and radio button lists */
+ul.inputList {
+	padding: 0;
+	list-style: none;
+}
+
+
+
+/* MENUS	========================================================================================================================*/
+/* ul.menu - vertical menu list */
+ul.menu {
+	font-size: 11px;
+	margin: 0;
+	margin-bottom: 7px;
+	padding: 0;
+}
+
+ul.menu * {
+	margin: 0;
+	padding: 0;
+}
+
+ul.menu > li {
+	list-style: none;
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+ul.menu > li:first-child {
+	border-top: none;
+}
+
+ul.menu li > a {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_menu_vertical.png) no-repeat;
+	color: #373737;
+	display: block;
+	text-decoration: none;
+	height: 23px;
+	padding: 8px 40px 0px 18px;
+}
+
+ul.menu > li:hover {
+	background-color: #FFF;
+	background-position: 0 -31px;
+}
+
+ul.menu > li > a {
+	display: table;
+	width: 100%;
+	padding: 0;
+	height: 31px;
+}
+
+ul.menu > li > a > span {
+	display: table-cell;
+	padding: 0px 40px 0px 18px;
+	vertical-align: middle;
+}
+
+ul.menu > li > a:focus, ul.menu > li > a:hover {
+	background-position: 0 -31px;
+	background-color: #E9E9E9;
+}
+
+ul.menu > li > a.open, ul.menu > li.selected > a {
+	background-position: 0 -62px;
+	background-color: #E9E9E9;
+}
+
+ul.menu > li > ul {
+	border-top: 5px solid #FFF;
+	border-bottom: 5px solid #FFF;
+	background-color: #FFF;
+}
+
+ul.menu > li.selected > ul {
+	display: block;
+}
+
+ul.menu > li > ul > li {
+	background: #FFF;
+	display: table;
+	width: 100%;
+}
+
+ul.menu > li > ul > li > a {
+	background: none;
+	height: auto;
+	padding: 5px 18px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+ul.menu > li > ul > li:focus, ul.menu > li > ul > li:hover {
+	background-image: none;
+}
+
+ul.menu > li > ul > li > a:focus, ul.menu > li > ul > li > a:hover {
+	text-decoration: underline;
+	background-image: none;
+}
+
+
+/* ul.menuLink - styled like vertical menu list (ul.menu) */
+ul.menuLink {
+	background-color: #F4F4F4;
+	font-size: 11px;
+	margin: 0;
+	padding: 0;
+}
+
+ul.menuLink > li {
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #E5E5E5;
+	display: table;
+	width: 100%;
+	padding: 0;
+	height: 31px;
+}
+
+ul.menuLink > li > a {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_menu_vertical.png) no-repeat;
+	color: #373737;
+	display: table-cell;
+	padding: 0px 40px 0px 18px;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+ul.menuLink > li > a:focus, ul.menuLink > li > a:hover {
+	background-position: 0 -31px;
+	background-color: #E9E9E9;
+}
+
+
+
+/* .footNote - used with <ol> */
+.footNote {
+	padding-left: 2em;
+	font-size: 11px;
+	margin: 0;
+	margin-bottom: 14px;
+}
+
+.footNote > li {
+	margin-bottom: 7px;
+}
+
+
+
+
+
+
+/* MISC.	========================================================================================================================*/
+/* .hide - prevents the markup from being displayed in the browser */
+.hide {
+	display: none;
+}
+
+
+/* /admin/changePassword.aspx */
+div.passwordCheck {
+	width: 20em;
+	margin: 0 auto;
+	margin-bottom: 1em;
+}
+
+div.passwordCheck input {
+	width: 19.7em;
+	margin-bottom: 1em;	
+}
+
+div.passwordGauge {
+	display: table;
+	empty-cells: show;
+	border-collapse: collapse;
+	color: #000;
+	font-weight: bold;
+	width: 20em;
+}
+
+div.passwordGauge > div {
+	display: table-row;
+	background-color: #EBEBEB;
+}
+
+div.passwordGauge > div > div {
+	display: table-cell;
+	text-align: center;
+	padding: 0.2em;
+	border: 1px solid #999;
+	width: 25%;
+}
+
+#idSMT0 {
+	font-weight: normal;
+	color: #666;	
+}
+
+div.passwordGauge .pwdChkCon0 {
+	background-color: #EBEBEB;
+}
+
+div.passwordGauge .pwdChkCon1 {
+	background-color: #FF4545;
+}
+
+div.passwordGauge .pwdChkCon2 {
+	background-color: #FFD35E;
+}
+
+div.passwordGauge .pwdChkCon3 {
+	background-color: #3ABB1C;
+}
+
+div.passwordGauge .pwdChkCon4 {
+	background-color: #3ABB1C;
+}
+
+
+
+
+
+
+/*
+=========================================================================================================================================
+ MASTER PAGE
+=========================================================================================================================================
+*/
+
+body {
+	background-color: #505050;
+	background: #00050B url(/images/portfolio/nmb/bkgd_fireworks.jpg) no-repeat 50% 0;  /* used for themed background images*/
+	margin: 8px 0;
+	margin-top: 35px;
+	padding: 0;
+}
+
+#accessibilityLinks {
+	display: none;
+}
+
+#page {
+	background-color: #FFF;
+	border: 7px solid #FFF;
+	margin: 0 auto;
+	width: 988px;
+}
+
+#header {
+	background: #103A64 url(/images/portfolio/nmb/bkgd_header.png) no-repeat top right;
+	height: 134px;
+	position: relative;
+}
+
+#body {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	overflow: hidden;
+}
+
+#bodyRow {
+	display: table-row;
+}
+
+#lCol, #cCol, #rCol {
+	border-collapse: collapse;
+	display: table-cell;
+	vertical-align: top;
+}
+
+#lCol {
+	width: 175px;
+}
+
+#lColContent {
+	position: relative;
+}
+
+#pageContent {
+	padding: 0 7px 25px 7px;
+	position: relative;
+	min-height: 500px;
+}
+
+#pageContent :first-child {
+	margin-top: 0;
+}
+
+#pageContent.basic {
+	padding: 0 0 7px 0;
+}
+
+#rCol {
+	width: 175px;
+}
+
+#footer {
+	position: relative;
+}
+
+#footer > a.top {
+	position: absolute;
+	top: -20px;
+	right: 182px;
+}
+
+#siteLogo {
+	position: absolute;
+	top: 52px;
+	left: 60px;
+	margin: 0;
+	background: url(/images/portfolio/nmb/logo_northamber.png) no-repeat;
+	width: 220px;
+	height: 31px;
+}
+
+#siteLogo > a {
+	display: block;
+	width: 219px;
+	height: 31px;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+#siteSlogan {
+	display: none;
+}
+
+#mainSearch {
+	position: absolute;
+	top: 18px;
+	right: 18px;
+	width: 276px;
+	height: 31px;
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_search.png) no-repeat;
+}
+
+#mainSearch > fieldset > label {
+	display: block;
+	position: absolute;
+	left: 10px;
+	top: 7px;
+	text-indent: -9999px;
+	height: 17px;
+	width: 50px;
+}
+
+#search {
+	position: absolute;
+	top: 7px;
+	right: 26px;
+	height: 15px;
+	border: none;
+	width: 162px;
+	background: transparent;
+}
+
+#search.error {
+	background-color: #FFDDDD;
+}
+
+#searchButton {
+	position: absolute;
+	top: 8px;
+	right: 11px;
+	padding: 5px;
+}
+
+#suggestions {
+	background: #FFF url(/images/portfolio/nmb/bkgd_menu_dropdown.png) repeat-x bottom left;
+	border-bottom: 1px solid #CCC;
+	font-size: 11px;
+	list-style: none;
+	margin: 0;
+	min-width: 155px;
+	padding: 0.3em 5px;
+	position: absolute;
+	left: 84px;
+	top: 25px;
+	z-index: 50;
+}
+
+#suggestions > li > a {
+	display: block;
+	padding: 0.3em 0;
+	text-decoration: none;
+}
+
+#suggestions > li > a:focus, #suggestions > li > a:hover, #suggestions > li.selected {
+	text-decoration: underline;
+}
+
+#menuBar {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_navbar.png) repeat-x;
+	border-bottom: 1px solid #B5B5B5;
+	height: 39px;
+	position: relative;
+}
+
+#menuBkgd {
+	background: url(/images/portfolio/nmb/bkgd_menutab.png) no-repeat 17px -78px;
+	height: 100%;
+}
+
+#menu {
+	height: 100%;
+	font-size: 11px;
+	z-index: 20;
+	background: url(/images/portfolio/nmb/bkgd_menutab.png) no-repeat 966px -39px;
+}
+
+#menu > ul {
+	margin: 0 21px;
+	padding: 0;
+	width: 945px;
+}
+
+#menu > ul li {
+	list-style: none;
+}
+
+#menu > ul a {
+	color: #373737;
+	display: block;
+	height: 100%;
+	text-decoration: none;
+}
+
+#menu > ul > li {
+	float: left;
+	height: 39px;
+	width: 105px;
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_menutab.png) repeat-x top left;
+	list-style: none;
+	position: relative;
+}
+
+#menu > ul > li > a {
+	text-align: center;
+	background: url(/images/portfolio/nmb/bkgd_menutab.png) no-repeat 0 -39px;
+	display: table;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#menu > ul > li > a > span {
+	display: table-cell;
+	vertical-align: middle;
+	background: url(/images/portfolio/nmb/bkgd_menutab.png) no-repeat 100% -78px;
+}
+
+#menu > ul > li:hover, #menu > ul > li.selected {
+	background-color: #DDD;
+	background-position: 0 -117px;
+}
+
+#menu > ul > li:hover > a, #menu > ul > li.selected > a {
+	background-position: 100% -195px;
+}
+
+#menu > ul > li:hover > a > span, #menu > ul > li.selected > a > span {
+	background-position: 0 -156px;
+}
+
+#menu > ul > li > a:focus {
+	background: url(/images/portfolio/nmb/bkgd_menutab.png) no-repeat 0 -156px, url(/images/portfolio/nmb/bkgd_menutab.png) no-repeat 100% -195px, url(/images/portfolio/nmb/bkgd_menutab.png) repeat-x 0 -117px, url(/images/portfolio/nmb/bkgd_menutab.png) no-repeat 100% 195px; 
+}
+
+#menu > ul > li > a:focus span {
+	background: none;
+}
+
+#menu > ul > li > ul {
+	background: #FFF url(/images/portfolio/nmb/bkgd_menu_dropdown.png) repeat-x bottom left;
+	border-top: 1px solid #B5B5B5;
+	border-bottom: 1px solid #CCC;
+	display: none;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 40em;
+}
+
+#menu > ul > li:hover > ul {
+	display: block;
+	z-index: 50;
+}
+
+#menu > ul > li > ul > li {
+	height: auto;
+	width: 50%;
+	float: left;
+	white-space: nowrap;
+	border: none;
+}
+
+#menu > ul > li + li + li + li + li + li + li > ul {
+	left: auto;
+	right: 0;
+}
+
+#menu > ul > li > ul > li > a:focus, #menu > ul > li > ul > li > a:hover {
+	text-decoration: underline;
+}
+
+#menu > ul > li > ul > li > a {
+	background: none;
+	text-align: left;
+	padding: 0.3em 5px;
+}
+
+#topBar {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_topbar.png) repeat-x;
+	border-bottom: 1px solid #B5B5B5;
+	position: relative;
+	color: #373737;
+	height: 37px;
+	margin-bottom: 6px;
+}
+
+#topBar > h1 {
+	font-size: 12px;
+	font-weight: normal;
+	position: absolute;
+	left: 18px;
+	top: 12px;
+	margin: 0;
+}
+
+#topBarLinks {
+	float: right;
+	margin-right: 18px;
+	display: table;
+	height: 100%;
+	font-size: 11px;
+	table-layout: fixed;
+}
+
+#topBarLinks a {
+	color: #373737;
+	text-decoration: none;
+}
+
+#topBarLinks a:focus, #topBarLinks a:hover {
+	text-decoration: underline;
+}
+
+#topBarLinks > ul {
+	list-style: none;
+	padding: 0;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+#topBarLinks > ul > li {
+	display: inline;
+}
+
+#mainLinks {
+	color: #FFF;
+	position: absolute;
+	top: -211px;
+	right: 0;
+}
+
+#mainLinks a {
+	color: #FFF;
+}
+
+#contactLinks {
+	display: table-cell;
+	padding-left: 2px;
+	vertical-align: middle;
+}
+
+#contactLinks > a {
+	margin-left: 8px;
+	display: inline-block;
+}
+
+#configLinks > li {
+	background-image: url(/images/portfolio/nmb/bkgd_config.png);
+}
+
+#configLinks > li > a {
+	background: url(/images/portfolio/nmb/bkgd_config_logo.png) no-repeat top right;
+}
+
+#configLinks > .laptopBag {
+	background-color: #285343;
+}
+
+#configLinks > .laptopBag:focus, #configLinks > .laptopBag:hover {
+	background-color: #1E382E;
+}
+
+#configLinks > .laptopBag > a:focus {
+	background: url(/images/portfolio/nmb/bkgd_config_logo.png) no-repeat top right, url(/images/portfolio/nmb/bkgd_config.png) repeat-x 0 -42px;
+}
+
+#configLinks > .memory {
+	background-color: #095165;
+	background-position: 0 -84px;
+}
+
+#configLinks > .memory:focus, #configLinks > .memory:hover {
+	background-color: #053948;
+	background-position: 0 -126px;
+}
+
+#configLinks > .memory > a {
+	background-position: right -42px;
+}
+
+#configLinks > .memory > a:focus {
+	background: url(/images/portfolio/nmb/bkgd_config_logo.png) no-repeat right -42px, url(/images/portfolio/nmb/bkgd_config.png) repeat-x 0 -126px;
+}
+
+#configLinks > .laptopPower {
+	background-color: #293C53;
+	background-position: 0 -168px;
+}
+
+#configLinks > .laptopPower:focus, #configLinks > .laptopPower:hover {
+	background-color: #1D2A3B;
+	background-position: 0 -210px;
+}
+
+#configLinks > .laptopPower > a {
+	background-position: right -84px;
+}
+
+#configLinks > .laptopPower > a:focus {
+	background: url(/images/portfolio/nmb/bkgd_config_logo.png) no-repeat right -84px, url(/images/portfolio/nmb/bkgd_config.png) repeat-x 0 -210px;
+}
+
+#configLinks > .ups {
+	background-color: #342C49;
+	background-position: 0 -252px;
+}
+
+#configLinks > .ups:focus, #configLinks > .ups:hover {
+	background-color: #252034;
+	background-position: 0 -294px;
+}
+
+#configLinks > .ups > a {
+	background-position: right -126px;
+}
+
+#configLinks > .ups > a:focus {
+	background: url(/images/portfolio/nmb/bkgd_config_logo.png) no-repeat right -126px, url(/images/portfolio/nmb/bkgd_config.png) repeat-x 0 -294px;
+}
+
+#footerLinks {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_footer.png) repeat-x;
+	border-top: 1px solid #B5B5B5;
+	border-bottom: 1px solid #B5B5B5;
+	height: 37px;
+	font-size: 10px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+#footerLinks > ul {
+	display: table;
+	height: 100%;
+	padding: 0;
+	margin: 0 auto;
+	table-layout: fixed;
+}
+
+#footerLinks > ul > li {
+	display: table-cell;
+	padding-left: 0.3em;
+	vertical-align: middle;
+}
+
+#footerLinks > ul > li:first-child {
+	padding-left: 0;
+}
+
+#footerLinks > ul > li > a {
+	color: #373737;
+	text-decoration: none;
+}
+
+#footerLinks > ul > li > a:focus, #footerLinks > ul > li > a:hover {
+	text-decoration: underline;
+}
+
+#smallPrint {
+	font-size: 10px;
+	text-align: justify;
+	margin-bottom: 5px;
+}
+
+#smallPrint > p {
+	display: inline;
+}
+
+
+/*
+=========================================================================================================================================
+ PAGE-SPECIFIC STYLING
+=========================================================================================================================================
+*/
+
+/* /Admin/Order.aspx */
+#orderDetailsMain {
+	margin-bottom: 7px;	
+}
+
+#orderDetailsMain > div {
+	float: left;
+	padding-left: 8px;
+	width: 324px;
+}
+
+#orderDetailsMain > div:first-child {
+	padding-left: 0;
+}
+
+#orderDetailsMain > div > div {
+	height: 155px;
+}
+
+#orderDetails {
+	width: 100%;
+}
+
+#ordItemId {
+	width: 6em;
+}
+
+#ordStock {
+	width: 3em;
+}
+
+#ordPrice {
+	width: 6em;
+}
+
+#ordTotal {
+	width: 5em;
+}
+
+#orderDetails {
+	margin-bottom: 7px;
+}
+
+#orderDetails .quantity  {
+	text-align: right;
+	width: 4em;
+}
+
+#orderDetails .price {
+	font-weight: bold;
+}
+
+#orderDetails .spacer {
+	height: 7px;
+}
+
+#orderDetails .spacer > td {
+	background: #FFF;
+	border: none;
+	position: absolute;
+	height: 6px;
+	padding: 0;
+	left: -5px;
+	right: -1px;
+}
+
+#orderDetails > tfoot > tr > th {
+	font-weight: normal;
+	text-align: right;
+}
+
+#orderDetails td.total {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_basket_compact_total.png);
+	color: #CA2027;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+}
+
+
+
+
+/* /Default.aspx */
+#offerLink {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 7px;
+}
+
+#offerLink > li {
+	display: block;
+}
+
+#offerLink > li > a > img {
+	display: block;
+}
+
+#hotLinks {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 3px;
+	padding-top: 7px;
+	border-top: 1px solid #DCDCDC;
+}
+
+#hotLinks > li {
+	display: block;
+	height: 42px;
+	width: 175px;
+	background: #71CCD5 url(/images/portfolio/nmb/bkgd_hot_links.png) no-repeat;
+	margin-bottom: 4px;
+}
+
+#hotLinks .skype:focus, #hotLinks .skype:hover {
+	background-position: 0 -42px;
+	background-color: #6CB7BF;
+}
+
+#hotLinks .chat {
+	background-position: 0 -84px;
+	background-color: #45BBB5;
+}
+
+#hotLinks .chat:focus, #hotLinks .chat:hover {
+	background-position: 0 -126px;
+	background-color: #46A8A4;
+}
+
+#hotLinks .rss {
+	background-position: 0 -168px;
+	background-color: #C85A88;
+}
+
+#hotLinks .rss:focus, #hotLinks .rss:hover {
+	background-position: 0 -210px;
+	background-color: #B5547D;
+}
+
+#hotLinks .xml {
+	background-position: 0 -252px;
+	background-color: #E97559;
+}
+
+#hotLinks .xml:focus, #hotLinks .xml:hover {
+	background-position: 0 -294px;
+	background-color: #D06E56;
+}
+
+#hotLinks .feedback {
+	background-position: 0 -336px;
+	background-color: #F69458;
+}
+
+#hotLinks .feedback:focus, #hotLinks .feedback:hover {
+	background-position: 0 -378px;
+	background-color: #DB8854;
+}
+
+#hotLinks > li > a {
+	display: block;
+	height: 42px;
+	width: 175px;
+	text-indent: -9999px;
+}
+
+
+/* /Email.aspx */
+.emailForm {
+	font-size: 11px;
+	margin-bottom: 7px;
+}
+
+.emailForm .row {
+	margin: 4px 0;
+}
+
+.emailForm .table {
+	width: 100%;
+}
+
+.emailForm .table input {
+	width: 99%;
+	height: 18px;
+}
+
+.emailForm .table select {
+	width: 99.5%;
+	height: 22px;
+}
+
+.emailForm div.table > div > div:first-child {
+	width: 50%;
+}
+
+.emailForm > .content > textarea {
+	width: 99.4%;
+	height: 110px;
+	margin: 4px 0;
+}
+
+.emailForm .buttonBar {
+	border: 0;
+	padding: 0;
+	margin: 4px 0;
+}
+
+
+/* /Help/Contact.aspx */
+#contactAddress {
+	display: table;
+	table-layout: fixed;
+	font-size: 11px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+#contactAddress a {
+	color: #CA2027;
+}
+
+#contactAddress > div {
+	display: table-cell;
+	padding-left: 10px;
+	width: 33.33%;
+}
+
+#contactAddress > div > h3 {
+	font-size: 13px;
+	margin: 0;
+	margin-bottom: 7px;
+}
+
+#contactAddress > div > address {
+	margin-bottom: 7px;
+}
+
+#contactAddress dl {
+	margin: 0;
+}
+
+#contactAddress dd {
+	font-weight: bold;
+	margin: 0;
+	margin-bottom: 7px;
+}
+
+#contactAddress > div > p {
+	margin: 0;
+}
+
+#contactMap {
+	font-size: 11px;
+	margin-bottom: 7px;
+}
+
+#contactMap a {
+	color: #CA2027;
+}
+
+#googleMap {
+	height: 325px;
+}
+
+#telDepartment > .content {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+#telDepartment div.table {
+	width: 100%;
+}
+
+#telDepartment table {
+	font-size: 11px;
+	width: 100%;
+}
+
+#telDepartment th, #telDepartment td {
+	padding: 7px 14px;
+}
+
+#telDepartment th {
+	font-weight: normal;
+}
+
+#telDepartment td {
+	border-top: 1px solid #EEE;
+}
+
+#telDepartment td + td {
+	font-weight: bold;
+	width: 9em;
+}
+
+
+/* /Help/Terms.aspx */
+#lstRecitals {
+	list-style-type: upper-latin;
+}
+
+#lstTerms {
+	font-weight: bold;
+}
+
+#lstTerms > li {
+	margin-top: 1em;
+}
+
+#lstTerms > li > ol {
+	list-style-type: lower-roman;
+	font-weight: normal;
+}
+
+#lstTerms > li > ol > li > ol {
+	list-style-type: lower-alpha;
+}
+
+
+/* /Login/Login.aspx */
+#loginBox {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 175px;
+}
+
+#login {
+	background: #F4F4F4 url(/images/portfolio/nmb/bkgd_standard.png) repeat-x bottom;
+	border-bottom: 1px solid #B5B5B5;
+	padding: 10px 18px 0 18px;
+}
+
+#login > label {
+	color: #373737;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+#login > input[type="text"], #login > input[type="password"] {
+	width: 100%;
+	margin: 8px 0;
+	height: 17px;
+	padding: 0;
+}
+
+#login > .button {
+	text-align: right;
+	margin: 8px 0;
+}
+
+#login > span {
+	position: absolute;
+}
+
+#rememberMe * {
+	vertical-align: middle;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+#rememberMe > input {
+	margin-left: 0;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+#passwordRequest {
+	font-size: 9px;
+}
+
+#passwordRequest > a {
+	color: #373737;
+	text-decoration: none;
+}
+
+#passwordRequest > a:focus, #passwordRequest > a:hover {
+	text-decoration: underline;
+}
+
+#applicationLinks > li.trade > a {
+	background-position: right -42px;
+}
+
+
+/* /Products/Product.aspx */
+#product {
+	margin-bottom: 18px;
+}
+
+#product > h1 {
+	color: #103A64;
+	font-size: 18px;
+	margin: 0;
+	margin-bottom: 12px;
+	text-transform: capitalize;
+}
+
+#product > p {
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+#product + * {
+	clear: right;
+}
+
+#productIds {
+	display: table;
+	margin: 0;
+	margin-bottom: 12px;
+}
+
+#productIds > dt, #productIds > dd {
+	display: table-cell;
+}
+
+#productIds > dt {
+	padding-left: 8px;
+	padding-right: 3px;
+}
+
+#productIds > dt:first-child {
+	padding-left: 0;
+}
+
+#productIds > dd {
+	font-weight: bold;
+}
+
+#windows7Logo {
+	float: left;
+	margin-right: 0.4em;
+}
+
+/*#xhtmlInjection {
+	margin-right: 232px;
+}*/
+
+#productBox {
+	float: right;
+	margin-bottom: 5px;
+	margin-left: 7px;
+	position: relative;
+	width: 225px;
+}
+
+#productImg {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 7px;
+}
+
+.largeProdImage {
+	text-align: center;
+	font-size: 11px;
+}
+
+#productNew {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#multiAngle {
+	margin-bottom: 7px;
+	text-align: center;
+}
+
+#multiAngle > img {
+	cursor: pointer;
+}
+
+#priceStock {
+	background-color: #F0F0F0;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	font-size: 11px;
+	margin-bottom: 3px;
+}
+
+#priceStock > div {
+	background: url(/images/portfolio/nmb/bkgd_price.png) repeat-x;
+	padding: 9px 15px 0 15px;
+	height: 98px;
+}
+
+#priceStock > div > table {
+	width: 100%;
+}
+
+#priceStock th, #priceStock td {
+	padding-top: 3px;
+	vertical-align: middle;
+}
+
+#priceStock tr:first-child > th, #priceStock tr:first-child > td {
+	padding-top: 0;
+}
+
+#priceStock > div > table > tbody > tr > th {
+	background: url(/images/portfolio/nmb/bullet_menu_vertical.gif) no-repeat 0 7px;
+	font-weight: normal;
+	padding-left: 15px;
+}
+
+#priceStock > div > table > tbody > tr > td {
+	font-weight: bold;
+}
+
+#priceStock .tradePrice > td {
+	color: #CA2027;
+	font-size: 13px;
+}
+
+#priceStock > .addToBasket {
+	background: url(/images/portfolio/nmb/bkgd_add_to_basket.png) repeat-x;
+	border-top: 1px solid #CCC;
+	height: 25px;
+	padding-top: 8px;
+	padding-right: 15px;
+	text-align: right;
+}
+
+#priceStock > .addToBasket > p {
+	font-size: 10px;
+	float: left;
+	padding-left: 30px;
+	width: 120px;
+	line-height: 10px;
+	margin-top: -1px;
+	background: url(/images/portfolio/nmb/bkgd_exclamation.png) no-repeat 15px 1px;
+}
+
+.pdfLinks ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.pdfLinks ul > li {
+	display: table-row;
+	background: url(/images/portfolio/nmb/icon_pdf.png) no-repeat center left;
+	padding-right: 0 !important;
+}
+
+.pdfLinks ul > li > span, .pdfLinks ul > li > a {
+	display: table-cell;
+	padding-top: 4px;
+	vertical-align: middle;
+}
+
+.pdfLinks ul > li:first-child > span, .pdfLinks ul > li:first-child > a {
+	padding-top: 0;
+}
+
+.pdfLinks ul > li > span {
+	padding-left: 19px;
+}
+
+.pdfLinks ul > li > a {
+	width: 19px;
+	background: none;
+	padding-right: 0 !important;
+}
+
+.productFeatures {
+	margin-bottom: 20px;
+}
+
+.productFeatures > dt {
+	font-weight: bold;
+}
+
+.productFeatures > dd {
+	margin-bottom: 3px;
+}
+
+.altProds {
+	border-bottom: 1px solid #B5B5B5;
+}
+
+.altProds h3 {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.altProds img {
+	display: block;
+	margin: 0 auto;
+}
+
+.altProds > table {
+	margin: 0;
+	padding: 0;
+}
+
+.altProds th, .altProds td {
+	padding-top: 3px;
+	vertical-align: middle;
+}
+
+.altProds tr:first-child > th, .altProds tr:first-child > td {
+	padding-top: 0;
+}
+
+.altProds th {
+	font-weight: normal;
+}
+
+.altProds td {
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.altProds tr:first-child > td {
+	color: #CA2027;
+	font-size: 14px;
+}
+
+#tabContainer > div > table > tbody > tr > th {
+	font-weight: normal;
+	width: 173px;
+}
+
+#tabContainer .th {
+	font-weight: bold;
+	background-color: #E9E9E9;
+}
+
+#fnStock {
+	list-style-type: lower-alpha;
+}
+
+#relatedProds > tbody > tr > th > img {
+	cursor: pointer;
+	margin-right: 4px;
+}
+
+#relatedProds .number {
+	width: 25px;
+}
+
+#relatedProds th.number {
+	text-align: left;
+}
+
+.productOffer {
+	border-top: 1px dotted #B1B1B1;
+	border-bottom: 1px dotted #B1B1B1;
+	color: #CA2027;
+	font-size: 12px;
+	margin-right: 232px;
+	margin-bottom: 30px;
+	padding: 10px 0;
+}
+
+.productOffer > h4 {
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.productOffer > p {
+	margin: 0;
+	color: #CA2027;
+}
+
+
+/* /Products/ProductList.aspx */
+#pageTitle {
+	position: relative;
+}
+
+#pageTitle > input {
+	position: absolute;
+	top: 6px;
+	right: 18px;
+}
+
+/* styling added to include #pageSorting on the left-hand column of the DataPager - start */
+#prodListTopPager {
+	position: relative;
+}
+
+#prodListTopPager > .pager {
+	margin-top: 0;
+}
+
+#pageSorting {
+	font-size: 11px;
+	position: absolute;
+	top: 1px;
+	left: 18px;
+}
+
+#pageSorting > a {
+	color: #CA2027;
+}
+/* styling added to include #pageSorting on the left-hand column of the DataPager - end */
+
+#outOfStock {
+	position: absolute;
+	top: 60px;
+	right: -100px;
+	font-size: 11px;
+}
+
+#outOfStock > input {
+	vertical-align: middle;
+}
+
+.productList {
+	display: table;
+	table-layout: fixed;
+	font-size: 11px;
+	margin-bottom: 7px;
+	width: 100%;
+}
+
+.productList > div {
+	display: table-row;
+	height: 108px;
+	border-bottom: 1px solid #CCC;
+}
+
+.productList > div:first-child {
+	border-top: 1px solid #CCC;
+}
+
+.productList > div > div {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.productList .lCol {
+	padding: 0;
+	width: 85px;
+	vertical-align: middle;
+}
+
+.productList .lCol img {
+	border: 1px solid #CCC;
+	width: 85px;
+	height: 85px;
+}
+
+.productList .cCol {
+	padding: 8px 12px 0 12px;
+}
+
+.productList .cCol > h3 {
+	color: #103A62;
+	font-size: 13px;
+	margin-bottom: 7px;
+}
+
+.productList .cCol > h3 > a {
+	color: #103A62;
+	text-decoration: none;
+}
+
+.productList .cCol > h3 > a:focus, .productList .cCol > h3 > a:hover {
+	text-decoration: underline;
+}
+
+.productList .cCol > h4 { /* RSS Feed Headlines */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 11px;
+	margin-top: -7px;
+	margin-bottom: 2px;
+}
+
+.productList .cCol > p {
+	margin: 0;
+	margin-bottom: 8px;
+	min-height: 3.5em;
+}
+
+.productList .cCol > p > a {
+	color: #CA2027;
+}
+
+.productList .cCol > .compare {
+	float: right;
+}
+
+.productList .cCol > .compare > * {
+	vertical-align: middle;
+}
+
+.productList .rCol {
+	width: 195px;
+	padding: 9px 15px 0 15px;
+	background: #F0F0F0 url(/images/portfolio/nmb/bkgd_price.png) repeat-x;
+}
+
+.productList .rCol > table {
+	width: 100%;
+}
+
+.productList .rCol th, .productList .rCol td {
+	padding-top: 3px;
+	vertical-align: middle;
+}
+
+.productList .rCol tr:first-child > th, .productList .rCol tr:first-child > td {
+	padding-top: 0;
+}
+
+.productList .rCol > table > tbody > tr > th {
+	background: url(/images/portfolio/nmb/bullet_menu_vertical.gif) no-repeat 0 7px;
+	font-weight: normal;
+	padding-left: 15px;
+	width: 90px;
+}
+
+.productList .rCol > table > tbody > tr > td {
+	font-weight: bold;
+}
+
+.productList .tradePrice > td {
+	color: #CA2027;
+	font-size: 13px;
+}
+
+.priceStock > .addToBasket {
+	background: url(/images/portfolio/nmb/bkgd_add_to_basket.png) repeat-x;
+	border-top: 1px solid #CCC;
+	height: 25px;
+	padding-top: 8px;
+	padding-right: 15px;
+	text-align: right;
+}
+
+.priceStock > .addToBasket > p {
+	font-size: 10px;
+	float: left;
+	padding-left: 30px;
+	width: 120px;
+	line-height: 10px;
+	margin-top: -1px;
+	background: url(/images/portfolio/nmb/bkgd_exclamation.png) no-repeat 15px 1px;
+}
+
+#removeItemsList > li {
+	background-image: url(/images/portfolio/nmb/btn_delete_small.png);
+	position: relative;
+}
+
+#removeItemsList > li > a {
+	font-size: 10px;
+	position: absolute;
+	right: 9px;
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+
+#removeItemsList > li > a:focus, #removeItemsList > li > a:hover {
+	text-decoration: none;
+}
+
+#stockList > input {
+	float: left;
+	margin-left: 0;
+}
+
+#stockList > label {
+	display: block;
+	margin-left: 20px;
+}
+
+
+
+/* /VendorList.aspx */
+ul.azLinks {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+ul.azLinks > li {
+	list-style: none;
+	display: inline;
+	padding: 0.5em;
+}
+
+#vendorMessage {
+	margin: 1em 0;
+}
+
+#vendorMessage > p {
+	text-align: center;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+#manGallery {
+	margin: 1em 0;
+}
+
+div.manGalleryItems {
+	float: left;
+	width: 150px;
+	height: 100px;
+	overflow: hidden;
+	text-align: center;
+}
+
+div.manGalleryItems > .manUrl {
+	font-size: 0.9em;
+	text-transform: lowercase;
+}
+
+
+/* /Products/ProductList.aspx */
+.moreClick {
+	cursor: pointer;
+	font-weight: bold;
+	background: url(/images/portfolio/nmb/bullet_dbl_down.png) no-repeat left 50%;
+	margin-top: 0.3em;
+	padding-left: 10px;
+}
+
+.moreClick:focus, .moreClick:hover {
+	text-decoration: underline;
+}
+
+.moreClick.up {
+	background-image: url(/images/portfolio/nmb/bullet_dbl_up.png);
+}

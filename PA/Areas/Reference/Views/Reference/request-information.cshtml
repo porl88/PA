@@ -1,0 +1,877 @@
+﻿@model ClassLibrary.ClientInfo
+
+@{
+	ViewBag.Title = "Request Information | Reference";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
+		<li>@Html.ActionLink("Reference", "index", "reference")</li>
+		<li>Request Information</li>
+	</ol>
+}
+
+<article>
+
+	<h1>Request Information</h1>
+
+	<ul>
+		<li><a href="#request">Request</a></li>
+		<li><a href="#cookies">Request.Cookies</a></li>
+		<li><a href="#encoding">Request.ContentEncoding</a></li>
+		<li><a href="#url">Request.Url</a></li>
+		<li><a href="#clientInfo">ClassLibrary.ClientInfo</a></li>
+		<li><a href="#browser">Request.Browser</a></li>
+		<li><a href="#headers">Request.Headers</a></li>
+		<li><a href="#serverVariables">Request.ServerVariables</a></li>
+	</ul>
+
+	<table id="request">
+		<caption>Request Properties</caption>
+		<tbody>
+			<tr>
+				<td>Accept Types</td>
+				<td>
+					<ol>
+					@foreach (string type in Request.AcceptTypes) {
+						<li>@type</li>
+					}
+					</ol>
+				</td>
+			</tr>
+			<tr>
+				<td>Anonymous ID</td>
+				<td>@Request.AnonymousID</td>
+			</tr>
+			<tr>
+				<td>Application Path</td>
+				<td>@Request.ApplicationPath</td>
+			</tr>
+			<tr>
+				<td>Application Relative Current Execution File Path</td>
+				<td>@Request.AppRelativeCurrentExecutionFilePath</td>
+			</tr>
+			<tr>
+				<td>Client Certificate</td>
+				<td>
+					@if (Request.ClientCertificate.HasKeys()) {
+						<ol>
+						@foreach (string key in Request.ClientCertificate.AllKeys) {
+							<li>@Request.ClientCertificate[key]</li>
+						}
+						</ol>
+					}
+				</td>
+			</tr>
+			<tr>
+				<td>Content Encoding</td>
+				<td>See <a href="#encoding">Request.ContentEncoding</a></td>
+			</tr>
+			<tr>
+				<td>Content Length</td>
+				<td>@Request.ContentLength</td>
+			</tr>
+			<tr>
+				<td>Cookies</td>
+				<td>See <a href="#cookies">Request.Cookies</a></td>
+			</tr>
+			<tr>
+				<td>Current Execution File Path</td>
+				<td>@Request.CurrentExecutionFilePath</td>
+			</tr>
+			<tr>
+				<td>File Path</td>
+				<td>@Request.FilePath</td>
+			</tr>
+			<tr>
+				<td>Files</td>
+				<td>@Request.Files</td>
+			</tr>
+			<tr>
+				<td>Filter</td>
+				<td>@Request.Filter</td>
+			</tr>
+			<tr>
+				<td>Form</td>
+				<td>@Request.Form</td>
+			</tr>
+			<tr>
+				<td>Headers</td>
+				<td>See <a href="#headers">Request.Headers</a></td>
+			</tr>
+			<tr>
+				<td>HTTP Method</td>
+				<td>@Request.HttpMethod</td>
+			</tr>
+			<tr>
+				<td>Input Stream</td>
+				<td>@Request.InputStream</td>
+			</tr>
+			<tr>
+				<td>Is Authenticated</td>
+				<td>@Request.IsAuthenticated</td>
+			</tr>
+			<tr>
+				<td>Is Local</td>
+				<td>@Request.IsLocal</td>
+			</tr>
+			<tr>
+				<td>Is Secure Connection</td>
+				<td>@Request.IsSecureConnection</td>
+			</tr>
+			<tr>
+				<td>Logon User Identity</td>
+				<td>@Request.LogonUserIdentity</td>
+			</tr>
+			<tr>
+				<td>Params</td>
+				<td>See <a href="#params">Request.Params</a></td>
+			</tr>
+			<tr>
+				<td>Path</td>
+				<td>@Request.Path</td>
+			</tr>
+			<tr>
+				<td>Path Info</td>
+				<td>@Request.PathInfo</td>
+			</tr>
+			<tr>
+				<td>Physical Application Path</td>
+				<td>@Request.PhysicalApplicationPath</td>
+			</tr>
+			<tr>
+				<td>Physical Path</td>
+				<td>@Request.PhysicalPath</td>
+			</tr>
+			<tr>
+				<td>Query String</td>
+				<td>@Request.QueryString</td>
+			</tr>
+			<tr>
+				<td>Raw Url</td>
+				<td>@Request.RawUrl</td>
+			</tr>
+			<tr>
+				<td>Request Type</td>
+				<td>@Request.RequestType</td>
+			</tr>
+			<tr>
+				<td>Server Variables</td>
+				<td>See <a href="#serverVariables">Request.ServerVariables</a></td>
+			</tr>
+			<tr>
+				<td>Total Bytes</td>
+				<td>@Request.TotalBytes</td>
+			</tr>
+			<tr>
+				<td>URL Referrer</td>
+				<td>@Request.UrlReferrer</td>
+			</tr>
+			<tr>
+				<td>User Agent</td>
+				<td>@Request.UserAgent</td>
+			</tr>
+			<tr>
+				<td>User Host Address (IP Address)</td>
+				<td>@Request.UserHostAddress</td>
+			</tr>
+			<tr>
+				<td>User Host Name (DNS Name)</td>
+				<td>@Request.UserHostName</td>
+			</tr>
+			<tr>
+				<td>User Languages</td>
+				<td>
+					<ol>
+					@foreach (string language in Request.UserLanguages) {
+						<li>@language</li>
+					}
+					</ol>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table id="cookies">
+		<caption>Request.Cookies</caption>
+		<tbody>
+			@foreach (string key in Request.Cookies.AllKeys) {
+				var cookie = Request.Cookies[key];
+				<tr><td>@cookie.Name</td><td>@cookie.Value</td><td>@cookie.Path</td></tr>
+			}
+		 </tbody>
+	</table>
+
+	<table id="encoding">
+		<caption>Request.ContentEncoding</caption>
+		<tbody>
+			<tr><td>BodyName</td><td>@Request.ContentEncoding.BodyName</td></tr>
+			<tr><td>CodePage</td><td>@Request.ContentEncoding.CodePage</td></tr>
+			<tr><td>EncodingName</td><td>@Request.ContentEncoding.EncodingName</td></tr>
+			<tr><td>HeaderName</td><td>@Request.ContentEncoding.HeaderName</td></tr>
+			<tr><td>IsBrowserDisplay</td><td>@Request.ContentEncoding.IsBrowserDisplay</td></tr>
+			<tr><td>IsBrowserSave</td><td>@Request.ContentEncoding.IsBrowserSave</td></tr>
+			<tr><td>IsMailNewsDisplay</td><td>@Request.ContentEncoding.IsMailNewsDisplay</td></tr>
+			<tr><td>IsMailNewsSave</td><td>@Request.ContentEncoding.IsMailNewsSave</td></tr>
+			<tr><td>IsReadOnly</td><td>@Request.ContentEncoding.IsReadOnly</td></tr>
+			<tr><td>IsSingleByte</td><td>@Request.ContentEncoding.IsSingleByte</td></tr>
+			<tr><td>WebName</td><td>@Request.ContentEncoding.WebName</td></tr>
+			<tr><td>WindowsCodePage</td><td>@Request.ContentEncoding.WindowsCodePage</td></tr>
+		</tbody>
+	</table>
+
+	<table id="url">
+		<caption>Request.URL Properties</caption>
+		<tbody>
+			<tr>
+				<td>AbsolutePath</td>
+				<td>@Request.Url.AbsolutePath</td>
+			</tr>
+			<tr>
+				<td>AbsoluteUri</td>
+				<td>@Request.Url.AbsoluteUri</td>
+			</tr>
+			<tr>
+				<td>Authority</td>
+				<td>@Request.Url.Authority</td>
+			</tr>
+			<tr>
+				<td>DnsSafeHost</td>
+				<td>@Request.Url.DnsSafeHost</td>
+			</tr>
+			<tr>
+				<td>Fragment</td>
+				<td>@Request.Url.Fragment</td>
+			</tr>
+			<tr>
+				<td>Host</td>
+				<td>@Request.Url.Host</td>
+			</tr>
+			<tr>
+				<td>HostNameType</td>
+				<td>@Request.Url.HostNameType</td>
+			</tr>
+			<tr>
+				<td>IsAbsoluteUri</td>
+				<td>@Request.Url.IsAbsoluteUri</td>
+			</tr>
+			<tr>
+				<td>IsDefaultPort</td>
+				<td>@Request.Url.IsDefaultPort</td>
+			</tr>
+			<tr>
+				<td>IsFile</td>
+				<td>@Request.Url.IsFile</td>
+			</tr>
+			<tr>
+				<td>IsLoopback</td>
+				<td>@Request.Url.IsLoopback</td>
+			</tr>
+			<tr>
+				<td>IsUnc</td>
+				<td>@Request.Url.IsUnc</td>
+			</tr>
+			<tr>
+				<td>LocalPath</td>
+				<td>@Request.Url.LocalPath</td>
+			</tr>
+			<tr>
+				<td>OriginalString</td>
+				<td>@Request.Url.OriginalString</td>
+			</tr>
+			<tr>
+				<td>PathAndQuery</td>
+				<td>@Request.Url.PathAndQuery</td>
+			</tr>
+			<tr>
+				<td>Port</td>
+				<td>@Request.Url.Port</td>
+			</tr>
+			<tr>
+				<td>Query</td>
+				<td>@Request.Url.Query</td>
+			</tr>
+			<tr>
+				<td>Scheme</td>
+				<td>@Request.Url.Scheme</td>
+			</tr>
+			<tr>
+				<td>Segments</td>
+				<td>
+					<ol>
+						@foreach (var segment in Request.Url.Segments) {
+							<li>@segment</li>
+						}
+					</ol>
+				</td>
+			</tr>
+			<tr>
+				<td>UserEscaped</td>
+				<td>@Request.Url.UserEscaped</td>
+			</tr>
+			<tr>
+				<td>UserInfo</td>
+				<td>@Request.Url.UserInfo</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table id="clientInfo">
+		<caption>ClassLibrary.ClientInfo Properties</caption>
+		<tbody>
+			<tr>
+				<td>Browser</td>
+				<td>@Model.Browser</td>
+			</tr>
+			<tr>
+				<td>Browser Version</td>
+				<td>@Model.BrowserVersion</td>
+			</tr>
+			<tr>
+				<td>Browser Major Version</td>
+				<td>@Model.BrowserMajorVersion</td>
+			</tr>
+			<tr>
+				<td>Rendering Engine</td>
+				<td>@Model.RenderingEngine</td>
+			</tr>
+			<tr>
+				<td>Rendering Engine Version</td>
+				<td>@Model.RenderingEngineVersion</td>
+			</tr>
+			<tr>
+				<td>Operating System</td>
+				<td>@Model.OS</td>
+			</tr>
+			<tr>
+				<td>Platform</td>
+				<td>@Model.Platform</td>
+			</tr>
+			<tr>
+				<td>Device</td>
+				<td>@Model.Device</td>
+			</tr>
+			<tr>
+				<td>Device Type</td>
+				<td>@Model.DeviceType</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table id="browser">
+		<caption>Request.Browser Properties</caption>
+		<tbody>
+			<tr>
+				<td>User Agent</td>
+				<td>@Request.UserAgent</td>
+			</tr>
+			<tr>
+				<td>Platform</td>
+				<td>@Request.Browser.Platform</td>
+			</tr>
+			<tr>
+				<td>LayoutEngine</td><td>@Request.Browser.Capabilities["LayoutEngine"]</td>
+			</tr>
+			<tr>
+				<td>LayoutEngineVersion</td><td>@Request.Browser.Capabilities["LayoutEngineVersion"]</td>
+			</tr>
+			<tr>
+				<td>Browser</td>
+				<td>@Request.Browser.Browser</td>
+			</tr>
+			<tr>
+				<td>Type</td>
+				<td>@Request.Browser.Type</td>
+			</tr>
+			<tr>
+				<td>Version</td>
+				<td>@Request.Browser.Version</td>
+			</tr>
+			<tr>
+				<td>MajorVersion<br />
+					Browser Major Version</td>
+				<td>@Request.Browser.MajorVersion</td>
+			</tr>
+			<tr>
+				<td>MinorVersion</td>
+				<td>@Request.Browser.MinorVersion</td>
+			</tr>
+			<tr>
+				<td>MinorVersionString</td>
+				<td>@Request.Browser.MinorVersionString</td>
+			</tr>
+			<tr>
+				<td>ID</td>
+				<td>@Request.Browser.Id</td>
+			</tr>
+			<tr>
+				<td>Browsers</td>
+				<td>
+					<ul>
+					@foreach (var browser in Request.Browser.Browsers) {
+						<li>@browser</li>
+					}
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>ActiveXControls</td>
+				<td>@Request.Browser.ActiveXControls</td>
+			</tr>
+			<tr>
+				<td>
+					<br />
+					Control Adapters</td>
+				<td>
+					<ul>
+					@foreach (var adapter in Request.Browser.Adapters) {
+						<li>@adapter</li>
+					}
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>AOL</td>
+				<td>@Request.Browser.AOL</td>
+			</tr>
+			<tr>
+				<td>BackgroundSounds</td>
+				<td>@Request.Browser.BackgroundSounds</td>
+			</tr>
+			<tr>
+				<td>Beta</td>
+				<td>@Request.Browser.Beta</td>
+			</tr>
+			<tr>
+				<td>CanCombineFormsInDeck</td>
+				<td>@Request.Browser.CanCombineFormsInDeck</td>
+			</tr>
+			<tr>
+				<td>CanInitiateVoiceCall</td>
+				<td>@Request.Browser.CanInitiateVoiceCall</td>
+			</tr>
+			<tr>
+				<td>CanRenderAfterInputOrSelectElement</td>
+				<td>@Request.Browser.CanRenderAfterInputOrSelectElement</td>
+			</tr>
+			<tr>
+				<td>CanRenderEmptySelects</td>
+				<td>@Request.Browser.CanRenderEmptySelects</td>
+			</tr>
+			<tr>
+				<td>CanRenderInputAndSelectElementsTogether</td>
+				<td>@Request.Browser.CanRenderInputAndSelectElementsTogether</td>
+			</tr>
+			<tr>
+				<td>CanRenderMixedSelects</td>
+				<td>@Request.Browser.CanRenderMixedSelects</td>
+			</tr>
+			<tr>
+				<td>CanRenderOneventAndPrevElementsTogether</td>
+				<td>@Request.Browser.CanRenderOneventAndPrevElementsTogether</td>
+			</tr>
+			<tr>
+				<td>CanRenderPostBackCards</td>
+				<td>@Request.Browser.CanRenderPostBackCards</td>
+			</tr>
+			<tr>
+				<td>CanRenderSetvarZeroWithMultiSelectionList</td>
+				<td>@Request.Browser.CanRenderSetvarZeroWithMultiSelectionList</td>
+			</tr>
+			<tr>
+				<td>CanSendMail</td>
+				<td>@Request.Browser.CanSendMail</td>
+			</tr>
+			<tr>
+				<td>Capabilities</td>
+				<td>@Request.Browser.Capabilities</td>
+			</tr>
+			<tr>
+				<td><abbr title="Channel Definition Format">CDF</abbr></td>
+				<td>@Request.Browser.CDF</td>
+			</tr>
+			<tr>
+				<td>ClrVersion</td>
+				<td>@Request.Browser.ClrVersion</td>
+			</tr>
+			<tr>
+				<td>Cookies</td>
+				<td>@Request.Browser.Cookies</td>
+			</tr>
+			<tr>
+				<td>Crawler</td>
+				<td>@Request.Browser.Crawler</td>
+			</tr>
+			<tr>
+				<td>DefaultSubmitButtonLimit</td>
+				<td>@Request.Browser.DefaultSubmitButtonLimit</td>
+			</tr>
+			<tr>
+				<td>EcmaScriptVersion</td>
+				<td>@Request.Browser.EcmaScriptVersion</td>
+			</tr>
+			<tr>
+				<td>Frames</td>
+				<td>@Request.Browser.Frames</td>
+			</tr>
+			<tr>
+				<td>GatewayMajorVersion</td>
+				<td>@Request.Browser.GatewayMajorVersion</td>
+			</tr>
+			<tr>
+				<td>GatewayMinorVersion</td>
+				<td>@Request.Browser.GatewayMinorVersion</td>
+			</tr>
+			<tr>
+				<td>GatewayVersion</td>
+				<td>@Request.Browser.GatewayVersion</td>
+			</tr>
+			<tr>
+				<td>HasBackButton</td>
+				<td>@Request.Browser.HasBackButton</td>
+			</tr>
+			<tr>
+				<td>HidesRightAlignedMultiselectScrollbars</td>
+				<td>@Request.Browser.HidesRightAlignedMultiselectScrollbars</td>
+			</tr>
+			<tr>
+				<td>HtmlTextWriter</td>
+				<td>@Request.Browser.HtmlTextWriter</td>
+			</tr>
+			<tr>
+				<td>InputType</td>
+				<td>@Request.Browser.InputType</td>
+			</tr>
+			<tr>
+				<td>IsColor</td>
+				<td>@Request.Browser.IsColor</td>
+			</tr>
+			<tr>
+				<td>IsMobileDevice</td>
+				<td>@Request.Browser.IsMobileDevice</td>
+			</tr>
+			<tr>
+				<td>JavaApplets</td>
+				<td>@Request.Browser.JavaApplets</td>
+			</tr>
+			<tr>
+				<td>JScriptVersion</td>
+				<td>@Request.Browser.JScriptVersion</td>
+			</tr>
+			<tr>
+				<td>MaximumHrefLength</td>
+				<td>@Request.Browser.MaximumHrefLength</td>
+			</tr>
+			<tr>
+				<td>MaximumRenderedPageSize</td>
+				<td>@Request.Browser.MaximumRenderedPageSize</td>
+			</tr>
+			<tr>
+				<td>MaximumSoftkeyLabelLength</td>
+				<td>@Request.Browser.MaximumSoftkeyLabelLength</td>
+			</tr>
+			<tr>
+				<td>MobileDeviceManufacturer</td>
+				<td>@Request.Browser.MobileDeviceManufacturer</td>
+			</tr>
+			<tr>
+				<td>MobileDeviceModel</td>
+				<td>@Request.Browser.MobileDeviceModel</td>
+			</tr>
+			<tr>
+				<td>MSDomVersion</td>
+				<td>@Request.Browser.MSDomVersion</td>
+			</tr>
+			<tr>
+				<td>NumberOfSoftkeys</td>
+				<td>@Request.Browser.NumberOfSoftkeys</td>
+			</tr>
+			<tr>
+				<td>PreferredImageMime</td>
+				<td>@Request.Browser.PreferredImageMime</td>
+			</tr>
+			<tr>
+				<td>PreferredRenderingMime</td>
+				<td>@Request.Browser.PreferredRenderingMime</td>
+			</tr>
+			<tr>
+				<td>PreferredRenderingType</td>
+				<td>@Request.Browser.PreferredRenderingType</td>
+			</tr>
+			<tr>
+				<td>PreferredRequestEncoding</td>
+				<td>@Request.Browser.PreferredRequestEncoding</td>
+			</tr>
+			<tr>
+				<td>PreferredResponseEncoding</td>
+				<td>@Request.Browser.PreferredResponseEncoding</td>
+			</tr>
+			<tr>
+				<td>RendersBreakBeforeWmlSelectAndInput</td>
+				<td>@Request.Browser.RendersBreakBeforeWmlSelectAndInput</td>
+			</tr>
+			<tr>
+				<td>RendersBreaksAfterHtmlLists</td>
+				<td>@Request.Browser.RendersBreaksAfterHtmlLists</td>
+			</tr>
+			<tr>
+				<td>RendersBreaksAfterWmlAnchor</td>
+				<td>@Request.Browser.RendersBreaksAfterWmlAnchor</td>
+			</tr>
+			<tr>
+				<td>RendersBreaksAfterWmlInput</td>
+				<td>@Request.Browser.RendersBreaksAfterWmlInput</td>
+			</tr>
+			<tr>
+				<td>RendersWmlDoAcceptsInline</td>
+				<td>@Request.Browser.RendersWmlDoAcceptsInline</td>
+			</tr>
+			<tr>
+				<td>RendersWmlSelectsAsMenuCards</td>
+				<td>@Request.Browser.RendersWmlSelectsAsMenuCards</td>
+			</tr>
+			<tr>
+				<td>RequiredMetaTagNameValue</td>
+				<td>@Request.Browser.RequiredMetaTagNameValue</td>
+			</tr>
+			<tr>
+				<td>RequiresAttributeColonSubstitution</td>
+				<td>@Request.Browser.RequiresAttributeColonSubstitution</td>
+			</tr>
+			<tr>
+				<td>RequiresContentTypeMetaTag</td>
+				<td>@Request.Browser.RequiresContentTypeMetaTag</td>
+			</tr>
+			<tr>
+				<td>RequiresControlStateInSession</td>
+				<td>@Request.Browser.RequiresControlStateInSession</td>
+			</tr>
+			<tr>
+				<td>RequiresDBCSCharacter</td>
+				<td>@Request.Browser.RequiresDBCSCharacter</td>
+			</tr>
+			<tr>
+				<td>RequiresHtmlAdaptiveErrorReporting</td>
+				<td>@Request.Browser.RequiresHtmlAdaptiveErrorReporting</td>
+			</tr>
+			<tr>
+				<td>RequiresLeadingPageBreak</td>
+				<td>@Request.Browser.RequiresLeadingPageBreak</td>
+			</tr>
+			<tr>
+				<td>RequiresNoBreakInFormatting</td>
+				<td>@Request.Browser.RequiresNoBreakInFormatting</td>
+			</tr>
+			<tr>
+				<td>RequiresOutputOptimization</td>
+				<td>@Request.Browser.RequiresOutputOptimization</td>
+			</tr>
+			<tr>
+				<td>RequiresPhoneNumbersAsPlainText</td>
+				<td>@Request.Browser.RequiresPhoneNumbersAsPlainText</td>
+			</tr>
+			<tr>
+				<td>RequiresSpecialViewStateEncoding</td>
+				<td>@Request.Browser.RequiresSpecialViewStateEncoding</td>
+			</tr>
+			<tr>
+				<td>RequiresUniqueFilePathSuffix</td>
+				<td>@Request.Browser.RequiresUniqueFilePathSuffix</td>
+			</tr>
+			<tr>
+				<td>RequiresUniqueHtmlCheckboxNames</td>
+				<td>@Request.Browser.RequiresUniqueHtmlCheckboxNames</td>
+			</tr>
+			<tr>
+				<td>RequiresUniqueHtmlInputNames</td>
+				<td>@Request.Browser.RequiresUniqueHtmlInputNames</td>
+			</tr>
+			<tr>
+				<td>RequiresUrlEncodedPostfieldValues</td>
+				<td>@Request.Browser.RequiresUrlEncodedPostfieldValues</td>
+			</tr>
+			<tr>
+				<td>ScreenBitDepth</td>
+				<td>@Request.Browser.ScreenBitDepth</td>
+			</tr>
+			<tr>
+				<td>ScreenCharactersHeight</td>
+				<td>@Request.Browser.ScreenCharactersHeight</td>
+			</tr>
+			<tr>
+				<td>ScreenCharactersWidth</td>
+				<td>@Request.Browser.ScreenCharactersWidth</td>
+			</tr>
+			<tr>
+				<td>ScreenPixelsHeight</td>
+				<td>@Request.Browser.ScreenPixelsHeight</td>
+			</tr>
+			<tr>
+				<td>ScreenPixelsWidth</td>
+				<td>@Request.Browser.ScreenPixelsWidth</td>
+			</tr>
+			<tr>
+				<td>SupportsAccesskeyAttribute</td>
+				<td>@Request.Browser.SupportsAccesskeyAttribute</td>
+			</tr>
+			<tr>
+				<td>SupportsBodyColor</td>
+				<td>@Request.Browser.SupportsBodyColor</td>
+			</tr>
+			<tr>
+				<td>SupportsBold</td>
+				<td>@Request.Browser.SupportsBold</td>
+			</tr>
+			<tr>
+				<td>SupportsCacheControlMetaTag</td>
+				<td>@Request.Browser.SupportsCacheControlMetaTag</td>
+			</tr>
+			<tr>
+				<td>SupportsCallback</td>
+				<td>@Request.Browser.SupportsCallback</td>
+			</tr>
+			<tr>
+				<td>SupportsCss</td>
+				<td>@Request.Browser.SupportsCss</td>
+			</tr>
+			<tr>
+				<td>SupportsDivAlign</td>
+				<td>@Request.Browser.SupportsDivAlign</td>
+			</tr>
+			<tr>
+				<td>SupportsDivNoWrap</td>
+				<td>@Request.Browser.SupportsDivNoWrap</td>
+			</tr>
+			<tr>
+				<td>SupportsEmptyStringInCookieValue</td>
+				<td>@Request.Browser.SupportsEmptyStringInCookieValue</td>
+			</tr>
+			<tr>
+				<td>SupportsFontColor</td>
+				<td>@Request.Browser.SupportsFontColor</td>
+			</tr>
+			<tr>
+				<td>SupportsFontName</td>
+				<td>@Request.Browser.SupportsFontName</td>
+			</tr>
+			<tr>
+				<td>SupportsFontSize</td>
+				<td>@Request.Browser.SupportsFontSize</td>
+			</tr>
+			<tr>
+				<td>SupportsImageSubmit</td>
+				<td>@Request.Browser.SupportsImageSubmit</td>
+			</tr>
+			<tr>
+				<td>SupportsIModeSymbols</td>
+				<td>@Request.Browser.SupportsIModeSymbols</td>
+			</tr>
+			<tr>
+				<td>SupportsInputIStyle</td>
+				<td>@Request.Browser.SupportsInputIStyle</td>
+			</tr>
+			<tr>
+				<td>SupportsInputMode</td>
+				<td>@Request.Browser.SupportsInputMode</td>
+			</tr>
+			<tr>
+				<td>SupportsItalic</td>
+				<td>@Request.Browser.SupportsItalic</td>
+			</tr>
+			<tr>
+				<td>SupportsJPhoneMultiMediaAttributes</td>
+				<td>@Request.Browser.SupportsJPhoneMultiMediaAttributes</td>
+			</tr>
+			<tr>
+				<td>SupportsJPhoneSymbols</td>
+				<td>@Request.Browser.SupportsJPhoneSymbols</td>
+			</tr>
+			<tr>
+				<td>SupportsQueryStringInFormAction</td>
+				<td>@Request.Browser.SupportsQueryStringInFormAction</td>
+			</tr>
+			<tr>
+				<td>SupportsRedirectWithCookie</td>
+				<td>@Request.Browser.SupportsRedirectWithCookie</td>
+			</tr>
+			<tr>
+				<td>SupportsSelectMultiple</td>
+				<td>@Request.Browser.SupportsSelectMultiple</td>
+			</tr>
+			<tr>
+				<td>SupportsUncheck</td>
+				<td>@Request.Browser.SupportsUncheck</td>
+			</tr>
+			<tr>
+				<td>SupportsXmlHttp</td>
+				<td>@Request.Browser.SupportsXmlHttp</td>
+			</tr>
+			<tr>
+				<td>Tables</td>
+				<td>@Request.Browser.Tables</td>
+			</tr>
+			<tr>
+				<td>TagWriter</td>
+				<td>@Request.Browser.TagWriter</td>
+			</tr>
+			<tr>
+				<td>UseOptimizedCacheKey</td>
+				<td>@Request.Browser.UseOptimizedCacheKey</td>
+			</tr>
+			<tr>
+				<td>VBScript</td>
+				<td>@Request.Browser.VBScript</td>
+			</tr>
+			<tr>
+				<td>W3CDomVersion</td>
+				<td>@Request.Browser.W3CDomVersion</td>
+			</tr>
+			<tr>
+				<td>Win16</td>
+				<td>@Request.Browser.Win16</td>
+			</tr>
+			<tr>
+				<td>Win32</td>
+				<td>@Request.Browser.Win32</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table id="headers">
+		<caption>Request.Headers</caption>
+		<tbody>
+			@foreach (var key in Request.Headers.AllKeys) {
+				<tr>
+					<td>@key</td>
+					<td>@Request.Headers[key]</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	<table id="serverVariables">
+		<caption>Request.ServerVariables</caption>
+		<tbody>
+			@foreach (var key in Request.ServerVariables.AllKeys) {
+				<tr>
+					<td>@key</td>
+					<td>@Request.ServerVariables[key]</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	<table id="params">
+		<caption>Request.Params</caption>
+		<tbody>
+			@foreach (var key in Request.Params.AllKeys) {
+				<tr>
+					<td>@key</td>
+					<td>@Request.Params[key]</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+</article>

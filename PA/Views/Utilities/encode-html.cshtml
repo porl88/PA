@@ -1,0 +1,32 @@
+﻿@model PA.Models.EncodeHtmlModel
+@{
+	ViewBag.Title = "Encode / Decode HTML | Utilities";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home")</li>
+		<li>@Html.ActionLink("Utilities", "index", "utilities")</li>
+		<li>Encode / Decode <abbr title="Hypertext Markup Language">HTML</abbr></li>
+	</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-utilities.cshtml")
+}
+
+<article>
+	<h1>Encode / Decode HTML</h1>
+	@using (Html.BeginForm("encode-html", "utilities"))
+	{
+		@Html.AntiForgeryToken()
+		
+		@Html.TextAreaFor(x => x.Html, new { required = "required", autofocus = "autofocus" })
+
+	<div class="buttonBar">
+		<button name="action" value="encode">Encode HTML</button>
+		<button name="action" value="decode">Decode HTML</button>
+	</div>
+		
+	}
+</article>

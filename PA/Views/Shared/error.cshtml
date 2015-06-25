@@ -1,0 +1,30 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+	ViewBag.Title = "Error";
+}
+
+<article>
+<h1>Something has gone wrong!</h1>
+<section class="alert error">
+	<p>There is a problem with the page you have chosen.</p>
+	<p>This error has been logged automatically and will be investigated in due course.</p>
+	<p>It might be a temporary problem with the server, please try again.</p>
+	@if (Request.IsLocal && @Model != null) {
+		<table>
+			<tr>
+				<th>Error</th>
+				<td>@Model.Exception.GetType().Name</td>
+			</tr>
+			<tr>
+				<th>Message</th>
+				<td>@Model.Exception.Message</td>
+			</tr>
+			<tr>
+				<th>Stack Trace</th>
+				<td>@Model.Exception.StackTrace</td>
+			</tr>
+		</table>
+	}
+</section>
+</article>

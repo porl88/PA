@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Page Not Found";
+}
+
+<article>
+	<h1>@ViewBag.Title</h1>
+	<section class="alert error">
+		<p>The page you have been looking for may have been moved or deleted.</p>
+		<p>You can try to find the page using the sitemap below. Or you can @Html.ActionLink("click here to return to the home page", "index", "home").</p>
+	</section>
+	<nav id="sitemap">
+		<h2>Sitemap</h2>
+		@Html.Partial("_sitemap")
+	</nav>
+</article>
