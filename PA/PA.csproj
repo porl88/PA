@@ -458,6 +458,7 @@
     <Content Include="Views\Utilities\site-checker.cshtml" />
     <Content Include="Views\Utilities\user-agent.cshtml" />
     <Content Include="Views\Portfolio\hep-c-quiz.cshtml" />
+    <Content Include="Views\Utilities\encryption.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">

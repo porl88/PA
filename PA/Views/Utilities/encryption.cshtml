@@ -1,0 +1,39 @@
+﻿@{
+	ViewBag.Title = "Encryption | Utilities";
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+		<li>@Html.ActionLink("Home", "index", "home")</li>
+		<li>@Html.ActionLink("Utilities", "index", "utilities")</li>
+		<li>Encryption</li>
+	</ol>
+}
+
+@section Navigation {
+	@Html.Partial("~/views/shared/_nav-utilities.cshtml")
+}
+
+<article>
+	<h1>Encryption</h1>
+
+	@using (Html.BeginForm("encryption", "utilities"))
+	{
+		@Html.AntiForgeryToken()
+
+		<input type="text" name="text" />
+
+		<div class="buttonBar">
+			<button name="action" value="hash">Hash</button>
+			<button name="action" value="hash-password">Hash Password</button>
+			<button name="action" value="sha1">SHA1</button>
+			<button name="action" value="sha256">SHA256</button>
+		</div>
+
+		if (ViewBag.Output != null)
+		{
+			<output>@ViewBag.Output</output>
+		}
+	}
+
+</article>

@@ -13,6 +13,8 @@
 	using System.Web.Security;
 	using PA.Services.Crawler.Transfer;
 	using PA.Services.Crawler;
+	using ClassLibrary;
+	using System.Web.Helpers;
 	
 	public class UtilitiesController : Controller
     {
@@ -157,21 +159,53 @@
             return View();
         }
 
-		//[ActionName("user-agent")]
-		//public ViewResult UserAgent()
-		//{
-		//	var client = new ClientInfo(Request.UserAgent);
-		//	return View(client);
-		//}
+		[ActionName("user-agent")]
+		public ViewResult UserAgent()
+		{
+			var client = new ClientInfo(Request.UserAgent);
+			return View(client);
+		}
 
-		//[HttpPost]
-		//[ValidateAntiForgeryToken]
-		//[ActionName("user-agent")]
-		//public ViewResult UserAgent(string userAgent)
-		//{
-		//	var client = new ClientInfo(userAgent);
-		//	return View(client);
-		//}
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		[ActionName("user-agent")]
+		public ViewResult UserAgent(string userAgent)
+		{
+			var client = new ClientInfo(userAgent);
+			return View(client);
+		}
+
+		public ViewResult Encryption()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ViewResult Encryption(string text, string action)
+		{
+			switch (action)
+			{
+				//case "salt":
+				//	ViewBag.Output = "Salt: " + Crypto.GenerateSalt(text);
+				//	break;
+				case "hash":
+					ViewBag.Output = "Hash: " + Crypto.Hash(text);
+					break;
+				case "hash-password":
+					ViewBag.Output = "Hash Password: " + Crypto.HashPassword(text);
+					break;
+				case "sha1":
+					ViewBag.Output = "SHA1: " + Crypto.SHA1(text);
+					break;
+				case "sha256":
+					ViewBag.Output = "SHA256: " + Crypto.SHA256(text);
+					break;
+			}
+
+			return View();
+		}
+
 
         [ActionName("random-number-generator")]
         public ViewResult RandomNumberGenerator()
