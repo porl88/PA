@@ -1,20 +1,17 @@
 ﻿namespace PA.Controllers
 {
-	using PA.Models;
 	using System;
-	using System.Collections.Generic;
 	using System.Diagnostics;
 	using System.Linq;
-	using System.Net.Http;
 	using System.Text.RegularExpressions;
 	using System.Threading.Tasks;
 	using System.Web;
+	using System.Web.Helpers;
 	using System.Web.Mvc;
 	using System.Web.Security;
-	using PA.Services.Crawler.Transfer;
-	using PA.Services.Crawler;
 	using ClassLibrary;
-	using System.Web.Helpers;
+	using PA.Models;
+	using PA.Services.Crawler;
 	
 	public class UtilitiesController : Controller
     {
@@ -26,7 +23,7 @@
         [ActionName("strip-out-html")]
         public ViewResult RemoveHtml()
         {
-            return View();
+			return View();
         }
 
         [HttpPost]
