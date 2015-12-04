@@ -1,112 +1,180 @@
-﻿@model PA.Models.LoginModel
+﻿@model CMS.WebUI.Models.Account.LoginViewModel
 
 @{
-	Layout = null;
+    Layout = null;
     ViewBag.Title = "Log in";
 }
 
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-gb" dir="ltr">
 <head>
-	<meta charset="utf-8" />
-	<title>@ViewBag.Title</title>
-	<meta name="viewport" content="user-scalable=no, width=device-width" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-	<link rel="stylesheet" href="/content/css/default.css" />
-	<style>
-		body {
-			padding: 0;
-			margin: 0;
-			background-color: #FFF;
-			display: -webkit-flex;
-			display: flex;
-			-webkit-justify-content: center;
-			-webkit-align-items: center;
-			justify-content: center;
-			align-items: center;
-		}
+    <style>
+        /* ROOT ELEMENT *********************************************************************************************************************************************************************************************/
+        html {
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+        }
 
-		section {
-			width: 20em;
-			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-			border: 1px solid #000;
-			padding: 1em;
-			font-size: 22px;
-		}
+        /* UNIVERSAL ELEMENTS *********************************************************************************************************************************************************************************************/
+        *, *:before, *:after {
+            /* http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+            box-sizing: inherit;
+        }
 
-		fieldset > legend {
-			font-variant: small-caps;
-			font-size: 25px;
-			display: block;
-			margin-bottom: 1em;
-		}
+        /* BLOCK-LEVEL ELEMENTS *********************************************************************************************************************************************************************************************/
+        body, main, section, article, header, footer, nav, aside, div, h1, h2, h3, h4, h5, h6, hr, noscript, p, blockquote, pre, ol, ul, li, dl, dt, dd, form, fieldset, figure, figcaption, address, video, audio, canvas, output {
+            margin: 0;
+            padding: 0;
+            border: none;
+            vertical-align: baseline;
+        }
 
-		fieldset ol > li {
-			margin-bottom: 1em;
-		}
+        /* INLINE ELEMENTS *********************************************************************************************************************************************************************************************/
+        a, em, i, strong, b, mark, u, s, small, cite, q, dfn, abbr, data, time, code, var, samp, kbd, sub, sup, ruby, rt, rp, bdi, bdo, span {
+            vertical-align: baseline;
+        }
 
-		fieldset label {
-			display: inline-block;
-			width: 40%;
-		}
+        /* LIST ELEMENTS *********************************************************************************************************************************************************************************************/
+        ul, ol {
+            list-style: none;
+        }
 
-		fieldset input[type="text"], fieldset input[type="password"] {
-			width: 60%;
-		}
+        /* FORM ELEMENTS *********************************************************************************************************************************************************************************************/
 
-		.buttonBar {
-			text-align: right;
-		}
+        label[for] {
+            cursor: pointer;
+        }
 
-		fieldset input[type="submit"] {
-			background: rgb(179,220,237); /* Old browsers */
-/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2IzZGNlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI5YjhlNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiY2UwZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-background: -moz-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(179,220,237,1)), color-stop(50%,rgba(41,184,229,1)), color-stop(100%,rgba(188,224,238,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=0 ); /* IE6-8 */
-border-radius: 5px;
-		}
+        /* all form fields */
+        input, textarea, select, button {
+            font-family: inherit;
+            /* do not use font - do not want to inherit line-height */
+            font-size: inherit;
+            outline: none;
+        }
 
-	</style>
+            /* Buttons */
+            input[type="submit"], input[type="reset"], input[type="button"], button {
+                cursor: pointer;
+                -webkit-appearance: none;
+            }
+
+                /* removes the extra padding and border on buttons and input tags for Firefox browsers
+                       http://css-tricks.com/forums/topic/button-padding-issue/ */
+                button::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="reset"]::-moz-focus-inner {
+                    padding: 0;
+                    border: 0;
+                }
+
+
+
+
+
+        html {
+            height: 100%;
+            font-size: 18px;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        }
+
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            width: 30rem;
+            border: 1px solid #000;
+            padding: 1.5rem;
+            font-size: 22px;
+        }
+
+        fieldset > legend {
+            font-variant: small-caps;
+            font-size: 25px;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        fieldset ol > li {
+            margin-bottom: 1rem;
+        }
+
+        fieldset label {
+            display: inline-block;
+            width: 40%;
+        }
+
+        fieldset input[type="text"],
+        fieldset input[type="password"] {
+            width: 60%;
+        }
+
+        .button-bar {
+            text-align: right;
+        }
+
+        fieldset input[type="submit"] {
+            background: linear-gradient(to bottom, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%); /* W3C */
+            border-radius: 5px;
+        }
+
+        .validation-summary-errors {
+            background-color: #FFEEEE;
+            border: 2px solid #CC0000;
+            color: #000;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+            .validation-summary-errors ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+        .field-validation-error {
+            color: #CC0000;
+        }
+    </style>
 
 </head>
 <body>
 
+    <section>
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
 
-<section>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Log in Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)@Html.TextBoxFor(m => m.UserName, new { maxlength = "30", required = "required", autofocus = "autofocus" })
-                @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)@Html.PasswordFor(m => m.Password, new { required = "required" })
-                @Html.ValidationMessageFor(m => m.Password)
-            </li>
-        </ol>
-		<div class="buttonBar">
-        <input type="submit" value="Log in" />
-		</div>
-    </fieldset>
-}
-</section>
-
-@*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
+            <fieldset>
+                <legend>Log in Form</legend>
+                <ol>
+                    <li>
+                        @Html.LabelFor(m => m.UserName)@Html.TextBoxFor(m => m.UserName, new { maxlength = "30", required = "required", autofocus = "autofocus" })
+                    </li>
+                    <li>
+                        @Html.LabelFor(m => m.Password)@Html.PasswordFor(m => m.Password, new { required = "required" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </li>
+                </ol>
+                <div class="button-bar">
+                    <input type="submit" value="Log in" />
+                </div>
+            </fieldset>}
+    </section>
 
 </body>
 </html>
-
-
