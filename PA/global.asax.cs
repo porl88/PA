@@ -7,7 +7,6 @@
 
 	public class MvcApplication : System.Web.HttpApplication
 	{
-
 		protected void Application_Start() {
 			AreaRegistration.RegisterAllAreas();
 			WebApiConfig.Register(GlobalConfiguration.Configuration);
@@ -40,38 +39,5 @@
 			// log all unhandled errors
 			PA.Errors.LogError(Server.GetLastError());
 		}
-
-
-
-
-		///// <summary>
-		///// Checks to see if the user is using an unsupported browser - if so, it redirects to the browser download page
-		///// </summary>
-		///// <returns></returns>
-		//private bool CheckBrowserIsSupported()
-		//{
-		//	var client = new ClientInfo(Request.UserAgent);
-		//	var browser = client.Browser;
-		//	int version = client.BrowserMajorVersion;
-		//	switch (browser) {
-		//		case Browser.Firefox:
-		//			if (version < 4) return false;
-		//			break;
-		//		case Browser.Chrome:
-		//			if (version < 4) return false;
-		//			break;
-		//		case Browser.IE:
-		//			if (version < 9) return false;
-		//			break;
-		//		case Browser.Safari:
-		//			if (client.DeviceType == DeviceType.Desktop && version < 4) return false;
-		//			break;
-		//		case Browser.Opera:
-		//			if (version < 11) return false;
-		//			break;
-		//	}
-
-		//	return true;
-		//}
 	}
 }
