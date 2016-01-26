@@ -10,7 +10,18 @@
             return View();
         }
 
-		[ActionName("hep-c-quiz")]
+        public ViewResult InterContinental()
+        {
+            return View();
+        }
+
+        [ActionName("intercontinental-fortune")]
+        public ViewResult InterContinentalFortune()
+        {
+            return View();
+        }
+
+        [ActionName("hep-c-quiz")]
 		public ViewResult HepCQuiz()
 		{
 			return View();
