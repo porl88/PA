@@ -18,10 +18,10 @@ html::before {
     z-index: 20;
     top: 2rem;
     right: 2rem;
-    width: 100px;
-    height: 100px;
+    width: 6.25rem;
+    height: 6.25rem;
     background: url(images/corner.png) no-repeat;
-    background-size: 100px 100px;
+    background-size: 6.25rem 6.25rem;
     content: "";
     transform: rotate(90deg);
 }
@@ -43,10 +43,9 @@ body {
     position: relative;
     margin: 2rem;
     padding: 0 8rem;
-    overflow-y: scroll;
     text-align: center;
     background: url(images/corner.png) 2rem 2rem;
-    background-size: 100px auto;
+    background-size: 6.25rem auto;
     background-repeat: no-repeat;
     background-color: #06132c;
 }
@@ -56,10 +55,10 @@ body {
         z-index: 20;
         bottom: 0;
         left: 0;
-        width: 100px;
-        height: 100px;
+        width: 6.25rem;
+        height: 6.25rem;
         background: url(images/corner.png) no-repeat;
-        background-size: 100px 100px;
+        background-size: 6.25rem 6.25rem;
         content: "";
         transform: rotate(-90deg);
     }
@@ -68,10 +67,10 @@ body {
         position: absolute;
         bottom: 0;
         right: 0;
-        width: 100px;
-        height: 100px;
+        width: 6.25rem;
+        height: 6.25rem;
         background: url(images/corner.png) no-repeat;
-        background-size: 100px 100px;
+        background-size: 6.25rem 6.25rem;
         content: "";
         transform: rotate(180deg);
     }
@@ -89,8 +88,8 @@ body, p {
 
 .page {
     position: relative;
-    border-top: 2px solid #e7405c;
-    border-bottom: 2px solid #e7405c;
+    border-top: 0.125rem solid #e7405c;
+    border-bottom: 0.125rem solid #e7405c;
     min-height: calc(100vh - 4rem);
     margin: 0 auto;
     z-index: 30;
@@ -98,10 +97,9 @@ body, p {
 
 .page-header .logo {
     position: relative;
-    left: 2px;
     display: block;
-    width: 200px;
-    height: 77px;
+    width: 12.5rem;
+    height: 4.813rem;
     margin: 0 auto;
     padding: 2rem 0;
     box-sizing: content-box;
@@ -109,6 +107,8 @@ body, p {
 
     .page-header .logo img {
         display: block;
+        width: 100%;
+        height: auto;
     }
 
 main {
@@ -116,11 +116,11 @@ main {
     display: block;
     max-width: 35rem;
     margin: 0 auto;
-    padding: 65px 40px 11rem 40px;
+    padding: 4.063rem 2.5rem 11rem 2.5rem;
     box-sizing: content-box;
     background: url(images/knot.png) center top, url(images/flower.png) right 90%;
     background-repeat: no-repeat;
-    background-size: 50px auto, 100px auto;
+    background-size: 3.125rem auto, 6.25rem auto;
 }
 
 .page-wallet main {
@@ -146,6 +146,11 @@ main {
         display: inline-block;
         margin: 0 0.5rem;
         padding: 0;
+    }
+
+    .share-links img {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
         .share-links li:focus img,
@@ -188,7 +193,7 @@ main {
     text-transform: uppercase;
     margin: 0.8rem 0;
     padding: 0.5rem 2rem;
-    border: 1px solid #e5c388;
+    border: 0.063rem solid #e5c388;
     border-radius: 1rem;
 }
 
@@ -207,7 +212,7 @@ main {
     padding: 0.5rem 2rem;
     color: #e5c388;
     text-transform: uppercase;
-    border: 1px solid #e5c388;
+    border: 0.063rem solid #e5c388;
     border-radius: 1rem;
     display: inline-block;
     margin: 0;
@@ -259,8 +264,8 @@ main {
         top: 0;
         backface-visibility: visible;
         z-index: 20;
-        -webkit-filter: drop-shadow(2px 5px 5px #000 );
-        filter: drop-shadow(2px 5px 5px #000 );
+        -webkit-filter: drop-shadow(0.125rem 0.313rem 0.313rem #000 );
+        filter: drop-shadow(0.125rem 0.313rem 0.313rem #000 );
         fill: #e7405c;
         overflow: hidden;
         /* IE needs fixed width and height */
@@ -288,7 +293,7 @@ main {
     background: url(images/offer-01.jpg) no-repeat right bottom;
     background-size: contain;
     z-index: 10;
-    box-shadow: 2px 5px 5px #000;
+    box-shadow: 0.125rem 0.313rem 0.313rem #000;
 }
 
     .wallet-voucher > a {
@@ -494,6 +499,12 @@ main {
     .wallet-top .outside {
         width: 100%;
         height: auto;
+    }
+}
+
+@media screen and (min-width: 1601px) and (min-height: 901px) {
+    html {
+        font-size: 20px;
     }
 }
 
