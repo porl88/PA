@@ -13,30 +13,9 @@ img {
     border: none;
 }
 
-html::before {
-    position: absolute;
-    z-index: 20;
-    top: 2rem;
-    right: 2rem;
-    width: 6.25rem;
-    height: 6.25rem;
-    background: url(images/corner.png) no-repeat;
-    background-size: 6.25rem 6.25rem;
-    content: "";
-    transform: rotate(90deg);
-}
-
-.page-container::after {
-    position: absolute;
-    z-index: 20;
-    bottom: 4rem;
-    right: 1rem;
-    width: 400px;
-    height: 400px;
-    background: url(images/flower.png) no-repeat;
-    background-size: contain;
-    content: "";
-    opacity: 0.1;
+html {
+    max-width: 1900px;
+    margin: 0 auto;
 }
 
 body {
@@ -75,7 +54,7 @@ body {
         transform: rotate(180deg);
     }
 
-    body * {
+    body, body * {
         box-sizing: border-box;
     }
 
@@ -84,6 +63,32 @@ body, p {
     color: #e5c388;
     font-weight: normal;
     font-size: 0.875rem;
+}
+
+.page-container::before {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    width: 6.25rem;
+    height: 6.25rem;
+    background: url(images/corner.png) no-repeat;
+    background-size: 6.25rem 6.25rem;
+    content: "";
+    transform: rotate(90deg);
+}
+
+.page-container::after {
+    position: absolute;
+    z-index: 20;
+    bottom: 4rem;
+    right: 1rem;
+    width: 400px;
+    height: 400px;
+    background: url(images/flower.png) no-repeat;
+    background-size: contain;
+    content: "";
+    opacity: 0.1;
 }
 
 .page {
@@ -153,10 +158,10 @@ main {
         height: 2.5rem;
     }
 
-        .share-links li:focus img,
-        .share-links li:hover img {
-            opacity: 0.7;
-        }
+    .share-links li:focus img,
+    .share-links li:hover img {
+        opacity: 0.7;
+    }
 
 .contact-links {
     margin: 1rem 0;
@@ -420,10 +425,6 @@ main {
 
 @media screen and (max-width: 770px) {
 
-     html::before {
-         top: 3rem;
-    }
-
     body {
         margin: 0;
         padding: 2rem;
@@ -439,6 +440,11 @@ main {
             right: 2rem;
             bottom: 3rem;
         }
+
+    .page-container::before {
+        top: 3rem;
+        right: 2rem;
+    }
 
     main {
         padding-left: 0;
@@ -463,11 +469,6 @@ main {
 
 @media screen and (max-width: 450px) {
 
-    html::before {
-        top: 2rem;
-        right: 1rem;
-    }
-
     body {
         padding: 1rem;
         background-position: 1rem 2rem;
@@ -482,6 +483,11 @@ main {
             right: 1rem;
             bottom: 2rem;
         }
+
+    .page-container::before {
+        top: 2rem;
+        right: 1rem;
+    }
 
     main {
         margin: 0;
