@@ -185,11 +185,6 @@
     <Content Include="Content\css\portfolio\fs-print.css" />
     <Content Include="Content\css\portfolio\fs.css" />
     <Content Include="Content\css\portfolio\fse.css" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\facebook.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\instagram.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\intercontinental-logo.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\twitter.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\favicon.png" />
     <Content Include="Content\css\portfolio\m-because.css" />
     <Content Include="Content\css\portfolio\m-because_min.css" />
     <Content Include="Content\css\portfolio\nmb.css" />
@@ -373,45 +368,6 @@
     <Content Include="Scripts\portfolio\m-because_min.js" />
     <Content Include="Scripts\portfolio\nmb.js" />
     <Content Include="Scripts\portfolio\nmb_ie.js" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\corner.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\knot.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\offer-01.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\offer-02.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\offer-03.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\offer-04.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\offer-05.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\offer-06.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\offer-07.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\offer-08.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\offer-09.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\packet-01.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\packet-02.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\packet-03.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\packet-04.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\2x\title.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\corner.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\facebook.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\flower.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\instagram.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\intercontinental-logo.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\knot.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\offer-01.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\offer-02.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\offer-03.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\offer-04.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\offer-05.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\offer-06.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\offer-07.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\offer-08.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\offer-09.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\packet-01.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\packet-02.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\packet-03.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\packet-04.jpg" />
-    <Content Include="Content\css\portfolio\intercontinental\images\title.png" />
-    <Content Include="Content\css\portfolio\intercontinental\images\twitter.png" />
-    <Content Include="Content\css\portfolio\intercontinental\wallet.css" />
-    <Content Include="Content\css\portfolio\intercontinental\wallet.js" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -510,8 +466,6 @@
     <Content Include="Views\Utilities\user-agent.cshtml" />
     <Content Include="Views\Portfolio\hep-c-quiz.cshtml" />
     <Content Include="Views\Utilities\encryption.cshtml" />
-    <Content Include="Views\Portfolio\intercontinental.cshtml" />
-    <Content Include="Views\Portfolio\intercontinental-fortune.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
