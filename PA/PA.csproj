@@ -187,11 +187,6 @@
     <Content Include="Content\css\portfolio\fse.css" />
     <Content Include="Content\css\portfolio\m-because.css" />
     <Content Include="Content\css\portfolio\m-because_min.css" />
-    <Content Include="Content\css\portfolio\nmb.css" />
-    <Content Include="Content\css\portfolio\tht\classes.css" />
-    <Content Include="Content\css\portfolio\tht\default.css" />
-    <Content Include="Content\css\portfolio\tht\hep-c-quiz-mobile.css" />
-    <Content Include="Content\css\portfolio\tht\hep-c-quiz.css" />
     <Content Include="Content\css\validation.css" />
     <Compile Include="App_Code\Errors.cs">
       <SubType>Code</SubType>
@@ -211,155 +206,6 @@
     <Content Include="Images\css3info\icon-iphone.png" />
     <Content Include="Images\css3info\index.png" />
     <Content Include="Images\css3info\logo.gif" />
-    <Content Include="Images\portfolio\bbx.png" />
-    <Content Include="Images\portfolio\because.png" />
-    <Content Include="Images\portfolio\because\apologies.gif" />
-    <Content Include="Images\portfolio\because\beauty_16_f.jpg" />
-    <Content Include="Images\portfolio\because\beauty_rebel_beauty15_f.jpg" />
-    <Content Include="Images\portfolio\because\because-logo-phone.png" />
-    <Content Include="Images\portfolio\because\culture_hm1_f.jpg" />
-    <Content Include="Images\portfolio\because\culture_miu1_f.jpg" />
-    <Content Include="Images\portfolio\because\fashion_asia_4_f.jpg" />
-    <Content Include="Images\portfolio\because\fashion_blocks_still_f.jpg" />
-    <Content Include="Images\portfolio\because\fashion_news_english_f.jpg" />
-    <Content Include="Images\portfolio\because\fashion_thatshot_magda_f.jpg" />
-    <Content Include="Images\portfolio\because\fashion_welove__f.jpg" />
-    <Content Include="Images\portfolio\because\menu-button.png" />
-    <Content Include="Images\portfolio\because\o_beauty_nails_trends_01_f.jpg" />
-    <Content Include="Images\portfolio\because\o_beauty_trends_02_f.jpg" />
-    <Content Include="Images\portfolio\because\o_features_chanel_02_f.jpg" />
-    <Content Include="Images\portfolio\because\o_news_lancomeolympia_f.jpg" />
-    <Content Include="Images\portfolio\because\radio_alexburkat_01_f.jpg" />
-    <Content Include="Images\portfolio\because\radio_majicalcloudz_01_f.jpg" />
-    <Content Include="Images\portfolio\because\radio_mirage_01_f.jpg" />
-    <Content Include="Images\portfolio\because\radio_sadcity_01_f.jpg" />
-    <Content Include="Images\portfolio\because\search.png" />
-    <Content Include="Images\portfolio\because\separator_black.png" />
-    <Content Include="Images\portfolio\eh.gif" />
-    <Content Include="Images\portfolio\email.png" />
-    <Content Include="Images\portfolio\fs.gif" />
-    <Content Include="Images\portfolio\fse.gif" />
-    <Content Include="Images\portfolio\fse\1531.JPG" />
-    <Content Include="Images\portfolio\fse\1537.jpg" />
-    <Content Include="Images\portfolio\fse\1540.jpeg" />
-    <Content Include="Images\portfolio\fse\1541.jpg" />
-    <Content Include="Images\portfolio\fse\1542.jpg" />
-    <Content Include="Images\portfolio\fse\1556.JPG" />
-    <Content Include="Images\portfolio\fse\1559.jpg" />
-    <Content Include="Images\portfolio\fse\49.jpg" />
-    <Content Include="Images\portfolio\fse\bgBody.gif" />
-    <Content Include="Images\portfolio\fse\favicon.ico" />
-    <Content Include="Images\portfolio\fse\FSEAward.gif" />
-    <Content Include="Images\portfolio\fse\header.gif" />
-    <Content Include="Images\portfolio\fse\header_logo.gif" />
-    <Content Include="Images\portfolio\fse\header_tagline.gif" />
-    <Content Include="Images\portfolio\fse\home.gif" />
-    <Content Include="Images\portfolio\fse\logoCMP.gif" />
-    <Content Include="Images\portfolio\fse\siteLogo.gif" />
-    <Content Include="Images\portfolio\fse\subscribe.gif" />
-    <Content Include="Images\portfolio\fse\tellFriend.gif" />
-    <Content Include="Images\portfolio\fs\alternate\bgBRight.gif" />
-    <Content Include="Images\portfolio\fs\alternate\calenderIcon.gif" />
-    <Content Include="Images\portfolio\fs\alternate\carIcon.gif" />
-    <Content Include="Images\portfolio\fs\alternate\houseIcon.gif" />
-    <Content Include="Images\portfolio\fs\alternate\iconAccommodation.gif" />
-    <Content Include="Images\portfolio\fs\alternate\iconCar.gif" />
-    <Content Include="Images\portfolio\fs\alternate\iconDiary.gif" />
-    <Content Include="Images\portfolio\fs\alternate\iconHouse.gif" />
-    <Content Include="Images\portfolio\fs\alternate\iconTravel.gif" />
-    <Content Include="Images\portfolio\fs\alternate\lFooter.gif" />
-    <Content Include="Images\portfolio\fs\alternate\lHeader.gif" />
-    <Content Include="Images\portfolio\fs\alternate\logoCMP.gif" />
-    <Content Include="Images\portfolio\fs\alternate\rHeader.gif" />
-    <Content Include="Images\portfolio\fs\alternate\tHeader.gif" />
-    <Content Include="Images\portfolio\fs\background_2col.gif" />
-    <Content Include="Images\portfolio\fs\bgBody.gif" />
-    <Content Include="Images\portfolio\fs\bgBRight.gif" />
-    <Content Include="Images\portfolio\fs\favicon.ico" />
-    <Content Include="Images\portfolio\fs\iconAccommodation.gif" />
-    <Content Include="Images\portfolio\fs\iconDiary.gif" />
-    <Content Include="Images\portfolio\fs\iconTravel.gif" />
-    <Content Include="Images\portfolio\fs\lFooter.gif" />
-    <Content Include="Images\portfolio\fs\lHeader.jpg" />
-    <Content Include="Images\portfolio\fs\logoABC.gif" />
-    <Content Include="Images\portfolio\fs\logoCMP.gif" />
-    <Content Include="Images\portfolio\fs\logoEdirectory.gif" />
-    <Content Include="Images\portfolio\fs\rHeader.jpg" />
-    <Content Include="Images\portfolio\fs\tHeader.gif" />
-    <Content Include="Images\portfolio\fs\txtExhibitors.gif" />
-    <Content Include="Images\portfolio\icon_external.png" />
-    <Content Include="Images\portfolio\nmb.png" />
-    <Content Include="Images\portfolio\nmb\Ads\canon.png" />
-    <Content Include="Images\portfolio\nmb\Ads\dragon.png" />
-    <Content Include="Images\portfolio\nmb\Ads\freecom.png" />
-    <Content Include="Images\portfolio\nmb\Ads\Home_H1_3.swf" />
-    <Content Include="Images\portfolio\nmb\Ads\prom_enc_20110128172848.jpg" />
-    <Content Include="Images\portfolio\nmb\Ads\prom_enc_20110128172900.jpg" />
-    <Content Include="Images\portfolio\nmb\Ads\prom_enc_20110128172911.jpg" />
-    <Content Include="Images\portfolio\nmb\Ads\prom_enc_20110128172925.jpg" />
-    <Content Include="Images\portfolio\nmb\Ads\prom_enc_20110128172935.jpg" />
-    <Content Include="Images\portfolio\nmb\Ads\prom_enc_20110128173007.jpg" />
-    <Content Include="Images\portfolio\nmb\Ads\prom_enc_20110128173126.jpg" />
-    <Content Include="Images\portfolio\nmb\Ads\prom_enc_20110128174508.jpg" />
-    <Content Include="Images\portfolio\nmb\Ads\prom_enc_20110128180836.jpg" />
-    <Content Include="Images\portfolio\nmb\Ads\Ricoh-Aficio-SPC-232SF.png" />
-    <Content Include="Images\portfolio\nmb\Ads\ricoh.png" />
-    <Content Include="Images\portfolio\nmb\Ads\viewsonic.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_add_to_basket.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_alert.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_alert_error.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_alert_error_icon.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_apply.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_apply_logo.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_config.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_config_logo.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_fireworks.jpg" />
-    <Content Include="Images\portfolio\nmb\bkgd_footer.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_header.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_hot_links.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_menutab.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_menu_dropdown.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_menu_vertical.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_nav.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_navbar.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_price.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_prod_gallery.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_search.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_standard.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_tab.png" />
-    <Content Include="Images\portfolio\nmb\bkgd_topbar.png" />
-    <Content Include="Images\portfolio\nmb\btn_addtobasket.png" />
-    <Content Include="Images\portfolio\nmb\btn_chat.png" />
-    <Content Include="Images\portfolio\nmb\btn_go_red.png" />
-    <Content Include="Images\portfolio\nmb\btn_login.png" />
-    <Content Include="Images\portfolio\nmb\btn_minus.png" />
-    <Content Include="Images\portfolio\nmb\btn_plus.png" />
-    <Content Include="Images\portfolio\nmb\btn_rss.png" />
-    <Content Include="Images\portfolio\nmb\btn_send.png" />
-    <Content Include="Images\portfolio\nmb\btn_skype.png" />
-    <Content Include="Images\portfolio\nmb\bullet.png" />
-    <Content Include="Images\portfolio\nmb\bullet_dbl.png" />
-    <Content Include="Images\portfolio\nmb\bullet_dbl_down.png" />
-    <Content Include="Images\portfolio\nmb\bullet_dbl_up.png" />
-    <Content Include="Images\portfolio\nmb\bullet_menu_vertical.gif" />
-    <Content Include="Images\portfolio\nmb\favicon.ico" />
-    <Content Include="Images\portfolio\nmb\hot_offers.gif" />
-    <Content Include="Images\portfolio\nmb\icon_pdf.png" />
-    <Content Include="Images\portfolio\nmb\icon_print.png" />
-    <Content Include="Images\portfolio\nmb\logo_northamber.png" />
-    <Content Include="Images\portfolio\nmb\Manufacturers\toshiba.gif" />
-    <Content Include="Images\portfolio\nmb\Products\09b8d46b-9fd8-4a55-ad34-93a18dd442a4.jpg" />
-    <Content Include="Images\portfolio\nmb\Products\1914a449-4dbe-4911-adcd-ef44b5f63ccf.jpg" />
-    <Content Include="Images\portfolio\nmb\Products\235832c0-e0c3-488c-9772-6d2c4c16c5c7.jpg" />
-    <Content Include="Images\portfolio\nmb\Products\5d9de733-4f5d-483f-a385-554d38556dbb.jpg" />
-    <Content Include="Images\portfolio\nmb\Products\8e00a55e-ab28-4613-b921-4b3030871719.jpg" />
-    <Content Include="Images\portfolio\nmb\Products\9260f0e5-cba9-48e2-9203-01248ee8775f.jpg" />
-    <Content Include="Images\portfolio\nmb\splashpage.jpg" />
-    <Content Include="Images\portfolio\tht\checkbox.png" />
-    <Content Include="Images\portfolio\tht\favicon.ico" />
-    <Content Include="Images\portfolio\tht\hep-c-icons-2.png" />
-    <Content Include="Images\portfolio\tht\information-standard-logo.png" />
-    <Content Include="Images\portfolio\tht\terrence-higgins-logo.png" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\core.js" />
     <Content Include="Scripts\css3info.js" />
@@ -399,19 +245,7 @@
     <Content Include="Views\Shared\_layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Portfolio\northamber.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Portfolio\northamber-login.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Portfolio\northamber-contact.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Portfolio\index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Portfolio\northamber-product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Guidelines\fonts.cshtml" />
@@ -464,7 +298,6 @@
     <Content Include="Views\Utilities\random-number-generator.cshtml" />
     <Content Include="Views\Utilities\site-checker.cshtml" />
     <Content Include="Views\Utilities\user-agent.cshtml" />
-    <Content Include="Views\Portfolio\hep-c-quiz.cshtml" />
     <Content Include="Views\Utilities\encryption.cshtml" />
   </ItemGroup>
   <ItemGroup>
