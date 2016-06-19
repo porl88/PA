@@ -323,8 +323,8 @@
                 <td>Removes elements that match the selector | HTML element | jQuery object | function.</td>
             </tr>
             <tr>
-                <td><code>is(selector | HTMLElement[] | HTMLElement | jQuery | function(index))</code></td>
-                <td></td>
+                <td><code>is(<var>selector</var> | <var>HTMLElement[]</var> | <var>HTMLElement</var> | <var>jQuery</var> | function(index))</code></td>
+                <td><code>matches(<var>selector</var>)</code></td>
                 <td>Returns true if the jQuery object contains at least one of the elements matched.</td>
             </tr>
             <tr>
@@ -463,12 +463,12 @@
             </tr>
             <tr>
 				<td><code>append(HTML)<br />append(jQuery)<br />append(HTMLElement[])</code></td>
-				<td></td>
+				<td><code>append()</code></td>
 				<td>Inserts the specified elements as the last children of all of the elements in the DOM.</td>
 			</tr>
             <tr>
-				<td><code>prepend(HTML)<br />prepend(jQuery)<br />prepend(HTMLElement[])</code></td>
-				<td></td>
+				<td><code>prepend(<var>HTML</var>)<br />prepend(<var>jQuery</var>)<br />prepend(<var>HTMLElement[]</var>)</code></td>
+				<td><code>prepend()</code></td>
 				<td>Inserts the specified elements as the first children of all of the elements in the DOM.</td>
 			</tr>
             <tr>
@@ -514,12 +514,12 @@
             </tr>
             <tr>
 				<td><code>after(HTML)<br />after(jQuery)<br />after(HTMLElement[])</code></td>
-				<td></td>
+				<td><code>after()</code></td>
 				<td>Inserts the specified elements as next siblings to each element in the jQuery object.</td>
 			</tr>
             <tr>
 				<td><code>before(HTML)<br />before(jQuery)<br />before(HTMLElement[])</code></td>
-				<td></td>
+				<td><code>before()</code></td>
 				<td>Inserts the specified elements as previous siblings to each element in the jQuery object.</td>
 			</tr>
             <tr>
@@ -542,7 +542,7 @@
             </tr>
             <tr>
 				<td><code>replaceWith(HTML)<br />replaceWith(jQuery)<br />replaceWith(HTMLElement[])</code></td>
-				<td></td>
+				<td><code>replaceWith()</code></td>
 				<td>Replace the elements in the jQuery object with the specified content.</td>
 			</tr>
             <tr>
@@ -570,7 +570,7 @@
 			</tr>
             <tr>
 				<td><code>remove()<br />remove(selector)</code></td>
-				<td></td>
+				<td><code>remove()</code></td>
 				<td>Removes elements from the DOM. As the elements are removed, the data associated with the elements is destroyed.</td>
 			</tr>
             <tr>
@@ -644,7 +644,7 @@
             </tr>
             <tr>
 				<td><code>addClass(<var>name</var> <var>name</var>)</code></td>
-				<td><code>classList.add(<var>name</var> <var>name</var>)</code></td>
+				<td><code>classList.add(<var>name</var>, <var>name</var>)</code></td>
 				<td>Adds all of the elements in a jQuery object to the specified class.</td>
 			</tr>
             <tr>
