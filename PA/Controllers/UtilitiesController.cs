@@ -1,19 +1,20 @@
 ﻿namespace PA.Controllers
 {
-	using System;
-	using System.Diagnostics;
-	using System.Linq;
-	using System.Text.RegularExpressions;
-	using System.Threading.Tasks;
-	using System.Web;
-	using System.Web.Helpers;
-	using System.Web.Mvc;
-	using System.Web.Security;
-	using ClassLibrary;
-	using PA.Models;
-	using PA.Services.Crawler;
-	
-	public class UtilitiesController : Controller
+    using System;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Helpers;
+    using System.Web.Mvc;
+    using System.Web.Security;
+    using ClassLibrary;
+    using PA.Models;
+    using PA.Services.Crawler;
+
+    public class UtilitiesController : Controller
     {
         public ViewResult Index()
         {
@@ -48,15 +49,16 @@
                 Response.AddHeader("Content-Disposition", "attachment;filename=strip-out-html.txt");
                 Response.Write(model.Html);
                 Response.End();
+                //return File(Encoding.Unicode.GetBytes(model.Html), "text/plain", "strip-out-html.txt");
             }
 
-            return View();
+            return this.View();
         }
 
         [ActionName("regular-expressions")]
         public ViewResult RegEx()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -131,7 +133,7 @@
         [ActionName("encode-html")]
         public ViewResult EncodeHtml()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -153,14 +155,14 @@
                 }
             }
 
-            return View();
+            return this.View();
         }
 
 		[ActionName("user-agent")]
 		public ViewResult UserAgent()
 		{
 			var client = new ClientInfo(Request.UserAgent);
-			return View(client);
+			return this.View(client);
 		}
 
 		[HttpPost]
@@ -169,12 +171,12 @@
 		public ViewResult UserAgent(string userAgent)
 		{
 			var client = new ClientInfo(userAgent);
-			return View(client);
+			return this.View(client);
 		}
 
 		public ViewResult Encryption()
 		{
-			return View();
+			return this.View();
 		}
 
 		[HttpPost]
@@ -200,14 +202,14 @@
 					break;
 			}
 
-			return View();
+			return this.View();
 		}
 
 
         [ActionName("random-number-generator")]
         public ViewResult RandomNumberGenerator()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -225,7 +227,7 @@
                     break;
             }
 
-            return View();
+            return this.View();
         }
 
         private void DownloadFile(string fileName, string contentType, string text)
@@ -240,7 +242,7 @@
         [ActionName("site-checker")]
         public ViewResult SiteChecker()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -272,12 +274,45 @@
 
 				links = links.Where(x => x.StatusCode >= 400 && x.StatusCode < 500).ToList();
 
-				return View(links);
+				return this.View(links);
 			}
 			else
 			{
-				return View();
+				return this.View();
 			}
+        }
+
+        [ActionName("convert-px-to-rem")]
+        public ViewResult ConvertPxToRem()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [ActionName("convert-px-to-rem")]
+        public FileResult ConvertPxToRem(string css)
+        {
+            var pattern = @"\b-?(\d+(\.\d+)?)px\b";
+            var convertedCss = Regex.Replace(css, pattern, this.ReplacePxWithRem, RegexOptions.IgnoreCase);
+            return this.File(Encoding.Unicode.GetBytes(convertedCss), "text/plain", "convert-px-to-rem.txt");
+        }
+
+        private string ReplacePxWithRem(Match match)
+        {
+            var text = match.Value.ToLower();
+            var pxValue = Convert.ToDouble(match.Groups[1].Value);
+
+            if (pxValue == 0)
+            {
+                text = text.Replace("px", string.Empty);
+            }
+            else if (pxValue > 0)
+            {
+                var remValue = pxValue / 16;
+                text = text.Replace(pxValue.ToString(), remValue.ToString()).Replace("px", "rem");
+            }
+
+            return text;
         }
     }
 }

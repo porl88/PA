@@ -299,6 +299,7 @@
     <Content Include="Views\Utilities\site-checker.cshtml" />
     <Content Include="Views\Utilities\user-agent.cshtml" />
     <Content Include="Views\Utilities\encryption.cshtml" />
+    <Content Include="Views\Utilities\convert-px-to-rem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
