@@ -292,7 +292,7 @@
         [ActionName("convert-px-to-rem")]
         public FileResult ConvertPxToRem(string css)
         {
-            var pattern = @"\b-?(\d+(\.\d+)?)px\b";
+            var pattern = @"\b-?(\d+|\d+\.\d+|\.\d+)px\b";
             var convertedCss = Regex.Replace(css, pattern, this.ReplacePxWithRem, RegexOptions.IgnoreCase);
             return this.File(Encoding.Unicode.GetBytes(convertedCss), "text/plain", "convert-px-to-rem.txt");
         }
