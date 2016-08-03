@@ -292,24 +292,55 @@
         [ActionName("convert-px-to-rem")]
         public FileResult ConvertPxToRem(string css)
         {
-            var pattern = @"\b-?(\d+|\d+\.\d+|\.\d+)px\b";
-            var convertedCss = Regex.Replace(css, pattern, this.ReplacePxWithRem, RegexOptions.IgnoreCase);
+            var pattern = @"(?<=[ :(]-?)(\d+|\d+\.\d+|\.\d+)px(?=[ ;)])";
+            var convertedCss = Regex.Replace(css, "(?<=[ :(])0px(?=[ ;)])", "0", RegexOptions.IgnoreCase); // replace 0px values with 0
+            convertedCss = Regex.Replace(convertedCss, pattern, this.ReplacePxWithRem, RegexOptions.IgnoreCase);
             return this.File(Encoding.Unicode.GetBytes(convertedCss), "text/plain", "convert-px-to-rem.txt");
         }
+
+/*
+TEST:
+body {
+    background: 5px;
+    background: 0.5px;
+    background: .5px;
+    background: calc(100% - 5px);
+    background: calc(100% - 0.5px);
+    background: calc(100% - .5px);
+    background: calc(5px - 100%);
+    background: calc(0.5px - 100%);
+    background: calc(.5px - 100%);
+    background:5px;
+    background:0.5px;
+    background:.5px;
+    background: 0px 5px;
+    background: 0px 0.5px;
+    background: 0px .5px;
+    background: 0 5px;
+    background: 0 0.5px;
+    background: 0 .5px;
+    background: 0px 5px .5px 0.5px;
+    background:0px 5px .5px 0.5px;
+    background: 0 5px .5px 0.5px;
+    background:0 5px .5px 0.5px;
+    background: -5px;
+    background: -0.5px;
+    background: -.5px;
+    background:-5px;
+    background:-0.5px;
+    background:-.5px;
+}
+*/
 
         private string ReplacePxWithRem(Match match)
         {
             var text = match.Value.ToLower();
             var pxValue = Convert.ToDouble(match.Groups[1].Value);
 
-            if (pxValue == 0)
-            {
-                text = text.Replace("px", string.Empty);
-            }
-            else if (pxValue > 0)
+            if (pxValue > 0)
             {
                 var remValue = pxValue / 16;
-                text = text.Replace(pxValue.ToString(), remValue.ToString()).Replace("px", "rem");
+                text = text.Replace(match.Groups[1].Value, remValue.ToString()).Replace("px", "rem");
             }
 
             return text;
