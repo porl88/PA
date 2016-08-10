@@ -30,26 +30,11 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("strip-out-html")]
-        public ViewResult RemoveHtml(RemoveHtmlModel model, string removeHtml)
+        public ActionResult RemoveHtml(RemoveHtmlModel model, string removeHtml)
         {
             if (ModelState.IsValid)
             {
-				//if (removeHtml == "all")
-				//{
-				//	model.Html = model.Html.StripOutHtml();
-				//}
-				//else if (removeHtml == "selected")
-				//{
-				//	var separator = new char[] { ',' };
-				//	model.Html = model.Html.StripOutHtml(model.HtmlElements, model.HtmlAttributes, null);
-				//}
-
-                Response.Clear();
-                Response.ContentType = "text/plain";
-                Response.AddHeader("Content-Disposition", "attachment;filename=strip-out-html.txt");
-                Response.Write(model.Html);
-                Response.End();
-                //return File(Encoding.Unicode.GetBytes(model.Html), "text/plain", "strip-out-html.txt");
+                return this.File(Encoding.UTF8.GetBytes(HttpUtility.HtmlEncode(model.Html)), "text/plain", "strip-out-html.txt");
             }
 
             return this.View();
@@ -117,8 +102,15 @@
                         ViewBag.Replace = Regex.Replace(model.Input, model.Pattern, replacement, optionList);
                         break;
                     case "matches":
-                        MatchCollection matches = Regex.Matches(model.Input, model.Pattern, optionList);
+                        var matches = Regex.Matches(model.Input, model.Pattern, optionList);
                         ViewBag.Matches = string.Format("{0} matches: {1}", matches.Count, string.Join(", ", matches.Cast<Match>().Select(x => x.Value).ToArray()));
+                        break;
+                    case "groups":
+                        var match = Regex.Match(model.Input, model.Pattern, optionList);
+                        if (match.Success)
+                        {
+                            ViewBag.Match = match;
+                        }
                         break;
                 }
             }
@@ -139,7 +131,7 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("encode-html")]
-        public ViewResult EncodeHtml(EncodeHtmlModel model, string action)
+        public ActionResult EncodeHtml(EncodeHtmlModel model, string action)
         {
             if (ModelState.IsValid)
             {
@@ -147,11 +139,9 @@
                 switch (action)
                 {
                     case "encode":
-                        DownloadFile("encoded-html.txt", "text/plain", HttpUtility.HtmlEncode(text));
-                        break;
+                        return this.File(Encoding.UTF8.GetBytes(HttpUtility.HtmlEncode(text)), "text/plain", "encoded-html.txt");
                     case "decode":
-                        DownloadFile("encoded-html.txt", "text/plain", HttpUtility.HtmlDecode(text));
-                        break;
+                        return this.File(Encoding.UTF8.GetBytes(HttpUtility.HtmlDecode(text)), "text/plain", "decoded-html.txt");
                 }
             }
 
@@ -228,15 +218,6 @@
             }
 
             return this.View();
-        }
-
-        private void DownloadFile(string fileName, string contentType, string text)
-        {
-            Response.Clear();
-            Response.AddHeader("Content-Disposition", "attachment; filename=" + fileName);
-            Response.ContentType = contentType;
-            Response.Write(text);
-            Response.End();
         }
 
         [ActionName("site-checker")]

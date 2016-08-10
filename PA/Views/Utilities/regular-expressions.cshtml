@@ -60,7 +60,8 @@
 		</ul>
 		<div class="buttonBar">
 			<button name="type" value="matches">Matches</button>
-			<button name="type" value="replace">Replace</button>
+			<button name="type" value="groups">Groups</button>
+            <button name="type" value="replace">Replace</button>
 		</div>
 
 		if (ViewBag.Replace != null)
@@ -71,7 +72,18 @@
 		if (ViewBag.Matches != null)
 		{
 			<pre><output>@ViewBag.Matches</output></pre>
-		}
+        }
+
+        if (ViewBag.Match != null)
+        {
+            var match = (Match)ViewBag.Match;
+            <ol>
+                @foreach (Group group in match.Groups)
+                {
+                    <li>@group.Value</li>
+                }
+            </ol>
+        }
 
 		<fieldset>
 			<legend>Options</legend>
