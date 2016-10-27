@@ -24,7 +24,7 @@
 	@using (Html.BeginForm())
 	{
 		@Html.AntiForgeryToken();
-		<input type="text" name="url" required="required" />
+		<input type="url" name="url" required="required" />
 		<button>Go</button>
 	}
 

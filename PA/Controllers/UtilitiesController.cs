@@ -237,7 +237,7 @@
 				stopwatch.Start();
 
 
-				var siteUri = new Uri("http://girlwithaduckjumper.com/");
+				var siteUri = new Uri(url);
 				var crawler = new CrawlerService(siteUri);
 				var links = await crawler.CheckPageLinks();
 
@@ -253,7 +253,7 @@
 				ViewBag.PageCount = links.Select(x => x.PageUrl.AbsolutePath).Distinct().Count();
 				ViewBag.LinkCount = links.Count;
 
-				links = links.Where(x => x.StatusCode >= 400 && x.StatusCode < 500).ToList();
+				//links = links.Where(x => x.StatusCode >= 400 && x.StatusCode < 500).ToList();
 
 				return this.View(links);
 			}

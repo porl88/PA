@@ -1,187 +1,210 @@
 ﻿namespace PA.Services.Crawler
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Net.Http;
-	using System.Text.RegularExpressions;
-	using System.Threading.Tasks;
-	using Services.Crawler.Transfer;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
+    using Transfer;
 
-	public class CrawlerService : ICrawlerService
-	{
-		private readonly Uri siteUri;
+    public class CrawlerService : ICrawlerService
+    {
+        private readonly Uri siteUri;
 
-		private Queue<string> uncheckedValidLinks; // queue of absolute URIs
+        private Queue<string> uncheckedValidLinks; // queue of absolute URIs
 
-		private List<string> checkedLinks;
+        private List<string> checkedLinks;
 
-		private List<PageLinkDto> PageLinks;
+        private List<PageLinkDto> PageLinks;
 
-		public CrawlerService(Uri siteUri)
-		{
-			this.siteUri = siteUri;
-			this.uncheckedValidLinks = new Queue<string>();
-			this.checkedLinks = new List<string>();
-			this.PageLinks = new List<PageLinkDto>();
-		}
+        public CrawlerService(Uri siteUri)
+        {
+            this.siteUri = siteUri;
+            this.uncheckedValidLinks = new Queue<string>();
+            this.checkedLinks = new List<string>();
+            this.PageLinks = new List<PageLinkDto>();
+        }
 
-		// TO DO:
-		// Make sure use of Uri's is consistent
-		// Capturing exceptions on Task.WhenAll()
-		// Do not use AbsoluteUri as this converts to lower case - some servers are case sensitive
+        // TO DO:
+        // Make sure use of Uri's is consistent
+        // Capturing exceptions on Task.WhenAll()
+        // Do not use AbsoluteUri as this converts to lower case - some servers are case sensitive
 
-		public async Task<List<PageLinkDto>> CheckPageLinks()
-		{
-			// validate initial URL ??? - not needed if using Uri class???
-			string currentPageLink;
-			this.uncheckedValidLinks.Enqueue(this.siteUri.AbsoluteUri);
+        public async Task<List<PageLinkDto>> CheckPageLinks()
+        {
+            // validate initial URL ??? - not needed if using Uri class???
+            string currentPageLink;
+            this.uncheckedValidLinks.Enqueue(this.siteUri.AbsoluteUri);
 
-			using (var client = new HttpClient())
-			{
-				do
-				{
-					// get next unchecked link from queue
-					currentPageLink = this.uncheckedValidLinks.Dequeue();
+            using (var client = new HttpClient())
+            {
+                do
+                {
+                    // get next unchecked link from queue
+                    currentPageLink = this.uncheckedValidLinks.Dequeue();
 
-					// get the HTML from the URL
-					var pageHtml = await client.GetStringAsync(currentPageLink);
+                    try
+                    {
+                        // get the HTML from the URL
+                        var pageHtml = await client.GetStringAsync(currentPageLink);
 
-					// add current url to checked list
-					checkedLinks.Add(currentPageLink);
+                        // add current url to checked list
+                        this.checkedLinks.Add(currentPageLink);
 
-					// get all the unique link URLs that are in the HTML
-					var pageLinks = this.GetPageLinks(pageHtml);
+                        // get all the unique link URLs that are in the HTML
+                        var pageLinks = this.GetPageLinks(pageHtml);
 
-					// remove links already checked
-					pageLinks = pageLinks.Except(checkedLinks).ToList();
+                        // remove links already checked
+                        pageLinks = pageLinks.Except(checkedLinks).ToList();
 
-					if (pageLinks.Count == 0)
-					{
-						continue;
-					}
+                        if (pageLinks.Count == 0)
+                        {
+                            continue;
+                        }
 
-					// get response headers to check if links are valid
-					var tasks = new List<Task<HttpResponseMessage>>();
+                        // get the status for each link and add to the list of checked links
+                        await this.CheckPageLinks(client, pageLinks, currentPageLink);
+                    }
+                    catch (HttpRequestException ex)
+                    {
+                        this.PageLinks.Add(new PageLinkDto
+                        {
+                            Link = new Uri(currentPageLink),
+                            PageUrl = new Uri(currentPageLink),
+                            StatusMessage = ex.Message
+                        });
+                    }
+                    catch
+                    {
+                        // log this
+                    }
+                }
+                while (this.uncheckedValidLinks.Count > 0);
+            }
 
-					foreach (var link in pageLinks)
-					{
-						try
-						{
-							tasks.Add(client.SendAsync(new HttpRequestMessage
-							{
-								Method = HttpMethod.Head,
-								RequestUri = new Uri(link)
-							}));
-						}
-						catch (Exception ex)
-						{
-							this.PageLinks.Add(new PageLinkDto
-							{
-								Link = new Uri(link),
-								PageUrl = new Uri(currentPageLink),
-								StatusMessage = ex.Message
-							});
-						}
-					}
+            return this.PageLinks;
+        }
 
-					var linkResponses = Task.WhenAll(tasks);
+        private void AddLinkResponsesToLists(string currentPageLink, HttpResponseMessage response)
+        {
+            try
+            {
+                var requestedUri = response.RequestMessage.RequestUri;
+                var contentType = response.Content.Headers.ContentType.MediaType;
 
-					try
-					{
-						await linkResponses;
-						tasks.ForEach(t => this.AddLinkResponsesToLists(currentPageLink, t.Result));
-					}
-					catch (Exception)
-					{
-						linkResponses.Exception.Handle(exception =>
-						{
-							this.PageLinks.Add(new PageLinkDto
-							{
-								//Link = response.RequestMessage.RequestUri,
-								//PageUrl = new Uri(currentPageLink),
-								StatusCode = 500,
-								StatusMessage = string.Format("Exception: {1}", exception.Message)
-							});
-							return true;
-						});
-					}
+                // add pages that contain HTML (excluding pages for external sites) to the list of pages that need their links checked
+                if (response.IsSuccessStatusCode && contentType == "text/html" && requestedUri.Host.Equals(this.siteUri.Host))
+                {
+                    this.uncheckedValidLinks.Enqueue(requestedUri.AbsoluteUri);
+                }
 
-					// now that all pageLinks have been checked, add to list of checked links
-					checkedLinks = checkedLinks.Union(pageLinks).ToList();
-				}
-				while (this.uncheckedValidLinks.Count > 0);
-			}
+                this.PageLinks.Add(new PageLinkDto
+                {
+                    Link = response.RequestMessage.RequestUri,
+                    PageUrl = new Uri(currentPageLink),
+                    StatusCode = (int)response.StatusCode,
+                    StatusMessage = response.ReasonPhrase,
+                    ContentType = contentType
+                });
+            }
+            catch (Exception ex)
+            {
+                this.PageLinks.Add(new PageLinkDto
+                {
+                    Link = response.RequestMessage.RequestUri,
+                    PageUrl = new Uri(currentPageLink),
+                    StatusCode = (int)response.StatusCode,
+                    StatusMessage = string.Format("Response StatusText: {0}, Exception: {1}", response.ReasonPhrase, ex.Message),
+                });
+            }
+        }
 
-			return this.PageLinks;
-		}
+        private List<string> GetPageLinks(string pageHtml)
+        {
+            var pageLinks = new List<string>();
+            var pattern = "(href|src)=\"(.*?)\"";
+            var matches = Regex.Matches(pageHtml, pattern, RegexOptions.IgnoreCase);
 
-		private void AddLinkResponsesToLists(string currentPageLink, HttpResponseMessage response)
-		{
-			try
-			{
-				var requestedUri = response.RequestMessage.RequestUri;
-				var contentType = response.Content.Headers.ContentType.MediaType;
+            foreach (Match match in matches)
+            {
+                var link = match.Groups[2].Value;
 
-				// add pages that contain HTML (excluding pages for external sites) to the list of pages that need their links checked
-				if (response.IsSuccessStatusCode && contentType == "text/html" && requestedUri.Host.Equals(this.siteUri.Host))
-				{
-					this.uncheckedValidLinks.Enqueue(requestedUri.AbsoluteUri);
-				}
+                if (!string.IsNullOrWhiteSpace(link))
+                {
+                    Uri uri;
+                    if (Uri.TryCreate(this.siteUri, link, out uri) || Uri.TryCreate(link, UriKind.Absolute, out uri))
+                    {
+                        if (!pageLinks.Any(x => x == uri.AbsoluteUri))
+                        {
+                            pageLinks.Add(uri.AbsoluteUri);
+                        }
+                    }
+                    else
+                    {
+                        this.PageLinks.Add(new PageLinkDto
+                        {
+                            StatusCode = 400,
+                            StatusMessage = string.Format("Link is not a well-formed Uri: " + link),
+                        });
+                    }
+                }
+            }
 
-				this.PageLinks.Add(new PageLinkDto
-				{
-					Link = response.RequestMessage.RequestUri,
-					PageUrl = new Uri(currentPageLink),
-					StatusCode = (int)response.StatusCode,
-					StatusMessage = response.ReasonPhrase,
-					ContentType = contentType
-				});
-			}
-			catch (Exception ex)
-			{
-				this.PageLinks.Add(new PageLinkDto
-				{
-					Link = response.RequestMessage.RequestUri,
-					PageUrl = new Uri(currentPageLink),
-					StatusCode = (int)response.StatusCode,
-					StatusMessage = string.Format("Response StatusText: {0}, Exception: {1}", response.ReasonPhrase, ex.Message),
-				});
-			}
-		}
+            return pageLinks;
+        }
 
-		private List<string> GetPageLinks(string pageHtml)
-		{
-			var pageLinks = new List<string>();
-			var pattern = "(href|src)=\"(.*?)\"";
-			MatchCollection matches = Regex.Matches(pageHtml, pattern, RegexOptions.IgnoreCase);
+        private async Task CheckPageLinks(HttpClient client, List<string> pageLinks, string currentPageLink)
+        {
+            // get response headers to check if links are valid
+            var tasks = new List<Task<HttpResponseMessage>>();
 
-			foreach (var match in matches.Cast<Match>())
-			{
-				var link = match.Groups[2].Value;
+            foreach (var link in pageLinks)
+            {
+                try
+                {
+                    tasks.Add(client.SendAsync(new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Head,
+                        RequestUri = new Uri(link)
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    this.PageLinks.Add(new PageLinkDto
+                    {
+                        Link = new Uri(link),
+                        PageUrl = new Uri(currentPageLink),
+                        StatusMessage = ex.Message
+                    });
+                }
+            }
 
-				if (!string.IsNullOrWhiteSpace(link))
-				{
-					Uri uri;
-					if (Uri.TryCreate(this.siteUri, link, out uri) || Uri.TryCreate(link, UriKind.Absolute, out uri))
-					{
-						if (!pageLinks.Any(x => x == uri.AbsoluteUri))
-						{
-							pageLinks.Add(uri.AbsoluteUri);
-						}
-					}
-					else
-					{
-						this.PageLinks.Add(new PageLinkDto
-						{
-							StatusCode = 400,
-							StatusMessage = string.Format("Link is not a well-formed Uri: " + link),
-						});
-					}
-				}
-			}
+            var linkResponses = Task.WhenAll(tasks);
 
-			return pageLinks;
-		}
-	}
+            try
+            {
+                await linkResponses;
+                tasks.ForEach(t => this.AddLinkResponsesToLists(currentPageLink, t.Result));
+            }
+            catch
+            {
+                linkResponses.Exception.Handle(exception =>
+                {
+                    this.PageLinks.Add(new PageLinkDto
+                    {
+                        //Link = response.RequestMessage.RequestUri,
+                        //PageUrl = new Uri(currentPageLink),
+                        StatusCode = 500,
+                        StatusMessage = string.Format("Exception: {1}", exception.Message)
+                    });
+
+                    return true;
+                });
+            }
+
+            // now that all pageLinks have been checked, add to list of checked links
+            this.checkedLinks = this.checkedLinks.Union(pageLinks).ToList();
+        }
+    }
 }
