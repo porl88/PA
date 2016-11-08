@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net.Http;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
@@ -10,35 +9,34 @@
 
     public class CrawlerService : ICrawlerService
     {
-        private readonly Uri siteUri;
+        private readonly Uri domainName;
 
         private Queue<string> uncheckedValidLinks; // queue of absolute URIs
 
-        private List<string> checkedLinks;
+        private HashSet<string> checkedLinks;
 
         private List<PageLinkDto> PageLinks;
 
-        public CrawlerService(Uri siteUri)
+        public CrawlerService(Uri domainName)
         {
-            this.siteUri = siteUri;
+            this.domainName = domainName;
             this.uncheckedValidLinks = new Queue<string>();
-            this.checkedLinks = new List<string>();
+            this.checkedLinks = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             this.PageLinks = new List<PageLinkDto>();
         }
 
         // TO DO:
         // Make sure use of Uri's is consistent
-        // Capturing exceptions on Task.WhenAll()
-        // Do not use AbsoluteUri as this converts to lower case - some servers are case sensitive
 
         public async Task<List<PageLinkDto>> CheckPageLinks()
         {
-            // validate initial URL ??? - not needed if using Uri class???
             string currentPageLink;
-            this.uncheckedValidLinks.Enqueue(this.siteUri.AbsoluteUri);
+            this.uncheckedValidLinks.Enqueue(string.Concat(this.domainName.Scheme, "://", this.domainName.Host));
 
             using (var client = new HttpClient())
             {
+                //client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:49.0) Gecko/20100101 Firefox/49.0");
+
                 do
                 {
                     // get next unchecked link from queue
@@ -56,7 +54,7 @@
                         var pageLinks = this.GetPageLinks(pageHtml);
 
                         // remove links already checked
-                        pageLinks = pageLinks.Except(checkedLinks).ToList();
+                        pageLinks.ExceptWith(this.checkedLinks);
 
                         if (pageLinks.Count == 0)
                         {
@@ -78,8 +76,10 @@
                     catch
                     {
                         // log this
+                        throw;
                     }
                 }
+
                 while (this.uncheckedValidLinks.Count > 0);
             }
 
@@ -94,7 +94,7 @@
                 var contentType = response.Content.Headers.ContentType.MediaType;
 
                 // add pages that contain HTML (excluding pages for external sites) to the list of pages that need their links checked
-                if (response.IsSuccessStatusCode && contentType == "text/html" && requestedUri.Host.Equals(this.siteUri.Host))
+                if (response.IsSuccessStatusCode && contentType == "text/html" && requestedUri.Host.Equals(this.domainName.Host))
                 {
                     this.uncheckedValidLinks.Enqueue(requestedUri.AbsoluteUri);
                 }
@@ -120,9 +120,9 @@
             }
         }
 
-        private List<string> GetPageLinks(string pageHtml)
+        private HashSet<string> GetPageLinks(string pageHtml)
         {
-            var pageLinks = new List<string>();
+            var pageLinks = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             var pattern = "(href|src)=\"(.*?)\"";
             var matches = Regex.Matches(pageHtml, pattern, RegexOptions.IgnoreCase);
 
@@ -133,12 +133,9 @@
                 if (!string.IsNullOrWhiteSpace(link))
                 {
                     Uri uri;
-                    if (Uri.TryCreate(this.siteUri, link, out uri) || Uri.TryCreate(link, UriKind.Absolute, out uri))
+                    if (Uri.TryCreate(this.domainName, link, out uri) || Uri.TryCreate(link, UriKind.Absolute, out uri))
                     {
-                        if (!pageLinks.Any(x => x == uri.AbsoluteUri))
-                        {
-                            pageLinks.Add(uri.AbsoluteUri);
-                        }
+                        pageLinks.Add(uri.AbsoluteUri);
                     }
                     else
                     {
@@ -154,11 +151,43 @@
             return pageLinks;
         }
 
-        private async Task CheckPageLinks(HttpClient client, List<string> pageLinks, string currentPageLink)
+        private async Task CheckPageLinks(HttpClient client, HashSet<string> pageLinks, string currentPageLink)
+        {
+            var tasks = this.GetHeadRequestsAsListOfTasks(client, pageLinks, currentPageLink);
+
+            var linkResponses = Task.WhenAll(tasks);
+
+            try
+            {
+                await linkResponses;
+                tasks.ForEach(t => this.AddLinkResponsesToLists(currentPageLink, t.Result));
+            }
+            catch
+            {
+                linkResponses.Exception.Handle(exception =>
+                {
+                    this.PageLinks.Add(new PageLinkDto
+                    {
+                        //Link = response.RequestMessage.RequestUri,
+                        PageUrl = new Uri(currentPageLink),
+                        StatusCode = 500,
+                        StatusMessage = string.Concat("Exception: ", exception.Message)
+                    });
+
+                    return true;
+                });
+            }
+
+            // now that all pageLinks have been checked, add to list of checked links
+            this.checkedLinks.UnionWith(pageLinks);
+        }
+
+        private List<Task<HttpResponseMessage>> GetHeadRequestsAsListOfTasks(HttpClient client, HashSet<string> pageLinks, string currentPageLink)
         {
             // get response headers to check if links are valid
             var tasks = new List<Task<HttpResponseMessage>>();
 
+            // check response headers
             foreach (var link in pageLinks)
             {
                 try
@@ -180,31 +209,7 @@
                 }
             }
 
-            var linkResponses = Task.WhenAll(tasks);
-
-            try
-            {
-                await linkResponses;
-                tasks.ForEach(t => this.AddLinkResponsesToLists(currentPageLink, t.Result));
-            }
-            catch
-            {
-                linkResponses.Exception.Handle(exception =>
-                {
-                    this.PageLinks.Add(new PageLinkDto
-                    {
-                        //Link = response.RequestMessage.RequestUri,
-                        //PageUrl = new Uri(currentPageLink),
-                        StatusCode = 500,
-                        StatusMessage = string.Format("Exception: {1}", exception.Message)
-                    });
-
-                    return true;
-                });
-            }
-
-            // now that all pageLinks have been checked, add to list of checked links
-            this.checkedLinks = this.checkedLinks.Union(pageLinks).ToList();
+            return tasks;
         }
     }
 }
