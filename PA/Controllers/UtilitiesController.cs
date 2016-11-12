@@ -16,6 +16,7 @@
     using Text;
     using Http;
     using Languages;
+    using Text.Markup;
 
     public class UtilitiesController : Controller
     {
@@ -326,9 +327,29 @@
         {
             if (this.ModelState.IsValid)
             {
-                var markup = new Markup();
-                var result = markup.EncodeCharacterEntityReferences(model.Html);
+                var result = model.Html.EncodeCharacterEntityReferences();
                 return this.File(Encoding.UTF8.GetBytes(result), "text/plain", "convert-entities.txt");
+            }
+            else
+            {
+                return this.View();
+            }
+        }
+
+        [ActionName("convert-to-html")]
+        public ViewResult ConvertTextToHtml()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [ActionName("convert-to-html")]
+        public ActionResult ConvertTextToHtml(EncodeHtmlModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var result = model.Html.ConvertPlainTextToHtml();
+                return this.File(Encoding.UTF8.GetBytes(result), "text/plain", "convert-text-to-html.txt");
             }
             else
             {

@@ -39,11 +39,9 @@
 			<h2 class="hdrLogo"><a href="/" title="Home">Paul</a></h2>
 			<nav class="hdrNav" role="navigation">
 				<ul class="@ViewBag.Section">
-					<li>@Html.ActionLink("Home", "index", "home", new { area = "" }, null)</li>
 					<li>@Html.ActionLink("Reference", "index", "reference", new { area = "" }, null)</li>
 					<li>@Html.ActionLink("Utilities", "index", "utilities", new { area = "" }, null)</li>
 					<li>@Html.ActionLink("Guidelines", "index", "guidelines", new { area = "" }, null)</li>
-					<li>@Html.ActionLink("Portfolio", "index", "portfolio", new { area = "" }, new { target = "_blank" })</li>
 				</ul>
 			</nav>
 		</header>
@@ -72,7 +70,6 @@
 	</div>
 
 	@Scripts.Render("~/script")
-	@*@Scripts.Render("~/script-m")*@
 	<script src="~/scripts/m-css3info.js"></script>
 </body>
 </html>

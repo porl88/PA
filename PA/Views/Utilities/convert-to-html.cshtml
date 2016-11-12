@@ -1,0 +1,25 @@
+﻿@model PA.Models.EncodeHtmlModel
+@{
+    ViewBag.Title = "Convert Text to HTML";
+}
+
+@section Breadcrumb {
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Home", "index", "home")</li>
+        <li>@Html.ActionLink("Utilities", "index", "utilities")</li>
+        <li>Convert Text to HTML</li>
+    </ol>
+}
+
+@section Navigation {
+    @Html.Partial("~/views/shared/_nav-utilities.cshtml")
+}
+
+<article>
+    <h1>Convert Text to HTML</h1>
+    @using (Html.BeginForm())
+    {
+        @Html.TextAreaFor(m => m.Html, new { required = "required" })
+        <button>Go</button>
+    }
+</article>
