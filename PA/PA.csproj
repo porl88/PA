@@ -230,14 +230,110 @@
     <Content Include="Images\browser\ie.png" />
     <Content Include="Images\browser\opera.png" />
     <Content Include="Images\browser\safari.png" />
+    <Content Include="Images\css3info\balloon_arrows.png" />
     <Content Include="Images\css3info\bg_body.gif" />
     <Content Include="Images\css3info\bullet.gif" />
     <Content Include="Images\css3info\h1-border.gif" />
     <Content Include="Images\css3info\header.gif" />
     <Content Include="Images\css3info\icon-ipad.png" />
+    <Content Include="Images\css3info\icon-iphone-76.png" />
     <Content Include="Images\css3info\icon-iphone.png" />
     <Content Include="Images\css3info\index.png" />
     <Content Include="Images\css3info\logo.gif" />
+    <Content Include="Images\portfolio\bbx.png" />
+    <Content Include="Images\portfolio\because.png" />
+    <Content Include="Images\portfolio\because\apologies.gif" />
+    <Content Include="Images\portfolio\because\apple-touch-icon.png" />
+    <Content Include="Images\portfolio\because\beauty_16_f.jpg" />
+    <Content Include="Images\portfolio\because\beauty_rebel_beauty15_f.jpg" />
+    <Content Include="Images\portfolio\because\because-logo-phone.png" />
+    <Content Include="Images\portfolio\because\culture_hm1_f.jpg" />
+    <Content Include="Images\portfolio\because\culture_miu1_f.jpg" />
+    <Content Include="Images\portfolio\because\fashion_asia_4_f.jpg" />
+    <Content Include="Images\portfolio\because\fashion_blocks_still_f.jpg" />
+    <Content Include="Images\portfolio\because\fashion_news_english_f.jpg" />
+    <Content Include="Images\portfolio\because\fashion_thatshot_magda_f.jpg" />
+    <Content Include="Images\portfolio\because\fashion_welove__f.jpg" />
+    <Content Include="Images\portfolio\because\menu-button.png" />
+    <Content Include="Images\portfolio\because\o_beauty_nails_trends_01_f.jpg" />
+    <Content Include="Images\portfolio\because\o_beauty_trends_02_f.jpg" />
+    <Content Include="Images\portfolio\because\o_features_chanel_02_f.jpg" />
+    <Content Include="Images\portfolio\because\o_news_lancomeolympia_f.jpg" />
+    <Content Include="Images\portfolio\because\radio_alexburkat_01_f.jpg" />
+    <Content Include="Images\portfolio\because\radio_majicalcloudz_01_f.jpg" />
+    <Content Include="Images\portfolio\because\radio_mirage_01_f.jpg" />
+    <Content Include="Images\portfolio\because\radio_sadcity_01_f.jpg" />
+    <Content Include="Images\portfolio\because\search.png" />
+    <Content Include="Images\portfolio\because\separator_black.png" />
+    <Content Include="Images\portfolio\cm.gif" />
+    <Content Include="Images\portfolio\cm\1531.JPG" />
+    <Content Include="Images\portfolio\cm\1537.jpg" />
+    <Content Include="Images\portfolio\cm\1540.jpeg" />
+    <Content Include="Images\portfolio\cm\1542.jpg" />
+    <Content Include="Images\portfolio\cm\1556.JPG" />
+    <Content Include="Images\portfolio\cm\1559.jpg" />
+    <Content Include="Images\portfolio\cm\49.jpg" />
+    <Content Include="Images\portfolio\cm\bgBody.gif" />
+    <Content Include="Images\portfolio\cm\favicon.ico" />
+    <Content Include="Images\portfolio\cm\header_logo.gif" />
+    <Content Include="Images\portfolio\cm\header_tagline.gif" />
+    <Content Include="Images\portfolio\cm\logoCMP.gif" />
+    <Content Include="Images\portfolio\cm\subscribe.gif" />
+    <Content Include="Images\portfolio\eh.gif" />
+    <Content Include="Images\portfolio\email.png" />
+    <Content Include="Images\portfolio\fs.gif" />
+    <Content Include="Images\portfolio\fse.gif" />
+    <Content Include="Images\portfolio\fse\1531.JPG" />
+    <Content Include="Images\portfolio\fse\1537.jpg" />
+    <Content Include="Images\portfolio\fse\1540.jpeg" />
+    <Content Include="Images\portfolio\fse\1541.jpg" />
+    <Content Include="Images\portfolio\fse\1542.jpg" />
+    <Content Include="Images\portfolio\fse\1556.JPG" />
+    <Content Include="Images\portfolio\fse\1559.jpg" />
+    <Content Include="Images\portfolio\fse\49.jpg" />
+    <Content Include="Images\portfolio\fse\bgBody.gif" />
+    <Content Include="Images\portfolio\fse\favicon.ico" />
+    <Content Include="Images\portfolio\fse\FSEAward.gif" />
+    <Content Include="Images\portfolio\fse\header.gif" />
+    <Content Include="Images\portfolio\fse\header_logo.gif" />
+    <Content Include="Images\portfolio\fse\header_tagline.gif" />
+    <Content Include="Images\portfolio\fse\home.gif" />
+    <Content Include="Images\portfolio\fse\logoCMP.gif" />
+    <Content Include="Images\portfolio\fse\siteLogo.gif" />
+    <Content Include="Images\portfolio\fse\subscribe.gif" />
+    <Content Include="Images\portfolio\fse\tellFriend.gif" />
+    <Content Include="Images\portfolio\fs\alternate\bgBRight.gif" />
+    <Content Include="Images\portfolio\fs\alternate\calenderIcon.gif" />
+    <Content Include="Images\portfolio\fs\alternate\carIcon.gif" />
+    <Content Include="Images\portfolio\fs\alternate\houseIcon.gif" />
+    <Content Include="Images\portfolio\fs\alternate\iconAccommodation.gif" />
+    <Content Include="Images\portfolio\fs\alternate\iconCar.gif" />
+    <Content Include="Images\portfolio\fs\alternate\iconDiary.gif" />
+    <Content Include="Images\portfolio\fs\alternate\iconHouse.gif" />
+    <Content Include="Images\portfolio\fs\alternate\iconTravel.gif" />
+    <Content Include="Images\portfolio\fs\alternate\lFooter.gif" />
+    <Content Include="Images\portfolio\fs\alternate\lHeader.gif" />
+    <Content Include="Images\portfolio\fs\alternate\logoCMP.gif" />
+    <Content Include="Images\portfolio\fs\alternate\rHeader.gif" />
+    <Content Include="Images\portfolio\fs\alternate\tHeader.gif" />
+    <Content Include="Images\portfolio\fs\background_2col.gif" />
+    <Content Include="Images\portfolio\fs\bgBody.gif" />
+    <Content Include="Images\portfolio\fs\bgBRight.gif" />
+    <Content Include="Images\portfolio\fs\favicon.ico" />
+    <Content Include="Images\portfolio\fs\iconAccommodation.gif" />
+    <Content Include="Images\portfolio\fs\iconDiary.gif" />
+    <Content Include="Images\portfolio\fs\iconTravel.gif" />
+    <Content Include="Images\portfolio\fs\lFooter.gif" />
+    <Content Include="Images\portfolio\fs\lHeader.jpg" />
+    <Content Include="Images\portfolio\fs\logoABC.gif" />
+    <Content Include="Images\portfolio\fs\logoCMP.gif" />
+    <Content Include="Images\portfolio\fs\logoEdirectory.gif" />
+    <Content Include="Images\portfolio\fs\rHeader.jpg" />
+    <Content Include="Images\portfolio\fs\tHeader.gif" />
+    <Content Include="Images\portfolio\fs\txtExhibitors.gif" />
+    <Content Include="Images\portfolio\gpl.png" />
+    <Content Include="Images\portfolio\icon_external.png" />
+    <Content Include="Images\portfolio\nmb2.png" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\core.js" />
     <Content Include="Scripts\css3info.js" />
@@ -331,15 +427,25 @@
     <Content Include="Views\Utilities\user-agent.cshtml" />
     <Content Include="Views\Utilities\encryption.cshtml" />
     <Content Include="Views\Utilities\convert-px-to-rem.cshtml" />
+    <Content Include="Views\Utilities\convert-entities.cshtml" />
+    <Content Include="Views\Utilities\convert-english.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
-      <Project>{704cd5fd-0518-4d72-ac28-0d1741fb2093}</Project>
-      <Name>ClassLibrary</Name>
+    <ProjectReference Include="..\..\..\..\..\Dropbox\Websites\PA\PA.Http\PA.Http.csproj">
+      <Project>{b5c58ea0-e5a9-497e-827b-cd547689809f}</Project>
+      <Name>PA.Http</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PA.Services\PA.Services.csproj">
-      <Project>{fa75f6b0-4c76-477e-ae0f-ee6ac6d639b9}</Project>
-      <Name>PA.Services</Name>
+    <ProjectReference Include="..\..\..\..\..\Dropbox\Websites\PA\PA.Info\PA.Info.csproj">
+      <Project>{CDF149AC-A3D7-42FA-A1E2-2AD6FF0672BA}</Project>
+      <Name>PA.Info</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\Dropbox\Websites\PA\PA.Languages\PA.Languages.csproj">
+      <Project>{DE6C5837-5338-4BC0-88FC-D9103E40FF31}</Project>
+      <Name>PA.Languages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\Dropbox\Websites\PA\PA.Text\PA.Text.csproj">
+      <Project>{F0FD9822-5153-40FC-BEB7-9D2937608517}</Project>
+      <Name>PA.Text</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

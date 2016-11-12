@@ -1,9 +1,9 @@
 ﻿namespace PA.Areas.Reference.Controllers
 {
-	using System.Web.Mvc;
-	using ClassLibrary;
+    using System.Web.Mvc;
+    using Info;
 
-	public class ReferenceController : Controller
+    public class ReferenceController : Controller
 	{
 		public ViewResult Index()
 		{

@@ -1,6 +1,7 @@
 ﻿namespace PA.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
     using System.Text;
@@ -10,21 +11,25 @@
     using System.Web.Helpers;
     using System.Web.Mvc;
     using System.Web.Security;
-    using ClassLibrary;
-    using PA.Models;
-    using PA.Services.Crawler;
+    using Info;
+    using Models;
+    using Text;
+    using Http;
+    using Languages;
 
     public class UtilitiesController : Controller
     {
+        private static List<PageLink> siteLinks;
+
         public ViewResult Index()
         {
-            return View("regular-expressions");
+            return this.View("regular-expressions");
         }
 
         [ActionName("strip-out-html")]
         public ViewResult RemoveHtml()
         {
-			return View();
+			return this.View();
         }
 
         [HttpPost]
@@ -49,7 +54,7 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("regular-expressions")]
-        public ViewResult RegEx(RegExModel model, string type)
+        public ActionResult RegEx(RegExModel model, string type)
         {
             try
             {
@@ -97,9 +102,16 @@
 
                 switch (type)
                 {
+                    case "replace-download":
                     case "replace":
                         string replacement = model.Replacement ?? string.Empty;
                         ViewBag.Replace = Regex.Replace(model.Input, model.Pattern, replacement, optionList);
+
+                        if (type == "replace-download")
+                        {
+                            return this.File(Encoding.UTF8.GetBytes(ViewBag.Replace), "text/plain", "regex-replace.txt");
+                        }
+
                         break;
                     case "matches":
                         var matches = Regex.Matches(model.Input, model.Pattern, optionList);
@@ -119,7 +131,7 @@
                 ModelState.AddModelError(string.Empty, "Your regular expression is invalid.");
             }
 
-            return View();
+            return this.View();
         }
 
         [ActionName("encode-html")]
@@ -195,7 +207,6 @@
 			return this.View();
 		}
 
-
         [ActionName("random-number-generator")]
         public ViewResult RandomNumberGenerator()
         {
@@ -238,14 +249,9 @@
 
 
 				var siteUri = new Uri(url);
-				var crawler = new CrawlerService(siteUri);
+				var crawler = new Crawler(siteUri);
 				var links = await crawler.CheckPageLinks();
-
-				//string domain = url;
-				//if (!domain.StartsWith("http"))
-				//{
-				//	domain = "http://" + domain;
-				//}
+                siteLinks = links;
 
 				stopwatch.Stop();
 				var time = stopwatch.Elapsed;
@@ -261,6 +267,35 @@
 			{
 				return this.View();
 			}
+        }
+
+        public FileResult DownloadSiteLinks()
+        {
+            if (siteLinks != null && siteLinks.Count > 0)
+            {
+                var csv = new StringBuilder(siteLinks.Count + 20);
+
+                csv.Append("Page URL").Append(',')
+                   .Append("Link URL").Append(',')
+                   .Append("Status Code").Append(',')
+                   .Append("Status Message").Append(',')
+                   .Append("Mime Type")
+                   .AppendLine();
+
+                foreach (var link in siteLinks)
+                {
+                    csv.Append('"').Append(link.PageUrl.AbsoluteUri).Append('"').Append(',')
+                       .Append('"').Append(link.Link.AbsoluteUri).Append('"').Append(',')
+                       .Append(link.StatusCode).Append(',')
+                       .Append('"').Append(link.StatusMessage).Append('"').Append(',')
+                       .Append(link.ContentType)
+                       .AppendLine();
+                }
+
+                return this.File(Encoding.UTF8.GetBytes(csv.ToString()), "text/csv", "site-links.csv");
+            }
+
+            return null;
         }
 
         [ActionName("convert-px-to-rem")]
@@ -279,39 +314,42 @@
             return this.File(Encoding.Unicode.GetBytes(convertedCss), "text/plain", "convert-px-to-rem.txt");
         }
 
-/*
-TEST:
-body {
-    background: 5px;
-    background: 0.5px;
-    background: .5px;
-    background: calc(100% - 5px);
-    background: calc(100% - 0.5px);
-    background: calc(100% - .5px);
-    background: calc(5px - 100%);
-    background: calc(0.5px - 100%);
-    background: calc(.5px - 100%);
-    background:5px;
-    background:0.5px;
-    background:.5px;
-    background: 0px 5px;
-    background: 0px 0.5px;
-    background: 0px .5px;
-    background: 0 5px;
-    background: 0 0.5px;
-    background: 0 .5px;
-    background: 0px 5px .5px 0.5px;
-    background:0px 5px .5px 0.5px;
-    background: 0 5px .5px 0.5px;
-    background:0 5px .5px 0.5px;
-    background: -5px;
-    background: -0.5px;
-    background: -.5px;
-    background:-5px;
-    background:-0.5px;
-    background:-.5px;
-}
-*/
+        [ActionName("convert-entities")]
+        public ViewResult ConvertEntities()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [ActionName("convert-entities")]
+        public ActionResult ConvertEntities(EncodeHtmlModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var markup = new Markup();
+                var result = markup.EncodeCharacterEntityReferences(model.Html);
+                return this.File(Encoding.UTF8.GetBytes(result), "text/plain", "convert-entities.txt");
+            }
+            else
+            {
+                return this.View();
+            }
+        }
+
+        [ActionName("convert-english")]
+        public ViewResult ConvertEnglish()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [ActionName("convert-english")]
+        public FileResult ConvertEnglish(string text)
+        {
+            var converter = new LanguageConverter();
+            var result = converter.ToAmericanEnglish(text);
+            return this.File(Encoding.Unicode.GetBytes(result), "text/plain", "convert-english.txt");
+        }
 
         private string ReplacePxWithRem(Match match)
         {
@@ -328,3 +366,10 @@ body {
         }
     }
 }
+
+
+
+
+
+
+	               

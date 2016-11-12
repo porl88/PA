@@ -1,12 +1,13 @@
-﻿@{
-    ViewBag.Title = "Convert PX to REM";
+﻿@model PA.Models.EncodeHtmlModel
+@{
+    ViewBag.Title = "Convert Entities";
 }
 
 @section Breadcrumb {
     <ol class="breadcrumb">
         <li>@Html.ActionLink("Home", "index", "home")</li>
         <li>@Html.ActionLink("Utilities", "index", "utilities")</li>
-        <li>Convert PX to REM</li>
+        <li>Convert Entities</li>
     </ol>
 }
 
@@ -15,14 +16,10 @@
 }
 
 <article>
-    <h1>Convert PX to REM</h1>
-
-    <p>Paste CSS/SASS here and it will convert all pixel units to rem units.</p>
-
+    <h1>Convert HTML Entities to Number Entities</h1>
     @using (Html.BeginForm())
     {
-        <textarea name="css" required="required"></textarea>
+        @Html.TextAreaFor(m => m.Html, new { required = "required" })
         <button>Go</button>
     }
-
 </article>

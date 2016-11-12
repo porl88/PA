@@ -55,8 +55,7 @@ namespace PA.Models
 
 	public class EncodeHtmlModel
 	{
-		[AllowHtml]
-		[Required]
+		[Required, AllowHtml]
 		public string Html { get; set; }
 	}
 }

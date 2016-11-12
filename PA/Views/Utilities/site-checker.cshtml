@@ -26,6 +26,10 @@
 		@Html.AntiForgeryToken();
 		<input type="url" name="url" required="required" />
 		<button>Go</button>
+        if (ViewBag.LinkCount != null)
+        {
+            <a href="@Url.Action("DownloadSiteLinks")">Download</a>
+        }
 	}
 
 	@if (Model != null && Model.Count >= 0)

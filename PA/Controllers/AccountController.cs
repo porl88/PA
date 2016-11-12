@@ -28,11 +28,12 @@ namespace PA.Controllers {
 		[ValidateAntiForgeryToken]
 		public ActionResult Login(LoginModel model, string returnUrl) {
 
-			//if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe)) {
-			//	return RedirectToLocal(returnUrl);
-			//}
+            //if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe)) {
+            //	return RedirectToLocal(returnUrl);
+            //}
 
-			if (FormsAuthentication.Authenticate(model.UserName, model.Password)) {
+#pragma warning disable CS0618
+            if (FormsAuthentication.Authenticate(model.UserName, model.Password)) {
 
 				FormsAuthentication.RedirectFromLoginPage(model.UserName, false);
 
@@ -45,9 +46,10 @@ namespace PA.Controllers {
 				//}
 
 			}
+#pragma warning restore CS0618
 
-			// If we got this far, something failed, redisplay form
-			ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("", "The user name or password provided is incorrect.");
 			return View(model);
 		}
 
