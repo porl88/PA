@@ -1,4 +1,5 @@
-﻿@{
+﻿@model PA.Models.EncodeHtmlModel
+@{
     ViewBag.Title = "Convert English";
 }
 
@@ -19,8 +20,9 @@
 
     @using (Html.BeginForm())
     {
-        <textarea name="text" required="required"></textarea>
-        <button>British To American English</button>
+        @Html.TextAreaFor(m => m.Html, new { required = "required" })
+        <button name="lang" value="en-us">British To American English</button>
+        <button name="lang" value="en-gb">American To British English</button>
     }
 
 </article>

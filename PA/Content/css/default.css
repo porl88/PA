@@ -142,18 +142,13 @@ abbr {
     speak: spell-out;
 }
 
-abbr[title] {
-    border-bottom: 0.0625em dotted #333;
-    cursor: help;
-}
-
-@supports (text-decoration-style: dotted) {
     abbr[title] {
         border-bottom: none;
         text-decoration: underline;
         text-decoration-style: dotted;
+        cursor: help;
     }
-}
+
 
 
 

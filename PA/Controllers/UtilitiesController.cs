@@ -357,18 +357,29 @@
             }
         }
 
-        [ActionName("convert-english")]
-        public ViewResult ConvertEnglish()
+        [ActionName("language-converter")]
+        public ViewResult LanguageConverter()
         {
             return this.View();
         }
 
         [HttpPost]
-        [ActionName("convert-english")]
-        public FileResult ConvertEnglish(string text)
+        [ActionName("language-converter")]
+        public FileResult LanguageConverter(RemoveHtmlModel model, string lang)
         {
+            string result;
             var converter = new LanguageConverter();
-            var result = converter.ToAmericanEnglish(text);
+
+            switch (lang)
+            {
+                case "en-us":
+                    result = converter.BritishToAmericanEnglish(model.Html);
+                    break;
+                default:
+                    result = converter.AmericanToBritishEnglish(model.Html);
+                    break;
+            }
+
             return this.File(Encoding.Unicode.GetBytes(result), "text/plain", "convert-english.txt");
         }
 

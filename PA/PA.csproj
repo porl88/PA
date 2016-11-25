@@ -415,7 +415,7 @@
     <Content Include="Views\Utilities\encryption.cshtml" />
     <Content Include="Views\Utilities\convert-px-to-rem.cshtml" />
     <Content Include="Views\Utilities\convert-entities.cshtml" />
-    <Content Include="Views\Utilities\convert-english.cshtml" />
+    <Content Include="Views\Utilities\language-converter.cshtml" />
     <Content Include="Views\Utilities\convert-to-html.cshtml" />
   </ItemGroup>
   <ItemGroup>

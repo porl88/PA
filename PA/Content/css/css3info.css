@@ -99,10 +99,9 @@ button {
 		}
 
 			.hdrNav > ul > li > a:focus, .hdrNav > ul > li > a:hover,
-			.nav-home > li:nth-child(1) > a,
-			.nav-reference > li:nth-child(2) > a,
-			.nav-utilities > li:nth-child(3) > a,
-			.nav-guidelines > li:nth-child(4) > a {
+			.nav-reference > li:nth-child(1) > a,
+			.nav-utilities > li:nth-child(2) > a,
+			.nav-guidelines > li:nth-child(3) > a {
 				background-image: linear-gradient(to bottom, #D9F3F7, #FFF);
 				opacity: 1;
 				height: 31px;
